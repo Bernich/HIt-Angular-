@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Close Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="News-Onsite" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Newsletter-Signup-Page" transform="translate(-1262.000000, -29.000000)" fill="#FF8100">
+            <g id="Modal">
+                <polygon id="Close-Button" points="1284.5 29 1286 30.5 1275.5 41 1286 51.5 1284.5 53 1274 42.5 1263.5 53 1262 51.5 1272.5 41 1262 30.5 1263.5 29 1274 39.5"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

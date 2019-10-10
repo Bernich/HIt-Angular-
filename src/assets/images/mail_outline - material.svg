@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="14px" viewBox="0 0 18 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>mail_outline - material</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="News-Onsite" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Newsletter-Signup-Page" transform="translate(-544.000000, -403.000000)" fill="#96908A">
+            <g id="Modal">
+                <g id="Panel" transform="translate(435.000000, 155.000000)">
+                    <g id="Form" transform="translate(98.000000, 175.000000)">
+                        <g id="Form-Control" transform="translate(0.000000, 60.000000)">
+                            <g id="Addon">
+                                <path d="M20,19.18 L26.68,15 L13.32,15 L20,19.18 Z M26.68,25 L26.68,16.68 L20,20.82 L13.32,16.68 L13.32,25 L26.68,25 Z M26.68,13.32 C27.1333356,13.32 27.5199984,13.486665 27.84,13.82 C28.1600016,14.153335 28.32,14.5466644 28.32,15 L28.32,25 C28.32,25.4533356 28.1600016,25.846665 27.84,26.18 C27.5199984,26.513335 27.1333356,26.68 26.68,26.68 L13.32,26.68 C12.8666644,26.68 12.4800016,26.513335 12.16,26.18 C11.8399984,25.846665 11.68,25.4533356 11.68,25 L11.68,15 C11.68,14.5466644 11.8399984,14.153335 12.16,13.82 C12.4800016,13.486665 12.8666644,13.32 13.32,13.32 L26.68,13.32 Z" id="mail_outline---material"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

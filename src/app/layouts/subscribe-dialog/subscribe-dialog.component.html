@@ -1,0 +1,81 @@
+<div class="subscribe-container">
+  <h3 class="subscribe-txt">Subscribe</h3>
+
+  <p class="prompt-txt">We’ll prompt you on any updates to Hive Media</p>
+
+  <div class="">
+    <div class="alert alert-danger" *ngIf="authenticationError">
+      <strong>Failed to subscribe!</strong> Please check your credentials and
+      try again.
+    </div>
+
+    <div class="alert alert-success" *ngIf="authenticationPass">
+      A confirmation email as been sent to you.
+    </div>
+  </div>
+
+  <form
+    name="form"
+    (ngSubmit)="subscribe()"
+    role="form"
+    #subscriptionForm="ngForm"
+  >
+    <div class="form-input form-group">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="fullname"
+        id="fullname"
+        name="name"
+        #name="ngModel"
+        placeholder="Name"
+        required
+        minlength="1"
+        maxlength="254"
+      />
+
+      <div *ngIf="name.dirty && name.invalid">
+        <small class="form-text text-danger" *ngIf="name.errors.required">
+          Your name is required.</small
+        >
+        <small class="form-text text-danger" *ngIf="name.errors.minlength"
+          >Your name is required to be at least 1 character.</small
+        >
+        <small class="form-text text-danger" *ngIf="name.errors.maxlength"
+          >Your name cannot be longer than 254 characters.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-input form-input">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        #email="ngModel"
+        placeholder="Email"
+        [(ngModel)]="userEmail"
+        email
+        required
+      />
+      <div *ngIf="email.dirty && email.invalid">
+        <small class="form-text text-danger" *ngIf="email.errors.required">
+          Your email is required.
+        </small>
+        <small class="form-text text-danger" *ngIf="email.errors.invalid">
+          Your email is invalid.
+        </small>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="subscriptionForm.form.invalid"
+      [ngStyle]="{ cursor: 'pointer' ? subscriptionForm.form.invalid : '' }"
+      class="dialog-btn"
+    >
+      Subscribe
+    </button>
+  </form>
+</div>

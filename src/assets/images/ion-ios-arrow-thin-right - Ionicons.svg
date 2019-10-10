@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="15px" viewBox="0 0 23 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>ion-ios-arrow-thin-right - Ionicons</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="News-Onsite" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-Page" transform="translate(-1181.000000, -565.000000)" fill="#FFFFFF">
+            <g id="Hero-Area" transform="translate(-1.000000, -1.000000)">
+                <g id="Slider-Control" transform="translate(1172.000000, 553.000000)">
+                    <g id="Control" transform="translate(20.000000, 20.000000) scale(-1, 1) translate(-20.000000, -20.000000) ">
+                        <path d="M22.890625,27.109375 C22.6093736,26.8281236 22.6093736,26.5468764 22.890625,26.265625 L27.6015625,21.0625 L7.5625,21.0625 C7.18749813,21.0625 7,20.8750019 7,20.5 C7,20.1249981 7.18749813,19.9375 7.5625,19.9375 L27.6015625,19.9375 L22.890625,14.734375 C22.6093736,14.4531236 22.6093736,14.1718764 22.890625,13.890625 C23.1718764,13.6093736 23.4531236,13.6093736 23.734375,13.890625 C27.4375185,17.9687704 29.3124998,20.0312498 29.359375,20.078125 C29.4531255,20.1718755 29.5,20.3124991 29.5,20.5 C29.5,20.6875009 29.4531255,20.8281245 29.359375,20.921875 L23.734375,27.109375 C23.6406245,27.2031255 23.5000009,27.25 23.3125,27.25 C23.1249991,27.25 22.9843755,27.2031255 22.890625,27.109375 Z" id="ion-ios-arrow-thin-right---Ionicons"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

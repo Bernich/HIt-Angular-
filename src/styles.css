@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  color: #555;
+  font-family: 'SFProText', 'Arial', 'sans-serif';
+  font-weight: 300;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+}
+
+a:link,
+a:visited {
+  color: #e67e22;
+  text-decoration: none;
+  transition: border-bottom 0.2s, color 0.2s;
+}
+
+.carousel-control {
+  cursor: pointer;
+}
+
+.nav-tabs {
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.nav-tabs > .nav-item {
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-tabs {
+    flex-wrap: wrap;
+    overflow: hidden;
+    width: 483px;
+  }
+
+  .nav-tabs > .nav-item {
+    flex-shrink: 1;
+  }
+
+  .carousel-control {
+    cursor: pointer;
+  }
+}

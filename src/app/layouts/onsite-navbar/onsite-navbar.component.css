@@ -1,0 +1,116 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 1px solid rgba(236, 236, 236, 0.59);
+    transition: background-color 1s ease-in-out;
+}
+
+.logo {
+    height: 100%;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-size: contain;
+    width: 60px;
+}
+
+.subscribe-btn {
+    background-color: rgba(255, 255, 255, 0);
+    color: #fff;
+    padding: 0 14px;
+    border: 1px solid #fff;
+    outline-color: #e67e22;
+    font-size: .7rem;
+}
+
+a:link,
+a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 0 solid #e67e22;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+.header-nav {
+    margin: 0 5px;
+    width: 100%;
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+.scrolled {
+    background-color: rgba(51, 67, 86, 0.95);
+}
+
+@media screen and (min-width: 768px) {
+    .header-nav {
+        margin: 0 20px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header-nav {
+        margin: 0 100px;
+        width: 100%;
+    }
+
+    .logo {
+        height: 100%;
+        float: left;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: auto;
+    }
+
+    .main-nav {
+        float: right;
+        list-style: none;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    
+    .main-nav li {
+        display: inline-block;
+        margin: auto 0 auto 100px;
+    }
+
+    .subscribe-btn {
+        background-color: rgba(255, 255, 255, 0);
+        color: #fff;
+        padding: 0 14px;
+        border: 1px solid #fff;
+        outline-color: #e67e22;
+        font-size: 1rem;
+    }
+}

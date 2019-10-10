@@ -1,0 +1,28 @@
+<nav class="navbar" [ngClass]="{ scrolled: scrolled }">
+  <div class="header-nav">
+    <a [routerLink]="['/']">
+      <img
+        src="../../../assets/images/Hive News Logo.svg"
+        alt="Hive News Logo"
+        class="logo"
+      />
+    </a>
+
+    <ul class="main-nav">
+      <li>
+        <button (click)="openModal(template)" class="subscribe-btn">
+          SUBSCRIBE
+        </button>
+      </li>
+      <li>
+        <a target="_blank" href="https://kumasihive.com">
+          <img src="../../../assets/images/HomeIcons.svg" alt="" />
+        </a>
+      </li>
+    </ul>
+
+    <ng-template #template style="margin-top: 155px;">
+      <jhi-subscribe-dialog></jhi-subscribe-dialog>
+    </ng-template>
+  </div>
+</nav>

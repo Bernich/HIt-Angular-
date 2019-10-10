@@ -1,0 +1,163 @@
+.footer_container {
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+    background-color: rgba(236, 236, 236, 0.59);
+}
+
+.footer-links-container{
+    width: 100%;
+    display: block;
+    padding: 0 15px;
+}
+
+.footer-link {
+    width: 100%;
+    padding: 25px 0px;
+}
+
+.hive_link_main_container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.hive_link_container {
+    width: 350px;
+    height: 150px;
+    background-color: none;
+    position: relative;
+    left: 63px;
+    top: 120px;
+    border-right: solid 1px #96908a;
+    margin-left: 39px;
+}
+
+.hive_link_container_news {
+    width: 350px;
+    height: 150px;
+    background-color: none;
+    position: relative;
+    left: 102px;
+    top: 120px;
+    border-right: solid 1px #96908a;
+}
+
+li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.hive_link_container_social {
+    width: 350px;
+    height: 150px;
+    background-color: none;
+    position: relative;
+    left: 102px;
+    top: 120px;
+    margin-left: 39px;
+}
+
+.hive_links {
+    /* position: absolute; */
+    /* padding: 25px 0; */
+}
+
+.hive_link_title {
+    width: 98px;
+    height: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    color: #96908a;
+}
+
+.hive_links li {
+    /* display: inline; */
+}
+
+.hive_links a {
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    color: #4a4a4a;
+}
+
+.right_hive {
+    width: 100%;
+    position: relative;
+    padding: 25px 0;
+    min-height: 40px;
+    background-color: #334356;
+}
+
+.kumasi_hive {
+    width: 65%;
+    margin: 0 auto;
+    min-height: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ececec;
+    top: 17px;
+}
+
+a:link,
+a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 0px solid #e67e22;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+@media screen and (min-width: 1024px) {
+    .footer-links-container {
+        width: 1140px;
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .footer-link {
+        width: 100%;
+        padding: 100px 0px;
+    }
+
+    .hive_links li {
+        display: inline;
+    }
+
+    .hive_links li:not(:first-child) {
+        margin-left: 20px;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    .right_hive {
+        padding: 40px 0;
+    }
+
+    .kumasi_hive {
+        font-size: 16px;
+    }
+
+    .footer-link {
+        /* border-right: 1px solid #96908a; */
+    }
+}

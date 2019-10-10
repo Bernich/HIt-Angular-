@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'SFProText';
+    src: url('SFProText-Regular.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Bold';
+    src: url('../bold/SFProText-Bold.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-Semibold';
+    src: url('../semibold/SFProText-Semibold.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFProText-SemiboldItalic';
+    src: url('../semibolditalic/SFProText-SemiboldItalic.eot');
+    font-weight: normal;
+    font-style: normal;
+}
