@@ -4,5 +4,5 @@
 
 // export const VERSION = 'process.env.VERSION';
 export const DEBUG_INFO_ENABLED = false;
-export const SERVER_API_URL = 'https://hivenews.herokuapp.com';
-// export const SERVER_API_URL = 'http://localhost:8080';
+// export const SERVER_API_URL = 'https://hivenews.herokuapp.com';
+export const SERVER_API_URL = 'https://hive-media-api-zlknldm7oa-uc.a.run.app/api/v1/posts';

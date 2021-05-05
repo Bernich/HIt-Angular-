@@ -11,9 +11,8 @@ type EntityArrayResponseType = HttpResponse<IPost[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
-  public resourceUrl = SERVER_API_URL + '/api/posts';
-
-  constructor(protected http: HttpClient) {}
+  public resourceUrl = SERVER_API_URL;
+  constructor(protected http: HttpClient) { }
 
   find(id: string): Observable<EntityResponseType> {
     return this.http.get<IPost>(`${this.resourceUrl}/view/${id}`, {
@@ -25,7 +24,7 @@ export class PostService {
     const options = createRequestOption(req);
 
     return this.http.get<IPost[]>(
-      `${this.resourceUrl}/view?sort=createdDate,desc`,
+      `${this.resourceUrl}/?sort=createdDate,desc`,
       {
         params: options,
         observe: 'response'

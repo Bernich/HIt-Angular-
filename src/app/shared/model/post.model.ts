@@ -2,21 +2,22 @@ export interface IPost {
   id?: string;
   content?: any;
   title?: string;
-  thumbContentType?: string;
   thumb?: any;
-  category?: string;
+  thumb_content_type?: string
+  post_category?: string;
+  publicity_status?: string;
   authors?: string[];
   createdDate?: string;
   publicityStatus?: boolean;
   show?: boolean;
-  headerImageUrl?: string;
+  header_image_url?: string;
 }
 
 export class Post implements IPost {
   constructor(
+    public title?: string,
     public id?: string,
     public content?: any,
-    public title?: string,
     public thumbContentType?: string,
     public thumb?: any,
     public category?: string,

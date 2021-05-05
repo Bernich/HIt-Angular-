@@ -9,9 +9,9 @@ type EntityResponseType = HttpResponse<ISubscriber>;
 
 @Injectable({ providedIn: 'root' })
 export class SubscriptionService {
-  public resourceUrl = SERVER_API_URL + '/api/subscribers';
+  public resourceUrl = SERVER_API_URL + '/subscribers';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   create(subscriber: ISubscriber): Observable<EntityResponseType> {
     return this.http.post<ISubscriber>(this.resourceUrl, subscriber, {

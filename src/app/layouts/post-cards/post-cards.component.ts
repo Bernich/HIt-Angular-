@@ -18,11 +18,16 @@ export class PostCardsComponent implements OnInit {
   @Input() isPodcast: boolean;
   @Input() podcasts: any[];
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   getPostThumbImage(headerImageUrl: string): SafeUrl {
+
+    console.log(headerImageUrl);
+
     return this.sanitizer.bypassSecurityTrustUrl(headerImageUrl);
   }
 

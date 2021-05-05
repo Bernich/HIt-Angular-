@@ -17,7 +17,7 @@ export class LandingPageComponent implements OnInit {
   isPodcast: boolean;
   podcasts = [];
 
-  constructor(private postService: PostService, private http: HttpClient) {}
+  constructor(private postService: PostService, private http: HttpClient) { }
 
   ngOnInit() {
     this.loadAll();
