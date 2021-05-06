@@ -15,7 +15,7 @@ export class PostService {
   constructor(protected http: HttpClient) { }
 
   find(id: string): Observable<EntityResponseType> {
-    return this.http.get<IPost>(`${this.resourceUrl}/view/${id}`, {
+    return this.http.get<IPost>(`${this.resourceUrl}/${id}`, {
       observe: 'response'
     });
   }

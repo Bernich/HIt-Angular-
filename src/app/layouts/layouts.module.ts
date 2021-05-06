@@ -13,9 +13,16 @@ import {
   LoadMoreComponent,
   PostCardsComponent
 } from '.';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, HivenewsSharedModule.forRoot()],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HivenewsSharedModule.forRoot(),
+  ],
   declarations: [
     HeaderComponent,
     OnsiteNavbarComponent,
@@ -35,4 +42,4 @@ import {
     LoadMoreComponent
   ]
 })
-export class HivenewsLayoutsModule {}
+export class HivenewsLayoutsModule { }

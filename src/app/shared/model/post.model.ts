@@ -1,14 +1,13 @@
 export interface IPost {
-  id?: string;
+  post_id?: string;
   content?: any;
   title?: string;
   thumb?: any;
   thumb_content_type?: string
   post_category?: string;
-  publicity_status?: string;
+  publicity_status?: boolean;
   authors?: string[];
-  createdDate?: string;
-  publicityStatus?: boolean;
+  date_created?: string;
   show?: boolean;
   header_image_url?: string;
 }
@@ -16,17 +15,17 @@ export interface IPost {
 export class Post implements IPost {
   constructor(
     public title?: string,
-    public id?: string,
+    public post_id?: string,
     public content?: any,
-    public thumbContentType?: string,
+    public thumb_content_type?: string,
     public thumb?: any,
     public category?: string,
-    public publicityStatus?: boolean,
+    public publicity_status?: boolean,
     public authors?: string[],
-    public createdDate?: string,
+    public date_created?: string,
     public show?: boolean,
-    public headerImageUrl?: string
+    public header_image_url?: string
   ) {
-    this.publicityStatus = this.publicityStatus || false;
+    this.publicity_status = this.publicity_status || false;
   }
 }

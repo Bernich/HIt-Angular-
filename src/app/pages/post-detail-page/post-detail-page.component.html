@@ -1,14 +1,11 @@
-<header
-  class="header-background-image"
-  [style.backgroundImage]="postThumb(post.headerImageUrl)"
->
+<header class="header-background-image" [style.backgroundImage]="postThumb(post.header_image_url)">
   <jhi-onsite-navbar></jhi-onsite-navbar>
 
   <div class="post-container">
     <div class="post">
       <h3 class="post-title">{{ post.title }}</h3>
 
-      <p class="post-date">{{ post.createdDate | date: 'dd MMM yyyy' }}</p>
+      <p class="post-date">{{ post.date_created | date: 'dd MMM yyyy' }}</p>
 
       <div class="post-writer">
         <img class="post-writer-img" src="../../../assets/images/Author.svg" />
@@ -23,11 +20,7 @@
 
   <div class="writer-details">
     <div class="writer-details-profile-pic">
-      <img
-        src="../../../assets/images/Author.svg"
-        alt="Article Writer"
-        class="writer-details-img"
-      />
+      <img src="../../../assets/images/Author.svg" alt="Article Writer" class="writer-details-img" />
       <span class="writer-details-author">AUTHOR</span>
     </div>
 

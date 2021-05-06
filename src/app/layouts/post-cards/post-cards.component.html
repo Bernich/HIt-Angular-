@@ -20,7 +20,7 @@
 <ng-template #post>
   <div class="news_card_container">
     <mat-card *ngFor="let post of posts" (deferLoad)="post.show = true">
-      <a [routerLink]="['/posts', post.id]">
+      <div [routerLink]="['/posts', post.post_id]">
         <ng-container *ngIf="post.show">
           <img mat-card-image [src]="getPostThumbImage(post.header_image_url)" style="height: 240px" />
 
@@ -28,11 +28,11 @@
             <p class="mat_news_title_card">{{ post.title }}</p>
 
             <p class="mat_date_news">
-              {{ post.createdDate | date: 'dd MMM yyyy' }}
+              {{ post.date_created | date: 'dd MMM yyyy' }}
             </p>
           </mat-card-content>
         </ng-container>
-      </a>
+      </div>
     </mat-card>
   </div>
 </ng-template>

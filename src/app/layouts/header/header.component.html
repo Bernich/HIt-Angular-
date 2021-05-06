@@ -1,22 +1,16 @@
 <header>
   <jhi-onsite-navbar></jhi-onsite-navbar>
 
-  <ngb-carousel
-    *ngIf="posts"
-    [showNavigationArrows]="navigation.showNavigationArrows"
-    [showNavigationIndicators]="navigation.showNavigationIndicators"
-  >
+  <ngb-carousel *ngIf="posts" [showNavigationArrows]="navigation.showNavigationArrows"
+    [showNavigationIndicators]="navigation.showNavigationIndicators">
     <ng-template ngbSlide *ngFor="let post of posts">
-      <div
-        class="slider"
-        [style.backgroundImage]="getPostThumbUrl(post.headerImageUrl)"
-      >
+      <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.header_image_url)">
         <div class="post">
           <h3 class="post-title">{{ post.title }}</h3>
 
-          <p class="post-date">{{ post.createdDate | date: 'dd MMM yyyy' }}</p>
+          <p class="post-date">{{ post.date_created | date: 'dd MMM yyyy' }}</p>
 
-          <a class="post-read" [routerLink]="['/posts', post.id]">Explore</a>
+          <a class="post-read" [routerLink]="['/posts', post.post_id]">Explore</a>
         </div>
       </div>
     </ng-template>
