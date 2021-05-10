@@ -22,9 +22,9 @@
     <mat-card *ngFor="let post of posts" (deferLoad)="post.show = true">
       <div [routerLink]="['/posts', post.post_id]">
         <ng-container *ngIf="post.show">
-          <img mat-card-image [src]="getPostThumbImage(post.header_image_url)" style="height: 240px" />
+          <img mat-card-image [src]="getPostThumbImage(post.header_image_url)" />
 
-          <mat-card-content>
+          <mat-card-content class="post_content">
             <p class="mat_news_title_card">{{ post.title }}</p>
 
             <p class="mat_date_news">
