@@ -1,33 +1,52 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HivenewsEntityModule } from './entities/entity.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { AppRoutingModule } from './app-routing.module';
+import { CommonModule, HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HivenewsSharedModule } from './shared';
 import { HivenewsCoreModule } from './core';
 import { HivenewsLayoutsModule } from './layouts/layouts.module';
 import { HivenewsLandingPageModule } from './pages/landing-page';
 import { HivenewsPagesModule } from './pages/pages.module';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HivenewsEntityModule } from './entities/entity.module';
+import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+// export function playerFactory() {
+//   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+// }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    CommonModule,
     AppRoutingModule,
+    BrowserModule,
+    HttpClientModule,
+    MaterialModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     HivenewsSharedModule.forRoot(),
     HivenewsCoreModule,
     HivenewsLayoutsModule,
     HivenewsLandingPageModule,
     HivenewsPagesModule,
-    HivenewsEntityModule
+    HivenewsEntityModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

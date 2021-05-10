@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IPost, Post } from 'src/app/shared/model/post.model';
 import { PostService } from 'src/app/entities/post';
 import { HttpResponse, HttpClient } from '@angular/common/http';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { IPodcast } from 'src/app/shared/model/podcast.model';
 
 @Component({

@@ -1,33 +1,33 @@
 import { Component, OnInit, TemplateRef, HostListener } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
-    selector: 'jhi-onsite-navbar',
-    templateUrl: './onsite-navbar.component.html',
-    styleUrls: ['./onsite-navbar.component.css']
+  selector: 'jhi-onsite-navbar',
+  templateUrl: './onsite-navbar.component.html',
+  styleUrls: ['./onsite-navbar.component.css']
 })
 export class OnsiteNavbarComponent implements OnInit {
-    modalRef: BsModalRef;
-    scrolled = false;
+  modalRef: BsModalRef;
+  scrolled = false;
 
-    config = {
-        animated: true
-    };
+  config = {
+    animated: true
+  };
 
-    constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService) { }
 
-    ngOnInit() {}
+  ngOnInit() { }
 
-    openModal(template: TemplateRef<any>) {
-        this.modalRef = this.modalService.show(template, this.config);
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (window.scrollY > 100) {
+      this.scrolled = true;
+    } else {
+      this.scrolled = false;
     }
-
-    @HostListener('window:scroll', [])
-    onWindowScroll() {
-        if (window.scrollY > 100) {
-            this.scrolled = true;
-        } else {
-            this.scrolled = false;
-        }
-    }
+  }
 }

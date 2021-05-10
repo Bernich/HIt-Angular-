@@ -1,24 +1,25 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { AngularMatModule } from './angular-mat.module';
 import { HivenewsSharedLibsModule } from './shared-libs.module';
-import { TabsModule, ModalModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
     HivenewsSharedLibsModule,
-    AngularMatModule,
-    TabsModule.forRoot(),
-    ModalModule.forRoot()
+    MaterialModule,
+    TabsModule,
+    ModalModule
   ],
+
   declarations: [],
   providers: [],
   entryComponents: [],
   exports: [
     CommonModule,
     HivenewsSharedLibsModule,
-    AngularMatModule,
+    MaterialModule,
     ModalModule,
     TabsModule
   ],
