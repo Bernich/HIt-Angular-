@@ -13,7 +13,6 @@ import { HiveNewsClientPostDetailComponent } from './post-detail-page.component'
     HivenewsLayoutsModule
   ],
   declarations: [HiveNewsClientPostDetailComponent],
-  entryComponents: [HiveNewsClientPostDetailComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HivenewsPostDetailPageModule {}
+export class HivenewsPostDetailPageModule { }

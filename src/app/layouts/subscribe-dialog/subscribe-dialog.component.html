@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <form name="form" (ngSubmit)="subscribe()" role="form" #subscriptionForm="ngForm">
+  <form class="dialog-form" name="form" (ngSubmit)="subscribe()" role="form" #subscriptionForm="ngForm">
     <div class="form-input form-group">
       <input type="text" class="form-control" [(ngModel)]="fullname" id="fullname" name="name" #name="ngModel"
         placeholder="Name" required minlength="1" maxlength="254" />

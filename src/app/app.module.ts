@@ -40,6 +40,7 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
     HivenewsLandingPageModule,
     HivenewsPagesModule,
     HivenewsEntityModule,
+    // Extract all similar modules to shared
     ModalModule.forRoot()
   ],
 

@@ -1,59 +1,99 @@
 .subscribe-container {
-    width: 496px;
-    height: 300px;
-    border-radius: 4px;
-    box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.18);
-    background-color: #ffffff;
+  width: 496px;
+  height: 300px;
+  border-radius: 4px;
+  box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.18);
+  background-color: #ffffff;
 }
 
 .subscribe-txt {
-    width: 152px;
-    height: 38px;
-    font-size: 32px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #4a4a4a;
-    margin-top: 56px;
-    margin-left: 172px;
+  width: 152px;
+  height: 38px;
+  font-size: 32px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4a4a4a;
+  margin-top: 56px;
+  margin-left: 172px;
 }
 
 .prompt-txt {
-    width: 310px;
-    height: 24px;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.71;
-    letter-spacing: normal;
-    color: #6a6665;
-    margin-left: 93px;
-    margin-top: 10px;
+  width: 310px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #6a6665;
+  margin-left: 93px;
+  margin-top: 10px;
 }
 
 .form-input {
-    width: 300px;
-    height: 40px;
-    margin-left: 98px;
-    margin-right: 98px;
-    margin-top: 15px;
+  width: 300px;
+  height: 40px;
+  margin-left: 98px;
+  margin-right: 98px;
+  margin-top: 15px;
 }
 
 input {
-    width: 260px;
+  width: 260px;
 }
 
 .dialog-btn {
-    width: 140px;
-    height: 35px;
-    border-radius: 17.5px;
-    box-shadow: 3px 5px 10px 0 var(--black-30), -2px -3px 4px 0 var(--white);
-    background-color: #ff8100;
-    margin-left: 178px;
-    color: #ffffff;
-    margin-top: 20px;
+  width: 140px;
+  height: 35px;
+  border-radius: 17.5px;
+  box-shadow: 3px 5px 10px 0 var(--black-30), -2px -3px 4px 0 var(--white);
+  background-color: #ff8100;
+  margin-left: 178px;
+  color: #ffffff;
+  margin-top: 20px;
+  border: 0px;
+}
+
+@media (max-width: 575px) {
+  .subscribe-txt {
+    width: auto;
+    margin-left: 0px;
+  }
+
+  .subscribe-container {
+    width: auto;
+    margin: 0px;
+  }
+
+  .prompt-txt {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+  }
+
+  .form-input {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dialog-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dialog-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }

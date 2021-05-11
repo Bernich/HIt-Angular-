@@ -15,12 +15,12 @@ export class HiveNewsClientPostDetailComponent implements OnInit {
   constructor(
     protected activatedRoute: ActivatedRoute,
     private sanitizer: DomSanitizer
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(({ post }) => {
-      this.post = post;
-    });
+    // this.activatedRoute.data.subscribe(({ post }) => {
+    //   this.post = post;
+    // });
   }
 
   postThumb(headerImageUrl: string): SafeUrl {
