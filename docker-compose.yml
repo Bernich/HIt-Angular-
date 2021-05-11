@@ -1,0 +1,9 @@
+version: "3"
+services:
+  app:
+    build: ./
+    dockerfile: Dockerfile
+
+    # Fix port to use 4000 internal and 80 internal
+    ports:
+      - "8080:80"
