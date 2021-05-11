@@ -28,7 +28,7 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
   imports: [
     CommonModule,
     AppRoutingModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     MaterialModule,
     FormsModule,
@@ -45,7 +45,7 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
   ],
 
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })
