@@ -19,8 +19,6 @@ export class HiveNewsClientPostDetailComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("Calling new post ", this.post);
-
     this.activatedRoute.data.subscribe(({ post }) => {
       this.post = post;
     });

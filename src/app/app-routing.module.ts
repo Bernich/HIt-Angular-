@@ -5,7 +5,6 @@ import { landingPageRoute } from './pages/landing-page';
 const routes: Routes = [
   ...landingPageRoute,
 
-
   {
     path: 'posts',
     loadChildren: () =>
@@ -17,9 +16,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-    useHash: true,
-    initialNavigation: 'enabled'
-})
+      useHash: true,
+      initialNavigation: 'enabled'
+    })
   ],
   exports: [RouterModule]
 })

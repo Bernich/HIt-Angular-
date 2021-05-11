@@ -26,8 +26,6 @@ export class PostCardsComponent implements OnInit {
 
   getPostThumbImage(headerImageUrl: string): SafeUrl {
 
-    console.log(headerImageUrl);
-
     return this.sanitizer.bypassSecurityTrustUrl(headerImageUrl);
   }
 

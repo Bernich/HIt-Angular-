@@ -8,9 +8,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class CategoryTabComponent implements OnInit {
   @Output() tabSelected = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onChange(event) {
     this.tabSelected.emit(event.heading);

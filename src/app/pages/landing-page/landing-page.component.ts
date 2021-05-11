@@ -35,6 +35,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   tabSelected(category: string) {
+   
     this.loadAllByCategory(category);
   }
 
