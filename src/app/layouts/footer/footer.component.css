@@ -47,7 +47,7 @@
 
 li {
   display: inline;
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .hive_link_container_social {
@@ -79,6 +79,8 @@ li {
 
 .hive_links li {
   /* display: inline; */
+  margin-left: 0px;
+  margin-right: 20px;
 }
 
 .hive_links a {
@@ -139,10 +141,9 @@ a:visited {
 
   .hive_links li {
     display: inline;
-  }
 
-  .hive_links li:not(:first-child) {
-    margin-left: 20px;
+    margin-left: 0px;
+    margin-right: 20px;
   }
 
   li {
