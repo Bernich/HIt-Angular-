@@ -1,5 +1,5 @@
 {
-  "name": "hive-academy",
+  "name": "hive-media",
   "version": "1.0.0",
   "description": "Academy",
   "main": "app.js",
@@ -14,7 +14,6 @@
     "json-server": "^0.16.1",
     "lite-server": "^2.5.4"
   },
-  
   "devDependencies": {
     "lite-server": "^2.5.4"
   },

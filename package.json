@@ -1,22 +1,23 @@
 {
-  "name": "hive-academy",
+  "name": "hive-media",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "server": "json-server server/db.json",
     "server:all": "concurrently \"npm run server\" \"ng serve\"",
-    "start": "ng serve",
+    "start": "node dist/hive-media/server/main.js",
     "build": "ng build --prod",
     "build:stats": "ng build --prod --stats-json",
-    "analyze": "webpack-bundle-analyzer dist/academy-app/stats-es2015.json",
+    "analyze": "webpack-bundle-analyzer dist/hive-media/stats-es2015.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "npx compodoc -p tsconfig.app.json src",
-    "dev:ssr": "ng run academy-app:serve-ssr",
-    "serve:ssr": "node dist/academy-app/server/main.js",
-    "build:ssr": "ng build --prod && ng run academy-app:server:production",
-    "prerender": "ng run academy-app:prerender"
+    "deploy": "ng build --prod && npm run build:ssr && gcloud app deploy",
+    "dev:ssr": "ng run hive-media:serve-ssr",
+    "serve:ssr": "node dist/hive-media/server/main.js",
+    "build:ssr": "ng build --prod && ng run hive-media:server:production",
+    "prerender": "ng run hive-media:prerender"
   },
   "private": true,
   "dependencies": {
