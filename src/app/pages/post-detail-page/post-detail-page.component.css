@@ -1,437 +1,437 @@
 header {
-    height: 85vh;
+  height: 85vh;
 }
 
 .header-background-image {
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .header-background-image::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .post-container {
-    height: 85vh;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 30px 0;
+  height: 85vh;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 30px 0;
 }
 
 .post {
-    margin: 30px auto 0 auto;
-    width: 100%;
-    display: block;
-    padding: 0 20px;
-    z-index: 1;
+  margin: 30px auto 0 auto;
+  width: 100%;
+  display: block;
+  padding: 0 20px;
+  z-index: 1;
 }
 
 .post-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: normal;
 }
 
 .post-date {
-    height: 13px;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1.4px;
-    color: #fff;
-    opacity: 0.6;
-    margin-top: 15px;
+  height: 13px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.4px;
+  color: #fff;
+  opacity: 0.6;
+  margin-top: 15px;
 }
 
 .post-writer {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .post-writer-name {
-    width: 74px;
-    height: 13px;
-    font-size: 13px;
-    font-weight: 500;
-    font-style: italic;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ececec;
+  width: 74px;
+  height: 13px;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ececec;
 }
 
 .post-writer-img {
-    height: 50px;
-    margin-right: 10px;
+  height: 50px;
+  margin-right: 10px;
 }
 
 .content-body {
-    width: 100%;
-    padding: 20px 20px;
+  width: 100%;
+  padding: 20px 20px;
 }
 
 :host ::ng-deep .content-body figure {
-    width: 100%;
-    margin: 20px auto;
+  width: 100%;
+  margin: 20px auto;
 }
 
 :host ::ng-deep .content-body h4 {
-    width: 100%;
-    height: 48px;
-    font-size: 20px;
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #4a4a4a;
+  width: 100%;
+  height: 48px;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4a4a4a;
 }
 
 :host ::ng-deep .content-body p {
-    width: 100%;
-    font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.88;
-    letter-spacing: normal;
-    text-align: justify;
-    color: #4a4a4a;
+  width: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.88;
+  letter-spacing: normal;
+  text-align: justify;
+  color: #4a4a4a;
 }
 
 :host ::ng-deep .content-body a {
-    text-decoration: none;
-    padding-bottom: 0;
-    border-bottom: 0 solid #e67e22;
+  text-decoration: none;
+  padding-bottom: 0;
+  border-bottom: 0 solid #e67e22;
 }
 
 :host ::ng-deep .content-body h3 {
-    width: 100%;
-    height: 38px;
-    font-size: 32px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #4a4a4a;
+  width: 100%;
+  height: 38px;
+  font-size: 32px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4a4a4a;
 }
 
 :host ::ng-deep .content-body img {
-    width: 100%;
-    height: 250px;
+  width: 100%;
+  height: 250px;
 }
 
 :host ::ng-deep blockquote {
-    font-size: 1.4em;
-    width: 100%;
-    margin: 45px auto;
-    height: 170px;
-    font-family: Open SFProText;
-    font-style: italic;
-    color: #6a6665;
-    padding: 1.2em 30px 1.2em 75px;
-    border-left: 8px solid #ff8100;
-    line-height: 1.6;
-    position: relative;
-    background: #ffffff;
+  font-size: 1.4em;
+  width: 100%;
+  margin: 45px auto;
+  height: 170px;
+  font-family: Open SFProText;
+  font-style: italic;
+  color: #6a6665;
+  padding: 1.2em 30px 1.2em 75px;
+  border-left: 8px solid #ff8100;
+  line-height: 1.6;
+  position: relative;
+  background: #ffffff;
 }
 
 :host ::ng-deep blockquote::before {
-    font-family: Arial;
-    content: '\201C';
-    color: #ff8100;
-    font-size: 4em;
-    position: absolute;
-    left: 10px;
-    top: -10px;
+  font-family: Arial;
+  content: "\201C";
+  color: #ff8100;
+  font-size: 4em;
+  position: absolute;
+  left: 10px;
+  top: -10px;
 }
 
 :host ::ng-deep blockquote::after {
-    content: '';
+  content: "";
 }
 
 :host ::ng-deep blockquote p {
-    width: 500px;
-    height: 14px;
-    font-size: 12px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: right;
-    color: #ff8100;
+  width: 500px;
+  height: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: right;
+  color: #ff8100;
 }
 
 hr {
-    width: 970px;
-    height: 1px;
-    background-color: #d8d8d8;
-    margin: 0 auto;
+  width: 970px;
+  height: 1px;
+  background-color: #d8d8d8;
+  margin: 0 auto;
 }
 
 .writer-details {
-    display: flex;
-    border-top: 1px solid #d8d8d8;
-    border-bottom: 1px solid #d8d8d8;
-    margin: 20px auto 0 auto;
-    padding-top: 40px;
-    height: 300px;
+  display: flex;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+  margin: 20px auto 0 auto;
+  padding-top: 40px;
+  height: 300px;
 }
 
 .writer-details-profile-pic {
-    margin-right: 30px;
-    margin-left: 10px;
+  margin-right: 30px;
+  margin-left: 10px;
 }
 
 .writer-details-img {
-    height: 90px;
-    display: block;
-    margin-bottom: 3px;
+  height: 90px;
+  display: block;
+  margin-bottom: 3px;
 }
 
 .writer-details-author {
-    width: 61px;
-    height: 14px;
-    font-family: SFUIText-Medium;
-    font-size: 12px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 1.5px;
-    color: #96908a;
-    margin-left: 15px;
+  width: 61px;
+  height: 14px;
+  font-family: SFUIText-Medium;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  color: #96908a;
+  margin-left: 15px;
 }
 
 .writer-details-name {
-    width: 217px;
-    height: 23px;
-    font-family: SFNSText;
-    font-size: 20px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #4a4a4a;
+  width: 217px;
+  height: 23px;
+  font-family: SFNSText;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4a4a4a;
 }
 
 .writer-details-info {
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.71;
-    letter-spacing: normal;
-    color: #4a4a4a;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #4a4a4a;
 }
 
 .writer-details-profile {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
 .author-socialmedia-links {
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.71;
-    letter-spacing: normal;
-    display: inline;
-    color: #6a6665;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  display: inline;
+  color: #6a6665;
 }
 
 .socialmedia-link {
-    width: 66px;
-    height: 24px;
-    font-family: SFNSText;
-    font-size: 14px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.71;
-    letter-spacing: normal;
-    color: #ff8100;
-    text-decoration: none;
+  width: 66px;
+  height: 24px;
+  font-family: SFNSText;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #ff8100;
+  text-decoration: none;
 }
 
 a:link,
 a:visited {
-    text-decoration: none;
-    padding-bottom: 0;
-    border-bottom: 0 solid #e67e22;
+  text-decoration: none;
+  padding-bottom: 0;
+  border-bottom: 0 solid #e67e22;
 }
 
 @media screen and (min-width: 768px) {
-    .post-container {
-        width: 750px;
-        margin: 0 auto;
-    }
+  .post-container {
+    width: 750px;
+    margin: 0 auto;
+  }
 
-    .content-body {
-        width: 740px;
-        padding: 20px 20px;
-    }
+  .content-body {
+    width: 740px;
+    padding: 20px 20px;
+  }
 
-    .post-title {
-        font-size: 40px;
-    }
+  .post-title {
+    font-size: 40px;
+  }
 
-    .post-date {
-        font-size: 13px;
-        margin-top: 10px;
-    }
+  .post-date {
+    font-size: 13px;
+    margin-top: 10px;
+  }
 
-    .post-read {
-        font-size: 18px;
-        margin-top: 15px;
-    }
+  .post-read {
+    font-size: 18px;
+    margin-top: 15px;
+  }
 
-    .writer-details {
-        width: 730px;
-        height: 230px;
-    }
+  .writer-details {
+    width: 730px;
+    height: 230px;
+  }
 
-    .links{
-        display: inline;
-    }
+  .links {
+    display: inline;
+  }
 
-    :host ::ng-deep .content-body p {
-        font-size: 20px;
-    }
+  :host ::ng-deep .content-body p {
+    font-size: 20px;
+  }
 
-    :host ::ng-deep .content-body img {
-        width: 100%;
-        height: 450px;
-    }
+  :host ::ng-deep .content-body img {
+    width: 100%;
+    height: 450px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .post-container {
-        width: 750px;
-        margin: 0 auto;
-    }
+  .post-container {
+    width: 750px;
+    margin: 0 auto;
+  }
 
-    .content-body {
-        width: 740px;
-        margin: 20px auto;
-    }
+  .content-body {
+    width: 740px;
+    margin: 20px auto;
+  }
 
-    .post-title {
-        font-size: 40px;
-    }
+  .post-title {
+    font-size: 40px;
+  }
 
-    .post-date {
-        font-size: 13px;
-        margin-top: 40px;
-    }
+  .post-date {
+    font-size: 13px;
+    margin-top: 40px;
+  }
 
-    .post-read {
-        font-size: 18px;
-        margin-top: 40px;
-    }
+  .post-read {
+    font-size: 18px;
+    margin-top: 40px;
+  }
 
-    .writer-details {
-        width: 730px;
-        height: 230px;
-    }
+  .writer-details {
+    width: 730px;
+    height: 230px;
+  }
 
-    .links{
-        display: inline;
-    }
+  .links {
+    display: inline;
+  }
 
-    :host ::ng-deep .content-body p {
-        font-size: 20px;
-    }
+  :host ::ng-deep .content-body p {
+    font-size: 20px;
+  }
 
-    :host ::ng-deep .content-body img {
-        width: 100%;
-        height: 450px;
-    }
+  :host ::ng-deep .content-body img {
+    width: 100%;
+    height: 450px;
+  }
 }
 
 @media screen and (min-width: 1368px) {
-    .post-container {
-        width: 1050px;
-        margin: 0 auto;
-    }
+  .post-container {
+    width: 1050px;
+    margin: 0 auto;
+  }
 
-    .content-body {
-        width: 740px;
-        margin: 20px auto;
-    }
+  .content-body {
+    width: 740px;
+    margin: 20px auto;
+  }
 
-    .post-title {
-        font-size: 50px
-    }
+  .post-title {
+    font-size: 50px;
+  }
 
-    .post-read {
-        font-size: 25px;
-    }
+  .post-read {
+    font-size: 25px;
+  }
 
-    .post-date {
-        font-size: 15px;
-    }
+  .post-date {
+    font-size: 15px;
+  }
 
-    .writer-details {
-        width: 730px;
-        height: 230px;
-    }
+  .writer-details {
+    width: 730px;
+    height: 230px;
+  }
 
-    .links{
-        display: inline;
-    }
+  .links {
+    display: inline;
+  }
 
-    :host ::ng-deep .content-body p {
-        font-size: 20px;
-    }
+  :host ::ng-deep .content-body p {
+    font-size: 20px;
+  }
 
-    :host ::ng-deep .content-body img {
-        width: 100%;
-        height: 450px;
-    }
-
+  :host ::ng-deep .content-body img {
+    width: 100%;
+    height: 450px;
+  }
 }
 
 @media screen and (min-width: 1414px) {
-    .post-container {
-        width: 1050px;
-        margin: 0 auto;
-    }
+  .post-container {
+    width: 1050px;
+    margin: 0 auto;
+  }
 
-    .content-body {
-        width: 740px;
-        margin: 20px auto;
-    }
+  .content-body {
+    width: 740px;
+    margin: 20px auto;
+  }
 
-    .writer-details {
-        width: 730px;
-        height: 230px;
-    }
+  .writer-details {
+    width: 730px;
+    height: 230px;
+  }
 
-    .links{
-        display: inline;
-    }
+  .links {
+    display: inline;
+  }
 
-    :host ::ng-deep .content-body p {
-        font-size: 20px;
-    }
+  :host ::ng-deep .content-body p {
+    font-size: 20px;
+  }
 
-    :host ::ng-deep .content-body img {
-        width: 100%;
-        height: 450px;
-    }
+  :host ::ng-deep .content-body img {
+    width: 100%;
+    height: 450px;
+  }
 }

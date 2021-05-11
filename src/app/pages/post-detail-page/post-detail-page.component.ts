@@ -18,9 +18,12 @@ export class HiveNewsClientPostDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.activatedRoute.data.subscribe(({ post }) => {
-    //   this.post = post;
-    // });
+
+    console.log("Calling new post ", this.post);
+
+    this.activatedRoute.data.subscribe(({ post }) => {
+      this.post = post;
+    });
   }
 
   postThumb(headerImageUrl: string): SafeUrl {

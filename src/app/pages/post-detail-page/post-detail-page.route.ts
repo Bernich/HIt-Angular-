@@ -9,7 +9,10 @@ import { PostService } from 'src/app/entities/post';
 
 @Injectable({ providedIn: 'root' })
 export class PostResolve implements Resolve<IPost> {
-  constructor(private service: PostService) {}
+  constructor(private service: PostService) {
+    console.log("Calling Reolver Class");
+
+  }
 
   resolve(route: ActivatedRouteSnapshot): Observable<IPost> {
     const ID = 'id';
