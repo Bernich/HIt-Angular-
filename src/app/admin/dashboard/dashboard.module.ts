@@ -5,9 +5,12 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MaterialModule } from 'src/app/material.module';
 import { HivenewsDashboardComponent } from './dashboard.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { HivenewsAdminAddNewsComponent } from './add-news/add-news.component';
+import { HivenewsAdminListComponent } from './news-list/news-list.component';
+import { AdminSharedModule } from '../shared/admin-shared.module';
 @NgModule({
   declarations: [
-    HivenewsDashboardComponent
+    HivenewsDashboardComponent, HivenewsAdminAddNewsComponent, HivenewsAdminListComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +19,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     EditorModule,
     FormsModule,
     ReactiveFormsModule,
-
+    AdminSharedModule
   ],
   providers: [
   ]

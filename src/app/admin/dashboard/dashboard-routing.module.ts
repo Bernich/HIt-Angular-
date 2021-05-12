@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HivenewsAdminAddNewsComponent } from './add-news/add-news.component';
 import { HivenewsDashboardComponent } from './dashboard.component';
 import { HivenewsAdminListComponent } from './news-list/news-list.component';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
        * This route is similar to the Dashboard component which is commented out
        */
       { path: 'news', component: HivenewsAdminListComponent },
+      { path: 'add-news', component: HivenewsAdminAddNewsComponent },
       { path: 'users', component: HivenewsAdminUsersListComponent },
 
     ]

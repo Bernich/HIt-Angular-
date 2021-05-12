@@ -9,6 +9,7 @@ export class HivenewsDashboardComponent implements OnInit {
 
   links = [
     { path: "news", icon: 'apps', title: 'News' },
+    { path: "add-news", icon: 'apps', title: 'Add News' },
     { path: "users", icon: 'view_module', title: 'Users' },
   ];
 

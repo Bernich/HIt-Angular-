@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { MaterialModule } from '../material.module';
 import { HivenewsAdminLoginComponent } from './login/admin-login.component';
 import { HivenewsDashboardModule } from './dashboard/dashboard.module';
+import { AdminSharedModule } from './shared/admin-shared.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HivenewsDashboardModule } from './dashboard/dashboard.module';
     FormsModule,
     ReactiveFormsModule,
     HivenewsDashboardModule,
+    AdminSharedModule
   ],
   providers: [,
   ]
