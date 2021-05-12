@@ -3,7 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { landingPageRoute } from './pages/landing-page';
 
 const routes: Routes = [
-  ...landingPageRoute,
+
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/landing-page/landing-page.module').then((m) => m.HivenewsLandingPageModule),
+  },
 
   {
     path: 'posts',
@@ -11,6 +16,12 @@ const routes: Routes = [
       import('./pages/post-detail-page/post-detail-page.module').then((m) => m.HivenewsPostDetailPageModule),
   },
 
+
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,18 @@
+<section class="add-container">
+
+  <editor apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3" [(ngModel)]="this.createCourse.course.description"
+    name="description" #editor [init]="{
+    height: '100%',
+    width: '100%',
+    menubar: false,
+    plugins: [
+      'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code help wordcount'
+    ],
+    toolbar:
+      'undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | help'
+  }"></editor>
+</section>

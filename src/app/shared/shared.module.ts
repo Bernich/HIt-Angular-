@@ -4,16 +4,17 @@ import { HivenewsSharedLibsModule } from './shared-libs.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MaterialModule } from '../material.module';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   imports: [
     HivenewsSharedLibsModule,
     MaterialModule,
     TabsModule,
-    ModalModule
+    ModalModule,
   ],
 
-  declarations: [],
+  declarations: [LoaderComponent],
   providers: [],
   entryComponents: [],
   exports: [
@@ -21,7 +22,8 @@ import { MaterialModule } from '../material.module';
     HivenewsSharedLibsModule,
     MaterialModule,
     ModalModule,
-    TabsModule
+    TabsModule,
+    LoaderComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
