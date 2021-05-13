@@ -1,0 +1,72 @@
+<header class="header-background-image"
+  [style.backgroundImage]="'url(https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg)'">
+  <jhi-onsite-navbar></jhi-onsite-navbar>
+
+  <div class="post-container">
+    <div class="post">
+      <h3 class="post-title">
+        <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3" [(ngModel)]="title"
+          id="titleeditor" name="description" #titleEditorRef [init]="{
+inline: true
+}"></editor>
+      </h3>
+      <p class="post-date">dd MMM yyyy</p>
+
+      <div class="post-writer">
+        <img class="post-writer-img" loading="lazy" src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" />
+        <span class="post-writer-name">Freda</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="main-body-content">
+  <div class="content-body">
+    <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3" [(ngModel)]="content"
+      id="contenteditor" name="description" #editor [init]="{
+inline: true,
+plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+imagetools_cors_hosts: ['picsum.photos'],
+menubar: 'file edit view insert format tools table help',
+toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl'
+
+}"></editor>
+  </div>
+
+
+  <div class="writer-details">
+    <div class="writer-details-profile-pic">
+      <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" loading="lazy" alt="Article Writer"
+        class="writer-details-img" />
+      <span class="writer-details-author">AUTHOR</span>
+    </div>
+
+    <div class="writer-details-profile">
+      <p class="writer-details-name">Freda</p>
+
+      <p class="writer-details-info">
+        Freda Gbande is a biochemist and researcher and serves as the Research
+        Associate for Kumasi Hive. She measures the impact of Kumasi Hive's
+        activities and shares it with our community.
+      </p>
+
+      <p class="author-socialmedia-links">Follow Freda on:</p>
+
+      <p class="links">
+        <a class="socialmedia-link" href="#"> Facebook </a>
+        <a class="socialmedia-link" href="#">Twitter </a>
+        <a class="socialmedia-link" href="#">Instagram</a>
+      </p>
+    </div>
+
+    <div></div>
+  </div>
+
+
+  <button class="floating-saving-button" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <mat-icon>save</mat-icon>
+  </button>
+
+</section>
+
+<jhi-footer></jhi-footer>
