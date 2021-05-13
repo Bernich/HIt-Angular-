@@ -9,14 +9,18 @@ import { Router, CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStat
 
 @Injectable()
 export class NavigationService {
-  /**
-   * @param router Router
-   * @param stateStorageService
-   */
+
   constructor(
-
-    public router: Router,
-
+    private router: Router
   ) { }
 
+
+
+  /**
+ * Navigate to confirm users specific details page
+ * @param user
+ */
+  navigateToDashboard() {
+    this.router.navigate([`/admin/dashboard`]);
+  }
 }

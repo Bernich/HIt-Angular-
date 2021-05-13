@@ -6,11 +6,14 @@ import { MaterialModule } from '../material.module';
 import { HivenewsAdminLoginComponent } from './login/admin-login.component';
 import { HivenewsDashboardModule } from './dashboard/dashboard.module';
 import { AdminSharedModule } from './shared/admin-shared.module';
+import { NavigationService, AuthService, StateStorageService, UsersService } from './shared/services';
+import { InteractiveCreatePostComponent } from './create-post-interative/create-post-interactive.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { HivenewsLayoutsModule } from '../layouts/layouts.module';
 
 @NgModule({
   declarations: [
-    HivenewsAdminLoginComponent,
-
+    HivenewsAdminLoginComponent, InteractiveCreatePostComponent
   ],
   imports: [
     CommonModule,
@@ -19,9 +22,12 @@ import { AdminSharedModule } from './shared/admin-shared.module';
     FormsModule,
     ReactiveFormsModule,
     HivenewsDashboardModule,
-    AdminSharedModule
+    AdminSharedModule,
+    EditorModule,
+    HivenewsLayoutsModule
   ],
-  providers: [,
+  providers: [
+    NavigationService, AuthService, StateStorageService, UsersService,
   ]
 })
 export class AdminModule { }

@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IPost[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
-  public resourceUrl = SERVER_API_URL;
+  public resourceUrl = SERVER_API_URL + "/posts";
   constructor(protected http: HttpClient) { }
 
   find(id: string): Observable<EntityResponseType> {

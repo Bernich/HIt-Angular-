@@ -6,10 +6,10 @@ export const landingPageRoute: Routes = [
   {
     path: '',
     component: LandingPageComponent,
-    // data: {
-    //   authorities: [],
-    //   pageTitle: 'home.title'
-    // }
+    data: {
+      authorities: [],
+      pageTitle: 'home.title'
+    }
   }
 ];
 

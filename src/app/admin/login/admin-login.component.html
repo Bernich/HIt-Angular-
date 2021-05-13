@@ -1,25 +1,26 @@
 <section class="login-container">
-  <div class="side-page">
+  <div class="side-page background-container">
     <div class="left-head-title"> Hive News </div>
     <div class="left-head-description">
-      <div class="title"> Good Luck !!</div>
+      <div class="title"> Edukits: Merging 3D Printing and Education </div>
       <div class="description">
         Access Hive News Login
       </div>
     </div>
   </div>
+
   <div class="side-page sign-in">
     <div class="sign-im-container">
       <div> Sign In </div>
-      <div> or create an account </div>
+      <!-- <div> or create an account </div> -->
       <div> </div>
 
 
       <section class="login-inputs">
-        <input type="text" name="email" id="email" >
-        <input type="password" name="password" id="password">
+        <input [(ngModel)]="email" type="text" name="email" id="email">
+        <input [(ngModel)]="password" type="password" name="password" id="password">
 
-        <input mat-button type="button" value="Submit">
+        <input mat-button type="button" value="Submit" (click)="signin()">
       </section>
 
     </div>

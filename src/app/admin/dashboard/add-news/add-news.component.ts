@@ -9,7 +9,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
   title = "Click Here to add title"
   content = "this is the content of the text editor"
-  imgUrl = "";
+  imgUrl = "https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg";
 
   constructor() { }
 

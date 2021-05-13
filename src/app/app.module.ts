@@ -15,6 +15,7 @@ import { HivenewsPagesModule } from './pages/pages.module';
 import { HivenewsEntityModule } from './entities/entity.module';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { AdminModule } from './admin/admin.module';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 
 // Note we need a separate function as it's required
@@ -44,10 +45,12 @@ import { AdminModule } from './admin/admin.module';
     // Extract all similar modules to shared
     ModalModule.forRoot(),
     AdminModule,
+    NgxWebstorageModule.forRoot(),
+
   ],
 
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })

@@ -1,18 +1,18 @@
 <nav class="navbar" [ngClass]="{ scrolled: scrolled }">
   <div class="header-nav">
     <a [routerLink]="['/']">
-      <img src="/assets/images/media.png" alt="Hive News Logo" class="logo" />
+      <img src="/assets/images/media.png" alt="Hive News Logo" loading="lazy" class="logo" />
     </a>
 
     <ul class="main-nav">
-      <li>
+      <!-- <li>
         <button (click)="openModal(template)" class="subscribe-btn">
           SUBSCRIBE
         </button>
-      </li>
+      </li> -->
       <li>
         <a href="https://kumasihive.com">
-          <img src="../../../assets/images/HomeIcons.svg" alt="" />
+          <img src="../../../assets/images/HomeIcons.svg" loading="lazy" alt="" />
         </a>
       </li>
     </ul>

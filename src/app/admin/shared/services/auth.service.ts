@@ -1,17 +1,25 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+// import { JwtHelperService } from '@auth0/angular-jwt';
 import { JwtHelperService } from '@auth0/angular-jwt';
+
 import decode from 'jwt-decode';
 import { SERVER_API_URL } from 'src/app/app.constants';
 import { environment } from 'src/environments/environment';
 
 
+
 @Injectable()
 export class AuthService {
+
+  jwtHelper = new JwtHelperService();
+
   constructor(
-    public jwtHelper: JwtHelperService,
+    // public jwtHelper: JwtHelperService,
     private httpClient: HttpClient
-  ) { }
+  ) {
+
+  }
 
 
 
@@ -37,6 +45,7 @@ export class AuthService {
     // true or false
     return !this.jwtHelper.isTokenExpired(token);
   }
+  
   signin(username: string, password: string) {
 
     const hash = btoa(username + ':' + password);

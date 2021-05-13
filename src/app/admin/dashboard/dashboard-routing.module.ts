@@ -30,7 +30,7 @@ const routes: Routes = [
       /**Course List Component can be accessed by both Admin and instructors
        * This route is similar to the Dashboard component which is commented out
        */
-      { path: 'news', component: HivenewsAdminListComponent },
+      { path: 'news', component: HivenewsAdminListComponent, },
       { path: 'add-news', component: HivenewsAdminAddNewsComponent },
       { path: 'users', component: HivenewsAdminUsersListComponent },
 

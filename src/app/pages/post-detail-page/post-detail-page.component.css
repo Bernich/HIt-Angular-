@@ -75,6 +75,8 @@ header {
 .post-writer-img {
   height: 50px;
   margin-right: 10px;
+
+  border-radius: 50%;
 }
 
 .content-body {
@@ -201,6 +203,8 @@ hr {
   height: 90px;
   display: block;
   margin-bottom: 3px;
+
+  border-radius: 50%;
 }
 
 .writer-details-author {

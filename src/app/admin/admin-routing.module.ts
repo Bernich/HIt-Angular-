@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { InteractiveCreatePostComponent } from './create-post-interative/create-post-interactive.component';
 import { HivenewsDashboardComponent } from './dashboard/dashboard.component';
 import { HivenewsAdminLoginComponent } from './login/admin-login.component';
 
@@ -36,6 +37,9 @@ const routes: Routes = [
         path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.HivenewsDashboardModule),
       },
 
+      {
+        path: 'interactive', component: InteractiveCreatePostComponent
+      },
 
     ]
   },
