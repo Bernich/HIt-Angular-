@@ -1,3 +1,4 @@
+import { FileData, ProfileImage } from '.';
 import { Thumbnail } from '../dto';
 import { SocialMediaHandle } from './social-media.model';
 import { IUser } from './user.model';
@@ -10,18 +11,44 @@ export interface IAuthor {
 
   id: string;
   email: string;
-  firstname: string;
-  lastname: string;
-  // profile_pic?: Thumbnail;
-  // profile_pic_data: FileData;
+  first_name: string;
+  last_name: string;
+
+  profile_image: FileData | ProfileImage;
+
   bio: string;
-  skills: string[];
-  courses?: string[];
-  social_media_handles?: SocialMediaHandle[];
+  handlers?: SocialMediaHandle[];
 
   date_created?: Date;
   date_updated?: Date;
 
 }
+export class Author implements IAuthor {
+
+  public id: string;
+  public email: string;
+  public first_name: string;
+  public last_name: string;
+  public bio: string;
+  public profile_image: ProfileImage;
+
+  public handlers?: SocialMediaHandle[];
+}
 
 
+
+export class CreateAuthor implements IAuthor {
+
+  constructor(
+  ) {
+  }
+
+  public id: string;
+  public email: string;
+  public first_name: string;
+  public last_name: string;
+  public bio: string;
+  public profile_image: FileData;
+
+  public handlers?: SocialMediaHandle[];
+}

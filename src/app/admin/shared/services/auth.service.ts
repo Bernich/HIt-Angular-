@@ -19,9 +19,6 @@ export class AuthService {
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
 
-
-
-
   private url = SERVER_API_URL;
 
   public hasRole(expectedRole: string) {

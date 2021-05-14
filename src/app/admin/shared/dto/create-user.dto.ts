@@ -1,13 +1,13 @@
-import { SocialMediaHandle } from '../models';
+import { FileData, SocialMediaHandle } from '../models';
 
 export interface ICreateAuthor {
   id: string;
   email: string;
   firstname: string;
   lastname: string;
-  // profile_pic_data: FileData;
+  profile_image: FileData;
   bio: string;
-  social_media_handles?: SocialMediaHandle[];
+  handlers?: SocialMediaHandle[];
   creator_id?: string;
 
   // profile_pic?: Thumbnail
@@ -15,20 +15,3 @@ export interface ICreateAuthor {
 
 
 
-
-export class CreateAuthor implements ICreateAuthor {
-
-  constructor(
-
-  ) {
-
-  }
-
-  public id: string;
-  public email: string;
-  public firstname: string;
-  public lastname: string;
-  public bio: string;
-  public social_media_handles?: SocialMediaHandle[];
-  public creator_id?: string;
-}

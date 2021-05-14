@@ -1,0 +1,32 @@
+.bottom-add-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* margin-top: -20px; */
+
+  border-radius: 50px;
+  border: 2px solid #ff005e;
+  padding: 5px 10px;
+  /* width: 150px; */
+  /* height: 30px; */
+  cursor: pointer;
+}
+
+.add-module-button {
+  /* border: 2px solid #ff005e; */
+  color: #ff005e;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-add-input mat-icon {
+  margin-left: 5px;
+}
+.bottom-add-input .horizontal-divider {
+  height: 2px;
+  width: 50px;
+  background-color: #ff005e;
+}

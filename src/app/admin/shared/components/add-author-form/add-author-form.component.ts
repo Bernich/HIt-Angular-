@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { CreateAuthor } from '../../dto';
+import { } from '../../dto';
+import { CreateAuthor, FileData } from '../../models';
 import { AuthService } from '../../services';
 
 
@@ -12,8 +13,10 @@ export class AddAuthorFormComponent implements OnInit {
 
   @Input() isLoading: boolean;
 
-  @Output() saveAuthor = new EventEmitter();
+  @Output() saveAuthor = new EventEmitter<CreateAuthor>();
   @Input() author: CreateAuthor;
+
+
   isAccountVisibleState = true;
 
   _profile_image_data = null;
@@ -50,7 +53,7 @@ export class AddAuthorFormComponent implements OnInit {
 
 
       const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
-      // this.user.profile_pic = new FileData(file.type, data);
+      this.author.profile_image = new FileData(file.type, data);
       // this.user.profile_pic_data = new FileData(file.type, data);
       // this.userService.updateImage(new FileData(file.type, data))
 

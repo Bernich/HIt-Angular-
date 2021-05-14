@@ -18,6 +18,9 @@
 }
 .blog-content-input-card-header {
   display: flex;
+  /* justify-content: center;
+  align-items: center; */
+
   padding: 20px 0px;
 }
 .add-post-header-image {

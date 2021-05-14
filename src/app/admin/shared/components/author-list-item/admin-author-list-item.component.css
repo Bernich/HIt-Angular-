@@ -1,0 +1,105 @@
+.admin-user-item-container {
+  width: 171px;
+  height: 161px;
+  border-radius: 4px;
+  box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.18);
+  background-color: var(--white);
+  cursor: pointer;
+
+  color: #1e1e1eab;
+}
+.top-color {
+  height: 3px;
+  background-color: var(--pumpkin-orange);
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.name {
+  /* width: 111px; */
+  height: 21px;
+  font-family: SFUIText-Light;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--charcoal-grey);
+
+  margin-bottom: 5px;
+
+  padding: 0px 10px;
+}
+
+.role {
+  width: 65px;
+  height: 24px;
+  font-family: SFUIText-Light;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--brownish-grey);
+}
+.image-container {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  /* box-shadow: 0 1px 2px 0 var(--pumpkin-orange-60); */
+
+  /* border-radius: 50%; */
+
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 5%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.account-status {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  margin-left: 20px;
+}
+
+.account-status .text {
+  margin: 0px;
+
+  font-family: SFUIText-Light;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+}
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+
+  margin-right: 5px;
+}
+
+.active {
+  background-color: green;
+}
+.disabled {
+  background-color: red;
+}

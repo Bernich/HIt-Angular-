@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { CreatePostService } from '../../shared/services';
 
 @Component({
@@ -11,6 +12,11 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
   imgUrl = 'https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg';
   publish: false = false;
+  categoryControl = new FormControl('', Validators.required);
+
+  categories = [
+    'Blog'
+  ];
 
   constructor(
     public postService: CreatePostService

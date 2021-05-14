@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
 import { HivenewsAdminAddNewsComponent } from './add-post/add-post.component';
+import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.component';
 import { HivenewsDashboardComponent } from './dashboard.component';
 import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
@@ -35,7 +36,7 @@ const routes: Routes = [
       { path: 'add-posts', component: HivenewsAdminAddNewsComponent },
       { path: 'users', component: HivenewsAdminUsersListComponent },
       { path: 'add-author', component: HivenewsAdminAddAuthorComponent },
-      { path: 'authors', component: HivenewsAdminAddAuthorComponent }
+      { path: 'authors', component: HivenewsAdminAuthorsListComponent }
 
     ]
   },

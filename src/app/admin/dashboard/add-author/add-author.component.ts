@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CreateAuthor } from '../../shared/dto';
-import { SocialMediaHandle } from '../../shared/models';
-import { CreatePostService } from '../../shared/services';
+import { CreateAuthor, SocialMediaHandle } from '../../shared/models';
+import { AuthorsService, AuthService, CreatePostService } from '../../shared/services';
 
 @Component({
   selector: 'app-hivenews-admin-add-author-page',
@@ -23,15 +22,15 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
   author: CreateAuthor = new CreateAuthor();
 
   constructor(
-    public postService: CreatePostService
-  ) {
+    public postService: CreatePostService,
+    private authorService: AuthorsService) {
 
     // Create Mock Author and use here
-    this.author.bio = '';
+    this.author.bio = 'This is bio of the author ';
     this.author.email = 'noelnuel44@gamil.com';
-    this.author.lastname = 'Emmanuel';
-    this.author.firstname = 'Emmanuel';
-    this.author.social_media_handles = [this.whatssap, this.facebook, this.instagram, this.twitter];
+    this.author.last_name = 'Emmanuel';
+    this.author.first_name = 'Emmanuel';
+    this.author.handlers = [this.whatssap, this.facebook, this.instagram, this.twitter];
 
   }
 
@@ -74,7 +73,11 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
   }
 
 
-  saveUser() {
-
+  saveAuthor(author) {
+    this.authorService.add(author).subscribe({
+      next: (data: any) => { console.log(data); },
+      error: (err: any) => { console.log(err); }
+    });
+    console.log(author);
   }
 }

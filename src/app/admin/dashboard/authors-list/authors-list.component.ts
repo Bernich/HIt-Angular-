@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IUser } from '../../shared/models';
-import { UsersService } from '../../shared/services';
+import { IAuthor, IUser } from '../../shared/models';
+import { AuthorsService } from '../../shared/services';
 
 @Component({
   selector: 'app-hivenews-admin-news-list-page',
@@ -10,10 +10,10 @@ import { UsersService } from '../../shared/services';
 export class HivenewsAdminAuthorsListComponent implements OnInit {
 
   isLoading = false;
-  users: IUser[];
+  authors: IAuthor[];
 
 
-  constructor(private usersService: UsersService) { }
+  constructor(private authorService: AuthorsService) { }
 
 
   ngOnInit(): void {
@@ -24,11 +24,13 @@ export class HivenewsAdminAuthorsListComponent implements OnInit {
   loadAll() {
     this.isLoading = true;
 
-    this.usersService.all().subscribe({
+    this.authorService.all().subscribe({
       next: (data: any) => {
 
+        console.log(data);
+
         this.isLoading = false;
-        this.users = data;
+        this.authors = data;
       },
 
       error: (error) => {
