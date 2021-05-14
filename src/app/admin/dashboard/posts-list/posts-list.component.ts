@@ -4,14 +4,14 @@ import { PostService } from 'src/app/entities/post';
 import { IPost } from 'src/app/shared/model/post.model';
 
 @Component({
-  selector: 'hivenews-admin-news-list-page',
-  templateUrl: './news-list.component.html',
-  styleUrls: ['./news-list.component.css']
+  selector: 'app-hivenews-admin-news-list-page',
+  templateUrl: './posts-list.component.html',
+  styleUrls: ['./posts-list.component.css']
 })
 export class HivenewsAdminListComponent implements OnInit {
 
   isLoading = false;
-  posts: IPost[]
+  posts: IPost[];
 
   constructor(private postService: PostService) { }
 

@@ -2,7 +2,21 @@ header {
   height: 85vh;
 }
 
+.floating-image-button {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 80px;
+  right: 50px;
+  left: calc(100% - 10%);
+}
+
+
 .floating-saving-button {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
   position: sticky;
   bottom: 80px;
   right: 50px;
@@ -12,6 +26,7 @@ header {
 .main-body-content {
   position: relative;
 }
+
 .header-background-image {
   position: relative;
   background-position: center;

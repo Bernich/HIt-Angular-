@@ -1,28 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationService } from './services/navigation.service';
-import { AuthService } from './services/auth.service';
-import { UsersService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
-import { StateStorageService } from './services/state-storage.service';
-import { HivenewsAdminAddNewsComponent } from '../dashboard/add-news/add-news.component';
-import { HivenewsAdminPostsComponent } from './components/posts/admin-posts.component';
-import { LoaderComponent } from './components/loader/loader.component';
+import { StateStorageService, CreatePostService, AuthService, UsersService, NavigationService } from './services';
+import { AddAuthorFormComponent, AdminUserListItemComponent, HivenewsAdminPostsComponent, LoaderComponent } from './components';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material.module';
 
 
 @NgModule({
   declarations: [
-    HivenewsAdminPostsComponent, LoaderComponent
+    HivenewsAdminPostsComponent, LoaderComponent, AdminUserListItemComponent, AddAuthorFormComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule
-
+    HttpClientModule,
+    EditorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
 
   providers: [
-    NavigationService, AuthService, StateStorageService, UsersService,
+    NavigationService, AuthService, StateStorageService, UsersService, CreatePostService
   ],
-  exports: [HivenewsAdminPostsComponent, LoaderComponent]
+  exports: [HivenewsAdminPostsComponent, LoaderComponent, AdminUserListItemComponent, AddAuthorFormComponent]
 })
 export class AdminSharedModule { }

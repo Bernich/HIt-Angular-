@@ -1,0 +1,190 @@
+#dark {
+  color: rgb(0, 0, 0);
+}
+
+#white {
+  color: white;
+}
+
+/* Title Input */
+.mat-form-field {
+  display: block;
+  font-size: 25px;
+  color: rgb(0, 0, 0, 0.6);
+}
+
+.blog-content-input-card {
+  width: 100%;
+}
+
+.blog-content-input-card img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.floating-saving-button {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  bottom: 80px;
+  right: 50px;
+  left: calc(100% - 8%);
+}
+
+.admin-dashboard-post-header {
+  width: 100%;
+  color: rgb(0, 0, 0, 0.6);
+
+  display: flex;
+  align-items: center;
+}
+
+.admin-dashboard-post-header h3 {
+  height: fit-content;
+  width: fit-content;
+
+  margin: 0;
+
+  font-size: 32px;
+}
+
+.admin-dashboard-post-header:last-child:first-child {
+  margin-right: 10px;
+}
+
+.admin-add-author-content {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* background-color: #6c757d03; */
+  position: relative;
+}
+
+.admin-dashboard-content-container {
+  width: 85%;
+  height: auto;
+  /* background-color: #d41354; */
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+
+  color: white;
+  line-height: 1.5rem;
+
+  z-index: 0;
+}
+
+/* Image Header Component */
+.admin-dashboard-image-header-container {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 50px;
+
+  position: relative;
+
+  background-color: rgb(0, 0, 0, 0.6);
+}
+
+.admin-dashboard-image-header-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 5px;
+}
+
+.admin-dashboard-image-header-container button {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+}
+
+.admin-dashboard-image-header-container button mat-icon {
+  display: flex;
+}
+.admin-dashboard-image-header-container button mat-icon input {
+  /* visibility: collapse; */
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  padding-left: 10px;
+}
+.admin-dashboard-image-header-container .admin-dashboard-blog-title {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+
+  width: 90%;
+  height: auto;
+
+  font-size: 35px;
+
+  border: none;
+  background: none;
+  background-color: rgba(0, 0, 0, 0.527);
+  color: white;
+  outline: none;
+
+  padding: 5px;
+}
+
+.admin-dashboard-image-header-container .admin-dashboard-blog-title {
+}
+#content-editor {
+  width: 50%;
+  height: 700px;
+  z-index: 999 !important;
+}
+
+/*
+    Screen Resolutions Fix
+    default styles here for older browsers.
+       I tend to go for a 600px - 960px width max but using percentages
+    */
+@media only screen and (min-width: 960px) {
+  /* styles for browsers larger than 960px; */
+}
+
+@media only screen and (min-width: 1440px) {
+  /* styles for browsers larger than 1440px; */
+}
+@media only screen and (min-width: 2000px) {
+  /* for sumo sized (mac) screens */
+}
+@media only screen and (max-device-width: 480px) {
+  /* styles for mobile browsers smaller than 480px; (iPhone) */
+}
+
+@media only screen and (device-width: 768px) {
+  /* default iPad screens */
+}
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* For portrait layouts only */
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* For landscape layouts only */
+  .admin-dashboard-content-container .side-page:last-child {
+    width: 100%;
+  }
+}
+
+/* Reaches max zoom**/
+@media (max-width: 1200px) {
+}

@@ -5,22 +5,20 @@
 
 
     <div class="blog-text-title"> {{ post.title.substr(0,30)+"..." || ""}} </div>
-    <div class="blog-text-description">Roman-style pizza has a cracker-thin crust and is often topped by
-      only tomato and basil. But the outstanding pizza Margherita follows the Neapolitan model, with a
-      thicker, </div>
+    <div class="blog-text-description">{{post.content.substr(0,100)}} </div>
 
     <div class="blog-text-footer">
       <div class="blog-footer-author">
         <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" loading="lazy" alt="" srcset="">
         <div>
-          <div>Marco Gallotta</div>
-          <div>May 2005</div>
+          <div>{{post.authors[0]}}</div>
+          <div>{{post.date_created}}</div>
         </div>
       </div>
 
       <div class="blog-footer-options">
-        <span><img src="./svg/share.svg" loading="lazy" alt="" srcset=""></span>
-        <span> <img src="./svg/bookmark-outline.svg" loading="lazy" alt="" srcset=""></span>
+        <span><img src="/assets/svg/share.svg" loading="lazy" alt="" srcset=""></span>
+        <span> <img src="/assets/svg/bookmark-outline.svg" loading="lazy" alt="" srcset=""></span>
       </div>
     </div>
   </section>

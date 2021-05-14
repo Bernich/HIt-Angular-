@@ -1,0 +1,111 @@
+<section class="admin-dashboard-content ">
+
+  <div style="margin-bottom: 100px;"></div>
+
+
+
+  <section class="admin-dashboard-content-container ">
+
+    <section class="admin-dashboard-post-header">
+      <h3>Blog Post</h3>
+
+      <div class="spacer"></div>
+      <section class="admin-dashboard-posts-button">
+
+        <button mat-flat-button (click)="savePost()">Save</button>
+        <button mat-flat-button>Update</button>
+      </section>
+    </section>
+
+    <div style="margin-bottom: 30px;"></div>
+
+    <mat-card class="blog-content-input-card">
+      <mat-card-header class="blog-content-input-card-header">
+        <div mat-card-avatar class="add-post-header-image">
+          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+        </div>
+        <mat-card-title>Authors </mat-card-title>
+        <mat-card-subtitle>click to remove an author</mat-card-subtitle>
+
+        <div class="spacer"></div>
+
+        <section>
+          <button mat-flat-button (click)="savePost()">Add Author</button>
+        </section>
+
+      </mat-card-header>
+      <img [(src)]="imgUrl" loading="lazy" style="height:400px" mat-card-image alt="blog header image">
+      <mat-card-content>
+        <p>
+          <mat-form-field class="add-post-form-field">
+            <mat-label>Blog title</mat-label>
+            <input matInput type="text" [(ngModel)]="postService.post.title">
+            <button mat-button *ngIf="postService.post.title" matSuffix mat-icon-button aria-label="Clear"
+              (click)="postService.post.title=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+      <mat-card-actions class="blog-content-input-card-header">
+        <a routerLink="/admin/interactive">
+          <button mat-button>Switch To Interactive</button>
+        </a>
+
+        <div class="spacer"></div>
+
+        <mat-slide-toggle [(ngModel)]="publish" name="publish_status">Publish Post</mat-slide-toggle>
+
+      </mat-card-actions>
+    </mat-card>
+
+    <div style="margin-bottom: 100px;"></div>
+
+    <mat-card class="blog-content-input-card">
+
+      <mat-card-header class="blog-content-input-card-header">
+        <div mat-card-avatar class="add-post-header-image">
+          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+
+        </div>
+        <mat-card-title>Blog Content </mat-card-title>
+        <mat-card-subtitle>Write the blogs content</mat-card-subtitle>
+
+
+      </mat-card-header>
+
+
+      <div style="margin-bottom: 40px;"></div>
+      <mat-card-content>
+        <p>
+          <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
+            [(ngModel)]="postService.post.content" id="contenteditor" name="description" #editor [init]="{
+        height: '700',
+        plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        imagetools_cors_hosts: ['picsum.photos'],
+        menubar: 'file edit view insert format tools table help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl'
+      }"></editor>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a routerLink="/admin/interactive">
+          <button mat-button>Switch To Interactive</button>
+        </a>
+
+      </mat-card-actions>
+    </mat-card>
+
+
+
+  </section>
+
+
+
+</section>
+
+<div style="margin-bottom: 100px;"></div>

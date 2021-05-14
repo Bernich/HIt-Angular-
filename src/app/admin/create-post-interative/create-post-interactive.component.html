@@ -1,3 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Third Line</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <header class="header-background-image"
   [style.backgroundImage]="'url(https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg)'">
   <jhi-onsite-navbar></jhi-onsite-navbar>
@@ -5,8 +14,8 @@
   <div class="post-container">
     <div class="post">
       <h3 class="post-title">
-        <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3" [(ngModel)]="title"
-          id="titleeditor" name="description" #titleEditorRef [init]="{
+        <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
+          [(ngModel)]="postService.post.title" id="titleeditor" name="description" #titleEditorRef [init]="{
 inline: true
 }"></editor>
       </h3>
@@ -18,12 +27,20 @@ inline: true
       </div>
     </div>
   </div>
+
+  <section class="floating-image-button">
+
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>save</mat-icon>
+    </button>
+  </section>
+
 </header>
 
 <section class="main-body-content">
   <div class="content-body">
-    <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3" [(ngModel)]="content"
-      id="contenteditor" name="description" #editor [init]="{
+    <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
+      [(ngModel)]="postService.post.content" id="contenteditor" name="description" #editor [init]="{
 inline: true,
 plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
 imagetools_cors_hosts: ['picsum.photos'],
@@ -63,9 +80,15 @@ toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizes
   </div>
 
 
-  <button class="floating-saving-button" mat-fab color="primary" aria-label="Example icon button with a delete icon">
-    <mat-icon>save</mat-icon>
-  </button>
+  <section class="floating-saving-button">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>save</mat-icon>
+    </button>
+
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>save</mat-icon>
+    </button>
+  </section>
 
 </section>
 

@@ -5,12 +5,20 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MaterialModule } from 'src/app/material.module';
 import { HivenewsDashboardComponent } from './dashboard.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
-import { HivenewsAdminAddNewsComponent } from './add-news/add-news.component';
-import { HivenewsAdminListComponent } from './news-list/news-list.component';
+import { HivenewsAdminAddNewsComponent } from './add-post/add-post.component';
+import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { AdminSharedModule } from '../shared/admin-shared.module';
+import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
+import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
+import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.component';
 @NgModule({
   declarations: [
-    HivenewsDashboardComponent, HivenewsAdminAddNewsComponent, HivenewsAdminListComponent
+    HivenewsDashboardComponent,
+    HivenewsAdminAddNewsComponent,
+    HivenewsAdminListComponent,
+    HivenewsAdminUsersListComponent,
+    HivenewsAdminAddAuthorComponent,
+    HivenewsAdminAuthorsListComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +27,8 @@ import { AdminSharedModule } from '../shared/admin-shared.module';
     EditorModule,
     FormsModule,
     ReactiveFormsModule,
-    AdminSharedModule
+    AdminSharedModule,
+    MaterialModule
   ],
   providers: [
   ]

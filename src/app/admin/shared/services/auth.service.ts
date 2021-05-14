@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-// import { JwtHelperService } from '@auth0/angular-jwt';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import decode from 'jwt-decode';
 import { SERVER_API_URL } from 'src/app/app.constants';
 import { environment } from 'src/environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 
 
 
@@ -13,13 +13,12 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   jwtHelper = new JwtHelperService();
-
   constructor(
-    // public jwtHelper: JwtHelperService,
-    private httpClient: HttpClient
-  ) {
+    private httpClient: HttpClient,
+    // tslint:disable-next-line: ban-types
+    @Inject(PLATFORM_ID) private platformId: Object) { }
 
-  }
+
 
 
 
@@ -45,7 +44,7 @@ export class AuthService {
     // true or false
     return !this.jwtHelper.isTokenExpired(token);
   }
-  
+
   signin(username: string, password: string) {
 
     const hash = btoa(username + ':' + password);
@@ -68,7 +67,10 @@ export class AuthService {
    * Removes a token from the LocalStorage
    */
   logout() {
-    localStorage.removeItem('currentUser');
+    // Logout in client mode only
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('currentUser');
+    }
   }
 
   /**

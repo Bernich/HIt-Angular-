@@ -27,7 +27,6 @@ import { HivenewsLayoutsModule } from '../layouts/layouts.module';
     HivenewsLayoutsModule
   ],
   providers: [
-    NavigationService, AuthService, StateStorageService, UsersService,
   ]
 })
 export class AdminModule { }

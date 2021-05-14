@@ -4,10 +4,10 @@ import { UsersService } from '../../shared/services';
 
 @Component({
   selector: 'app-hivenews-admin-news-list-page',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.css']
+  templateUrl: './authors-list.component.html',
+  styleUrls: ['./authors-list.component.css']
 })
-export class HivenewsAdminUsersListComponent implements OnInit {
+export class HivenewsAdminAuthorsListComponent implements OnInit {
 
   isLoading = false;
   users: IUser[];

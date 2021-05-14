@@ -1,0 +1,19 @@
+<div class="admin-user-item-container">
+  <div class="top-color"></div>
+  <div class="content">
+    <div class="image-container">
+      <img
+        src="{{user.profile_pic ? user.profile_pic :'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder.jpg'  }}"
+        class="patton" />
+    </div>
+
+    <div class="name">{{ user.firstname }}</div>
+
+    <br />
+
+    <div class="account-status">
+      <div [ngClass]="{'active': user.is_active, 'disabled': !user.is_active }" class="status"></div>
+      <p class="text">{{user.is_active ? "Active" : "Suspended"}}</p>
+    </div>
+  </div>
+</div>

@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'src/app/app.constants';
 import { createRequestOption } from 'src/app/shared';
 import { IPost } from 'src/app/shared/model/post.model';
+import { CreatePostDTO } from 'src/app/admin/shared/dto';
 
 type EntityResponseType = HttpResponse<IPost>;
 type EntityArrayResponseType = HttpResponse<IPost[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
-  public resourceUrl = SERVER_API_URL + "/posts";
+  public resourceUrl = SERVER_API_URL + '/posts';
   constructor(protected http: HttpClient) { }
 
   find(id: string): Observable<EntityResponseType> {
@@ -31,4 +32,22 @@ export class PostService {
       }
     );
   }
+
+
+  add(post: CreatePostDTO) {
+    const token = localStorage.getItem('currentUser');
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.http.post(this.resourceUrl, post, httpOptions);
+  }
+
+
 }

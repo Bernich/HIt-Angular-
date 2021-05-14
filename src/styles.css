@@ -7,6 +7,52 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  /* Colors */
+  --pumpkin-orange: #ff8100;
+  --pumpkin-orange-60: rgba(255, 129, 0, 0.6);
+  --black-10: rgba(0, 0, 0, 0.1);
+  --black-30: rgba(0, 0, 0, 0.3);
+  --black-50: rgba(0, 0, 0, 0.5);
+
+  --charcoal-grey: #4a4a4a;
+  --white-two-59: rgba(236, 236, 236, 0.59);
+  --warm-grey: #96908a;
+  --dark-grey-blue: #2a3150;
+
+  --pumpkin-orange-15: rgba(255, 129, 0, 0.15);
+
+  --white-two-20: rgba(236, 236, 236, 0.2);
+  --white-two-50: rgba(236, 236, 236, 0.5);
+  --brownish-grey: #6a6665;
+  --pink-red: #ff005e;
+  --white: white;
+}
+
+/* You can add global styles to this file, and also import other style files */
+/* Load Fonts */
+@font-face {
+  font-family: "SFUIText-Light";
+  src: url("/assets/fonts/SFUIText-Light.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFUIText-Medium";
+  src: url("/assets/fonts/SFUIText-Medium.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFProText";
+  src: url("/assets/fonts/FontsFree-Net-SFProText-Regular.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AbadiMT";
+  src: url("/assets/fonts/abadi-mt.ttf");
+  font-style: normal;
 }
 
 body {
@@ -20,6 +66,10 @@ html {
   font-weight: 300;
   font-size: 16px;
   text-rendering: optimizeLegibility;
+}
+
+.spacer {
+  flex: 1;
 }
 
 a:link,

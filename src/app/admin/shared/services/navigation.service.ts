@@ -17,10 +17,16 @@ export class NavigationService {
 
 
   /**
- * Navigate to confirm users specific details page
- * @param user
- */
+   * Navigate to to dashboard page
+   */
   navigateToDashboard() {
     this.router.navigate([`/admin/dashboard`]);
+  }
+
+  /**
+   * Navigate to login page
+   */
+  navigateToLogin() {
+    this.router.navigate([`/admin/login`]);
   }
 }

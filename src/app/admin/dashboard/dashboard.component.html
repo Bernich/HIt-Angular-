@@ -1,5 +1,4 @@
-<!-- *ngIf="!isLoading" -->
-<mat-toolbar class="top-navigation mat-elevation-z4">
+<mat-toolbar *ngIf="user" class="top-navigation mat-elevation-z4">
   <div class="nav-content">
 
 
@@ -13,18 +12,18 @@
     <div class="left-content">
 
 
-      <!-- <div class="profile-section">
+      <div class="profile-section">
         <img class="profile-image"
-          [src]="user.profile_pic ? user.profile_pic : 'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'"
+          [src]="'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'"
           alt="Image" />
 
-        <div class="name" *ngIf="user">{{ this.user.firstname }}</div>
+        <div class="name">{{user.firstname}}</div>
 
         <button style="color: #ff8100" mat-icon-button [matMenuTriggerFor]="menu"
           aria-label="Example icon-button with a menu">
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
-      </div> -->
+      </div>
 
     </div>
 
@@ -34,20 +33,16 @@
 
   <mat-menu #menu="matMenu">
 
-    <button routerLink="/dashboard/courses" mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>User Dashboard</span>
-    </button>
-    <!-- <button mat-menu-item (click)="logOut()">
+
+    <button mat-menu-item (click)="logout()">
       <mat-icon>power_settings_new</mat-icon>
       <span>Log Out</span>
-    </button> -->
+    </button>
   </mat-menu>
 </mat-toolbar>
 
 
-<!-- *ngIf="!isLoading; else loader" -->
-<mat-drawer-container class="user-dashboard-container">
+<mat-drawer-container *ngIf="!state.isLoading; else loader" class="user-dashboard-container">
   <mat-drawer #drawer mode="side" opened class="side-nav" id="side-drawer">
     <div class="nav-title">APP MENU</div>
 
@@ -70,5 +65,5 @@
 
 
 <ng-template #loader>
-  <!-- <app-loader></app-loader> -->
+  <app-loader></app-loader>
 </ng-template>

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HivenewsAdminAddNewsComponent } from './add-news/add-news.component';
+import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
+import { HivenewsAdminAddNewsComponent } from './add-post/add-post.component';
 import { HivenewsDashboardComponent } from './dashboard.component';
-import { HivenewsAdminListComponent } from './news-list/news-list.component';
+import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
 
 /**
@@ -21,7 +22,7 @@ const routes: Routes = [
     /**Expected Roles to Guard the Route
      * An Admin or INstructor can navigate to this page.
      * But the children routes have specific Role Guards
-    */
+     */
     // data: {
     //   expectedRole: ['ADMIN', 'INSTRUCTOR']
     // },
@@ -30,9 +31,11 @@ const routes: Routes = [
       /**Course List Component can be accessed by both Admin and instructors
        * This route is similar to the Dashboard component which is commented out
        */
-      { path: 'news', component: HivenewsAdminListComponent, },
-      { path: 'add-news', component: HivenewsAdminAddNewsComponent },
+      { path: 'posts', component: HivenewsAdminListComponent, },
+      { path: 'add-posts', component: HivenewsAdminAddNewsComponent },
       { path: 'users', component: HivenewsAdminUsersListComponent },
+      { path: 'add-author', component: HivenewsAdminAddAuthorComponent },
+      { path: 'authors', component: HivenewsAdminAddAuthorComponent }
 
     ]
   },

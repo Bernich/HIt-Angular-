@@ -1,15 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SERVER_API_URL } from 'src/app/app.constants';
+import { CreateAuthorDTO } from '../dto';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class AuthorsService {
 
 
-  private usersURL = `${SERVER_API_URL}/users`;
+  private authorsUrl = `${SERVER_API_URL}/authors`;
 
   constructor(
     private httpClient: HttpClient,
@@ -29,12 +30,27 @@ export class UsersService {
       }),
     };
 
-    return this.httpClient.get(this.usersURL, httpOptions);
+    return this.httpClient.get(this.authorsUrl, httpOptions);
   }
 
 
+  add(author: CreateAuthorDTO) {
+    const token = localStorage.getItem('currentUser');
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
 
-  getUserById(uid: string) {
+    return this.httpClient.post<CreateAuthorDTO>(this.authorsUrl, author, httpOptions);
+  }
+
+
+  query(uid: string) {
     const token = localStorage.getItem('currentUser');
 
     /**
@@ -47,7 +63,7 @@ export class UsersService {
       }),
     };
 
-    return this.httpClient.get(this.usersURL + `/${uid}`, httpOptions);
+    return this.httpClient.get(this.authorsUrl + `/${uid}`, httpOptions);
   }
 
 
@@ -61,7 +77,7 @@ export class UsersService {
       email
     };
 
-    return this.httpClient.post(`${this.usersURL}/begin_password_reset`, payload,);
+    return this.httpClient.post(`${this.authorsUrl}/begin_password_reset`, payload,);
   }
 
 
