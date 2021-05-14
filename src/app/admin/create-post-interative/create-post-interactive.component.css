@@ -2,6 +2,9 @@ header {
   height: 85vh;
 }
 
+.interactive-toolbar {
+  position: relative;
+}
 .floating-image-button {
   width: fit-content;
   display: flex;
@@ -12,7 +15,6 @@ header {
   left: calc(100% - 10%);
 }
 
-
 .floating-saving-button {
   width: fit-content;
   display: flex;
@@ -22,7 +24,9 @@ header {
   right: 50px;
   left: calc(100% - 10%);
 }
-
+.floating-saving-button button {
+  margin-bottom: 20px;
+}
 .main-body-content {
   position: relative;
 }

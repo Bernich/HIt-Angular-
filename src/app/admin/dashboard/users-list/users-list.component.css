@@ -6,13 +6,16 @@
   color: white;
 }
 
-.admin-dashboard-content-container {
+.admin-dashboard-users-content-container {
   width: 100%;
   height: 100%;
   color: #1e1e1eab;
   display: flex;
+  flex-wrap: wrap;
   color: white;
   line-height: 1.5rem;
+
+  padding: 70px;
 }
 
 /*
