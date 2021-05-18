@@ -1,0 +1,39 @@
+:host {
+  --mantra-height: 130px;
+}
+.mantra-container {
+  width: 100%;
+  height: var(--mantra-height);
+
+  display: flex;
+  justify-content: center;
+
+  margin-top: calc((var(--mantra-height) / 2) * -1);
+}
+
+.mantra-content-container {
+  width: calc(55%);
+  height: 100%;
+
+  border-radius: 0.75rem;
+  background-color: white;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+  z-index: 999 !important;
+}
+/* media queries */
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1368px) {
+}
+
+@media screen and (min-width: 1414px) {
+}
+
+@media (max-width: 575px) {
+}
