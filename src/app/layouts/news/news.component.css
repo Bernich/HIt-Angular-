@@ -76,10 +76,14 @@
   display: flex;
   align-items: center;
 
-  font-family: SFUIText-Light;
-  font-size: 1.47rem;
-  line-height: 1.25;
-  color: var(--brownish-grey);
+  font-family: SFUIText-Medium;
+  font-size: 32px;
+  line-height: normal;
+  color: var(--charcoal-grey);
+}
+
+.font-small {
+  font-size: 15px;
 }
 /* media queries */
 @media screen and (min-width: 768px) {
