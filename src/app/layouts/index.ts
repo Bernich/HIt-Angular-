@@ -8,3 +8,4 @@ export * from './load-more/load-more.component';
 export * from './post-cards/post-cards.component';
 export * from './partners/partners.component';
 export * from './mantra/mantra.component';
+export * from './convince/convince.component';
