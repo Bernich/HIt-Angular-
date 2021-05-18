@@ -1,13 +1,26 @@
+:host {
+  --partners-height: 130px;
+}
 .partners-container {
   width: 100%;
-  background-color: white;
-  height: 200px;
-  /* offset-x | offset-y | blur-radius | color */
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  height: var(--partners-height);
+
+  display: flex;
+  justify-content: center;
+
+  margin-top: calc((var(--partners-height) / 2) * -1);
 }
 
 .partners-content-container {
-  width: calc(60%);
+  width: calc(55%);
+  height: 100%;
+
+  border-radius: 0.75rem;
+  background-color: white;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+  z-index: 999 !important;
 }
 /* media queries */
 @media screen and (min-width: 768px) {

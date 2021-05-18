@@ -1,7 +1,8 @@
 <nav class="navbar" [ngClass]="{ scrolled: scrolled }">
   <div class="header-nav">
     <a [routerLink]="['/']">
-      <img src="/assets/images/media.png" alt="Hive News Logo" loading="lazy" class="logo" />
+      <img [src]="!scrolled ? '/assets/images/logom.png' : '/assets/images/white-logo.png'" alt="Hive News Logo"
+        loading="lazy" class="logo" />
     </a>
 
     <ul class="main-nav">
