@@ -10,8 +10,6 @@
   flex-direction: column;
 
   /* margin-top: calc((var(--convince-height) / 2) * -1); */
-  margin-top: 100px;
-  margin-bottom: 100px;
 
   padding: 50px 0px;
   background-color: rgba(0, 0, 0, 0.05);
@@ -39,6 +37,11 @@
   z-index: 2 !important;
 }
 
+.join-us-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
 .convince-content-container img {
   width: 50%;
   height: 550px;

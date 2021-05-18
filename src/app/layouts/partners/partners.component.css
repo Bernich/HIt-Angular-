@@ -22,6 +22,8 @@
 
   /* offset-x | offset-y | blur-radius | color */
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+  z-index: 1;
 }
 /* media queries */
 @media screen and (min-width: 768px) {
