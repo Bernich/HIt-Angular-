@@ -10,13 +10,17 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/landing-page/landing-page.module').then((m) => m.HivenewsLandingPageModule),
   },
+  {
+    path: 'academics',
+    loadChildren: () =>
+      import('./pages/academics-page/academics-page.module').then((m) => m.AcademicsPageModule),
+  },
 
   {
     path: 'posts',
     loadChildren: () =>
       import('./pages/post-detail-page/post-detail-page.module').then((m) => m.HivenewsPostDetailPageModule),
   },
-
 
   {
     path: 'admin',
@@ -25,9 +29,11 @@ const routes: Routes = [
   },
 ];
 
+
+// { enableTracing: true }
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { enableTracing: true })
+    RouterModule.forRoot(routes,)
   ],
   exports: [RouterModule]
 })

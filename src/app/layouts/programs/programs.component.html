@@ -1,19 +1,13 @@
-<section class="convince-container">
+<section class="programs-container">
 
-  <section class="convince-content-container">
+  <h4 class="programs-heading">Our Programs</h4>
+  <p class="programs-subheading-heading">Take our high quality courses curated by leading industry <br>professionals,
+    and delivered by highly competent
+    instructors
+  </p>
+  <section class="programs-content-container">
 
-    <img
-      src="https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/studentshomehero-1568023329563.jpg"
-      alt="">
-
-    <section class="convince-content-text">
-      <h3>Life as a Hive Institute Student
-      </h3>
-      <p>Our interns work on real-world projects in collaboration with teams across the world, while having fun along
-        the way. You’ll be empowered to build community, find your passion and achieve your goals. Join Hive Institute
-        today, and help us create the world of tomorrow.
-      </p>
-    </section>
+    <app-jhi-programs-card *ngFor="let program of programs" [program]="program"></app-jhi-programs-card>
 
   </section>
 </section>

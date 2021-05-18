@@ -15,7 +15,11 @@ import {
   PartnersComponent,
   MantraComponent,
   ConvinceComponent,
-  ProgramsComponent
+  ProgramsComponent,
+  ProgramsCardComponent,
+  NewsCardComponent,
+  NewsListComponent,
+  NewsLetterComponent
 } from '.';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -38,7 +42,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PartnersComponent,
     MantraComponent,
     ConvinceComponent,
-    ProgramsComponent
+    ProgramsComponent,
+    ProgramsCardComponent,
+    NewsCardComponent,
+    NewsListComponent,
+    NewsLetterComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -51,7 +59,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PartnersComponent,
     MantraComponent,
     ConvinceComponent,
-    ProgramsComponent
+    ProgramsComponent,
+    ProgramsCardComponent,
+    NewsCardComponent,
+    NewsLetterComponent,
+    NewsListComponent
   ]
 })
 export class HivenewsLayoutsModule { }

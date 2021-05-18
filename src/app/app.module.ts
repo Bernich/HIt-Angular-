@@ -44,7 +44,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     HivenewsEntityModule,
     // Extract all similar modules to shared
     ModalModule.forRoot(),
-    AdminModule,
+    // AdminModule,
     NgxWebstorageModule.forRoot(),
 
   ],

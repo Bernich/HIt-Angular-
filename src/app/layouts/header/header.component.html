@@ -1,7 +1,7 @@
 <header>
   <jhi-onsite-navbar></jhi-onsite-navbar>
 
-  <ngb-carousel *ngIf="posts" [showNavigationArrows]="navigation.showNavigationArrows"
+  <ngb-carousel class="header-carousel" *ngIf="posts" [showNavigationArrows]="navigation.showNavigationArrows"
     [showNavigationIndicators]="navigation.showNavigationIndicators">
     <ng-template ngbSlide *ngFor="let course of courses">
       <div class="slider" [style.backgroundImage]="getPostThumbUrl(course.image)">

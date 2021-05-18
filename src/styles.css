@@ -23,6 +23,7 @@
   --pumpkin-orange-15: rgba(255, 129, 0, 0.15);
 
   --white-two-20: rgba(236, 236, 236, 0.2);
+  --white-two-25: rgba(245, 244, 244, 0.692);
   --white-two-50: rgba(236, 236, 236, 0.5);
   --brownish-grey: #6a6665;
   --pink-red: #ff005e;
@@ -102,8 +103,6 @@ span.sr-only {
 .mat-spinner circle {
   stroke: var(--pumpkin-orange);
 }
-
-
 
 @media screen and (min-width: 768px) {
   .nav-tabs {

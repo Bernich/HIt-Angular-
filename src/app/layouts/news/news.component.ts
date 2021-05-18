@@ -4,18 +4,18 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-jhi-programs',
-  templateUrl: './programs.component.html',
-  styleUrls: ['./programs.component.css'],
+  selector: 'app-jhi-news-list',
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.css'],
 })
-export class ProgramsComponent implements OnInit {
+export class NewsListComponent implements OnInit {
 
 
 
-  programs = [
+  news = [
     {
       image: 'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/studentshomehero-1568023329563.jpg',
-      title: 'This is a course program'
+      title: 'Learn a skill and earn a living'
     },
     {
       image: 'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/studentshomehero-1568023329563.jpg',

@@ -12,8 +12,22 @@
   /* margin-top: calc((var(--mantra-height) / 2) * -1); */
   margin-top: 100px;
   margin-bottom: 100px;
+
+  /* Give all specific components */
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
 }
 
+.mantra-container h3 {
+  font-family: SFUIText-Medium;
+  font-size: 32px;
+
+  line-height: normal;
+  color: var(--charcoal-grey);
+}
 .mantra-content-container {
   display: flex;
   justify-content: space-between;
@@ -38,14 +52,31 @@
   width: calc((100% / 3) - 20px);
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
 
   text-align: center;
   /* background-color: tomato; */
+
+  font-family: SFUIText-Medium;
+  line-height: normal;
+  color: var(--charcoal-grey);
 }
 
+.mantra-item h4 {
+  font-family: SFUIText-Medium;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: var(--brownish-grey);
+}
+
+.mantra-item p {
+  font-family: SFUIText-Light;
+  font-size: 0.97rem;
+  line-height: 1.25;
+  color: var(--brownish-grey);
+}
 .spacer-vertical-dashed {
   height: 100%;
   border-right: 0.05px solid rgba(0, 0, 0, 0.384);

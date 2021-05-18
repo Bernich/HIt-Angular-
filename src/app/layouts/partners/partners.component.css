@@ -9,6 +9,8 @@
   justify-content: center;
 
   margin-top: calc((var(--partners-height) / 2) * -1);
+
+  z-index: 999 !important;
 }
 
 .partners-content-container {
@@ -17,10 +19,9 @@
 
   border-radius: 0.75rem;
   background-color: white;
+
   /* offset-x | offset-y | blur-radius | color */
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-
-  z-index: 999 !important;
 }
 /* media queries */
 @media screen and (min-width: 768px) {

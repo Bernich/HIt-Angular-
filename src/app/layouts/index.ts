@@ -10,3 +10,7 @@ export * from './partners/partners.component';
 export * from './mantra/mantra.component';
 export * from './convince/convince.component';
 export * from './programs/programs.component';
+export * from './programs-card/programs-card.component';
+export * from './news/news.component';
+export * from './news-card/news-card.component';
+export * from './news-letter/news-letter.component';
