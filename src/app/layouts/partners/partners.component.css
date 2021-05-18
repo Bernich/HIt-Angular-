@@ -1,0 +1,26 @@
+.partners-container {
+  width: 100%;
+  background-color: white;
+  height: 200px;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.partners-content-container {
+  width: calc(60%);
+}
+/* media queries */
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1368px) {
+}
+
+@media screen and (min-width: 1414px) {
+}
+
+@media (max-width: 575px) {
+}

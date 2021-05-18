@@ -10,6 +10,7 @@ import { AuthService } from '../shared/services/auth.service';
 export class HivenewsAdminLoginComponent implements OnInit {
 
 
+  isLoading = false;
   email: string = "";
   password: string = "";
 
@@ -23,8 +24,7 @@ export class HivenewsAdminLoginComponent implements OnInit {
 
   signin() {
 
-    console.log(this.email, this.password);
-
+    this.isLoading = true;
 
     this.authService.signin(this.email, this.password).subscribe({
       next: (data: any) => {

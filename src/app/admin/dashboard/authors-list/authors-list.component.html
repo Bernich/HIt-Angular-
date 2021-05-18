@@ -1,7 +1,9 @@
 <section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
-  <section class="admin-dashboard-content-container ">
+  <section class="admin-dashboard-authors-content-container ">
 
-    <app-admin-author-list-item *ngFor="let author of authors" [author]="author"></app-admin-author-list-item>
+    <app-admin-author-list-item style="margin-right: 20px;" *ngFor="let author of authors" [author]="author"
+      (edit)="editAuthor(author)">
+    </app-admin-author-list-item>
 
   </section>
 

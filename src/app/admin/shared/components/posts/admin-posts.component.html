@@ -1,18 +1,20 @@
-<div class="blog-container">
-  <img class="blog-image" [src]="post.header_image_url" loading="lazy" alt="" srcset="">
+<div class="blog-container" (click)="edit.emit(post)">
+  <img class="blog-image" [src]="post.header_image_url || post.banner.url" loading="lazy" alt="" srcset="">
 
   <section class="blog-content">
 
 
-    <div class="blog-text-title"> {{ post.title.substr(0,30)+"..." || ""}} </div>
-    <div class="blog-text-description">{{post.content.substr(0,100)}} </div>
+    <div class="blog-text-title"> {{ post.title || ""}} </div>
+    <!-- <div class="blog-text-description">{{post.content.substr(0,100)}} </div> -->
+
+    <div class="spacer"></div>
 
     <div class="blog-text-footer">
       <div class="blog-footer-author">
         <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" loading="lazy" alt="" srcset="">
         <div>
-          <div>{{post.authors[0]}}</div>
-          <div>{{post.date_created}}</div>
+          <!-- <div>{{post.authors[0] || }}</div> -->
+          <!-- <div>{{post.date_created}}</div> -->
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-<section class="admin-dashboard-content ">
+<section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
 
   <div style="margin-bottom: 100px;"></div>
 
@@ -12,11 +12,10 @@
       <div class="spacer"></div>
       <section class="admin-dashboard-posts-button">
 
-        <button mat-flat-button (click)="savePost()">Save</button>
+        <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
+          (click)="savePost()">Save</button>
 
-        <app-rounded-button [text]="'Update'">
 
-        </app-rounded-button>
       </section>
     </section>
 
@@ -25,9 +24,10 @@
     <mat-card class="blog-content-input-card">
       <mat-card-header class="blog-content-input-card-header">
         <div mat-card-avatar class="add-post-header-image">
-          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
-          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
-          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+
+          <img *ngFor="let author of selectedAuthors" [src]="author.profile_image.url"
+            alt="profile image of {{author.first_name}}" srcset="">
+
         </div>
         <mat-card-title>Authors </mat-card-title>
         <mat-card-subtitle>click to remove an author</mat-card-subtitle>
@@ -35,13 +35,19 @@
         <div class="spacer"></div>
 
         <section>
-          <app-rounded-button [text]="'Add Author'">
+          <app-rounded-button (triggerClick)="openBottomSheet()" [text]="'Add Author'">
 
           </app-rounded-button>
         </section>
 
       </mat-card-header>
       <img [(src)]="imgUrl" loading="lazy" style="height:400px" mat-card-image alt="blog header image">
+
+      <!-- Position file button absolutely -->
+      <app-rounded-file-button (receiveFile)="updateBannerImage($event)" class="update-file-button">
+      </app-rounded-file-button>
+
+
       <mat-card-content>
         <p>
           <mat-form-field class="add-post-form-field">
@@ -54,15 +60,15 @@
           </mat-form-field>
         </p>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Favorite animal</mat-label>
+        <mat-form-field class="blog-content-post-category" appearance="fill">
+          <mat-label>Category</mat-label>
           <mat-select [formControl]="categoryControl" required>
             <mat-option>--</mat-option>
             <mat-option *ngFor="let category of categories" [value]="category">
               {{category}}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="categoryControl.hasError('required')">Please choose an animal</mat-error>
+          <mat-error *ngIf="categoryControl.hasError('required')">Please choose a category</mat-error>
           <mat-hint>{{categoryControl.value?.sound}}</mat-hint>
         </mat-form-field>
 
@@ -74,7 +80,8 @@
 
         <div class="spacer"></div>
 
-        <mat-slide-toggle [(ngModel)]="publish" name="publish_status">Publish Post</mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="postService.post.publicity_status" name="publish_status">Publish Post
+        </mat-slide-toggle>
 
       </mat-card-actions>
     </mat-card>
@@ -85,9 +92,9 @@
 
       <mat-card-header class="blog-content-input-card-header">
         <div mat-card-avatar class="add-post-header-image">
-          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
-          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
-          <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" alt="" srcset="">
+
+          <img *ngFor="let author of selectedAuthors" [src]="author.profile_image.url"
+            alt="profile image of {{author.first_name}}" srcset="">
 
         </div>
         <mat-card-title>Blog Content </mat-card-title>
@@ -127,3 +134,8 @@
 </section>
 
 <div style="margin-bottom: 100px;"></div>
+
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

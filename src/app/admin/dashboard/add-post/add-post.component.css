@@ -6,6 +6,19 @@
   color: white;
 }
 
+.save_button {
+  background-color: #ff8100;
+  color: white;
+
+  width: 100px;
+}
+
+.update-file-button {
+  position: absolute;
+  top: 200px;
+  right: 40px;
+}
+
 /* Title Input */
 .mat-form-field {
   display: block;
@@ -13,6 +26,9 @@
   color: rgb(0, 0, 0, 0.6);
 }
 
+.blog-content-post-category {
+  font-size: 18px;
+}
 .blog-content-input-card {
   width: 100%;
 }
@@ -23,6 +39,7 @@
 
   padding: 20px 0px;
 }
+
 .add-post-header-image {
   width: auto;
   display: flex;

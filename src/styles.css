@@ -98,6 +98,11 @@ span.sr-only {
   display: none;
 }
 
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--pumpkin-orange);
+}
+
 @media screen and (min-width: 768px) {
   .nav-tabs {
     flex-wrap: wrap;

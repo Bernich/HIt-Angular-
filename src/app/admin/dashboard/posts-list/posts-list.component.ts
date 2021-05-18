@@ -20,6 +20,10 @@ export class HivenewsAdminListComponent implements OnInit {
   }
 
 
+  editPost(post: IPost) {
+    console.log("post ", post.post_id);
+  }
+
   loadAll() {
     this.isLoading = true;
 

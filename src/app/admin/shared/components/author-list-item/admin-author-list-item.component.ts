@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Author, IUser } from '../../models';
 
 @Component({
@@ -9,12 +9,13 @@ import { Author, IUser } from '../../models';
 export class AdminAuthorListItemComponent implements OnInit {
 
   @Input() author: Author;
-
+  @Output() edit = new EventEmitter();
+  routePath = '';
   constructor() { }
 
 
   ngOnInit(): void {
-
+    this.routePath = 'edit/author/' + this.author.author_id;
   }
 
 }

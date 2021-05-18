@@ -1,5 +1,5 @@
 {
-  "name": "hive-media",
+  "name": "hive-institute",
   "version": "1.0.0",
   "description": "Academy",
   "main": "app.js",
@@ -28,3 +28,4 @@
   "author": "Botwe",
   "license": "ISC"
 }
+

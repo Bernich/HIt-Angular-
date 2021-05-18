@@ -1,23 +1,23 @@
 {
-  "name": "hive-media",
+  "name": "hive-institute",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "server": "json-server server/db.json",
     "server:all": "concurrently \"npm run server\" \"ng serve\"",
-    "start": "node dist/hive-media/server/main.js",
+    "start": "node dist/hive-institute/server/main.js",
     "build": "ng build --prod",
     "build:stats": "ng build --prod --stats-json",
-    "analyze": "webpack-bundle-analyzer dist/hive-media/stats-es2015.json",
+    "analyze": "webpack-bundle-analyzer dist/hive-institute/stats-es2015.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "npx compodoc -p tsconfig.app.json src",
     "deploy": "ng build --prod && npm run build:ssr && gcloud app deploy",
-    "dev:ssr": "ng run hive-media:serve-ssr",
-    "serve:ssr": "node dist/hive-media/server/main.js",
-    "build:ssr": "ng build --prod && ng run hive-media:server:production",
-    "prerender": "ng run hive-media:prerender"
+    "dev:ssr": "ng run hive-institute:serve-ssr",
+    "serve:ssr": "node dist/hive-institute/server/main.js",
+    "build:ssr": "ng build --prod && ng run hive-institute:server:production",
+    "prerender": "ng run hive-institute:prerender"
   },
   "private": true,
   "dependencies": {
@@ -90,3 +90,4 @@
     "open": "^7.0.3"
   }
 }
+

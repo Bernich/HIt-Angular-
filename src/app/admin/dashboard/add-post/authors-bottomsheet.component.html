@@ -1,0 +1,9 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let author of authors" (click)="openLink(author)">
+    <h3 matLine> {{ author.first_name }} </h3>
+    <p matLine>
+      <!-- <span> Hello </span>
+      <span class="demo-2"> -- Data </span> -->
+    </p>
+  </mat-list-item>
+</mat-nav-list>

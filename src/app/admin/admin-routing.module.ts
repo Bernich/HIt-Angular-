@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InteractiveCreatePostComponent } from './create-post-interative/create-post-interactive.component';
 import { HivenewsDashboardComponent } from './dashboard/dashboard.component';
 import { HivenewsAdminLoginComponent } from './login/admin-login.component';
+import { AuthGuardService } from './shared/services';
 
 
 /**
@@ -16,12 +17,11 @@ const routes: Routes = [
   {
     path: '',
     // component: HivenewsAdminLoginComponent,
-    // canActivate: [RoleGuardService],
-
-    /**Expected Roles to Guard the Route
+    /**
+     * Expected Roles to Guard the Route
      * An Admin or INstructor can navigate to this page.
      * But the children routes have specific Role Guards
-    */
+     */
 
     // data: {
     //   expectedRole: ['ADMIN', 'INSTRUCTOR']
@@ -33,12 +33,14 @@ const routes: Routes = [
        */
       // { path: '', component: CoursesListComponent },
       { path: 'login', component: HivenewsAdminLoginComponent },
+
       {
         path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.HivenewsDashboardModule),
       },
 
       {
-        path: 'interactive', component: InteractiveCreatePostComponent
+        path: 'interactive', component: InteractiveCreatePostComponent, canActivate: [AuthGuardService],
+
       },
 
     ]

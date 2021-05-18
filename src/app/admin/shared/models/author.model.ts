@@ -1,7 +1,6 @@
 import { FileData, ProfileImage } from '.';
 import { Thumbnail } from '../dto';
 import { SocialMediaHandle } from './social-media.model';
-import { IUser } from './user.model';
 
 
 // Have any type for profile_pic
@@ -9,7 +8,7 @@ import { IUser } from './user.model';
 
 export interface IAuthor {
 
-  id: string;
+  author_id: string;
   email: string;
   first_name: string;
   last_name: string;
@@ -25,7 +24,7 @@ export interface IAuthor {
 }
 export class Author implements IAuthor {
 
-  public id: string;
+  public author_id: string;
   public email: string;
   public first_name: string;
   public last_name: string;
@@ -43,7 +42,7 @@ export class CreateAuthor implements IAuthor {
   ) {
   }
 
-  public id: string;
+  public author_id: string;
   public email: string;
   public first_name: string;
   public last_name: string;

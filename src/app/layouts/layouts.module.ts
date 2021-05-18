@@ -11,7 +11,8 @@ import {
   SubscribeDialogComponent,
   CategoryTabComponent,
   LoadMoreComponent,
-  PostCardsComponent
+  PostCardsComponent,
+  PartnersComponent
 } from '.';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -30,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SubscribeDialogComponent,
     CategoryTabComponent,
     PostCardsComponent,
-    LoadMoreComponent
+    LoadMoreComponent,
+    PartnersComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -39,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SubscribeDialogComponent,
     CategoryTabComponent,
     PostCardsComponent,
-    LoadMoreComponent
+    LoadMoreComponent,
+    PartnersComponent
   ]
 })
 export class HivenewsLayoutsModule { }

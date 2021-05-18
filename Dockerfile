@@ -6,7 +6,7 @@ USER node
 RUN mkdir /home/node/app
 WORKDIR /home/node/app
 
-COPY dist/hive-media  ./
+COPY dist/hive-institute  ./
 
 EXPOSE 4000
 

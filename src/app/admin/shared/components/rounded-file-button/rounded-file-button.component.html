@@ -1,0 +1,9 @@
+<div class="image-selector">
+  <button class="image" mat-icon-button>
+    <mat-icon class="mat-18">
+      edit
+      <div class="custom-file-upload">
+        <input type="file" #image type="file" accept="image/*" (change)="processFile(image)" name="profile_pic" />
+      </div>
+    </mat-icon>
+  </button>

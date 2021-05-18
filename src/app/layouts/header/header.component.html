@@ -3,16 +3,18 @@
 
   <ngb-carousel *ngIf="posts" [showNavigationArrows]="navigation.showNavigationArrows"
     [showNavigationIndicators]="navigation.showNavigationIndicators">
-    <ng-template ngbSlide *ngFor="let post of posts">
-      <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.header_image_url)">
+    <ng-template ngbSlide *ngFor="let course of courses">
+      <div class="slider" [style.backgroundImage]="getPostThumbUrl(course.image)">
         <div class="post">
-          <h3 class="post-title">{{ post.title }}</h3>
+          <h3 class="post-title">{{ course.title }}</h3>
 
-          <p class="post-date">{{ post.date_created | date: 'dd MMM yyyy' }}</p>
+          <p class="post-date">{{ course.description }}</p>
 
-          <a class="post-read" [routerLink]="['/posts', post.post_id]">Explore</a>
+          <!-- <a class="post-read" [routerLink]="['/posts', post.post_id]">Explore</a> -->
         </div>
       </div>
     </ng-template>
   </ngb-carousel>
+
+
 </header>

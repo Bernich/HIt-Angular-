@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IPost } from 'src/app/shared/model/post.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { IPost } from 'src/app/shared/model/post.model';
 export class HivenewsAdminPostsComponent implements OnInit {
 
   @Input() post: IPost;
+  @Output() edit = new EventEmitter();
 
   constructor() { }
 

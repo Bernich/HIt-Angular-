@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CreateAuthor, SocialMediaHandle } from '../../shared/models';
 import { AuthorsService, AuthService, CreatePostService } from '../../shared/services';
 
@@ -23,7 +24,9 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
 
   constructor(
     public postService: CreatePostService,
-    private authorService: AuthorsService) {
+    private authorService: AuthorsService,
+    private route: ActivatedRoute
+  ) {
 
     // Create Mock Author and use here
     this.author.bio = 'This is bio of the author ';
@@ -35,42 +38,16 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  saveButton() {
-    console.log(this.postService.post);
-  }
-
-
-  /**
-   * Process an input file selected by the user.
-   * Checks if the type is a BANNER or a THUMBNAIL
-   * @param imageInput
-   */
-  processFile(imageInput) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
-
-    reader.readAsDataURL(file);
-    reader.addEventListener('load', (event: any) => {
-
-
-      this.imgUrl = (event.target.result);
-      const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
-
-      // this.createCourse.course.banner_data = (new FileData(file.type, data));
-
-
-    });
+    // check if there is an id in the url, then load the id else create a new author
+    const slug = this.route.snapshot.paramMap.get('id');
+    if (slug) {
+      console.log('Has id, fetch and change state to update')
+    } else {
+      console.log('Has no id, create author');
+    }
 
   }
 
-  savePost() {
-    this.postService.savePost().subscribe({
-      next: (data: any) => { console.log(data); },
-      error: (err: any) => { console.log(err); }
-    })
-  }
 
 
   saveAuthor(author) {

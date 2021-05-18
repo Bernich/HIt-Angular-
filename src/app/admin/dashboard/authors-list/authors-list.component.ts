@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IAuthor, IUser } from '../../shared/models';
-import { AuthorsService } from '../../shared/services';
+import { AuthorsService, NavigationService } from '../../shared/services';
 
 @Component({
   selector: 'app-hivenews-admin-news-list-page',
@@ -13,13 +13,19 @@ export class HivenewsAdminAuthorsListComponent implements OnInit {
   authors: IAuthor[];
 
 
-  constructor(private authorService: AuthorsService) { }
+  constructor(
+    private authorService: AuthorsService,
+    private navigationService: NavigationService
+  ) { }
 
 
   ngOnInit(): void {
     this.loadAll();
   }
 
+  editAuthor(author: IAuthor) {
+    this.navigationService.editAuthor(author.author_id);
+  }
 
   loadAll() {
     this.isLoading = true;

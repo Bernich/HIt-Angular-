@@ -11,6 +11,7 @@ import { AdminSharedModule } from '../shared/admin-shared.module';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
 import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
 import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.component';
+import { AuthorsBottomSheetComponent } from './add-post/authors-bottomsheet.component';
 @NgModule({
   declarations: [
     HivenewsDashboardComponent,
@@ -18,7 +19,8 @@ import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.c
     HivenewsAdminListComponent,
     HivenewsAdminUsersListComponent,
     HivenewsAdminAddAuthorComponent,
-    HivenewsAdminAuthorsListComponent
+    HivenewsAdminAuthorsListComponent,
+    AuthorsBottomSheetComponent
   ],
   imports: [
     CommonModule,

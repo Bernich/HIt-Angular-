@@ -6,3 +6,4 @@ export * from './subscribe-dialog/subscribe-dialog.component';
 export * from './category-tab/category-tab.component';
 export * from './load-more/load-more.component';
 export * from './post-cards/post-cards.component';
+export * from './partners/partners.component';

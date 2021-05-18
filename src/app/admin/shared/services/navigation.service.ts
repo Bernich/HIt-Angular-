@@ -10,6 +10,7 @@ import { Router, CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStat
 @Injectable()
 export class NavigationService {
 
+
   constructor(
     private router: Router
   ) { }
@@ -28,5 +29,9 @@ export class NavigationService {
    */
   navigateToLogin() {
     this.router.navigate([`/admin/login`]);
+  }
+
+  editAuthor(author_id: string) {
+    this.router.navigate([`/admin/author/${author_id}/edit`]);
   }
 }

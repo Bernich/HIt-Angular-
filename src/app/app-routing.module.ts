@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from './admin/shared/services';
 import { landingPageRoute } from './pages/landing-page';
 
 const routes: Routes = [
@@ -26,10 +27,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
-      useHash: true,
-      initialNavigation: 'enabled'
-    })
+    RouterModule.forRoot(routes, { enableTracing: true })
   ],
   exports: [RouterModule]
 })
