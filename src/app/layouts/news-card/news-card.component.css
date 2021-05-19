@@ -93,6 +93,8 @@
   display: flex;
   justify-content: space-between;
 
+  color: var(--black-50);
+
   font-family: SFProText;
   font-size: 12px;
   font-weight: 700;
