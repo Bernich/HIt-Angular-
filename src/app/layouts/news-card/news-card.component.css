@@ -89,6 +89,17 @@
   color: var(--black-50);
 }
 
+.news-card-footer {
+  display: flex;
+  justify-content: space-between;
+
+  font-family: SFProText;
+  font-size: 12px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+}
 .flex-height-center {
   display: inline-flex;
   align-items: center;
