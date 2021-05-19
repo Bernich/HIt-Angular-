@@ -63,7 +63,8 @@ a:visited {
 
 .main-nav li {
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 10px;
+  font-size: 1.2rem;
 }
 
 .main-nav li a:link,
@@ -141,7 +142,7 @@ a:visited {
 
   .main-nav li {
     display: inline-block;
-    margin: auto 0 auto 100px;
+    margin: auto 0 auto 50px;
   }
 
   .subscribe-btn {

@@ -9,8 +9,8 @@ import { HivenewsAdminAddNewsComponent } from './add-post/add-post.component';
 import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { AdminSharedModule } from '../shared/admin-shared.module';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
-import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
-import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.component';
+import { HiveAdminAddInstructorComponent } from './add-instructor/add-instructor.component';
+import { HiveAdminInstructorListComponent } from './authors-list/authors-list.component';
 import { AuthorsBottomSheetComponent } from './add-post/authors-bottomsheet.component';
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { AuthorsBottomSheetComponent } from './add-post/authors-bottomsheet.comp
     HivenewsAdminAddNewsComponent,
     HivenewsAdminListComponent,
     HivenewsAdminUsersListComponent,
-    HivenewsAdminAddAuthorComponent,
-    HivenewsAdminAuthorsListComponent,
+    HiveAdminAddInstructorComponent,
+    HiveAdminInstructorListComponent,
     AuthorsBottomSheetComponent
   ],
   imports: [

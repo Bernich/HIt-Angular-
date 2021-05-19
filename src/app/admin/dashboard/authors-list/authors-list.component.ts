@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IAuthor, IUser } from '../../shared/models';
+import { IInstructor, IUser } from '../../shared/models';
 import { AuthorsService, NavigationService } from '../../shared/services';
 
 @Component({
@@ -7,10 +7,10 @@ import { AuthorsService, NavigationService } from '../../shared/services';
   templateUrl: './authors-list.component.html',
   styleUrls: ['./authors-list.component.css']
 })
-export class HivenewsAdminAuthorsListComponent implements OnInit {
+export class HiveAdminInstructorListComponent implements OnInit {
 
   isLoading = false;
-  authors: IAuthor[];
+  instructors: IInstructor[];
 
 
   constructor(
@@ -23,7 +23,7 @@ export class HivenewsAdminAuthorsListComponent implements OnInit {
     this.loadAll();
   }
 
-  editAuthor(author: IAuthor) {
+  editAuthor(author: IInstructor) {
     this.navigationService.editAuthor(author.author_id);
   }
 
@@ -36,7 +36,7 @@ export class HivenewsAdminAuthorsListComponent implements OnInit {
         console.log(data);
 
         this.isLoading = false;
-        this.authors = data;
+        this.instructors = data;
       },
 
       error: (error) => {

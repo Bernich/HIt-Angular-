@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
-import { IAuthor } from '../../shared/models';
+import { IInstructor } from '../../shared/models';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { IAuthor } from '../../shared/models';
 })
 export class AuthorsBottomSheetComponent {
 
-  authors: IAuthor[] = [];
+  authors: IInstructor[] = [];
 
   constructor(
     private bottomSheetRef: MatBottomSheetRef<AuthorsBottomSheetComponent>,
@@ -23,7 +23,7 @@ export class AuthorsBottomSheetComponent {
 
 
 
-  openLink(author: IAuthor): void {
+  openLink(author: IInstructor): void {
     this.bottomSheetRef.dismiss({ data: author });
     // Pass event down later
     // event.preventDefault();

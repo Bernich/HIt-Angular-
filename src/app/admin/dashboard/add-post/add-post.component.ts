@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { CreatePost } from 'src/app/shared/model/post.model';
-import { FileData, IAuthor } from '../../shared/models';
+import { FileData, IInstructor } from '../../shared/models';
 import { AuthorsService, CreatePostService } from '../../shared/services';
 import { AuthorsBottomSheetComponent } from './authors-bottomsheet.component';
 
@@ -20,8 +20,8 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
 
   isLoading = false;
-  authors: IAuthor[] = [];
-  selectedAuthors: IAuthor[] = [];
+  authors: IInstructor[] = [];
+  selectedAuthors: IInstructor[] = [];
 
 
   categories = [
@@ -91,7 +91,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
 
   getPostAuthors(): string[] {
-    return this.selectedAuthors.map((author: IAuthor) => {
+    return this.selectedAuthors.map((author: IInstructor) => {
       return author.author_id
     })
   }

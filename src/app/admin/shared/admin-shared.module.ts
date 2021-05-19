@@ -8,9 +8,13 @@ import {
   AuthorsService, AuthGuardService
 } from './services';
 import {
-  AddAuthorFormComponent, AdminAuthorListItemComponent,
-  AdminUserListItemComponent, HivenewsAdminPostsComponent,
-  LoaderComponent, RoundedButtonComponent, RoundedFileButtonComponent
+  AddAuthorFormComponent,
+  AdminInstructorListItemComponent,
+  AdminUserListItemComponent,
+  HivenewsAdminPostsComponent,
+  LoaderComponent,
+  RoundedButtonComponent,
+  RoundedFileButtonComponent
 } from './components';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,9 +23,12 @@ import { MaterialModule } from 'src/app/material.module';
 
 @NgModule({
   declarations: [
-    HivenewsAdminPostsComponent, LoaderComponent,
-    AdminUserListItemComponent, AddAuthorFormComponent,
-    RoundedButtonComponent, AdminAuthorListItemComponent,
+    HivenewsAdminPostsComponent,
+    LoaderComponent,
+    AdminUserListItemComponent,
+    AddAuthorFormComponent,
+    RoundedButtonComponent,
+    AdminInstructorListItemComponent,
     RoundedFileButtonComponent
   ],
 
@@ -48,7 +55,9 @@ import { MaterialModule } from 'src/app/material.module';
     LoaderComponent,
     AdminUserListItemComponent,
     AddAuthorFormComponent,
-    RoundedButtonComponent, AdminAuthorListItemComponent, RoundedFileButtonComponent
+    RoundedButtonComponent,
+    AdminInstructorListItemComponent,
+    RoundedFileButtonComponent
   ]
 })
 export class AdminSharedModule { }

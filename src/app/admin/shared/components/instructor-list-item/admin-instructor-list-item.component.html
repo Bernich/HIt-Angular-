@@ -1,13 +1,13 @@
-<div class=" admin-user-item-container" (click)="edit.emit(author)">
+<div class=" admin-user-item-container" (click)="edit.emit(instructor)">
   <div class="top-color"></div>
   <div class="content">
     <div class="image-container">
       <img
-        src="{{author.profile_image.url ? author.profile_image.url :'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder.jpg'  }}"
+        src="{{instructor.profile_image.url ? instructor.profile_image.url :'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder.jpg'  }}"
         class="patton" />
     </div>
 
-    <div class="name">{{ author.first_name }}</div>
+    <div class="name">{{ instructor.first_name }}</div>
 
     <br />
 
@@ -17,4 +17,3 @@
     </div> -->
   </div>
 </div>
-

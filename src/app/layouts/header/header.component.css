@@ -48,7 +48,7 @@ header {
   width: 100%;
   display: block;
   padding: 0 20px;
-  /* z-index: 0; */
+  z-index: 100 !important;
 }
 
 .post-title {
@@ -64,7 +64,6 @@ header {
   /* font-weight: bold; */
   /* letter-spacing: 1.4px; */
   color: #fff;
-  opacity: 0.6;
   margin-top: 15px;
 
   /* font-family: SFUIText-Light; */

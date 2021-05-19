@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { CommonModule, HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HivenewsSharedModule } from './shared';
 import { HivenewsCoreModule } from './core';
 import { HivenewsLayoutsModule } from './layouts/layouts.module';
@@ -44,7 +44,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     HivenewsEntityModule,
     // Extract all similar modules to shared
     ModalModule.forRoot(),
-    // AdminModule,
+    AdminModule,
     NgxWebstorageModule.forRoot(),
 
   ],

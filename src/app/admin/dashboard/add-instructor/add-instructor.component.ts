@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CreateAuthor, SocialMediaHandle } from '../../shared/models';
+import { CreateInstructor, SocialMediaHandle } from '../../shared/models';
 import { AuthorsService, AuthService, CreatePostService } from '../../shared/services';
 
 @Component({
-  selector: 'app-hivenews-admin-add-author-page',
-  templateUrl: './add-author.component.html',
-  styleUrls: ['./add-author.component.css'],
+  selector: 'app-hive-admin-add-author-page',
+  templateUrl: './add-instructor.component.html',
+  styleUrls: ['./add-instructor.component.css'],
   providers: [CreatePostService]
 })
-export class HivenewsAdminAddAuthorComponent implements OnInit {
+export class HiveAdminAddInstructorComponent implements OnInit {
 
   imgUrl = 'https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg';
 
@@ -20,7 +20,7 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
   instagram = new SocialMediaHandle('INSTAGRAM', '@url');
   twitter = new SocialMediaHandle('TWITTER', '@url');
 
-  author: CreateAuthor = new CreateAuthor();
+  author: CreateInstructor = new CreateInstructor();
 
   constructor(
     public postService: CreatePostService,

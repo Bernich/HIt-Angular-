@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from '../shared/services';
-import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
+import { HiveAdminAddInstructorComponent } from './add-instructor/add-instructor.component';
 import { HivenewsAdminAddNewsComponent } from './add-post/add-post.component';
-import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.component';
+import { HiveAdminInstructorListComponent } from './authors-list/authors-list.component';
 import { HivenewsDashboardComponent } from './dashboard.component';
 import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
@@ -40,10 +40,9 @@ const routes: Routes = [
       { path: 'posts/add', component: HivenewsAdminAddNewsComponent },
       { path: 'posts/:id/edit', component: HivenewsAdminAddNewsComponent },
       { path: 'users', component: HivenewsAdminUsersListComponent },
-      { path: 'add/author', component: HivenewsAdminAddAuthorComponent },
-      { path: 'author/:id/edit', component: HivenewsAdminAddAuthorComponent },
-      { path: 'authors', component: HivenewsAdminAuthorsListComponent }
-
+      { path: 'add/instructor', component: HiveAdminAddInstructorComponent },
+      { path: 'instructors/:id/edit', component: HiveAdminAddInstructorComponent },
+      { path: 'instructorss', component: HiveAdminInstructorListComponent }
     ]
   },
 ];

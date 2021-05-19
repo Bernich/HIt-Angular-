@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuardService } from './admin/shared/services';
-import { landingPageRoute } from './pages/landing-page';
 
 const routes: Routes = [
 
@@ -15,7 +13,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/academics-page/academics-page.module').then((m) => m.AcademicsPageModule),
   },
-
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./pages/about-page/about-page.module').then((m) => m.AboutPageModule),
+  },
   {
     path: 'posts',
     loadChildren: () =>
