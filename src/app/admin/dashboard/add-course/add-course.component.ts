@@ -175,25 +175,35 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
 
-  processFile(thumbInput, type: string) {
+  /**
+ * Process an input file selected by the user.
+ * Checks if the type is a BANNER or a THUMBNAIL
+ * @param imageInput
+ */
+  processFile(imageInput, type: string) {
 
-    if (type = 'THUMBMAIL') {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
 
-    }
+    reader.readAsDataURL(file);
+    reader.addEventListener('load', (event: any) => {
+
+      if (type = 'THUMBMAIL') {
+        this.thumbnailURL = (event.target.result);
+        const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
+      }
+
+    });
+
   }
 
-  removeUser(instructor) {
-
+  removeUser(instructor: IInstructor) {
+    this.selectedInstructors = this.selectedInstructors.filter((user: IInstructor) => instructor.instructor_id !== user.instructor_id);
   }
 
   addLesson(section_position, $event) {
-
-    console.log(section_position);
-
     const lesson = new CreateLesson();
     this.sections[section_position].lessons.push(lesson);
-
-    console.log(this.sections);
 
   }
 

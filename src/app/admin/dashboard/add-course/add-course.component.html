@@ -259,11 +259,12 @@
 
 
       <!-- COURSE THUMBNAIL -->
-      <div class="course-instructors" id="image-thumbmail" cdkDrag>
+      <div style="position:relative" class="course-instructors" id="image-thumbmail" cdkDrag>
         <img [src]="thumbnailURL" *ngIf="thumbnailURL" />
         <div style="z-index: 2" class="" *ngIf="!thumbnailURL">
           Image Thumbmail
         </div>
+
         <button style="cursor: pointer;" mat-icon-button mat-ripple>
           <mat-icon class="mat-18">
             edit
