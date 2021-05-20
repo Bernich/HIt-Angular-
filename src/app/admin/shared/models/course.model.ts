@@ -48,7 +48,7 @@ export class CreateLesson implements ILesson {
   }
 
   public id;
-  public content;
+  public content = "this";
 }
 
 export class CreateSection {
@@ -60,6 +60,7 @@ export class CreateSection {
   public id?: string;
   public title: string = "";
   public lessons: ILesson[] = [];
+  public duration: number = 0;
 }
 
 export class CreatePost implements ICourse {

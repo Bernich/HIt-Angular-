@@ -9,7 +9,12 @@ import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component'
 @Component({
   selector: 'app-hive-admin-add-news-page',
   templateUrl: './add-course.component.html',
-  styleUrls: ['./add-course.component.css', 'add-course-section.css', 'add-course-module.css'],
+  styleUrls: [
+    './add-course.component.css',
+    'add-course-section.css',
+    'add-course-module.css',
+    'add-course-main.css'
+  ],
   providers: [CreatePostService]
 })
 export class HiveAdminAddCourseComponent implements OnInit {
@@ -25,6 +30,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
   panelOpenState = false;
 
+  thumbnailURL = "";
+
   categories = [
     'IOT',
     'Event',
@@ -32,15 +39,26 @@ export class HiveAdminAddCourseComponent implements OnInit {
     'Podcast'
   ];
 
+  skill_level = [
+    "Beginner",
+    "Intermediate",
+    "Professional"
+  ]
   stateTabs = {
     createCourse: true,
     curriculumTab: false
   };
 
+  course = {
+    base_price: 1200,
+    skill_level: "Beginner",
+    banner: ""
+  }
 
   sections: CreateSection[] = [
     {
-      title: "This is the first", lessons: [
+      title: "This is the first",
+      lessons: [
         {
           id: '12345',
           content: "First Lesson"
@@ -53,7 +71,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
           id: '12345122323',
           content: "Third Lesson"
         }
-      ]
+      ],
+      duration: 0
     }
 
   ];
@@ -102,7 +121,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
     // open sheet
     this.bottomSheet.open(CoursesBottomSheetComponent, {
-      data: { instructors: this.instructors },
+      data: { instructors: this.instructors, selected: this.selectedInstructors },
     });
 
     // subscribe to observable that emit event when bottom sheet closes
@@ -156,12 +175,26 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
 
+  processFile(thumbInput, type: string) {
+
+    if (type = 'THUMBMAIL') {
+
+    }
+  }
+
+  removeUser(instructor) {
+
+  }
+
   addLesson(section_position, $event) {
 
     console.log(section_position);
 
     const lesson = new CreateLesson();
     this.sections[section_position].lessons.push(lesson);
+
+    console.log(this.sections);
+
   }
 
   deleteSection(section_id) {
@@ -175,5 +208,12 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
   dropSection(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.sections, event.previousIndex, event.currentIndex);
+  }
+
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'Mins';
+    }
+    return value;
   }
 }

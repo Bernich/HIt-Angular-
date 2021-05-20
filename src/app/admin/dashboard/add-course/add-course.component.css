@@ -19,6 +19,14 @@
   right: 40px;
 }
 
+.content-container {
+  width: calc(100% - (250px + 10px));
+  /* background-color: #ff8100; */
+
+  display: flex;
+  justify-content: center;
+}
+
 /* Title Input */
 .mat-form-field {
   display: block;
@@ -86,7 +94,7 @@
   height: auto;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 
   position: relative;

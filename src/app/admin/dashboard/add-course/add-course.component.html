@@ -2,211 +2,322 @@
 
   <div style="margin-bottom: 100px;"></div>
 
+  <section class="content-container">
 
+    <!-- Main Content -->
+    <section class="admin-dashboard-content-container ">
 
-  <section class="admin-dashboard-content-container ">
+      <section class="admin-dashboard-post-header">
+        <!-- TOGGLE BETWEEN CURRICULLUM OR COURSE DETAILS -->
+        <div class="heading-toggle" style="width: 800px">
+          <div class="tabs">
+            <div [ngClass]="{'active-heading' : stateTabs.createCourse}" class="heading"
+              (click)="switchToEditCourseTab()">
+              Create Course</div>
+            <div [ngClass]="{'active-heading' : stateTabs.curriculumTab}" class="heading"
+              (click)="switchToCurriculumCourseTab()">
+              Curriculum</div>
+          </div>
 
-    <section class="admin-dashboard-post-header">
-      <!-- TOGGLE BETWEEN CURRICULLUM OR COURSE DETAILS -->
-      <div class="heading-toggle" style="width: 800px">
-        <div class="tabs">
-          <div [ngClass]="{'active-heading' : stateTabs.createCourse}" class="heading"
-            (click)="switchToEditCourseTab()">
-            Create Course</div>
-          <div [ngClass]="{'active-heading' : stateTabs.curriculumTab}" class="heading"
-            (click)="switchToCurriculumCourseTab()">
-            Curriculum</div>
         </div>
 
-      </div>
+        <div class="spacer"></div>
+        <section class="admin-dashboard-posts-button">
 
-      <div class="spacer"></div>
-      <section class="admin-dashboard-posts-button">
-
-        <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
-          (click)="savePost()">Save</button>
+          <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
+            (click)="savePost()">Save</button>
 
 
+        </section>
       </section>
-    </section>
 
-    <div style="margin-bottom: 30px;"></div>
+      <div style="margin-bottom: 30px;"></div>
 
-    <!-- Course Specific Space -->
-    <section *ngIf="stateTabs.createCourse">
-      <mat-card class="blog-content-input-card">
-        <mat-card-header class="blog-content-input-card-header">
-          <div mat-card-avatar class="add-post-header-image">
+      <!-- Course Specific Space -->
+      <section *ngIf="stateTabs.createCourse">
+        <mat-card class="blog-content-input-card">
+          <mat-card-header class="blog-content-input-card-header">
+            <div mat-card-avatar class="add-post-header-image">
 
-            <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
-              alt="profile image of {{instructors.firstname}}" srcset="">
+              <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
+                alt="profile image of {{instructors.firstname}}" srcset="">
 
-          </div>
-          <mat-card-title>Instructors </mat-card-title>
-          <mat-card-subtitle>click to remove an instructors</mat-card-subtitle>
+            </div>
+            <mat-card-title>Instructors </mat-card-title>
+            <mat-card-subtitle>click to remove an instructors</mat-card-subtitle>
 
-          <div class="spacer"></div>
+            <div class="spacer"></div>
 
-          <section>
-            <app-rounded-button (triggerClick)="openBottomSheet()" [text]="'Add Author'">
+            <section>
+              <app-rounded-button (triggerClick)="openBottomSheet()" [text]="'Add Author'">
 
-            </app-rounded-button>
-          </section>
+              </app-rounded-button>
+            </section>
 
-        </mat-card-header>
-        <img [(src)]="imgUrl" loading="lazy" style="height:400px" mat-card-image alt="blog header image">
+          </mat-card-header>
+          <img [(src)]="imgUrl" loading="lazy" style="height:400px" mat-card-image alt="blog header image">
 
-        <!-- Position file button absolutely -->
-        <app-rounded-file-button (receiveFile)="updateBannerImage($event)" class="update-file-button">
-        </app-rounded-file-button>
+          <!-- Position file button absolutely -->
+          <app-rounded-file-button (receiveFile)="updateBannerImage($event)" class="update-file-button">
+          </app-rounded-file-button>
 
 
-        <mat-card-content>
-          <p>
-            <mat-form-field class="add-post-form-field">
-              <mat-label>Course title</mat-label>
-              <input matInput type="text" [(ngModel)]="postService.post.title">
-              <button mat-button *ngIf="postService.post.title" matSuffix mat-icon-button aria-label="Clear"
-                (click)="postService.post.title=''">
-                <mat-icon>close</mat-icon>
-              </button>
+          <mat-card-content>
+            <p>
+              <mat-form-field class="add-post-form-field">
+                <mat-label>Course title</mat-label>
+                <input matInput type="text" [(ngModel)]="postService.post.title">
+                <button mat-button *ngIf="postService.post.title" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="postService.post.title=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+            </p>
+
+            <mat-form-field class="blog-content-post-category" appearance="fill">
+              <mat-label>Category</mat-label>
+              <mat-select [formControl]="categoryControl" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let category of categories" [value]="category">
+                  {{category}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="categoryControl.hasError('required')">Please choose a category</mat-error>
+              <mat-hint>{{categoryControl.value?.sound}}</mat-hint>
             </mat-form-field>
-          </p>
 
-          <mat-form-field class="blog-content-post-category" appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select [formControl]="categoryControl" required>
-              <mat-option>--</mat-option>
-              <mat-option *ngFor="let category of categories" [value]="category">
-                {{category}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="categoryControl.hasError('required')">Please choose a category</mat-error>
-            <mat-hint>{{categoryControl.value?.sound}}</mat-hint>
-          </mat-form-field>
-
-        </mat-card-content>
-        <mat-card-actions class="blog-content-input-card-header">
+          </mat-card-content>
+          <mat-card-actions class="blog-content-input-card-header">
 
 
-          <div class="spacer"></div>
+            <div class="spacer"></div>
 
-          <mat-slide-toggle [(ngModel)]="postService.post.publicity_status" name="publish_status">Publish Course
-          </mat-slide-toggle>
+            <mat-slide-toggle [(ngModel)]="postService.post.publicity_status" name="publish_status">Publish Course
+            </mat-slide-toggle>
 
-        </mat-card-actions>
-      </mat-card>
+          </mat-card-actions>
+        </mat-card>
 
-      <div style="margin-bottom: 100px;"></div>
+        <div style="margin-bottom: 100px;"></div>
 
-      <mat-card class="blog-content-input-card">
+        <mat-card class="blog-content-input-card">
 
-        <mat-card-header class="blog-content-input-card-header">
-          <div mat-card-avatar class="add-post-header-image">
+          <mat-card-header class="blog-content-input-card-header">
+            <div mat-card-avatar class="add-post-header-image">
 
-            <img *ngFor="let author of selectedInstructors" [src]="author.profile_image.url"
-              alt="profile image of {{author.firstname}}" srcset="">
+              <img *ngFor="let author of selectedInstructors" [src]="author.profile_pic.url"
+                alt="profile image of {{author.firstname}}" srcset="">
 
-          </div>
-          <mat-card-title>Course Summary </mat-card-title>
-          <mat-card-subtitle>Short summary of course</mat-card-subtitle>
-
-
-        </mat-card-header>
+            </div>
+            <mat-card-title>Course Summary </mat-card-title>
+            <mat-card-subtitle>Short summary of course</mat-card-subtitle>
 
 
-        <div style="margin-bottom: 40px;"></div>
-        <mat-card-content>
-          <p>
-            <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
-              [(ngModel)]="postService.post.content" id="contenteditor" name="description" #editor [init]="{
-        height: '700',
+          </mat-card-header>
+
+
+          <div style="margin-bottom: 40px;"></div>
+          <mat-card-content>
+            <p>
+              <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
+                [(ngModel)]="postService.post.content" id="contenteditor" name="description" #editor [init]="{
+        height: '300',
         menubar: 'file edit view insert format tools table help',
         toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl'
       }"></editor>
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <a routerLink="/admin/interactive">
-            <button mat-button>Switch To Interactive</button>
-          </a>
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a routerLink="/admin/interactive">
+              <button mat-button>Switch To Interactive</button>
+            </a>
 
-        </mat-card-actions>
-      </mat-card>
+          </mat-card-actions>
+        </mat-card>
+      </section>
+
+      <!-- CUrricullum Space -->
+      <section class="full-width" *ngIf="stateTabs.curriculumTab">
+        <mat-accordion cdkDropList (cdkDropListDropped)="dropSection($event)">
+
+          <mat-expansion-panel *ngFor="let section of sections; let count = index" cdkDrag>
+
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{"Chapter "+ (count + 1) + " : " + section.title}}
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <section class="objectives-add-list">
+              <!-- Section Title -->
+              <mat-form-field class="title section-name-field">
+                <!-- Editable Text for the Section title -->
+                <mat-label> Name</mat-label>
+                <input #name matInput type="text" [(ngModel)]="section.title" />
+                <button mat-button *ngIf="section.title" matSuffix mat-icon-button aria-label="Clear Screen"
+                  (click)="section.title = ''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <div class="list-item" style="margin-top: 20px;">
+                <div>{{"Duration ( " + (section.duration || 0) + " hrs)" }}</div>
+                <mat-slider style="width: 75%; flex : 1;margin-left:10px" thumbLabel [(ngModel)]="section.duration"
+                  [displayWith]="formatLabel" tickInterval="1000" min="1" max="60">
+                </mat-slider>
+              </div>
+
+              <h2>Lessons</h2>
+              <div class="list-item" *ngFor="let obj of section.lessons; let count = index">
+                <!-- <div class="horizontal-divider"></div> -->
+                <!-- <p>{{obj | json}}</p> -->
+                <mat-form-field class="title -input">
+                  <input matInput type="text" name="url" placeholder="{{'Lesson '+ (count + 1)}}"
+                    [(ngModel)]="obj.content" />
+                </mat-form-field>
+              </div>
+
+            </section>
+
+
+            <div class="bottom-buttons">
+              <button class="remove-button" mat-flat-button style="margin-right: 20px"
+                (click)="deleteSection(section.id)">
+                <mat-icon>remove</mat-icon>
+                Remove Section
+              </button>
+
+              <button class="add-button" mat-flat-button (click)="addLesson(count,$event)">
+                <mat-icon class="icon">add</mat-icon>
+                Add Lesson
+              </button>
+
+            </div>
+          </mat-expansion-panel>
+
+
+        </mat-accordion>
+
+        <button class="add-curriculu-section-button" mat-flat-button (click)="addSection($event)">
+          <mat-icon>add</mat-icon>
+          Add Section
+        </button>
+
+      </section>
+
+
+
     </section>
 
-    <!-- CUrricullum Space -->
-    <section class="full-width" *ngIf="stateTabs.curriculumTab">
-      <mat-accordion cdkDropList (cdkDropListDropped)="dropSection($event)">
+    <!--
+      RIGHT SIDE BAR - ALLOW DRAGGRABLE
+      TODO - REMOVE TO ITS OWN COMPONENT
+      -->
+    <section class="right-details">
+      <!-- Course Specific Data -->
+      <div class="course-specifics" cdkDrag>
+        <div class="header">Course Specifics</div>
 
-        <mat-expansion-panel *ngFor="let section of sections; let count = index" cdkDrag>
+        <div class="input-item">
+          <div class="heading">DURATION (Months)</div>
+          <input type="text" matInput name="duration" required class="-input" />
+        </div>
 
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{"Chapter "+ (count + 1) + " : " + section.title}}
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
+        <div class="input-item">
+          <div class="heading">START DATE</div>
+          <input type="date" ngModel matInput name="date" required class="-input" disabled />
+        </div>
+
+        <div class="input-item">
+          <div class="heading">Registeration Fee</div>
+          <input #fee type="number" [(ngModel)]="course.base_price" matInput name="fee" required class="-input" />
+        </div>
+
+        <div class="input-item" style="margin-bottom: 10px;">
+          <!-- todo change ngModel to  -->
+          <div class="heading">Skill Level</div>
 
 
+          <!-- SKILL LEVEL -->
+          <mat-form-field #skill class="select" appearance="none">
+            <mat-select [disabled]="true" [(value)]="course.skill_level" id="
+                categories">
+              <mat-option value="">None</mat-option>
+              <mat-option *ngFor="let item of skill_level" value="{{ item }}">
+                {{item}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-          <section class="objectives-add-list">
-            <!-- Section Title -->
-            <mat-form-field class="title section-name-field">
-              <!-- Editable Text for the Section title -->
-              <mat-label> Name</mat-label>
-              <input #name matInput type="text" [(ngModel)]="section.title" />
-              <button mat-button *ngIf="section.title" matSuffix mat-icon-button aria-label="Clear Screen"
-                (click)="section.title = ''">
-                <mat-icon>close</mat-icon>
-              </button>
-            </mat-form-field>
+        </div>
+      </div>
 
-            <h2>Lessons</h2>
-            <div class="list-item" *ngFor="let obj of section.objectives">
-              <!-- <div class="horizontal-divider"></div> -->
-              <!-- <p>{{obj | json}}</p> -->
-              <mat-form-field class="title -input">
-                <input matInput type="text" name="url" placeholder="lesson" [(ngModel)]="obj.lesson" />
-              </mat-form-field>
+      <br />
+      <br />
+
+
+      <!-- COURSE THUMBNAIL -->
+      <div class="course-instructors" id="image-thumbmail" cdkDrag>
+        <img [src]="thumbnailURL" *ngIf="thumbnailURL" />
+        <div style="z-index: 2" class="" *ngIf="!thumbnailURL">
+          Image Thumbmail
+        </div>
+        <button style="cursor: pointer;" mat-icon-button mat-ripple>
+          <mat-icon class="mat-18">
+            edit
+            <div class="custom-file-upload">
+              <input type="file" #thumbInput type="file" accept="image/*"
+                (change)="processFile(thumbInput, 'THUMBMAIL')" name="thumbmail" />
+            </div>
+          </mat-icon>
+        </button>
+      </div>
+
+      <br />
+
+      <!-- COURSE INSTRUCTORS TAB -->
+      <div class="course-instructors select-container" cdkDrag>
+        <div class="top-row">
+          <div class="header">Course Instructors</div>
+
+          <button class="add-button" mat-icon-button (click)="openBottomSheet()">
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+        </div>
+
+        <!-- bottom list of selected courses -->
+        <div class="items-container">
+          <div *ngFor="let item of selectedInstructors" class="menu-items-container" style="margin-bottom: 10px">
+            <div class="_container">
+              <img class="menu-image" src="{{ item.profile_pic.url }}" alt="" />
+              <div>
+                {{item.firstname +" "+ item.lastname }}
+              </div>
             </div>
 
-          </section>
+            <button mat-icon-button class="remove-user" (click)="removeUser(item)">
 
-
-          <div class="bottom-buttons">
-            <button class="remove-button" mat-flat-button style="margin-right: 20px"
-              (click)="deleteSection(section.id)">
-              <mat-icon>remove</mat-icon>
-              Remove Section
-            </button>
-
-            <button class="add-button" mat-flat-button (click)="addLesson(count,$event)">
-              <mat-icon class="icon">add</mat-icon>
-              Add Lesson
+              <mat-icon>close</mat-icon>
             </button>
 
           </div>
-        </mat-expansion-panel>
+        </div>
+      </div>
 
-
-      </mat-accordion>
-
-      <button class="add-curriculu-section-button" mat-flat-button (click)="addSection($event)">
-        <mat-icon>add</mat-icon>
-        Add Section
-      </button>
-
+      <!-- COURSE COLLABORATORS TAB -->
+      <div class="course-collaborators" cdkDrag>
+        <div class="header">Course Collaborators</div>
+      </div>
     </section>
+
+    <div style="margin-bottom: 100px;"></div>
 
   </section>
 
-
-
 </section>
 
-<div style="margin-bottom: 100px;"></div>
 
 
 <ng-template #loader>
