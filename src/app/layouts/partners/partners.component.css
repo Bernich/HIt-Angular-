@@ -21,7 +21,7 @@
   background-color: white;
 
   /* offset-x | offset-y | blur-radius | color */
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 
   z-index: 1;
 

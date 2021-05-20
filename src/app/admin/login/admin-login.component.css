@@ -28,10 +28,12 @@
   background-color: #1e1e1e;
   display: flex;
   color: white;
-  line-height: 1.5rem;
 
-  line-height: normal;
+  /* Give all specific components */
+  font-weight: 400;
+  font-style: normal;
   letter-spacing: normal;
+  line-height: normal;
 }
 
 .login-container .side-page {
@@ -48,7 +50,8 @@
   margin-right: 10%;
   margin-top: 10%;
   margin-bottom: 20%;
-  font-family: "Josefin Sans", "Times New Roman";
+  /* font-family: "Josefin Sans", "Times New Roman"; */
+  font-family: SFUIText-Medium;
 
   z-index: 9999 !important;
 
@@ -67,14 +70,18 @@
 }
 .login-container .side-page .left-head-description .title {
   font-size: 2.2rem;
-  font-family: "Josefin Sans", "Times New Roman";
+  /* font-family: "Josefin Sans", "Times New Roman"; */
   margin-bottom: 10%;
+
+  font-family: SFUIText-Medium;
 }
 
 .login-container .side-page .left-head-description .description {
   font-size: 0.991rem;
-  font-family: "Josefin Sans", "Times New Roman";
+  /* font-family: "Josefin Sans", "Times New Roman"; */
   color: rgba(240, 248, 255, 0.794);
+
+  font-family: SFUIText-Light;
 }
 .login-container .side-page:last-child {
   background-color: white;
@@ -87,6 +94,8 @@
   align-items: center;
   flex-direction: column;
   color: #1e1e1e;
+
+  font-family: SFUIText-Light;
 }
 
 .login-container .sign-in .sign-im-container {
@@ -96,9 +105,11 @@
 
 .login-container .sign-in .sign-im-container div:first-child {
   font-size: 2.2rem;
-  font-family: "Josefin Sans", "Times New Roman";
+  /* font-family: "Josefin Sans", "Times New Roman"; */
   /* background-color: #b6151517; */
   margin-bottom: 10px;
+
+  font-family: SFUIText-Medium;
 }
 
 .login-container .sign-in .sign-im-container div:nth-child(2) {

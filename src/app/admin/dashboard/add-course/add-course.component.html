@@ -1,0 +1,167 @@
+<section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
+
+  <div style="margin-bottom: 100px;"></div>
+
+
+
+  <section class="admin-dashboard-content-container ">
+
+    <section class="admin-dashboard-post-header">
+      <!-- TOGGLE BETWEEN CURRICULLUM OR COURSE DETAILS -->
+      <div class="heading-toggle" style="width: 800px">
+        <div class="tabs">
+          <div [ngClass]="{'active-heading' : stateTabs.createCourse}" class="heading"
+            (click)="switchToEditCourseTab()">
+            Create Course</div>
+          <div [ngClass]="{'active-heading' : stateTabs.curriculumTab}" class="heading"
+            (click)="switchToCurriculumCourseTab()">
+            Curriculum</div>
+        </div>
+
+      </div>
+
+      <div class="spacer"></div>
+      <section class="admin-dashboard-posts-button">
+
+        <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
+          (click)="savePost()">Save</button>
+
+
+      </section>
+    </section>
+
+    <div style="margin-bottom: 30px;"></div>
+
+    <!-- Course Specific Space -->
+    <section *ngIf="stateTabs.createCourse">
+      <mat-card class="blog-content-input-card">
+        <mat-card-header class="blog-content-input-card-header">
+          <div mat-card-avatar class="add-post-header-image">
+
+            <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
+              alt="profile image of {{instructors.firstname}}" srcset="">
+
+          </div>
+          <mat-card-title>Instructors </mat-card-title>
+          <mat-card-subtitle>click to remove an instructors</mat-card-subtitle>
+
+          <div class="spacer"></div>
+
+          <section>
+            <app-rounded-button (triggerClick)="openBottomSheet()" [text]="'Add Author'">
+
+            </app-rounded-button>
+          </section>
+
+        </mat-card-header>
+        <img [(src)]="imgUrl" loading="lazy" style="height:400px" mat-card-image alt="blog header image">
+
+        <!-- Position file button absolutely -->
+        <app-rounded-file-button (receiveFile)="updateBannerImage($event)" class="update-file-button">
+        </app-rounded-file-button>
+
+
+        <mat-card-content>
+          <p>
+            <mat-form-field class="add-post-form-field">
+              <mat-label>Course title</mat-label>
+              <input matInput type="text" [(ngModel)]="postService.post.title">
+              <button mat-button *ngIf="postService.post.title" matSuffix mat-icon-button aria-label="Clear"
+                (click)="postService.post.title=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </p>
+
+          <mat-form-field class="blog-content-post-category" appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select [formControl]="categoryControl" required>
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let category of categories" [value]="category">
+                {{category}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="categoryControl.hasError('required')">Please choose a category</mat-error>
+            <mat-hint>{{categoryControl.value?.sound}}</mat-hint>
+          </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions class="blog-content-input-card-header">
+
+
+          <div class="spacer"></div>
+
+          <mat-slide-toggle [(ngModel)]="postService.post.publicity_status" name="publish_status">Publish Course
+          </mat-slide-toggle>
+
+        </mat-card-actions>
+      </mat-card>
+
+      <div style="margin-bottom: 100px;"></div>
+
+      <mat-card class="blog-content-input-card">
+
+        <mat-card-header class="blog-content-input-card-header">
+          <div mat-card-avatar class="add-post-header-image">
+
+            <img *ngFor="let author of selectedInstructors" [src]="author.profile_pic.url"
+              alt="profile image of {{author.firstname}}" srcset="">
+
+          </div>
+          <mat-card-title>Course Summary </mat-card-title>
+          <mat-card-subtitle>Short summary of course</mat-card-subtitle>
+
+
+        </mat-card-header>
+
+
+        <div style="margin-bottom: 40px;"></div>
+        <mat-card-content>
+          <p>
+            <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
+              [(ngModel)]="postService.post.content" id="contenteditor" name="description" #editor [init]="{
+        height: '700',
+        menubar: 'file edit view insert format tools table help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl'
+      }"></editor>
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink="/admin/interactive">
+            <button mat-button>Switch To Interactive</button>
+          </a>
+
+        </mat-card-actions>
+      </mat-card>
+    </section>
+
+    <!-- CUrricullum Space -->
+    <section class="full-width" *ngIf="stateTabs.curriculumTab">
+      <mat-accordion cdkDropList (cdkDropListDropped)="dropSection($event)">
+        <mat-expansion-panel *ngFor="let section of sections; let count = index" cdkDrag>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{"Chapter "+ (count + 1) + " : " + section.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+
+
+      </mat-accordion>
+    </section>
+
+  </section>
+
+
+
+</section>
+
+<div style="margin-bottom: 100px;"></div>
+
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

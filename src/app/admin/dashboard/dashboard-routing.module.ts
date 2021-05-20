@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from '../shared/services';
 import { HiveAdminAddInstructorComponent } from './add-instructor/add-instructor.component';
 import { HivenewsAdminAddNewsComponent } from './add-post/add-post.component';
-import { HiveAdminInstructorListComponent } from './authors-list/authors-list.component';
+import { HiveAdminInstructorListComponent } from './instructors-list/instructors-list.component';
 import { HivenewsDashboardComponent } from './dashboard.component';
 import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
+import { HiveAdminCoursesListComponent } from './courses-list/courses-list.component';
+import { HiveAdminAddCourseComponent } from './add-course/add-course.component';
 
 /**
  * Admin Dashboard routes
@@ -35,14 +37,18 @@ const routes: Routes = [
        * This route is similar to the Dashboard component which is commented out
        */
       { path: '', component: HivenewsAdminListComponent, },
-      { path: 'posts', component: HivenewsAdminListComponent, },
-      { path: 'add-posts', component: HivenewsAdminAddNewsComponent },
+      { path: 'courses', component: HiveAdminCoursesListComponent, },
+      { path: 'courses/add', component: HiveAdminAddCourseComponent },
+      { path: 'courses/:id/edit', component: HiveAdminAddCourseComponent },
+
+      { path: 'posts', component: HivenewsAdminAddNewsComponent },
       { path: 'posts/add', component: HivenewsAdminAddNewsComponent },
       { path: 'posts/:id/edit', component: HivenewsAdminAddNewsComponent },
+
       { path: 'users', component: HivenewsAdminUsersListComponent },
-      { path: 'add/instructor', component: HiveAdminAddInstructorComponent },
+      { path: 'instructors/add', component: HiveAdminAddInstructorComponent },
       { path: 'instructors/:id/edit', component: HiveAdminAddInstructorComponent },
-      { path: 'instructorss', component: HiveAdminInstructorListComponent }
+      { path: 'instructors', component: HiveAdminInstructorListComponent }
     ]
   },
 ];

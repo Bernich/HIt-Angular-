@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { } from '../../dto';
-import { CreateInstructor, FileData } from '../../models';
+import { CreateAuthor, FileData } from '../../models';
 import { AuthService } from '../../services';
 
 
@@ -13,8 +13,8 @@ export class AddAuthorFormComponent implements OnInit {
 
   @Input() isLoading: boolean;
 
-  @Output() saveAuthor = new EventEmitter<CreateInstructor>();
-  @Input() author: CreateInstructor;
+  @Output() saveAuthor = new EventEmitter<CreateAuthor>();
+  @Input() author: CreateAuthor;
 
 
   isAccountVisibleState = true;

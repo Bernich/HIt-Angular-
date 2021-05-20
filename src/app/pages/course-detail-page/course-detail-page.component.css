@@ -1,0 +1,253 @@
+:host {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.course-detail-page-container {
+  background-color: rgba(0, 0, 0, 0.0251);
+}
+.course-banner {
+  width: 100%;
+  height: 600px;
+  background: linear-gradient(
+      180deg,
+      rgba(246, 136, 31, 0.51) 0%,
+      rgba(246, 136, 31, 0.13) 105.81%
+    ),
+    url("https://images.unsplash.com/photo-1555298472-8c43a95ddb8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60");
+  position: relative;
+  z-index: 12;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* padding: 5em 25em 17em 25em; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.course-detail-summary {
+  width: 60%;
+}
+.course-banner h1 {
+  font-weight: 700;
+  color: #fff;
+  display: inline-flex;
+  text-align: left;
+  line-height: 1.3em;
+  font-size: 2.6em;
+  margin-bottom: 2rem;
+}
+
+.course-banner p {
+  line-height: 1.9em;
+  max-width: 50%;
+  width: 550px;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1em;
+}
+
+.course-banner span {
+  color: #fff;
+  font-size: 1.3em;
+  font-weight: 500;
+  padding-left: 4px;
+}
+
+.course-wrapper {
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  max-width: 70%;
+  margin: -4% auto;
+  position: relative;
+}
+
+.course-details-wrapper {
+  width: 93%;
+  padding: 2em 2em;
+  background-color: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.0226);
+  -moz-box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.0226);
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.0226);
+  display: flex;
+
+  margin-bottom: 2rem;
+}
+
+.icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.course-description {
+  margin-left: 2rem;
+}
+
+.course-details-wrapper h3 {
+  font-weight: 700;
+  color: #4a4a4a;
+  margin-bottom: 2rem;
+}
+
+.instructor-container {
+  height: 39rem;
+  background-color: #fff;
+  border-radius: 3px;
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  top: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 9px 6px 19px -3px rgba(41, 20, 0, 0.226);
+  -moz-box-shadow: 9px 6px 19px -3px rgba(41, 20, 0, 0.226);
+  box-shadow: 9px 6px 19px -3px rgba(41, 20, 0, 0.226);
+  padding: 1rem 1rem;
+
+  z-index: 9999 !important;
+}
+
+.unordered-list {
+  margin: 1rem;
+  color: #8585bd !important;
+  font-weight: lighter;
+}
+
+li {
+  line-height: 2rem;
+}
+
+.duration {
+  color: #8585bd !important;
+  font-weight: 600;
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  width: 5rem;
+}
+
+.instructor-name {
+  font-weight: 700;
+  margin: 1rem;
+}
+
+.position {
+  font-weight: 700;
+  color: #8585bd !important;
+  margin-bottom: 1rem;
+}
+
+.instructor-desc {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 1rem;
+  font-weight: lighter;
+  color: #8585bd !important;
+  line-height: 2rem;
+}
+
+.btn-enroll {
+  color: #ffffff;
+  border-width: 10px;
+  border-color: #4747bc;
+  border-radius: 100px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: #4747bc;
+  outline: none;
+  border: none;
+  padding: 1em 2em;
+}
+
+@media screen and (max-width: 579px) {
+  .course-banner h1 {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+  }
+  .course-wrapper {
+    justify-content: center;
+  }
+  li {
+    line-height: 1.3rem;
+  }
+  .course-details-wrapper {
+    padding: 1.2em;
+  }
+  .icon {
+    display: none;
+  }
+  .course-banner p {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .course-banner {
+    padding: 4em 2em 25em 4em;
+  }
+}
+
+@media screen and (max-width: 969px) {
+  .course-banner {
+    padding: 5em 10em 25em 8em;
+  }
+}
+
+@media screen and (max-width: 979px) {
+  .instructor-container {
+    position: relative;
+    top: -2.1rem;
+    height: auto;
+  }
+  .course-details-wrapper {
+    width: 100%;
+  }
+  .course-wrapper {
+    display: grid;
+    padding: 0 6rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .course-banner {
+    padding: 5em 5em 17em 5em;
+  }
+  .course-banner p {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .course-banner {
+    padding: 5em 5em 17em 5em;
+  }
+
+  .course-wrapper {
+    width: 100%;
+    max-width: 90%;
+    margin: -4% auto;
+    position: relative;
+  }
+}

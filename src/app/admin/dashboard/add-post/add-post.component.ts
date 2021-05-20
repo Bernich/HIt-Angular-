@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { CreatePost } from 'src/app/shared/model/post.model';
 import { FileData, IInstructor } from '../../shared/models';
-import { AuthorsService, CreatePostService } from '../../shared/services';
+import { InstructorService, CreatePostService } from '../../shared/services';
 import { AuthorsBottomSheetComponent } from './authors-bottomsheet.component';
 
 @Component({
@@ -34,7 +34,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
   constructor(
     public postService: CreatePostService,
     private bottomSheet: MatBottomSheet,
-    private authorService: AuthorsService
+    private instructorService: InstructorService
   ) { }
 
   ngOnInit(): void {
@@ -100,7 +100,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
   loadAllAuthors() {
     this.isLoading = true;
 
-    this.authorService.all().subscribe({
+    this.instructorService.all().subscribe({
       next: (data: any) => {
 
         this.isLoading = false;

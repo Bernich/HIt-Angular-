@@ -7,10 +7,10 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthorsService {
+export class AuthorService {
 
 
-  private authorsUrl = `${SERVER_API_URL}/authors`;
+  private instructorsUrl = `${SERVER_API_URL}/instructors`;
 
   constructor(
     private httpClient: HttpClient,
@@ -30,7 +30,7 @@ export class AuthorsService {
       }),
     };
 
-    return this.httpClient.get(this.authorsUrl, httpOptions);
+    return this.httpClient.get(this.instructorsUrl, httpOptions);
   }
 
 
@@ -49,7 +49,7 @@ export class AuthorsService {
 
     console.log(JSON.stringify(author));
 
-    return this.httpClient.post<ICreateInstructorDTO>(this.authorsUrl, author, httpOptions);
+    return this.httpClient.post<ICreateInstructorDTO>(this.instructorsUrl, author, httpOptions);
   }
 
 
@@ -66,7 +66,7 @@ export class AuthorsService {
       }),
     };
 
-    return this.httpClient.get(this.authorsUrl + `/${uid}`, httpOptions);
+    return this.httpClient.get(this.instructorsUrl + `/${uid}`, httpOptions);
   }
 
 
@@ -80,7 +80,7 @@ export class AuthorsService {
       email
     };
 
-    return this.httpClient.post(`${this.authorsUrl}/begin_password_reset`, payload,);
+    return this.httpClient.post(`${this.instructorsUrl}/begin_password_reset`, payload,);
   }
 
 

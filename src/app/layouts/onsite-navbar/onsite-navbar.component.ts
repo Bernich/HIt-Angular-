@@ -1,5 +1,6 @@
-import { Component, OnInit, TemplateRef, HostListener } from '@angular/core';
+import { Component, OnInit, TemplateRef, HostListener, Input } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ACTIVE_LINKS } from 'src/app/shared';
 
 @Component({
   selector: 'jhi-onsite-navbar',
@@ -13,6 +14,9 @@ export class OnsiteNavbarComponent implements OnInit {
   config = {
     animated: true
   };
+
+
+  @Input() activeRoute = "home";
 
   constructor(private modalService: BsModalService) { }
 

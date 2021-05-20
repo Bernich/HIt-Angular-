@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CreateInstructor, SocialMediaHandle } from '../../shared/models';
-import { AuthorsService, AuthService, CreatePostService } from '../../shared/services';
+import { InstructorService, AuthService, CreatePostService } from '../../shared/services';
 
 @Component({
-  selector: 'app-hive-admin-add-author-page',
+  selector: 'app-hive-admin-add-instructor-page',
   templateUrl: './add-instructor.component.html',
   styleUrls: ['./add-instructor.component.css'],
   providers: [CreatePostService]
@@ -20,20 +20,20 @@ export class HiveAdminAddInstructorComponent implements OnInit {
   instagram = new SocialMediaHandle('INSTAGRAM', '@url');
   twitter = new SocialMediaHandle('TWITTER', '@url');
 
-  author: CreateInstructor = new CreateInstructor();
+  instructor: CreateInstructor = new CreateInstructor();
 
   constructor(
     public postService: CreatePostService,
-    private authorService: AuthorsService,
+    private instructorService: InstructorService,
     private route: ActivatedRoute
   ) {
 
-    // Create Mock Author and use here
-    this.author.bio = 'This is bio of the author ';
-    this.author.email = 'noelnuel44@gamil.com';
-    this.author.last_name = 'Emmanuel';
-    this.author.first_name = 'Emmanuel';
-    this.author.handlers = [this.whatssap, this.facebook, this.instagram, this.twitter];
+    // Create Mock instructor and use here
+    this.instructor.bio = 'This is bio of the instructor ';
+    this.instructor.email = 'noelnuel44@gamil.com';
+    this.instructor.lastname = 'Emmanuel';
+    this.instructor.firstname = 'Emmanuel';
+    this.instructor.social_media_handles = [this.whatssap, this.facebook, this.instagram, this.twitter];
 
   }
 
@@ -50,11 +50,11 @@ export class HiveAdminAddInstructorComponent implements OnInit {
 
 
 
-  saveAuthor(author) {
-    this.authorService.add(author).subscribe({
+  saveInstructor(instructor) {
+    this.instructorService.add(instructor).subscribe({
       next: (data: any) => { console.log(data); },
       error: (err: any) => { console.log(err); }
     });
-    console.log(author);
+    console.log(instructor);
   }
 }

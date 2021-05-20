@@ -1,0 +1,15 @@
+<section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
+  <section class="admin-dashboard-authors-content-container ">
+
+    <app-admin-instructor-list-item style="margin-right: 20px;" *ngFor="let instructor of instructors"
+      [instructor]="instructor" (edit)="editAuthor(instructor)">
+    </app-admin-instructor-list-item>
+
+  </section>
+
+</section>
+
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

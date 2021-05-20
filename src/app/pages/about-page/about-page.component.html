@@ -1,16 +1,31 @@
 <div>
-  <jhi-header [posts]="headerPosts"></jhi-header>
+  <jhi-header [activeRoute]="'about'"></jhi-header>
   <app-jhi-partners></app-jhi-partners>
 
 
   <div style="margin-bottom: 100px;"></div>
+
+  <app-jhi-image-text-card [url]="abouts[0].url" [title]="abouts[0].title" [description]="abouts[0].description"
+    [reversed]='true'>
+  </app-jhi-image-text-card>
+
+
+  <!-- <div style="margin-bottom: 30px;"></div> -->
+
+  <app-jhi-image-text-card [url]="abouts[1].url" [title]="abouts[1].title" [description]="abouts[1].description"
+    [reversed]='false' [background]='true'>
+  </app-jhi-image-text-card>
+
+  <!-- <div style="margin-bottom: 30px;"></div> -->
+
+  <app-jhi-image-text-card [url]="abouts[2].url" [title]="abouts[2].title" [description]="abouts[2].description"
+    [reversed]='true'>
+  </app-jhi-image-text-card>
+
   <app-jhi-programs></app-jhi-programs>
-  <div style="margin-bottom: 50px;"></div>
 
-  <app-jhi-news-list></app-jhi-news-list>
-  <div style="margin-bottom: 50px;"></div>
-
-  <app-jhi-news-letter></app-jhi-news-letter>
+  <div style="margin-bottom: 100px;"></div>
+  <app-jhi-partners-full-list></app-jhi-partners-full-list>
   <div style="margin-bottom: 50px;"></div>
 
   <jhi-footer></jhi-footer>

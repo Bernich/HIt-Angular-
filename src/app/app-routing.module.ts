@@ -19,6 +19,11 @@ const routes: Routes = [
       import('./pages/about-page/about-page.module').then((m) => m.AboutPageModule),
   },
   {
+    path: 'academics/:slug',
+    loadChildren: () =>
+      import('./pages/course-detail-page/course-detail-page.module').then((m) => m.CourseDetailPageModule),
+  },
+  {
     path: 'posts',
     loadChildren: () =>
       import('./pages/post-detail-page/post-detail-page.module').then((m) => m.HivenewsPostDetailPageModule),

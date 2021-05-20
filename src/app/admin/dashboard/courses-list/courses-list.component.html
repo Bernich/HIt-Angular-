@@ -1,0 +1,14 @@
+<section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
+  <section class="admin-dashboard-content-container ">
+
+    <app-hivenews-admin-posts *ngFor="let post of posts" [post]="post" (edit)="editPost(post)">
+    </app-hivenews-admin-posts>
+
+  </section>
+
+</section>
+
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

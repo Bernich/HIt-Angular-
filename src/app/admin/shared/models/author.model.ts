@@ -6,7 +6,7 @@ import { SocialMediaHandle } from './social-media.model';
 // Have any type for profile_pic
 
 
-export interface IInstructor {
+export interface IAuthor {
 
   author_id: string;
   email: string;
@@ -22,7 +22,7 @@ export interface IInstructor {
   date_updated?: Date;
 
 }
-export class Instructor implements IInstructor {
+export class Author implements IAuthor {
 
   public author_id: string;
   public email: string;
@@ -36,7 +36,7 @@ export class Instructor implements IInstructor {
 
 
 
-export class CreateInstructor implements IInstructor {
+export class CreateAuthor implements IAuthor {
 
   constructor(
   ) {

@@ -10,8 +10,11 @@ import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { AdminSharedModule } from '../shared/admin-shared.module';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
 import { HiveAdminAddInstructorComponent } from './add-instructor/add-instructor.component';
-import { HiveAdminInstructorListComponent } from './authors-list/authors-list.component';
+import { HiveAdminInstructorListComponent } from './instructors-list/instructors-list.component';
 import { AuthorsBottomSheetComponent } from './add-post/authors-bottomsheet.component';
+import { HiveAdminAddCourseComponent } from './add-course/add-course.component';
+import { HiveAdminCoursesListComponent } from './courses-list/courses-list.component';
+import { CoursesBottomSheetComponent } from './add-course/add-course-bottomsheet.component';
 @NgModule({
   declarations: [
     HivenewsDashboardComponent,
@@ -20,7 +23,10 @@ import { AuthorsBottomSheetComponent } from './add-post/authors-bottomsheet.comp
     HivenewsAdminUsersListComponent,
     HiveAdminAddInstructorComponent,
     HiveAdminInstructorListComponent,
-    AuthorsBottomSheetComponent
+    AuthorsBottomSheetComponent,
+    CoursesBottomSheetComponent,
+    HiveAdminAddCourseComponent,
+    HiveAdminCoursesListComponent
   ],
   imports: [
     CommonModule,

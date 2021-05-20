@@ -11,7 +11,6 @@ import { HivenewsSharedModule } from './shared';
 import { HivenewsCoreModule } from './core';
 import { HivenewsLayoutsModule } from './layouts/layouts.module';
 import { HivenewsLandingPageModule } from './pages/landing-page';
-import { HivenewsPagesModule } from './pages/pages.module';
 import { HivenewsEntityModule } from './entities/entity.module';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { AdminModule } from './admin/admin.module';
@@ -40,7 +39,6 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     HivenewsCoreModule,
     HivenewsLayoutsModule,
     HivenewsLandingPageModule,
-    HivenewsPagesModule,
     HivenewsEntityModule,
     // Extract all similar modules to shared
     ModalModule.forRoot(),

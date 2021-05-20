@@ -4,4 +4,6 @@ export * from './auth.service';
 export * from './users.service';
 export * from './create-post.service';
 export * from './author.service';
+export * from './instructor.service';
 export * from './auth-guard.service';
+export * from './course.service';

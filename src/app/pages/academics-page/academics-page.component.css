@@ -1,4 +1,11 @@
 .spinner {
-    width: 485px;
-    margin: 20px auto;
+  width: 485px;
+  margin: 20px auto;
+}
+
+.milestone {
+  width: 80%;
+  height: fit-content;
+
+  background-color: black;
 }

@@ -5,7 +5,7 @@ import {
   StateStorageService, CreatePostService,
   AuthService,
   UsersService, NavigationService,
-  AuthorsService, AuthGuardService
+  InstructorService, AuthGuardService
 } from './services';
 import {
   AddAuthorFormComponent,
@@ -14,7 +14,8 @@ import {
   HivenewsAdminPostsComponent,
   LoaderComponent,
   RoundedButtonComponent,
-  RoundedFileButtonComponent
+  RoundedFileButtonComponent,
+  AddInstructorFormComponent
 } from './components';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +30,8 @@ import { MaterialModule } from 'src/app/material.module';
     AddAuthorFormComponent,
     RoundedButtonComponent,
     AdminInstructorListItemComponent,
-    RoundedFileButtonComponent
+    RoundedFileButtonComponent,
+    AddInstructorFormComponent
   ],
 
   imports: [
@@ -47,7 +49,7 @@ import { MaterialModule } from 'src/app/material.module';
     StateStorageService,
     UsersService,
     CreatePostService,
-    AuthorsService,
+    InstructorService,
     AuthGuardService
   ],
   exports: [
@@ -57,7 +59,8 @@ import { MaterialModule } from 'src/app/material.module';
     AddAuthorFormComponent,
     RoundedButtonComponent,
     AdminInstructorListItemComponent,
-    RoundedFileButtonComponent
+    RoundedFileButtonComponent,
+    AddInstructorFormComponent
   ]
 })
 export class AdminSharedModule { }

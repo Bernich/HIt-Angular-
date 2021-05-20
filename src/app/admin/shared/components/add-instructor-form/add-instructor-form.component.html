@@ -1,0 +1,86 @@
+<section class="add-author-form-container">
+
+  <div class="heading-toggle">
+    <div class="tabs">
+      <div [ngClass]="{'active-heading' : isAccountVisibleState}" class="heading" (click)=" isAccountVisibleState=true">
+        General</div>
+      <div [ngClass]="{'active-heading' : !isAccountVisibleState}" class="heading"
+        (click)="isAccountVisibleState = false">
+        Bio</div>
+    </div>
+
+
+    <button mat-button [style.display]="isLoading ? 'none' : 'block'" class="save_button"
+      (click)="saveInstructor.emit(instructor); isLoading = false;  ">Save</button>
+  </div>
+
+  <section class="add-author-tab">
+    <div class="image-description-tab">
+      <div class="image">
+        <div class="image-selector">
+          <button class="image" mat-icon-button>
+            <mat-icon class="mat-18">
+              edit
+              <div class="custom-file-upload">
+                <input type="file" #image type="file" accept="image/*" (change)="processFile(image)"
+                  name="profile_pic" />
+              </div>
+            </mat-icon>
+          </button>
+        </div>
+        <img [src]="profile_pic_url" *ngIf="profile_pic_url" />
+      </div>
+
+    </div>
+
+    <div class="input-tab" [style.display]="isAccountVisibleState ? 'flex' : 'none'">
+      <div class="input-container" style="margin-bottom: 15px;">
+        <div class="title">FIRST NAME</div>
+        <input type="text" [(ngModel)]="instructor.firstname" />
+      </div>
+
+      <div class="input-container" style="margin-bottom: 15px;">
+        <div class="title">LAST NAME</div>
+        <input [(ngModel)]="instructor.lastname" type="text" />
+      </div>
+
+      <div class="input-container" style="margin-bottom: 15px;">
+        <div class="title">EMAIL</div>
+        <input [(ngModel)]="instructor.email" type="email" />
+      </div>
+    </div>
+
+
+    <div class="input-tab" [style.display]="isAccountVisibleState ? 'none' : 'flex'">
+
+
+      <div class="input-container">
+        <div class="title">Bio</div>
+
+        <editor apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3" [(ngModel)]="instructor.bio"
+          name="description" #editor [init]="{
+                            height: 180,
+                            width: '100%',
+                            menubar: false,
+                            plugins: [
+                              'advlist autolink lists link image charmap print preview anchor',
+                              'searchreplace visualblocks code fullscreen',
+                              'insertdatetime media table paste code help wordcount'
+                            ],
+                            toolbar:
+                              ''
+                          }"></editor>
+      </div>
+
+
+      <div class="input-container" *ngFor="let social of instructor.social_media_handles">
+        <div class="title">{{social.platform}}</div>
+        <input [(ngModel)]="social.url" type="email" />
+      </div>
+
+
+    </div>
+  </section>
+
+
+</section>

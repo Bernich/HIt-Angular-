@@ -16,11 +16,16 @@ export class HivenewsDashboardComponent implements OnInit {
   user: any;
 
   links = [
+    { path: 'courses', icon: 'apps', title: 'Courses' },
+    { path: 'courses/add', icon: 'apps', title: 'Add Course' },
+
     { path: 'posts', icon: 'apps', title: 'Articles' },
-    { path: 'add-posts', icon: 'apps', title: 'Add Posts' },
-    { path: 'add/instructor', icon: 'apps', title: 'Add Instructor' },
-    { path: 'users', icon: 'supervisor_account', title: 'Users' },
+    { path: 'posts/add', icon: 'apps', title: 'Add Posts' },
+
     { path: 'instructors', icon: 'supervisor_account', title: 'Instructors' },
+    { path: 'instructors/add', icon: 'apps', title: 'Add Instructor' },
+
+    { path: 'users', icon: 'supervisor_account', title: 'Users' },
   ];
 
 

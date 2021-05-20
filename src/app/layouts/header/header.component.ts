@@ -2,6 +2,7 @@ import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { IPost } from '../../shared/model/post.model';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ACTIVE_LINKS } from 'src/app/shared';
 
 @Component({
   selector: 'jhi-header',
@@ -10,7 +11,8 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
 })
 export class HeaderComponent implements OnInit {
-  @Input() posts: IPost[];
+
+  @Input() activeRoute: string = "home";
 
   courses = [
     {
