@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SERVER_API_URL } from 'src/app/app.constants';
 import { ICreateInstructorDTO } from '../dto';
+import { CreateInstructor } from '../models';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -34,7 +35,7 @@ export class InstructorService {
   }
 
 
-  add(author: ICreateInstructorDTO) {
+  add(author: CreateInstructor) {
     const token = localStorage.getItem('currentUser');
     /**
      * Creates an httpOptions and attaches a Bearer token

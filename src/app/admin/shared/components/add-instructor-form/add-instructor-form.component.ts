@@ -1,5 +1,4 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { } from '../../dto';
 import { CreateInstructor, FileData } from '../../models';
 import { AuthService } from '../../services';
 
@@ -13,19 +12,16 @@ export class AddInstructorFormComponent implements OnInit {
 
   @Input() isLoading: boolean;
 
-  @Output() saveInstructor = new EventEmitter<CreateInstructor>();
-  @Input() instructor: CreateInstructor;
-
-
+  @Output() saveUser = new EventEmitter();
+  @Input() user: CreateInstructor;
   isAccountVisibleState = true;
-
   _profile_image_data = null;
 
   genderState = true;
   maleCheckBox = false;
   femaleCheckBox = false;
   speciality = 'Software Engineer';
-  profile_pic_url = "";
+
 
   constructor(
     private authService: AuthService
@@ -34,17 +30,17 @@ export class AddInstructorFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.speciality = this.parseList(this.user.skills);
 
     // Check if User has an Image
+    this._profile_image_data = '/assets/img/placeholder.png';
+
     // this._profile_image_data = this.user.profile_pic.url || '/assets/img/placeholder.png';
   }
 
 
 
   processFile(imageInput) {
-
-    console.log("File Selected");
-
     const file: File = imageInput.files[0];
     const reader = new FileReader();
 
@@ -52,17 +48,35 @@ export class AddInstructorFormComponent implements OnInit {
     reader.addEventListener('load', (event: any) => {
 
 
+
       const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
-      this.instructor.profile_pic_data = new FileData(file.type, data);
-      // this.user.profile_pic_data = new FileData(file.type, data);
+      // this.user.profile_pic = new FileData(file.type, data);
+      this.user.profile_pic_data = new FileData(file.type, data);
       // this.userService.updateImage(new FileData(file.type, data))
-
-      console.log(event);
-
-      this.profile_pic_url = event.target.result;
+      this._profile_image_data = event.target.result;
 
     });
 
+  }
+
+  /**
+ * Parse skills into a string
+ */
+  parseList(skills: string[]): string {
+    let skill_builder = '';
+    for (const skill of skills) {
+      skill_builder += skill + ', ';
+    }
+
+    return skill_builder;
+  }
+
+
+  /**
+   * Builds a list out of a String using comma seprations
+   */
+  buildList() {
+    this.user.skills = this.speciality.split(',');
   }
 
 

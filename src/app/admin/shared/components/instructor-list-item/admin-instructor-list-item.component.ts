@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Instructor, IUser } from '../../models';
+import { IInstructor, IUser } from '../../models';
 
 @Component({
   selector: 'app-admin-instructor-list-item',
@@ -8,14 +8,14 @@ import { Instructor, IUser } from '../../models';
 })
 export class AdminInstructorListItemComponent implements OnInit {
 
-  @Input() instructor: Instructor;
+  @Input() instructor: IInstructor;
   @Output() edit = new EventEmitter();
   routePath = '';
   constructor() { }
 
 
   ngOnInit(): void {
-    this.routePath = 'edit/instructor/' + this.instructor.author_id;
+    this.routePath = 'edit/instructor/' + this.instructor.instructor_id;
   }
 
 }

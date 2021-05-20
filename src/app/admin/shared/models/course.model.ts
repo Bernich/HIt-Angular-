@@ -1,4 +1,5 @@
 import { FileData, ProfileImage } from "src/app/admin/shared/models";
+import { v4 as uuidv4 } from 'uuid';
 
 export interface ICourse {
   post_id?: string;
@@ -18,19 +19,13 @@ export interface ICourse {
   banner?: ProfileImage
 }
 
-export class Course implements ICourse {
+export class CreateCourse implements ICourse {
   constructor(
     public title?: string,
     public post_id?: string,
-    public content?: any,
-    public thumb_content_type?: string,
-    public thumb?: any,
-    public category?: string,
     public publicity_status?: boolean,
-    public authors?: string[],
+    public instructor?: string[],
     public date_created?: string,
-    public show?: boolean,
-    public header_image_url?: string
   ) {
     this.publicity_status = this.publicity_status || false;
   }
@@ -39,6 +34,33 @@ export class Course implements ICourse {
   public banner: ProfileImage
 }
 
+
+
+export interface ILesson {
+
+  id: string;
+  content: string;
+}
+export class CreateLesson implements ILesson {
+  constructor(
+  ) {
+    this.id = uuidv4();
+  }
+
+  public id;
+  public content;
+}
+
+export class CreateSection {
+  constructor(
+  ) {
+    this.id = uuidv4();
+  }
+
+  public id?: string;
+  public title: string = "";
+  public lessons: ILesson[] = [];
+}
 
 export class CreatePost implements ICourse {
   constructor(

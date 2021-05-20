@@ -2,15 +2,14 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { CreatePost } from 'src/app/shared/model/post.model';
-import { FileData, IInstructor } from '../../shared/models';
+import { CreateLesson, CreateSection, FileData, IInstructor, ILesson } from '../../shared/models';
 import { InstructorService, CreatePostService } from '../../shared/services';
 import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component';
 
 @Component({
   selector: 'app-hive-admin-add-news-page',
   templateUrl: './add-course.component.html',
-  styleUrls: ['./add-course.component.css'],
+  styleUrls: ['./add-course.component.css', 'add-course-section.css', 'add-course-module.css'],
   providers: [CreatePostService]
 })
 export class HiveAdminAddCourseComponent implements OnInit {
@@ -39,11 +38,24 @@ export class HiveAdminAddCourseComponent implements OnInit {
   };
 
 
-  sections = [
-    { title: "This is the first", objectives: [] },
-    { title: "This is the second", objectives: [] },
-    { title: "This is the third", objectives: [] },
-    { title: "This is the fourth", objectives: [] },
+  sections: CreateSection[] = [
+    {
+      title: "This is the first", lessons: [
+        {
+          id: '12345',
+          content: "First Lesson"
+        },
+        {
+          id: '1234512',
+          content: "Second content"
+        },
+        {
+          id: '12345122323',
+          content: "Third Lesson"
+        }
+      ]
+    }
+
   ];
   constructor(
     public postService: CreatePostService,
@@ -141,6 +153,24 @@ export class HiveAdminAddCourseComponent implements OnInit {
       curriculumTab: false,
       createCourse: true
     };
+  }
+
+
+  addLesson(section_position, $event) {
+
+    console.log(section_position);
+
+    const lesson = new CreateLesson();
+    this.sections[section_position].lessons.push(lesson);
+  }
+
+  deleteSection(section_id) {
+    this.sections = this.sections.filter((section: CreateSection) => section.id !== section_id)
+  }
+
+  addSection($event) {
+    const section = new CreateSection();
+    this.sections.push(section);
   }
 
   dropSection(event: CdkDragDrop<string[]>) {

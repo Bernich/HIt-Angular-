@@ -104,7 +104,7 @@
         <mat-card-header class="blog-content-input-card-header">
           <div mat-card-avatar class="add-post-header-image">
 
-            <img *ngFor="let author of selectedInstructors" [src]="author.profile_pic.url"
+            <img *ngFor="let author of selectedInstructors" [src]="author.profile_image.url"
               alt="profile image of {{author.firstname}}" srcset="">
 
           </div>
@@ -138,7 +138,9 @@
     <!-- CUrricullum Space -->
     <section class="full-width" *ngIf="stateTabs.curriculumTab">
       <mat-accordion cdkDropList (cdkDropListDropped)="dropSection($event)">
+
         <mat-expansion-panel *ngFor="let section of sections; let count = index" cdkDrag>
+
           <mat-expansion-panel-header>
             <mat-panel-title>
               {{"Chapter "+ (count + 1) + " : " + section.title}}
@@ -146,11 +148,56 @@
             <mat-panel-description>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p>This is the primary content of the panel.</p>
+
+
+
+          <section class="objectives-add-list">
+            <!-- Section Title -->
+            <mat-form-field class="title section-name-field">
+              <!-- Editable Text for the Section title -->
+              <mat-label> Name</mat-label>
+              <input #name matInput type="text" [(ngModel)]="section.title" />
+              <button mat-button *ngIf="section.title" matSuffix mat-icon-button aria-label="Clear Screen"
+                (click)="section.title = ''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <h2>Lessons</h2>
+            <div class="list-item" *ngFor="let obj of section.objectives">
+              <!-- <div class="horizontal-divider"></div> -->
+              <!-- <p>{{obj | json}}</p> -->
+              <mat-form-field class="title -input">
+                <input matInput type="text" name="url" placeholder="lesson" [(ngModel)]="obj.lesson" />
+              </mat-form-field>
+            </div>
+
+          </section>
+
+
+          <div class="bottom-buttons">
+            <button class="remove-button" mat-flat-button style="margin-right: 20px"
+              (click)="deleteSection(section.id)">
+              <mat-icon>remove</mat-icon>
+              Remove Section
+            </button>
+
+            <button class="add-button" mat-flat-button (click)="addLesson(count,$event)">
+              <mat-icon class="icon">add</mat-icon>
+              Add Lesson
+            </button>
+
+          </div>
         </mat-expansion-panel>
 
 
       </mat-accordion>
+
+      <button class="add-curriculu-section-button" mat-flat-button (click)="addSection($event)">
+        <mat-icon>add</mat-icon>
+        Add Section
+      </button>
+
     </section>
 
   </section>

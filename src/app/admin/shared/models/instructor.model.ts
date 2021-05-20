@@ -1,53 +1,68 @@
-import { FileData, ProfileImage } from '.';
-import { Thumbnail } from '../dto';
+import { Thumbnail } from '../dto/util.dto';
+import { ICourse } from './course.model';
+import { FileData } from './file-data.model';
 import { SocialMediaHandle } from './social-media.model';
+import { IUser } from './user.model';
 
 
-// Have any type for profilepic
+// Have any type for profile_pic
 
 
 export interface IInstructor {
 
-  instructor_id: string;
-  email: string;
-  firstname: string;
-  lastname: string;
-
-  profile_pic_data: FileData | ProfileImage;
-
+  instructor_id?: string;
+  email?: string;
+  firstname?: string;
+  lastname?: string;
+  profile_pic?: Thumbnail;
+  profile_pic_data?: FileData;
   bio: string;
-  social_media_handles?: SocialMediaHandle[];
+  skills?: string[];
+  courses?: string[];
+  social_media_handles?: any[];
 
   date_created?: Date;
   date_updated?: Date;
 
 }
-export class Instructor implements IInstructor {
 
-  public instructor_id: string;
-  public email: string;
-  public firstname: string;
-  public lastname: string;
-  public bio: string;
-  public profile_pic_data: ProfileImage;
 
-  public social_media_handles?: SocialMediaHandle[];
+export class UpdateInstructor {
+
+  constructor(
+    public id: string,
+    public email: string,
+    public firstname: string,
+    public lastname: string,
+    public profile_pic_data: FileData,
+    public bio: string,
+    public skills: string[],
+    public social_media_handles?: any[],
+    public profile_pic?: Thumbnail
+  ) {
+
+  }
 }
-
 
 
 export class CreateInstructor implements IInstructor {
 
   constructor(
+
   ) {
+
   }
 
-  public instructor_id: string;
   public email: string;
   public firstname: string;
   public lastname: string;
-  public bio: string;
-  public profile_pic_data: FileData;
+  public phone_number: string;
+  public instructor_id?: string;
+  public gender?: string;
+  public skills?: string[];
 
+  public profile_pic_data?: FileData;
+  public bio: string;
   public social_media_handles?: SocialMediaHandle[];
+  public creator_id?: string;
 }

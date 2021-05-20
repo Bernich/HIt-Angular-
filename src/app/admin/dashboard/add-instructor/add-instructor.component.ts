@@ -1,60 +1,118 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CreateInstructor, SocialMediaHandle } from '../../shared/models';
-import { InstructorService, AuthService, CreatePostService } from '../../shared/services';
+import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ICreateInstructorDTO } from '../../shared/dto';
+import { CreateInstructor, ICourse, IInstructor, SocialMediaHandle } from '../../shared/models';
+import { InstructorService } from '../../shared/services';
 
 @Component({
-  selector: 'app-hive-admin-add-instructor-page',
+  selector: 'app-add-instructor',
   templateUrl: './add-instructor.component.html',
-  styleUrls: ['./add-instructor.component.css'],
-  providers: [CreatePostService]
+  styleUrls: ['./add-instructor.component.css']
 })
 export class HiveAdminAddInstructorComponent implements OnInit {
 
-  imgUrl = 'https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg';
 
-  isLoading = false;
 
+  user: CreateInstructor = null;
   whatssap = new SocialMediaHandle('LINKEDIN', '@url');
   facebook = new SocialMediaHandle('FACEBOOK', '@url');
   instagram = new SocialMediaHandle('INSTAGRAM', '@url');
   twitter = new SocialMediaHandle('TWITTER', '@url');
 
-  instructor: CreateInstructor = new CreateInstructor();
+  isLoading = false;
+  courses_ticked = [
+  ];
 
+
+  checked = true;
   constructor(
-    public postService: CreatePostService,
     private instructorService: InstructorService,
-    private route: ActivatedRoute
+    private _snackBar: MatSnackBar,
   ) {
 
-    // Create Mock instructor and use here
-    this.instructor.bio = 'This is bio of the instructor ';
-    this.instructor.email = 'noelnuel44@gamil.com';
-    this.instructor.lastname = 'Emmanuel';
-    this.instructor.firstname = 'Emmanuel';
-    this.instructor.social_media_handles = [this.whatssap, this.facebook, this.instagram, this.twitter];
-
+    this.user = new CreateInstructor();
+    this.user.firstname = 'Simon';
+    this.user.lastname = 'Sinek';
+    this.user.email = 'simon@gmail.com';
+    this.user.bio = 'This is the bio';
+    this.user.phone_number = '+233';
+    this.user.skills = [];
+    this.user.social_media_handles = [
+      this.whatssap,
+      this.facebook,
+      this.instagram,
+      this.twitter
+    ];
   }
 
   ngOnInit(): void {
-    // check if there is an id in the url, then load the id else create a new author
-    const slug = this.route.snapshot.paramMap.get('id');
-    if (slug) {
-      console.log('Has id, fetch and change state to update')
-    } else {
-      console.log('Has no id, create author');
-    }
-
+    this.loadAllCourses();
   }
 
 
+  removeCheckedCourse(course: ICourse) {
+    // this.courses_ticked = this.courses_ticked.filter((item) => {
 
-  saveInstructor(instructor) {
-    this.instructorService.add(instructor).subscribe({
-      next: (data: any) => { console.log(data); },
-      error: (err: any) => { console.log(err); }
-    });
-    console.log(instructor);
+    //   if (item.course.course_id != course.course_id) {
+    //     // todo uncheck as ticked
+    //     return item;
+    //   }
+    // });
   }
+
+
+  loadAllCourses() {
+    // this.courseService
+    //   .allCourses()
+    //   .subscribe((courses: ICourse[]) => {
+    //     this.courses = courses;
+    //   });
+  }
+
+  update(event, course) {
+
+
+    // if (event.checked) {
+    //   this.courses_ticked.push({ checked: true, course });
+    // } else {
+    //   this.courses_ticked = this.courses_ticked.filter((x) => {
+    //     return course.id == x.id;
+    //   });
+    // }
+  }
+
+
+  isChecked(courseId) {
+    // const res = this.courses_ticked.filter((course: ICourse) => {
+    //   if (course.course_id === courseId) { return true; }
+    // });
+
+    // if (res.length > 0) { return true; }
+
+    // return false;
+  }
+
+  saveUser() {
+    this.isLoading = true;
+
+    const instructor: CreateInstructor = this.user;
+
+    this.instructorService.add(instructor).subscribe((iuser: any) => {
+
+      // this.navigationService.navigateToAdminInstructors();
+
+      this._snackBar.open('Created Instructor', `${this.user.firstname}`, {
+        duration: 3000,
+      });
+    },
+      (error) => {
+        this.isLoading = false;
+        this._snackBar.open('Couldn\'t Create Instructor', `${this.user.firstname}`, {
+          duration: 3000,
+        });
+      }
+    );
+  }
+
+
 }

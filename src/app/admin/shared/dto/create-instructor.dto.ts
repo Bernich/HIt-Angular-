@@ -1,7 +1,7 @@
 import { FileData, SocialMediaHandle } from '../models';
 
 export interface ICreateInstructorDTO {
-  id: string;
+  instructor_id: string;
   email: string;
   firstname: string;
   lastname: string;
