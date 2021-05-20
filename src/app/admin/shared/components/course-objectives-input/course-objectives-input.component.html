@@ -1,0 +1,22 @@
+<form #form="ngForm" class="login-form full-width">
+  <section class="course-objectives">
+    <div class="heading">{{ title }}</div>
+    <!-- Overlay Button -->
+    <button class="add-button" mat-fab color="primary" aria-label="Delete Course Objective" (click)="addObjective()">
+      <mat-icon class="mat-18 icon">add</mat-icon>
+    </button>
+
+    <div class="input-list">
+      <div *ngFor="let item of data" class="input-item">
+        <mat-form-field class="full-width">
+          <input matInput type="text" name="{{ item.id }}" [(ngModel)]="item.value" (focusout)="updateData()" />
+          <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeObjective(item)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+  </section>
+</form>
+
+<!-- <p>{{ form.value | json }}</p> -->

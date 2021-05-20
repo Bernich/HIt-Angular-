@@ -25,9 +25,7 @@
         <section class="admin-dashboard-posts-button">
 
           <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
-            (click)="savePost()">Save</button>
-
-
+            (click)="saveCourse()">Save</button>
         </section>
       </section>
 
@@ -65,10 +63,10 @@
           <mat-card-content>
             <p>
               <mat-form-field class="add-post-form-field">
-                <mat-label>Course title</mat-label>
-                <input matInput type="text" [(ngModel)]="postService.post.title">
-                <button mat-button *ngIf="postService.post.title" matSuffix mat-icon-button aria-label="Clear"
-                  (click)="postService.post.title=''">
+                <mat-label>Course Name</mat-label>
+                <input matInput type="text" [(ngModel)]="course.name">
+                <button mat-button *ngIf="course.name" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="course.name=''">
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
@@ -89,10 +87,14 @@
           </mat-card-content>
           <mat-card-actions class="blog-content-input-card-header">
 
+            <mat-slide-toggle [labelPosition]="'before'" [(ngModel)]="course.with_certification" name="publish_status">
+              With Certification
+            </mat-slide-toggle>
+
 
             <div class="spacer"></div>
 
-            <mat-slide-toggle [(ngModel)]="postService.post.publicity_status" name="publish_status">Publish Course
+            <mat-slide-toggle [(ngModel)]="course.publicity_status" name="publish_status">Publish Course
             </mat-slide-toggle>
 
           </mat-card-actions>
@@ -115,12 +117,10 @@
 
           </mat-card-header>
 
-
-          <div style="margin-bottom: 40px;"></div>
           <mat-card-content>
             <p>
               <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
-                [(ngModel)]="postService.post.content" id="contenteditor" name="description" #editor [init]="{
+                [(ngModel)]="course.overview" id="contenteditor" name="description" #editor [init]="{
         height: '300',
         menubar: 'file edit view insert format tools table help',
         toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl'
@@ -134,13 +134,39 @@
 
           </mat-card-actions>
         </mat-card>
+
+        <div style="margin-bottom: 100px;"></div>
+
+        <!-- CAREER PATH -->
+        <section class="course-prereq-objectives">
+          <app-course-objectives-input style="width: 100%;" title="Career Path" [data]="course.career_path"
+            (update)="updateCareerPath($event)">
+          </app-course-objectives-input>
+
+
+        </section>
+
+        <!-- COURSE OBJECTIVES & PREREQUISITES -->
+        <section class="course-prereq-objectives">
+          <app-course-objectives-input style="width: 48%;" title="What You Will Learn"
+            [data]="course.what_you_will_learn" (update)="updateObjective($event)">
+          </app-course-objectives-input>
+
+          <app-course-objectives-input style="width: 48%;" title="Prerequisites" [data]="course.prerequisites"
+            (update)="updatePrereq($event)">
+          </app-course-objectives-input>
+
+        </section>
+
+
+
       </section>
 
       <!-- CUrricullum Space -->
       <section class="full-width" *ngIf="stateTabs.curriculumTab">
         <mat-accordion cdkDropList (cdkDropListDropped)="dropSection($event)">
 
-          <mat-expansion-panel *ngFor="let section of sections; let count = index" cdkDrag>
+          <mat-expansion-panel *ngFor="let section of course.curriculum; let count = index" cdkDrag>
 
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -222,7 +248,7 @@
 
         <div class="input-item">
           <div class="heading">DURATION (Months)</div>
-          <input type="text" matInput name="duration" required class="-input" />
+          <input type="text" [(ngModel)]="course.duration" matInput name="duration" required class="-input" />
         </div>
 
         <div class="input-item">
@@ -232,7 +258,7 @@
 
         <div class="input-item">
           <div class="heading">Registeration Fee</div>
-          <input #fee type="number" [(ngModel)]="course.base_price" matInput name="fee" required class="-input" />
+          <input #fee type="number" [(ngModel)]="course.base_fee" matInput name="fee" required class="-input" />
         </div>
 
         <div class="input-item" style="margin-bottom: 10px;">
@@ -242,7 +268,7 @@
 
           <!-- SKILL LEVEL -->
           <mat-form-field #skill class="select" appearance="none">
-            <mat-select [disabled]="true" [(value)]="course.skill_level" id="
+            <mat-select [disabled]="true" id="
                 categories">
               <mat-option value="">None</mat-option>
               <mat-option *ngFor="let item of skill_level" value="{{ item }}">

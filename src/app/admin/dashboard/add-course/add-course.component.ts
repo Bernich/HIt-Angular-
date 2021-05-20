@@ -2,9 +2,12 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { CreateLesson, CreateSection, FileData, IInstructor, ILesson } from '../../shared/models';
+import { CreateCourse, CreateLesson, CreateSection, FileData, IInstructor, ILesson, Resource } from '../../shared/models';
 import { InstructorService, CreatePostService } from '../../shared/services';
 import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component';
+import { v4 as uuidv4 } from 'uuid';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-hive-admin-add-news-page',
@@ -49,35 +52,11 @@ export class HiveAdminAddCourseComponent implements OnInit {
     curriculumTab: false
   };
 
-  course = {
-    base_price: 1200,
-    skill_level: "Beginner",
-    banner: ""
-  }
+  course: CreateCourse = null;
 
-  sections: CreateSection[] = [
-    {
-      title: "This is the first",
-      lessons: [
-        {
-          id: '12345',
-          content: "First Lesson"
-        },
-        {
-          id: '1234512',
-          content: "Second content"
-        },
-        {
-          id: '12345122323',
-          content: "Third Lesson"
-        }
-      ],
-      duration: 0
-    }
 
-  ];
   constructor(
-    public postService: CreatePostService,
+    private route: ActivatedRoute,
     private bottomSheet: MatBottomSheet,
     private instructorService: InstructorService
   ) { }
@@ -87,33 +66,41 @@ export class HiveAdminAddCourseComponent implements OnInit {
     this.loadAllAuthors();
 
 
+    // Check url if there is a course id else create a new course
+    const id = this.route.snapshot.paramMap.get('slug');
+    if (id) {
+      // unpack old course
+      // this.course = unpack
+    } else {
+      // Create a new course
+      this.course = new CreateCourse()
+    }
   }
 
-  saveButton() {
-    console.log(this.postService.post);
-  }
 
-  savePost() {
+
+  saveCourse() {
+    console.log(this.course);
 
     this.isLoading = true;
     // convert post authors into an id
-    const author_ids = this.getPostAuthors();
+    const author_ids = this.getCourseInstructos();
     console.log(author_ids);
 
-    this.postService.savePost(this.categoryControl.value, author_ids).subscribe({
-      next: (data: any) => {
-        console.log(data); this.isLoading = false;
-      },
-      error: (err: any) => {
-        console.log(err); this.isLoading = false;
-      }
-    });
+    // this.courseService.savePost(this.categoryControl.value, author_ids).subscribe({
+    //   next: (data: any) => {
+    //     console.log(data); this.isLoading = false;
+    //   },
+    //   error: (err: any) => {
+    //     console.log(err); this.isLoading = false;
+    //   }
+    // });
   }
 
 
   updateBannerImage(data: { url: string, data: FileData }) {
     this.imgUrl = data.url;
-    this.postService.post.header_image = data.data;
+    this.course.banner_data = data.data;
   }
 
   openBottomSheet() {
@@ -135,7 +122,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
 
-  getPostAuthors(): string[] {
+  getCourseInstructos(): string[] {
     return this.selectedInstructors.map((instructor: IInstructor) => {
       return instructor.instructor_id
     })
@@ -174,12 +161,11 @@ export class HiveAdminAddCourseComponent implements OnInit {
     };
   }
 
-
   /**
- * Process an input file selected by the user.
- * Checks if the type is a BANNER or a THUMBNAIL
- * @param imageInput
- */
+   * Process an input file selected by the user.
+   * Checks if the type is a BANNER or a THUMBNAIL
+   * @param imageInput
+   */
   processFile(imageInput, type: string) {
 
     const file: File = imageInput.files[0];
@@ -190,7 +176,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
       if (type = 'THUMBMAIL') {
         this.thumbnailURL = (event.target.result);
-        const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
+        this.course.thumbnail_data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
       }
 
     });
@@ -202,23 +188,36 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
   addLesson(section_position, $event) {
-    const lesson = new CreateLesson();
-    this.sections[section_position].lessons.push(lesson);
+    const lesson = new CreateLesson(this.course.course_id);
+    this.course.curriculum[section_position].lessons.push(lesson);
 
   }
 
   deleteSection(section_id) {
-    this.sections = this.sections.filter((section: CreateSection) => section.id !== section_id)
+    this.course.curriculum = this.course.curriculum.filter((section: CreateSection) => section.id !== section_id)
   }
 
   addSection($event) {
-    const section = new CreateSection();
-    this.sections.push(section);
+    const section = new CreateSection(this.course.course_id);
+    this.course.curriculum.push(section);
   }
 
   dropSection(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.sections, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.course.curriculum, event.previousIndex, event.currentIndex);
   }
+
+  updateObjective(data: Resource[]) {
+    this.course.what_you_will_learn = data;
+  }
+
+  updatePrereq(data: Resource[]) {
+    this.course.prerequisites = data;
+  }
+  updateCareerPath(data: Resource[]) {
+    // this.course.career_path = data.map((data: Resource) => data.value);
+    this.course.career_path = data;
+  }
+
 
   formatLabel(value: number) {
     if (value >= 1000) {

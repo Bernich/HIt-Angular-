@@ -1,0 +1,105 @@
+.full-width {
+  width: 100%;
+}
+
+.course-objectives {
+  width: 100%;
+  color: black;
+  min-height: 167px;
+  height: fit-content;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.18);
+  background-color: white;
+
+  position: relative;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.course-objectives .heading {
+  width: 100%;
+  font-family: SFUIText-Medium;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--charcoal-grey);
+
+  margin-left: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.course-objectives .add-button {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--pink-red);
+  color: var(--pink-red);
+}
+
+.course-objectives .add-button .icon {
+  color: white;
+}
+.course-objectives .input-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  /* margin-left: 15px; */
+}
+
+.course-objectives .input-list .input-item:first-child {
+  /* margin-top: 10px; */
+}
+.course-objectives .input-list .input-item:last-child {
+  margin-bottom: 100px;
+}
+.course-objectives .input-list .input-item {
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-bottom: 5px;
+}
+
+.course-objectives .input-list .input-item .remove-button {
+  position: relative;
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+}
+
+.course-objectives .input-list .input-item .remove-button .icon {
+  color: black;
+
+  background: none;
+}
+.course-objectives input {
+  width: 100%;
+  /* height: 30px; */
+  /* border: solid 1px var(--black-10); */
+  /* background-color: var(--white-two-20); */
+
+  /* margin-right: 5px; */
+}
