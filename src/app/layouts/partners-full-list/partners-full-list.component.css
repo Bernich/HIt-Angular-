@@ -16,7 +16,12 @@
 }
 
 .partners-container h1 {
-  font-size: 1.5rem;
+  font-family: SFProText;
+  font-size: 2.5rem;
+
+  font-weight: 600;
+
+  margin-bottom: 20px;
 }
 
 .partners-content-container {

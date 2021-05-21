@@ -1,6 +1,7 @@
 <a [routerLink]="'/academics/'+program.slug" routerLinkActive="active">
-  <section [style.backgroundImage]="'url('+program.thumbnail.url+')'" class="programs-card-container">
+  <section class="programs-card-container">
 
+    <img [src]="program.thumbnail.url" alt="">
     <section class="programs-card-content-text">
       <h3> {{program.name}} </h3>
     </section>

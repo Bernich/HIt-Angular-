@@ -55,6 +55,7 @@
   font-size: 42px;
   margin-bottom: 30px;
 
+  font-weight: 600;
   color: #fff;
   display: inline-flex;
   text-align: left;
@@ -62,8 +63,8 @@
 }
 
 .course-banner p {
-  max-width: 50%;
-  width: 550px;
+  max-width: 90%;
+  /* width: 550px; */
   color: #fff;
   font-size: 16px;
   line-height: 1.7em;
@@ -109,12 +110,16 @@
 }
 
 .course-details-wrapper h3 {
-  font-weight: 700;
+  font-family: SFUIText-Medium;
+
+  font-weight: 600;
   color: #4a4a4a;
-  margin-bottom: 2rem;
+  margin-bottom: 5px;
 }
 
 .instructor-container {
+  font-family: SFUIText-Light;
+
   height: fit-content;
   min-height: 39rem;
   background-color: #fff;
@@ -135,9 +140,11 @@
 }
 
 .unordered-list {
-  margin: 1rem;
+  /* margin: 1rem; */
   color: #8585bd !important;
   font-weight: lighter;
+
+  font-family: SFProText;
 }
 
 li {
@@ -160,7 +167,11 @@ li {
   margin-top: 2rem;
   margin-bottom: 1rem;
   border-radius: 50%;
-  width: 5rem;
+  width: 100px;
+  height: 100px;
+
+  object-fit: cover;
+  object-position: center;
 }
 
 .instructor-name {
@@ -183,6 +194,8 @@ li {
   line-height: 2rem;
 
   flex: 1;
+
+  font-family: SFProText;
 }
 
 .btn-enroll {
@@ -222,9 +235,9 @@ li {
   }
 }
 
-@media screen and (max-width: 679px) {
-  .course-banner {
-    /* padding: 4em 2em 25em 4em; */
+@media screen and (min-width: 679px) {
+  .course-banner p {
+    max-width: 90%;
   }
 }
 
@@ -248,26 +261,20 @@ li {
     padding: 0 6rem;
     grid-template-columns: 1fr;
   }
-}
 
-@media screen and (max-width: 1200px) {
-  .course-banner {
-    /* padding: 5em 5em 17em 5em; */
-  }
   .course-banner p {
-    width: 100%;
+    max-width: 80%;
   }
 }
 
-@media screen and (max-width: 1400px) {
-  .course-banner {
-    /* padding: 5em 5em 17em 5em; */
+@media screen and (min-width: 1200px) {
+  .course-banner p {
+    max-width: 70%;
   }
+}
 
-  .course-wrapper {
-    width: 100%;
-    max-width: 90%;
-    margin: -4% auto;
-    position: relative;
+@media screen and (min-width: 1400px) {
+  .course-banner p {
+    max-width: 70%;
   }
 }

@@ -46,6 +46,38 @@ export interface ICourse {
 }
 
 
+export class Course implements ICourse {
+  public course_id?: string;
+
+  public name?: string;
+  public slug?: string;
+  public overview?: string;
+  public description?: string;
+  public skill_level: string;
+
+  public duration?: string;
+  public base_price?: number;
+
+
+  public career_paths?: string[] | Resource[];
+  public what_you_will_learn?: Resource[];
+  public prerequisites?: Resource[];
+  // publicity_status?: boolean;
+  public with_certification?: boolean;
+  public instructors?: IInstructor[];
+
+  public date_created?: string;
+  public show?: boolean;
+
+  public banner?: ProfileImage
+  public thumbnail?: ProfileImage
+
+  public thumbnail_data?: FileData;
+  public banner_data?: FileData;
+
+  public curriculum?: ISection[]
+}
+
 
 
 export class CreateCourse implements ICourse {

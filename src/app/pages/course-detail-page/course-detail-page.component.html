@@ -31,12 +31,16 @@
       </div>
 
       <div class="instructor-container">
+        <!-- If course has multiple instructors, show the images and allow clicking -->
+        <section class="instructor-profile" *ngIf="course.instructors.length > 1">
+          <img *ngFor="let instructor of course.instructors" (mouseover)="updateCurrentInstructor(instructor)"
+            [src]="instructor.profile_pic.url" alt="" srcset="">
+        </section>
         <div class="profile-wrapper">
-          <img class="profile" src="/assets/images/sh.bmp" alt="">
-          <p class="instructor-name">Prince Banini</p>
+          <img class="profile" [src]="instructor.profile_pic.url" alt="">
+          <p class="instructor-name">{{instructor.firstname + " " + instructor.lastname }}</p>
           <p class="position">Instructor</p>
-          <p class="instructor-desc">Prince is Lead developer of internet of things, embedded systems and single board
-            computer based prototypes. He plans and coordinates the IoT master’s training program.</p>
+          <p class="instructor-desc" #bio> {{ updateInstructorDescription(bio) }}</p>
           <button class="btn-enroll">ENROLL</button>
         </div>
 

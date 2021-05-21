@@ -1,4 +1,4 @@
-<section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
+<section class="admin-dashboard-content " *ngIf="(!isLoading.instructors && !isLoading.course); else loader">
 
   <div style="margin-bottom: 100px;"></div>
 
@@ -23,9 +23,8 @@
 
         <div class="spacer"></div>
         <section class="admin-dashboard-posts-button">
-
-          <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
-            (click)="saveCourse()">Save</button>
+          <button [style.display]="isLoading.saving ? 'none' : 'block'" class="save_button" mat-flat-button
+            (click)="save()">{{ isNewCourse ? 'Save' : 'Update'}}</button>
         </section>
       </section>
 
@@ -37,8 +36,10 @@
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
 
-              <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
-                alt="profile image of {{instructors.firstname}}" srcset="">
+              <section class="instructor-profile">
+                <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
+                  alt="profile image of {{instructors.firstname}}" srcset="">
+              </section>
 
             </div>
             <mat-card-title>Instructors </mat-card-title>
@@ -91,7 +92,6 @@
               With Certification
             </mat-slide-toggle>
 
-
             <div class="spacer"></div>
 
             <!-- DISABLE COURSE PUBLISHING -->
@@ -108,9 +108,10 @@
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
 
-              <img *ngFor="let author of selectedInstructors" [src]="author.profile_pic.url"
-                alt="profile image of {{author.firstname}}" srcset="">
-
+              <section class="instructor-profile">
+                <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
+                  alt="profile image of {{instructors.firstname}}" srcset="">
+              </section>
             </div>
             <mat-card-title>Course Summary </mat-card-title>
             <mat-card-subtitle>Short summary of course</mat-card-subtitle>
@@ -120,9 +121,6 @@
 
           <mat-card-content>
             <p>
-
-
-
               <textarea [(ngModel)]="course.overview" style="width: 100%; height: 300px;"></textarea>
             </p>
           </mat-card-content>
@@ -141,8 +139,10 @@
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
 
-              <img *ngFor="let author of selectedInstructors" [src]="author.profile_pic.url"
-                alt="profile image of {{author.firstname}}" srcset="">
+              <section class="instructor-profile">
+                <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
+                  alt="profile image of {{instructors.firstname}}" srcset="">
+              </section>
 
             </div>
             <mat-card-title>Course Description </mat-card-title>
@@ -281,6 +281,32 @@
       TODO - REMOVE TO ITS OWN COMPONENT
       -->
     <section class="right-details">
+
+      <div *ngIf="authService.hasRole('ADMIN') && !isNewCourse" style="margin-bottom:40px"
+        class="course-specifics select-container">
+        <div class="top-row">
+          <div class="header">Actions</div>
+
+          <!-- <button class="add-button" mat-icon-button>
+            <mat-icon class="mat-18">add</mat-icon>
+          </button> -->
+        </div>
+
+        <mat-list style="width: 100%;">
+          <mat-list-item matRipple>
+            <mat-icon mat-list-icon>delete_outline</mat-icon>
+            <div mat-line>Delete Course</div>
+          </mat-list-item>
+
+          <mat-list-item matRipple>
+            <mat-icon mat-list-icon>{{ true ? "lock_open" : "lock"}}</mat-icon>
+            <div mat-line>{{ true ? "Publish Course" : "Unpublish Course"}}</div>
+          </mat-list-item>
+
+        </mat-list>
+
+      </div>
+
       <!-- Course Specific Data -->
       <div class="course-specifics" cdkDrag>
         <div class="header">Course Specifics</div>

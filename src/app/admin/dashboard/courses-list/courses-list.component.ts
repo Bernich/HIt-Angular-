@@ -1,8 +1,8 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { IPost } from 'src/app/shared/model/post.model';
-import { ICourse } from '../../shared/models';
-import { CourseService } from '../../shared/services';
+import { Course, ICourse } from '../../shared/models';
+import { CourseService, NavigationService } from '../../shared/services';
 
 @Component({
   selector: 'app-hive-admin-courses-list-page',
@@ -14,15 +14,23 @@ export class HiveAdminCoursesListComponent implements OnInit {
   isLoading = false;
   courses: ICourse[];
 
-  constructor(private courseService: CourseService) { }
+  constructor(
+    private courseService: CourseService,
+    private navigationService: NavigationService
+
+  ) { }
 
   ngOnInit() {
     this.loadAll();
   }
 
 
-  editPost(post: IPost) {
-    console.log("post ", post.post_id);
+  editCourse(course: Course) {
+    this.navigationService.navigateToEditCourse(course.course_id)
+  }
+
+  overview(course: Course) {
+    this.navigationService.toCourseOverview(course.slug);
   }
 
   loadAll() {

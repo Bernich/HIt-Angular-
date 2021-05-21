@@ -60,4 +60,40 @@ export class CourseService {
     return this.http.get(`${this.resourceUrl}/slug/${slug}`);
   }
 
+
+  /**
+*  Gets courses a specified course with the course id
+* @param courseId {String}- specified course id
+*/
+  getCourse(courseId: string) {
+    return this.http.get(`${this.resourceUrl}/${courseId}`);
+  }
+
+
+
+  /**
+ * Updates the state of a course to either  enabled or disabled
+ * @param courseId
+ */
+  approveCourse(courseId: string) {
+    const token = localStorage.getItem('currentUser');
+
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+
+    };
+
+    const body = {
+      id: courseId,
+    };
+
+    return this.http.put(this.resourceUrl + `/${courseId}/approve`, body, httpOptions);
+  }
+
 }

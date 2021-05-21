@@ -14,11 +14,8 @@ export class AdminCourseItemComponent implements OnInit {
   }
 
   @Input() course: ICourse;
-  @Output() resume = new EventEmitter();
+  @Output() edit = new EventEmitter();
   @Output() overview = new EventEmitter();
-  @Output() review = new EventEmitter();
-  @Output() editReview = new EventEmitter();
-  @Output() updateCourse = new EventEmitter();
 
   hovered = false;
   completed = 0;

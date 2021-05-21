@@ -1,5 +1,5 @@
 import { CreateCourseDTO, CreateSectionDTO, ISectionDTO } from "../dto/create-course.dto";
-import { CreateCourse, ISection, Resource } from "../models";
+import { Course, CreateCourse, ISection, Resource } from "../models";
 
 export class CourseMapper {
 
@@ -11,7 +11,7 @@ export class CourseMapper {
     new_course.course_id = course.course_id;
     new_course.overview = course.overview;
     new_course.skill_level = course.skill_level;
-    
+
     new_course.description = course.description;
     new_course.duration = course.duration;
 
@@ -49,5 +49,10 @@ export class CourseMapper {
     }
 
     return new_sections;
+  }
+
+  static convertToCreate(course: Course) {
+
+    return new CreateCourse();
   }
 }

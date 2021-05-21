@@ -1,5 +1,5 @@
 <div>
-  <jhi-header [activeRoute]="'academics'" [posts]="headerPosts"></jhi-header>
+  <jhi-header [activeRoute]="'academics'"></jhi-header>
   <app-jhi-partners></app-jhi-partners>
 
   <div style="margin-bottom: 200px;"></div>
@@ -10,7 +10,7 @@
   <app-jhi-milestone class="milestone"></app-jhi-milestone>
 
   <div style="margin-bottom: 100px;"></div>
-  <app-jhi-programs></app-jhi-programs>
+  <app-jhi-programs [courses]="courses"></app-jhi-programs>
   <div style="margin-bottom: 50px;"></div>
 
 

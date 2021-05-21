@@ -2,8 +2,14 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { CreateCourse, CreateLesson, CreateSection, FileData, ICourse, IInstructor, ILesson, Resource } from '../../shared/models';
-import { InstructorService, CreatePostService, CourseService, NavigationService } from '../../shared/services';
+import { Course, CreateCourse, CreateLesson, CreateSection, FileData, ICourse, IInstructor, ILesson, Resource } from '../../shared/models';
+import {
+  AuthService,
+  InstructorService,
+  CreatePostService,
+  CourseService,
+  NavigationService
+} from '../../shared/services';
 import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component';
 import { v4 as uuidv4 } from 'uuid';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +23,8 @@ import { CourseMapper } from '../../shared/mapper/course.mapper';
     './add-course.component.css',
     'add-course-section.css',
     'add-course-module.css',
-    'add-course-main.css'
+    'add-course-main.css',
+    'instructors-image-profile.css'
   ],
   providers: [CreatePostService]
 })
@@ -28,8 +35,14 @@ export class HiveAdminAddCourseComponent implements OnInit {
   categoryControl = new FormControl('', Validators.required);
 
 
-  isNews = true; /**Check if a course is new */
-  isLoading = false;
+  isNewCourse = true; /**Check if a course is new */
+
+  isLoading = {
+    instructors: false,
+    course: false,
+    saving: false
+  }
+
   instructors: IInstructor[] = [];
   selectedInstructors: IInstructor[] = [];
 
@@ -62,6 +75,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bottomSheet: MatBottomSheet,
+    public authService: AuthService,
     private instructorService: InstructorService,
     private courseService: CourseService,
     private navigationService: NavigationService
@@ -71,24 +85,64 @@ export class HiveAdminAddCourseComponent implements OnInit {
     // load all authors
     this.loadAllAuthors();
 
-
     // Check url if there is a course id else create a new course
-    const id = this.route.snapshot.paramMap.get('slug');
+    const id = this.route.snapshot.paramMap.get('id');
+
     if (id) {
-      // unpack old course
-      // this.course = unpack
+      this.isNewCourse = false;
+      // load course and unpack
+      this.loadCourse(id);
     } else {
+      this.isNewCourse = true;
+
       // Create a new course
       this.course = new CreateCourse()
     }
   }
 
+  publisCourse() {
+    this.courseService.approveCourse(this.course.course_id).subscribe({
+      next: (data) => {
 
+        // reload course
+        this.loadCourse(this.course.course_id);
+      },
+      error: (err) => { }
+    });
+  }
+
+  loadCourse(id) {
+    this.courseService.getCourse(id).subscribe({
+      next: (data: Course) => {
+        // unmap course into
+
+        this.course = CourseMapper.convertToCreate(data);
+
+        // setisNew to false
+        this.isNewCourse = false;
+      },
+      error: (err: any) => { }
+    })
+  }
+
+  save() {
+
+    this.isLoading = { ...this.isLoading, saving: true };
+
+    if (this.isNewCourse) {
+      this.saveCourse()
+    } else {
+      this.updateCourse();
+    }
+  }
+
+  updateCourse() {
+
+  }
 
   saveCourse() {
     console.log(this.course);
 
-    this.isLoading = true;
     // convert post authors into an id
     this.course.instructors = this.getCourseInstructos();
 
@@ -96,12 +150,13 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
     this.courseService.add(new_course).subscribe({
       next: (data: ICourse) => {
-        console.log(data); this.isLoading = false;
+        console.log(data);
 
         this.navigationService.navigateToEditCourse(data.course_id)
       },
       error: (err: any) => {
-        console.log(err); this.isLoading = false;
+        console.log(err);
+        this.isLoading = { ...this.isLoading, saving: false };
       }
     });
   }
@@ -138,17 +193,16 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
 
   loadAllAuthors() {
-    this.isLoading = true;
+    this.isLoading = { ...this.isLoading, instructors: true };
 
     this.instructorService.all().subscribe({
       next: (data: any) => {
 
-        this.isLoading = false;
+        this.isLoading = { ...this.isLoading, instructors: false };
         this.instructors = data;
       },
-
       error: (error) => {
-        this.isLoading = false;
+        this.isLoading = { ...this.isLoading, instructors: false };
       }
     });
   }

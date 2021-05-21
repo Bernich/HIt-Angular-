@@ -5,7 +5,7 @@ import {
   StateStorageService, CreatePostService,
   AuthService,
   UsersService, NavigationService,
-  InstructorService, AuthGuardService
+  InstructorService, AuthGuardService, CourseService
 } from './services';
 import {
   AddAuthorFormComponent,
@@ -54,7 +54,8 @@ import { MaterialModule } from 'src/app/material.module';
     UsersService,
     CreatePostService,
     InstructorService,
-    AuthGuardService
+    AuthGuardService,
+    CourseService
   ],
   exports: [
     HivenewsAdminPostsComponent,

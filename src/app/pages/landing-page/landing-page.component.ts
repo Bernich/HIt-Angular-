@@ -3,7 +3,7 @@ import { IPost, Post } from 'src/app/shared/model/post.model';
 import { PostService } from 'src/app/entities/post';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { IPodcast } from 'src/app/shared/model/podcast.model';
-import { ICourse } from 'src/app/admin/shared/models';
+import { Course } from 'src/app/admin/shared/models';
 import { CourseService } from 'src/app/admin/shared/services';
 
 @Component({
@@ -12,7 +12,7 @@ import { CourseService } from 'src/app/admin/shared/services';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-  courses: ICourse[];
+  courses: Course[];
 
   headerPosts: IPost[];
   isLoading: boolean;
@@ -32,7 +32,7 @@ export class LandingPageComponent implements OnInit {
     this.isLoading = true;
 
     this.courseService.all().subscribe({
-      next: (courses: ICourse[]) => {
+      next: (courses: Course[]) => {
         this.isLoading = false;
         this.courses = courses;
       },

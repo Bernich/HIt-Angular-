@@ -5,7 +5,7 @@
       <mat-icon> bubble_chart</mat-icon>
       <div class="label">Overview</div>
     </div>
-    <div class="item resume-course" matRipple (click)="toggleCourseState()">
+    <div class="item resume-course" matRipple (click)="edit.emit(course)">
       <mat-icon>edit</mat-icon>
       <div class="label">Edit</div>
     </div>
@@ -38,7 +38,7 @@
       <!-- <span *ngIf="!course.review.rating; else stars" (click)="review.emit(course)">Leave a rating</span> -->
       <ng-template #stars>
 
-        <div (click)="editReview.emit(course)" style="display : flex; justify-content: space-between">
+        <div style="display : flex; justify-content: space-between">
 
           <!-- TODO Change Edit rating color when hovered  -->
           <div (mouseenter)="hovered = true" (mouseleave)="hovered = false">

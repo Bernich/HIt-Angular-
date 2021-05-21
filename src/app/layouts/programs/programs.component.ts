@@ -2,7 +2,7 @@ import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { IPost } from '../../shared/model/post.model';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { ICourse } from 'src/app/admin/shared/models';
+import { Course } from 'src/app/admin/shared/models';
 
 @Component({
   selector: 'app-jhi-programs',
@@ -11,7 +11,7 @@ import { ICourse } from 'src/app/admin/shared/models';
 })
 export class ProgramsComponent implements OnInit {
 
-  @Input() courses: ICourse[];
+  @Input() courses: Course[];
 
   ngOnInit() { }
 
