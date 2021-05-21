@@ -7,3 +7,4 @@ export * from './author.service';
 export * from './instructor.service';
 export * from './auth-guard.service';
 export * from './course.service';
+export * from './notification.service'

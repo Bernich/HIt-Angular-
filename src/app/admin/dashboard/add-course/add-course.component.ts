@@ -8,7 +8,8 @@ import {
   InstructorService,
   CreatePostService,
   CourseService,
-  NavigationService
+  NavigationService,
+  NotificationService
 } from '../../shared/services';
 import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component';
 import { v4 as uuidv4 } from 'uuid';
@@ -29,6 +30,12 @@ import { CourseMapper } from '../../shared/mapper/course.mapper';
   providers: [CreatePostService]
 })
 export class HiveAdminAddCourseComponent implements OnInit {
+
+
+  /******************************* */
+  // Course Specific details
+  isPublished: boolean = false;
+  /******************************* */
 
   imgUrl = 'https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg';
   publish: false = false;
@@ -76,6 +83,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
     private route: ActivatedRoute,
     private bottomSheet: MatBottomSheet,
     public authService: AuthService,
+    private notificationService: NotificationService,
     private instructorService: InstructorService,
     private courseService: CourseService,
     private navigationService: NavigationService

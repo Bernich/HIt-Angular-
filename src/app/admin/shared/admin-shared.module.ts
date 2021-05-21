@@ -4,8 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   StateStorageService, CreatePostService,
   AuthService,
-  UsersService, NavigationService,
-  InstructorService, AuthGuardService, CourseService
+  UsersService,
+  NavigationService,
+  InstructorService,
+  AuthGuardService,
+  CourseService,
+  NotificationService
 } from './services';
 import {
   AddAuthorFormComponent,
@@ -55,7 +59,8 @@ import { MaterialModule } from 'src/app/material.module';
     CreatePostService,
     InstructorService,
     AuthGuardService,
-    CourseService
+    CourseService,
+    NotificationService
   ],
   exports: [
     HivenewsAdminPostsComponent,
