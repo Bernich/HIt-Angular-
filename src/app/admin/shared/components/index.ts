@@ -7,3 +7,4 @@ export * from './add-instructor-form/add-instructor-form.component';
 export * from './rounded-button/rounded-button.component';
 export * from './rounded-file-button/rounded-file-button.component';
 export * from './course-objectives-input/course-objectives-input.component';
+export * from './course-item/course-item.component'

@@ -17,15 +17,19 @@ export interface ICourse {
   course_id?: string;
 
   name?: string;
+  slug?: string;
   overview?: string;
+  description?: string;
+  skill_level: string;
+
   duration?: string;
-  base_fee?: number;
+  base_price?: number;
 
 
-  career_path?: string[] | Resource[];
+  career_paths?: string[] | Resource[];
   what_you_will_learn?: Resource[];
   prerequisites?: Resource[];
-  publicity_status?: boolean;
+  // publicity_status?: boolean;
   with_certification?: boolean;
   instructors?: string[] | IInstructor[];
 
@@ -48,26 +52,28 @@ export class CreateCourse implements ICourse {
   constructor(
 
   ) {
-    this.publicity_status = this.publicity_status || false;
+    // this.publicity_status = this.publicity_status || false;
     this.course_id = uuidv4();
   }
 
   public name: string = "";
   public course_id: string;
   public overview: string = "";
-  public duration: string = "2"
-  public publicity_status?: boolean;
-  public with_certification?: boolean;
+  public description: string = "";
+  public skill_level: string = "";
 
-  public instructor?: string[];
+  public duration: string = "2"
+  // public publicity_status?: boolean;
+  public with_certification: boolean = false;
+
+  public instructors: string[];
   public banner_data: FileData;
   public thumbnail_data: FileData;
-  public base_fee: number = 0;
+  public base_price: number = 0;
   public curriculum: ISection[] = [];
   public what_you_will_learn: Resource[] = [];
   public prerequisites: Resource[] = [];
-  public career_path: Resource[] = [];
-
+  public career_paths: Resource[] = [];
 }
 
 
@@ -75,7 +81,7 @@ export class CreateCourse implements ICourse {
 export interface ILesson {
 
   id: string;
-  content: string;
+  name: string;
   course_id?: string;
 }
 
@@ -89,7 +95,7 @@ export class CreateLesson implements ILesson {
   }
 
   public id;
-  public content = "this";
+  public name = "this";
   public course_id: string;
 }
 
@@ -109,7 +115,7 @@ export class CreateSection implements ISection {
   public duration: number = 0;
 }
 
-export class CreatePost implements ICourse {
+export class CreatePost {
   constructor(
     public title?: string,
     public content?: string,

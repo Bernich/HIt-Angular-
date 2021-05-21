@@ -1,0 +1,62 @@
+<div class="course-item-container">
+
+  <div class="navigation">
+    <div class="item course-overview" matRipple (click)="overview.emit(course)">
+      <mat-icon> bubble_chart</mat-icon>
+      <div class="label">Overview</div>
+    </div>
+    <div class="item resume-course" matRipple (click)="toggleCourseState()">
+      <mat-icon>edit</mat-icon>
+      <div class="label">Edit</div>
+    </div>
+
+  </div>
+  <mat-divider></mat-divider>
+
+  <div class="item top">
+    <div class="title">{{ course.name }}</div>
+    <!-- <div class="category">{{ course.category }}</div> -->
+    <div style="margin-bottom: 10px;"></div>
+
+    <!-- <div style="width: 85%;">
+      <mat-progress-bar mode="determinate" [value]="completed" [color]="'ff2211'"></mat-progress-bar>
+    </div> -->
+
+    <!-- <div class="category"> {{course.lessons_completed+"/"+course.total_lessons + " lessons completed"}} </div> -->
+  </div>
+  <div class="item bottom">
+    <img src="{{ course.thumbnail.url }}" alt="" srcset="" />
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="review">
+    <div class="rating">
+      <!-- <span *ngIf="course.review.rating">L</span> -->
+
+
+      <!-- <span *ngIf="!course.review.rating; else stars" (click)="review.emit(course)">Leave a rating</span> -->
+      <ng-template #stars>
+
+        <div (click)="editReview.emit(course)" style="display : flex; justify-content: space-between">
+
+          <!-- TODO Change Edit rating color when hovered  -->
+          <div (mouseenter)="hovered = true" (mouseleave)="hovered = false">
+
+            <span *ngIf="hovered" style="color: #f4c150;"> Edit rating</span>
+            <span *ngIf="!hovered">Your rating</span>
+          </div>
+
+
+        </div>
+
+
+      </ng-template>
+    </div>
+
+    <!-- <div class="submenu" [matMenuTriggerFor]="menu">
+      <mat-icon> {{
+        menuOpen ? 'filter_list': 'subject' }} </mat-icon>
+    </div> -->
+  </div>
+</div>

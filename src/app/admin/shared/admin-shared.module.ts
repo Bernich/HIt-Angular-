@@ -16,7 +16,8 @@ import {
   RoundedButtonComponent,
   RoundedFileButtonComponent,
   AddInstructorFormComponent,
-  CourseObjectivesInputComponent
+  CourseObjectivesInputComponent,
+  AdminCourseItemComponent
 } from './components';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +34,8 @@ import { MaterialModule } from 'src/app/material.module';
     AdminInstructorListItemComponent,
     RoundedFileButtonComponent,
     AddInstructorFormComponent,
-    CourseObjectivesInputComponent
+    CourseObjectivesInputComponent,
+    AdminCourseItemComponent
   ],
 
   imports: [
@@ -63,7 +65,8 @@ import { MaterialModule } from 'src/app/material.module';
     AdminInstructorListItemComponent,
     RoundedFileButtonComponent,
     AddInstructorFormComponent,
-    CourseObjectivesInputComponent
+    CourseObjectivesInputComponent,
+    AdminCourseItemComponent
   ]
 })
 export class AdminSharedModule { }

@@ -3,6 +3,8 @@ import { IPost, Post } from 'src/app/shared/model/post.model';
 import { PostService } from 'src/app/entities/post';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { IPodcast } from 'src/app/shared/model/podcast.model';
+import { ICourse } from 'src/app/admin/shared/models';
+import { CourseService } from 'src/app/admin/shared/services';
 
 @Component({
   selector: 'jhi-landing-page',
@@ -10,15 +12,33 @@ import { IPodcast } from 'src/app/shared/model/podcast.model';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-  posts: IPost[];
+  courses: ICourse[];
+
   headerPosts: IPost[];
   isLoading: boolean;
   isPodcast: boolean;
   podcasts = [];
 
-  constructor(private postService: PostService, private http: HttpClient) { }
+  constructor(private courseService: CourseService) { }
 
   ngOnInit() {
+
+    this.loadAllCourses();
+
   }
 
+
+  loadAllCourses() {
+    this.isLoading = true;
+
+    this.courseService.all().subscribe({
+      next: (courses: ICourse[]) => {
+        this.isLoading = false;
+        this.courses = courses;
+      },
+      error: (error: any) => {
+
+      },
+    });
+  }
 }

@@ -1,8 +1,8 @@
 <section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
   <section class="admin-dashboard-content-container ">
 
-    <app-hivenews-admin-posts *ngFor="let post of posts" [post]="post" (edit)="editPost(post)">
-    </app-hivenews-admin-posts>
+    <app-admin-course-item *ngFor="let course of courses" [course]="course">
+    </app-admin-course-item>
 
   </section>
 

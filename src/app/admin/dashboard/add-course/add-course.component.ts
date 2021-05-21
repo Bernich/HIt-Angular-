@@ -2,11 +2,12 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { CreateCourse, CreateLesson, CreateSection, FileData, IInstructor, ILesson, Resource } from '../../shared/models';
-import { InstructorService, CreatePostService } from '../../shared/services';
+import { CreateCourse, CreateLesson, CreateSection, FileData, ICourse, IInstructor, ILesson, Resource } from '../../shared/models';
+import { InstructorService, CreatePostService, CourseService, NavigationService } from '../../shared/services';
 import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component';
 import { v4 as uuidv4 } from 'uuid';
 import { ActivatedRoute } from '@angular/router';
+import { CourseMapper } from '../../shared/mapper/course.mapper';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   categoryControl = new FormControl('', Validators.required);
 
 
+  isNews = true; /**Check if a course is new */
   isLoading = false;
   instructors: IInstructor[] = [];
   selectedInstructors: IInstructor[] = [];
@@ -47,18 +49,22 @@ export class HiveAdminAddCourseComponent implements OnInit {
     "Intermediate",
     "Professional"
   ]
+
+  /**Toggle between the tabs in the course state */
   stateTabs = {
     createCourse: true,
     curriculumTab: false
   };
 
+  /** Course instance model **/
   course: CreateCourse = null;
-
 
   constructor(
     private route: ActivatedRoute,
     private bottomSheet: MatBottomSheet,
-    private instructorService: InstructorService
+    private instructorService: InstructorService,
+    private courseService: CourseService,
+    private navigationService: NavigationService
   ) { }
 
   ngOnInit(): void {
@@ -84,19 +90,21 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
     this.isLoading = true;
     // convert post authors into an id
-    const author_ids = this.getCourseInstructos();
-    console.log(author_ids);
+    this.course.instructors = this.getCourseInstructos();
 
-    // this.courseService.savePost(this.categoryControl.value, author_ids).subscribe({
-    //   next: (data: any) => {
-    //     console.log(data); this.isLoading = false;
-    //   },
-    //   error: (err: any) => {
-    //     console.log(err); this.isLoading = false;
-    //   }
-    // });
+    const new_course = CourseMapper.convertToDTO(this.course);
+
+    this.courseService.add(new_course).subscribe({
+      next: (data: ICourse) => {
+        console.log(data); this.isLoading = false;
+
+        this.navigationService.navigateToEditCourse(data.course_id)
+      },
+      error: (err: any) => {
+        console.log(err); this.isLoading = false;
+      }
+    });
   }
-
 
   updateBannerImage(data: { url: string, data: FileData }) {
     this.imgUrl = data.url;
@@ -176,7 +184,9 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
       if (type = 'THUMBMAIL') {
         this.thumbnailURL = (event.target.result);
-        this.course.thumbnail_data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
+        const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
+        this.course.thumbnail_data = new FileData(file.type, data)
+
       }
 
     });
@@ -187,6 +197,9 @@ export class HiveAdminAddCourseComponent implements OnInit {
     this.selectedInstructors = this.selectedInstructors.filter((user: IInstructor) => instructor.instructor_id !== user.instructor_id);
   }
 
+  removeLesson(section_position, id) {
+    this.course.curriculum[section_position].lessons = this.course.curriculum[section_position].lessons.filter((lesson: CreateLesson) => lesson.id !== id)
+  }
   addLesson(section_position, $event) {
     const lesson = new CreateLesson(this.course.course_id);
     this.course.curriculum[section_position].lessons.push(lesson);
@@ -214,8 +227,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
     this.course.prerequisites = data;
   }
   updateCareerPath(data: Resource[]) {
-    // this.course.career_path = data.map((data: Resource) => data.value);
-    this.course.career_path = data;
+    // this.course.career_paths = data.map((data: Resource) => data.value);
+    this.course.career_paths = data;
   }
 
 

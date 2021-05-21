@@ -10,7 +10,7 @@
 }
 .course-banner {
   width: 100%;
-  height: 600px;
+  height: 679px;
   background: linear-gradient(
       180deg,
       rgba(246, 136, 31, 0.51) 0%,
@@ -30,26 +30,43 @@
   flex-direction: column;
 }
 
+.course-banner::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .course-detail-summary {
   width: 70%;
+
+  z-index: 5;
+
+  font-family: SFUIText-Light;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #fff;
 }
 .course-banner h1 {
-  font-weight: 700;
+  font-family: Lato, sans-serif;
+  font-size: 42px;
+  margin-bottom: 30px;
+
   color: #fff;
   display: inline-flex;
   text-align: left;
   line-height: 1.3em;
-  font-size: 2.6em;
-  margin-bottom: 2rem;
 }
 
 .course-banner p {
-  line-height: 1.9em;
   max-width: 50%;
   width: 550px;
-  font-weight: 700;
   color: #fff;
-  font-size: 1em;
+  font-size: 16px;
+  line-height: 1.7em;
 }
 
 .course-banner span {

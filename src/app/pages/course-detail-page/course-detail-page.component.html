@@ -1,13 +1,14 @@
-<section class="course-detail-page-container">
+<section class="course-detail-page-container" *ngIf="!isLoading; else loader">
   <jhi-onsite-navbar [activeRoute]="'academics'"></jhi-onsite-navbar>
 
   <section>
-    <div class="course-banner">
+    <div [style.backgroundImage]="'url('+course.banner.url+')'" class="course-banner">
 
       <div class="course-detail-summary">
-        <h1>Internet of Things</h1><span>2 months</span>
-        <p>Concept of the Internet of Things is becoming increasingly important and understanding both the technical and
-          wider societal impacts of the Internet of Things will be crucial for the digital citizens of the future.</p>
+        <h1>{{course.name}}</h1><span>{{course.duration}}</span>
+        <p>
+          {{course.overview}}
+        </p>
       </div>
 
     </div>
@@ -16,128 +17,16 @@
   <section>
     <div class="course-wrapper">
       <div class="course-details-container">
-        <div class="course-details-wrapper">
+        <div *ngFor="let section of course.curriculum; let count  = index;" class="course-details-wrapper">
           <img class="icon" src="/assets/images/note.bmp" alt="note">
           <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
+            <h3 class="course-header">{{"Chapter "+ (count + 1)+" "+section.name}}</h3>
             <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
+              <li *ngFor="let lesson of section.lessons">{{lesson.name}}</li>
             </ul>
-            <p class="duration">45min.</p>
+            <p class="duration">{{section.duration +"hrs"}}</p>
           </div>
         </div>
-
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-        <div class="course-details-wrapper">
-          <img class="icon" src="/assets/images/note.bmp" alt="note">
-          <div class="course-description">
-            <h3 class="course-header">Chapter 1:Brief history on the internet of things</h3>
-            <ul class="unordered-list">
-              <li>How it started</li>
-              <li>Where it started </li>
-              <li>Some of the projects it was used for</li>
-            </ul>
-            <p class="duration">45min.</p>
-          </div>
-        </div>
-
 
       </div>
 
@@ -158,3 +47,10 @@
   <div style="margin-bottom: 100px;"></div>
   <jhi-footer></jhi-footer>
 </section>
+
+
+
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
