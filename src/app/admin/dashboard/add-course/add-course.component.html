@@ -23,7 +23,7 @@
 
         <div class="spacer"></div>
         <section class="admin-dashboard-posts-button">
-          <button [style.display]="isLoading.saving ? 'none' : 'block'" class="save_button" mat-flat-button
+          <button [style.display]="isLoading.course ? 'none' : 'block'" class="save_button" mat-flat-button
             (click)="save()">{{ isNewCourse ? 'Save' : 'Update'}}</button>
         </section>
       </section>
@@ -204,7 +204,7 @@
 
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{"Chapter "+ (section_position + 1) + " : " + section.title}}
+                {{"Chapter "+ (section_position + 1) + " : " + section.name}}
               </mat-panel-title>
               <mat-panel-description>
               </mat-panel-description>

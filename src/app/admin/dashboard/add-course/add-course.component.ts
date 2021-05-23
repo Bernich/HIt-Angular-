@@ -46,8 +46,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
   isLoading = {
     instructors: false,
-    course: false,
-    saving: false
+    course: false
   }
 
   instructors: IInstructor[] = [];
@@ -111,11 +110,14 @@ export class HiveAdminAddCourseComponent implements OnInit {
   publisCourse() {
     this.courseService.approveCourse(this.course.course_id).subscribe({
       next: (data) => {
+        this.notificationService.openSnackBar("Course Published", this.course.name + "");
 
         // reload course
         this.loadCourse(this.course.course_id);
       },
-      error: (err) => { }
+      error: (err) => {
+        this.notificationService.openSnackBar("Course Publishing Failed " + err.error, "Try Again");
+      }
     });
   }
 
@@ -124,18 +126,31 @@ export class HiveAdminAddCourseComponent implements OnInit {
       next: (data: Course) => {
         // unmap course into
 
+        this.isLoading = { ...this.isLoading, course: false };
+
+
         this.course = CourseMapper.convertToCreate(data);
 
         // setisNew to false
         this.isNewCourse = false;
+
+        // store current thumbnail and banner
+        this.thumbnailURL = data.thumbnail.url;
+        this.imgUrl = data.banner.url;
+
+        //put instructors in selected instructors
+        this.selectedInstructors = data.instructors;
       },
-      error: (err: any) => { }
+      error: (err: any) => {
+        this.isLoading = { ...this.isLoading, course: false };
+
+      }
     })
   }
 
   save() {
 
-    this.isLoading = { ...this.isLoading, saving: true };
+    this.isLoading = { ...this.isLoading, course: true };
 
     if (this.isNewCourse) {
       this.saveCourse()
@@ -145,7 +160,29 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
   updateCourse() {
+    // convert post authors into an id
+    this.course.instructors = this.getCourseInstructos();
 
+    const new_course = CourseMapper.convertToDTO(this.course);
+
+
+    this.isLoading = { ...this.isLoading, course: true };
+
+    this.courseService.updateCourse(new_course).subscribe({
+      next: (data: ICourse) => {
+        console.log(data);
+
+        this.isLoading = { ...this.isLoading, course: false };
+
+        this.notificationService.openSnackBar("Course Updated", data.name);
+        this.navigationService.navigateToEditCourse(data.course_id)
+      },
+      error: (error: any) => {
+        this.notificationService.openSnackBar("Updating course failed", error.error);
+
+        this.isLoading = { ...this.isLoading, course: false };
+      }
+    });
   }
 
   saveCourse() {
@@ -160,11 +197,13 @@ export class HiveAdminAddCourseComponent implements OnInit {
       next: (data: ICourse) => {
         console.log(data);
 
+        this.notificationService.openSnackBar("Course Saved", data.name);
         this.navigationService.navigateToEditCourse(data.course_id)
       },
-      error: (err: any) => {
-        console.log(err);
-        this.isLoading = { ...this.isLoading, saving: false };
+      error: (error: any) => {
+        this.notificationService.openSnackBar("Saving course failed", error.error);
+
+        this.isLoading = { ...this.isLoading, course: false };
       }
     });
   }

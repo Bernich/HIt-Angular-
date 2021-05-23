@@ -57,10 +57,14 @@
 
   display: flex;
   justify-content: space-between;
+
+  background-color: white;
 }
 
 .news-content-container-list-item {
-  width: calc((100% / 3) - 40px);
+  width: calc((100% / 4) - 5px);
+
+  border: 0.5px solid rgba(0, 0, 0, 0.0558);
 }
 .news-heading {
   font-family: SFUIText-Medium;

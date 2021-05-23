@@ -59,7 +59,7 @@ export class Course implements ICourse {
   public base_price?: number;
 
 
-  public career_paths?: string[] | Resource[];
+  public career_paths?: string[];
   public what_you_will_learn?: Resource[];
   public prerequisites?: Resource[];
   // publicity_status?: boolean;

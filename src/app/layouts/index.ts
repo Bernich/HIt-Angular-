@@ -8,6 +8,7 @@ export * from './load-more/load-more.component';
 export * from './post-cards/post-cards.component';
 export * from './partners/partners.component';
 export * from './mantra/mantra.component';
+export * from './explainer-text/explainer-text.component';
 export * from './milestone/milestone.component';
 export * from './convince/convince.component';
 export * from './programs/programs.component';
@@ -19,3 +20,5 @@ export * from './video-about-us/video-about-us.component';
 export * from './partners-full-list/partners-full-list.component';
 export * from './video-dialog/video-dialog.component';
 export * from './image-text-card/image-text-card.component';
+export * from './vertical-divider/vertical-divider.component';
+export * from './new-programs-layout/new-programs-layout.component'

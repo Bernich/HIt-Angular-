@@ -1,14 +1,16 @@
-<header>
+<header [style.backgroundImage]="getPostThumbUrl(currentPost.image)">
   <jhi-onsite-navbar [activeRoute]="activeRoute"></jhi-onsite-navbar>
 
   <ngb-carousel class="header-carousel" [showNavigationArrows]="navigation.showNavigationArrows"
     [showNavigationIndicators]="navigation.showNavigationIndicators">
-    <ng-template ngbSlide *ngFor="let course of courses">
-      <div class="slider" [style.backgroundImage]="getPostThumbUrl(course.image)">
-        <div class="post">
-          <h3 class="post-title">{{ course.title }}</h3>
+    <ng-template ngbSlide *ngFor="let post of headerPosts; assignCurrentPost(post); ">
 
-          <p class="post-date">{{ course.description }}</p>
+      <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.image)">
+
+        <div class="post">
+          <h3 class="post-title">{{ post.title }}</h3>
+
+          <p class="post-date">{{ post.description }}</p>
 
           <!-- <a class="post-read" [routerLink]="['/posts', post.post_id]">Explore</a> -->
         </div>

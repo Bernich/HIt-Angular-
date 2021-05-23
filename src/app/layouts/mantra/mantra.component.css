@@ -10,8 +10,6 @@
   flex-direction: column;
 
   /* margin-top: calc((var(--mantra-height) / 2) * -1); */
-  margin-top: 100px;
-  margin-bottom: 100px;
 
   /* Give all specific components */
   font-weight: 400;
@@ -52,7 +50,7 @@
   width: calc((100% / 3) - 20px);
 
   display: flex;
-  /* justify-content: center; */
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
 
@@ -76,6 +74,10 @@
   font-size: 0.97rem;
   line-height: 1.25;
   color: var(--brownish-grey);
+}
+
+.mantra-item img {
+  margin-bottom: 20px;
 }
 .spacer-vertical-dashed {
   height: 100%;

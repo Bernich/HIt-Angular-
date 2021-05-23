@@ -6,7 +6,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-jhi-convince',
   templateUrl: './convince.component.html',
-  styleUrls: ['./convince.component.css'],
+  styleUrls: ['./convince.component.css', 'rounded-button.css'],
 })
 export class ConvinceComponent implements OnInit {
 

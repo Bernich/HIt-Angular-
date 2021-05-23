@@ -2,20 +2,16 @@ import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { IPost } from '../../shared/model/post.model';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Course } from 'src/app/admin/shared/models';
 
 @Component({
-  selector: 'app-jhi-image-text-card',
-  templateUrl: './image-text-card.component.html',
-  styleUrls: ['./image-text-card.component.css', 'rounded-button.css'],
+  selector: 'app-jhi-new-programs-layout',
+  templateUrl: './new-programs-layout.component.html',
+  styleUrls: ['./new-programs-layout.component.css', 'rounded-button.css'],
 })
-export class ImageTextCardComponent implements OnInit {
+export class NewProgramsLayoutComponent implements OnInit {
 
-  @Input() title: string;
-
-  @Input() url: string;
-  @Input() description: string;
-  @Input() reversed: boolean = false;
-  @Input() background: boolean = false;
+  @Input() courses: Course[];
 
   ngOnInit() { }
 

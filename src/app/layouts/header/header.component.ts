@@ -13,24 +13,9 @@ import { ACTIVE_LINKS } from 'src/app/shared';
 export class HeaderComponent implements OnInit {
 
   @Input() activeRoute: string = "home";
+  @Input() headerPosts;
 
-  courses = [
-    {
-      image: 'https://hive-institute-of-technology.wm.r.appspot.com/_next/static/images/institute-0ea30831009b5155c09c5baf27cbc655.png',
-      title: 'Learn with us everywhere anytime ',
-      description: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.'
-    },
-    {
-      image: 'https://hive-institute-of-technology.wm.r.appspot.com/_next/static/images/academics-bg-89794e0b7ef7eb5ffdc9fc9b4adfea66.png',
-      title: 'Education at your doorsteps',
-      description: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.'
-    },
-    {
-      image: 'https://hive-institute-of-technology.wm.r.appspot.com/_next/static/images/night-banner-ad3a3fcf3c1ed36f363ddb7c8986f732.png',
-      title: 'Learn with us everywhere anytime      ',
-      description: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.'
-    }
-  ];
+  currentPost = null;
 
 
   navigation = {
@@ -39,19 +24,26 @@ export class HeaderComponent implements OnInit {
   };
 
   constructor(private sanitizer: DomSanitizer, private config: NgbCarouselConfig) {
-    config.interval = 100000000;
+    config.interval = 60000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;
-    config.showNavigationArrows = false;
+    config.showNavigationArrows = true;
     config.showNavigationIndicators = false;
-    config.animation = true;
+    config.animation = false;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.currentPost = this.headerPosts[0];
+  }
 
   getPostThumbUrl(headerImageUrl: string): SafeUrl {
+
     return `url(${headerImageUrl})`;
+  }
+
+  assignCurrentPost(post) {
+    this.currentPost = post;
   }
 
   @HostListener('window:resize', ['$event'])

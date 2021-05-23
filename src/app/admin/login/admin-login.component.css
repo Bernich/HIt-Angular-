@@ -12,6 +12,9 @@
   position: relative;
 
   border-right: 5px solid rgba(0, 0, 0, 0.596);
+
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .background-container::after {

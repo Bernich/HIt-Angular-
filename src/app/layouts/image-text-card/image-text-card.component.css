@@ -17,7 +17,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-
   /* margin-top: calc((var(--image-text-card-height) / 2) * -1); */
 
   padding: 50px 0px;
@@ -33,6 +32,7 @@
 .image-text-card-content-container {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 
   width: calc(85%);
   height: 100%;
@@ -52,7 +52,9 @@
 }
 .image-text-card-content-container img {
   width: 50%;
-  height: 550px;
+  box-sizing: border-box;
+
+  height: 450px;
 
   object-fit: cover;
   object-position: right;

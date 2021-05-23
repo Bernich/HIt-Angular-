@@ -4,18 +4,18 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-jhi-image-text-card',
-  templateUrl: './image-text-card.component.html',
-  styleUrls: ['./image-text-card.component.css', 'rounded-button.css'],
+  selector: 'app-jhi-explainer-text',
+  templateUrl: './explainer-text.component.html',
+  styleUrls: ['./explainer-text.component.css', 'rounded-button.css'],
 })
-export class ImageTextCardComponent implements OnInit {
+export class ExplainerTextComponent implements OnInit {
 
-  @Input() title: string;
-
-  @Input() url: string;
-  @Input() description: string;
-  @Input() reversed: boolean = false;
-  @Input() background: boolean = false;
+  @Input() alignLeft: boolean = false
+  @Input() text: string = ""
+  @Input() heading: string = ""
+  @Input() footer: string = ""
+  @Input() showHeading: boolean = false;
+  @Input() showFooter: boolean = false;
 
   ngOnInit() { }
 

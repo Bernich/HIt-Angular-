@@ -7,12 +7,14 @@ header {
   /* url("../../../assets/images/republica.jpg"); */
 
   /* Give all specific components */
-  /* font-weight: 400;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
-  text-align: center; */
-
+  text-align: center;
+  font-family: SFUIText-Light;
+  /* font-family: SFProText; */
+  text-align: left;
   z-index: 0 !important;
 }
 
@@ -27,6 +29,7 @@ header {
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 30px 0;
 
@@ -44,13 +47,17 @@ header {
 }
 
 .post {
-  margin: 30px auto;
-  width: 100%;
+  /* margin: 30px auto; */
+  width: 55%;
   display: block;
   padding: 0 20px;
   z-index: 100 !important;
 }
 
+.post-title,
+.post-date {
+  width: 75%;
+}
 .post-title {
   font-size: 1.2rem;
   font-weight: 600;
@@ -59,16 +66,15 @@ header {
 }
 
 .post-date {
-  height: 15px;
+  /* height: 15px; */
   font-size: 11px;
   /* font-weight: bold; */
   /* letter-spacing: 1.4px; */
   color: #fff;
   margin-top: 15px;
-
-  /* font-family: SFUIText-Light; */
-  /* font-size: 0.97rem;
-  line-height: 1.25; */
+  line-height: 1.7em;
+  font-family: SFUIText-Light;
+  font-size: 1.17rem;
   /* color: var(--brownish-grey); */
 }
 
@@ -109,9 +115,9 @@ h1 {
 }
 
 /* media queries */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .post {
-    width: 750px;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -120,7 +126,7 @@ h1 {
   }
 
   .post-date {
-    font-size: 15px;
+    /* font-size: 15px; */
     margin-top: 10px;
   }
 
@@ -130,9 +136,9 @@ h1 {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .post {
-    width: 750px;
+    /* width: 750px; */
     margin: 0 auto;
   }
 
@@ -141,7 +147,7 @@ h1 {
   }
 
   .post-date {
-    font-size: 15px;
+    /* font-size: 15px; */
     margin-top: 40px;
   }
 
@@ -153,7 +159,7 @@ h1 {
 
 @media screen and (min-width: 1368px) {
   .post {
-    width: 1050px;
+    /* width: 1050px; */
     margin: 0 auto;
   }
 
@@ -166,20 +172,23 @@ h1 {
   }
 
   .post-date {
-    font-size: 15px;
+    /* font-size: 15px; */
   }
 }
 
 @media screen and (min-width: 1414px) {
   .post {
-    width: 1050px;
+    /* width: 1050px; */
     margin: 0 auto;
   }
 }
 
 @media (max-width: 575px) {
+  .post {
+    width: 90%;
+  }
   .post-title {
     font-size: 25px;
-    line-height: normal;
+    /* line-height: normal; */
   }
 }

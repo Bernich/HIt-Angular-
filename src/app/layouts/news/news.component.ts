@@ -30,6 +30,12 @@ export class NewsListComponent implements OnInit {
       image: 'https://engineering.stanford.edu/sites/default/files/styles/full_width_banner_tall/public/20210312-tfoe-jurafsky-stocksy_txp556a7c75o01300_large_2512241.jpg?itok=iCkNp7ty'
 
     },
+    {
+      description: 'A year later, the Gazette caught up with Waldo, Gordon McKay Professor of the Practice of Computer Science and the Paulson School’s chief technology officer, to see how it went.',
+      title: 'High-speed internet at a crossroads',
+      image: 'https://engineering.stanford.edu/sites/default/files/styles/full_width_banner_tall/public/20210312-tfoe-jurafsky-stocksy_txp556a7c75o01300_large_2512241.jpg?itok=iCkNp7ty'
+
+    },
   ]
   ngOnInit() { }
 

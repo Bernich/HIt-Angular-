@@ -24,7 +24,10 @@ import {
   VideoAboutUsComponent,
   PartnersFullListComponent,
   VideoDialogComponent,
-  ImageTextCardComponent
+  ImageTextCardComponent,
+  ExplainerTextComponent,
+  VereticalDividerComponent,
+  NewProgramsLayoutComponent
 } from '.';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -56,7 +59,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VideoAboutUsComponent,
     PartnersFullListComponent,
     VideoDialogComponent,
-    ImageTextCardComponent
+    ImageTextCardComponent,
+    ExplainerTextComponent,
+    VereticalDividerComponent,
+    NewProgramsLayoutComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -78,7 +84,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VideoAboutUsComponent,
     PartnersFullListComponent,
     VideoDialogComponent,
-    ImageTextCardComponent
+    ImageTextCardComponent,
+    ExplainerTextComponent,
+    VereticalDividerComponent,
+    NewProgramsLayoutComponent
   ]
 })
 export class HivenewsLayoutsModule { }

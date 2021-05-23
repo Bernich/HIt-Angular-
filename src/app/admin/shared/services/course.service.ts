@@ -96,4 +96,25 @@ export class CourseService {
     return this.http.put(this.resourceUrl + `/${courseId}/approve`, body, httpOptions);
   }
 
+
+
+  /**
+   * Updates a course using the course Id
+   *@param course
+   @returns An Obervable ICourse
+   */
+  updateCourse(course: CreateCourseDTO) {
+    const token = localStorage.getItem('currentUser');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+
+    return this.http.put(`${this.resourceUrl}/${course.course_id}`, course, httpOptions);
+  }
+
 }
