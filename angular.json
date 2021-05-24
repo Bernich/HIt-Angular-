@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/hive-institute/browser",
-            "index": "src/index.html",
+            "index": "src/assets/static/coming-soon.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
@@ -176,4 +176,3 @@
     "analytics": "9ff2da19-ad16-4b9a-81ee-50a47c704130"
   }
 }
-
