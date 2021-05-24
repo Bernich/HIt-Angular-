@@ -54,22 +54,31 @@ header {
   z-index: 100 !important;
 
   display: flex;
-
-  background-color: #944d06;
 }
 
 .post .left-side {
-  width: 60%;
+  width: 65%;
 
-  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: tomato; */
 }
 
 .post .right-side {
-  width: 40%;
+  width: 45%;
+
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.post .right-side .trending-header {
+  font-family: SFUIText-Medium;
+  font-weight: 500;
 }
 .post-title,
 .post-date {
-  width: 75%;
+  width: 55%;
 }
 .post-title {
   font-size: 1.2rem;

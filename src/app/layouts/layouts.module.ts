@@ -29,7 +29,8 @@ import {
   VereticalDividerComponent,
   NewProgramsLayoutComponent,
   PeopleAreSayingComponent,
-  NewHeaderComponent
+  NewHeaderComponent,
+  NewNewsCardComponent
 } from '.';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -66,7 +67,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VereticalDividerComponent,
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
-    NewHeaderComponent
+    NewHeaderComponent,
+    NewNewsCardComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -93,7 +95,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VereticalDividerComponent,
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
-    NewHeaderComponent
+    NewHeaderComponent,
+    NewNewsCardComponent
   ]
 })
 export class HivenewsLayoutsModule { }

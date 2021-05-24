@@ -24,7 +24,7 @@ export class NewHeaderComponent implements OnInit {
   };
 
   constructor(private sanitizer: DomSanitizer, private config: NgbCarouselConfig) {
-    config.interval = 60000;
+    config.interval = 60000000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;
