@@ -1,7 +1,11 @@
 # [START runtime]
 runtime: nodejs12
 handlers:
-  - url: /.*
+  - url: /
+    upload: dist/hive-institute/browser/coming-soon.html
     secure: always
+    static_files: dist/hive-institute/browser/coming-soon.html
     redirect_http_response_code: 301
-    script: auto
+  - url: /
+    static_dir: dist/hive-institute/browser/
+# [END runtime]
