@@ -8,11 +8,21 @@
       <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.image)">
 
         <div class="post">
-          <h3 class="post-title">{{ post.title }}</h3>
+          <!-- This is a Specific design -->
+          <section class="left-side">
+            <h3 class="post-title">{{ post.title }}</h3>
 
-          <p class="post-date">{{ post.description }}</p>
+            <p class="post-date">{{ post.description }}</p>
 
-          <!-- <a class="post-read" [routerLink]="['/posts', post.post_id]">Explore</a> -->
+            <!-- <a class="post-read" [routerLink]="['/posts', post.post_id]">Explore</a> -->
+
+          </section>
+
+          <section class="right-side">
+            <div>This is a new Card</div>
+            <div>This is a new List card</div>
+          </section>
+
         </div>
       </div>
     </ng-template>

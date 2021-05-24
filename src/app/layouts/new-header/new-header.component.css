@@ -1,5 +1,5 @@
 header {
-  height: 90vh;
+  height: 105vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,7 +22,7 @@ header {
   z-index: 0 !important;
 }
 .slider {
-  height: 90vh;
+  height: 105vh;
   position: relative;
   background-position: center;
   background-size: cover;
@@ -48,12 +48,25 @@ header {
 
 .post {
   /* margin: 30px auto; */
-  width: 55%;
+  width: 75%;
   display: block;
   padding: 0 20px;
   z-index: 100 !important;
+
+  display: flex;
+
+  background-color: #944d06;
 }
 
+.post .left-side {
+  width: 60%;
+
+  background-color: whitesmoke;
+}
+
+.post .right-side {
+  width: 40%;
+}
 .post-title,
 .post-date {
   width: 75%;
