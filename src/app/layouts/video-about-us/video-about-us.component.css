@@ -100,6 +100,10 @@
   font-family: SFUIText-Light;
 }
 
+.academic-info-con span {
+  font-family: SFUIText-Light;
+  font-size: 22px;
+}
 .btn-more {
   display: none;
   width: 100%;

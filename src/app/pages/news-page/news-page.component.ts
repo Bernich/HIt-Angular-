@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IPost, Post } from 'src/app/shared/model/post.model';
 import { PostService } from 'src/app/entities/post';
-import { HttpResponse, HttpClient } from '@angular/common/http';
-import { IPodcast } from 'src/app/shared/model/podcast.model';
 
 @Component({
-  selector: 'jhi-about-page',
-  templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.css']
+  selector: 'jhi-news-page',
+  templateUrl: './news-page.component.html',
+  styleUrls: ['./news-page.component.css']
 })
-export class AboutPageComponent implements OnInit {
+export class NewsPageComponent implements OnInit {
   posts: IPost[];
   isLoading: boolean;
 
@@ -51,7 +49,7 @@ export class AboutPageComponent implements OnInit {
 
 
 
-  constructor(private postService: PostService, private http: HttpClient) { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
   }
