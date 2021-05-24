@@ -7,9 +7,13 @@
   width: 100%;
 }
 
+.news-card-container:hover {
+  background-color: white;
+}
 .news-card-container {
   width: 100%;
-  height: var(--news-card-height);
+  height: 100%;
+  /* height: var(--news-card-height); */
 
   display: flex;
   align-items: center;
@@ -56,7 +60,8 @@
 .news-card-content-text {
   /* background-color: tomato; */
   width: 100%;
-
+  min-height: 300px;
+  /* Height to make it static */
   display: flex;
   flex-direction: column;
   /* justify-content: flex-end; */
@@ -68,9 +73,17 @@
 
   font-family: SFUIText-Light;
 
-  margin-top: 30px;
+  /* margin-top: 30px; */
+
+  /* padding: 10px; */
+
+  padding: 30px;
 }
 
+/* Added this to push new down */
+.news-card-description {
+  flex: 1;
+}
 .news-card-content-text h3 {
   font-size: 25px;
   text-align: left;

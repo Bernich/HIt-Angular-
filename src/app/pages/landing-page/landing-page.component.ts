@@ -58,6 +58,8 @@ export class LandingPageComponent implements OnInit {
       next: (courses: Course[]) => {
         this.isLoading = false;
         this.courses = courses;
+        console.log(courses);
+
       },
       error: (error: any) => {
 

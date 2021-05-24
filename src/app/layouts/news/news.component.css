@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
 
-  width: calc(85%);
+  width: calc(75%);
   height: 100%;
 
   z-index: 2 !important;
@@ -58,14 +58,19 @@
   display: flex;
   justify-content: space-between;
 
-  background-color: white;
+  /* background-color: white; */
 }
 
 .news-content-container-list-item {
-  width: calc((100% / 4) - 5px);
+  width: calc((100% / 3) - 20px);
 
   border: 0.5px solid rgba(0, 0, 0, 0.0558);
 }
+
+.news-content-container-list:not(:last-child) {
+  border-right: 0.5px dashed rgba(0, 0, 0, 0.2);
+}
+
 .news-heading {
   font-family: SFUIText-Medium;
   font-size: 32px;

@@ -6,7 +6,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-jhi-news-card',
   templateUrl: './news-card.component.html',
-  styleUrls: ['./news-card.component.css'],
+  styleUrls: ['./news-card.component.css', 'rounded-button.css'],
 })
 export class NewsCardComponent implements OnInit {
 

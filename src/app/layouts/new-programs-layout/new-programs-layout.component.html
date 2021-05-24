@@ -11,7 +11,7 @@
 
         <section class="engagement-text">
           <section class="engagement-text-content">
-            <h3> Global Participation</h3>
+            <span class="head"> Global Participation</span>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam assumenda consequuntur voluptas omnis
               eaque deserunt velit </p>
 
@@ -31,7 +31,7 @@
 
         <section class="engagement-text">
           <section class="engagement-text-content">
-            <h3> Local Commitment</h3>
+            <span class="head"> Local Commitment</span>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam assumenda consequuntur voluptas omnis
               eaque deserunt velit </p>
 
@@ -78,77 +78,77 @@
       <section class="_program-grid">
 
         <div class="_program-grid-items">
-          <img
-            src="https://storage.googleapis.com/storage.kumasihive.com/courses/thumbnail_b303820e-6ac5-41ef-a358-5707381473c6"
-            alt="" srcset="">
+          <img [src]="courses[0].thumbnail.url" alt="" srcset="">
 
-          <section class="engagement-text">
-            <section class="engagement-text-content">
-              <h3> Game Development with Unity </h3>
-              <p>Learners will build complete Unity game projects by applying knowledge and skills including: using the
-                Unity editor to develop a game, understanding the game asset pipeline, designing effective game levels,
-                animations, C# programming, and building and deploying games.
-              </p>
+          <a [routerLink]=" '/academics/'+ courses[0].slug">
+            <section class="engagement-text">
+              <section class="engagement-text-content">
+                <span class="head"> {{courses[0].name}} </span>
+                <p>
+                  {{courses[0].overview}}
+                </p>
 
-              <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-                <span class="rounded-button" style="margin-right: 10px;">
-                  <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-                </span>
+                <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
+                  <span class="rounded-button" style="margin-right: 10px;">
+                    <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
+                  </span>
 
-                <span> Learn more</span>
-              </div>
+                  <span> Learn more</span>
+                </div>
+              </section>
+
             </section>
-
-          </section>
-        </div>
-
-        <div class="_program-grid-items">
-          <img
-            src="https://storage.googleapis.com/storage.kumasihive.com/courses/thumbnail_5532dd18-6b2d-464b-b7dd-e790fa888d6e"
-            alt="" srcset="">
-
-          <section class="engagement-text">
-            <section class="engagement-text-content">
-              <h3> Adobe Photoshop Fundamentals </h3>
-              <p>In this course, you will learn about Adobe Photoshop. From photo editing and compositing to digital
-                painting, animation, and graphic design, you can do it all in Photoshop. </p>
-
-              <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-                <span class="rounded-button" style="margin-right: 10px;">
-                  <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-                </span>
-
-                <span> Learn more</span>
-              </div>
-            </section>
-
-          </section>
+          </a>
         </div>
 
 
         <div class="_program-grid-items">
-          <img
-            src="https://storage.googleapis.com/storage.kumasihive.com/courses/thumbnail_511fa745-e2b8-4e45-8a91-56185c3e3cb2"
-            alt="" srcset="">
+          <img [src]="courses[1].thumbnail.url" alt="" srcset="">
 
-          <section class="engagement-text">
-            <section class="engagement-text-content">
-              <h3> The Rise Of Conversational Interfaces</h3>
-              <p>The future of IoT has the potential to be limitless. Advances to the industrial internet will be
-                accelerated through increased network agility, integrated artificial intelligence (AI) and the capacity
-                to deploy, automate, orchestrate and secure diverse use cases at hyper scale. </p>
+          <a [routerLink]=" '/academics/'+ courses[1].slug">
 
-              <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-                <span class="rounded-button" style="margin-right: 10px;">
-                  <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-                </span>
+            <section class="engagement-text">
+              <section class="engagement-text-content">
+                <span class="head"> {{courses[1].name}} </span>
+                <p>{{courses[1].overview}} </p>
 
-                <span> Learn more</span>
-              </div>
+                <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
+                  <span class="rounded-button" style="margin-right: 10px;">
+                    <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
+                  </span>
+
+                  <span> Learn more</span>
+                </div>
+              </section>
+
             </section>
-
-          </section>
+          </a>
         </div>
+
+
+        <div class="_program-grid-items">
+          <img [src]="courses[2].thumbnail.url" alt="" srcset="">
+
+          <a [routerLink]=" '/academics/'+ courses[2].slug">
+
+            <section class="engagement-text">
+              <section class="engagement-text-content">
+                <span class="head"> {{courses[2].name}}</span>
+                <p>{{courses[2].overview}}</p>
+
+                <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
+                  <span class="rounded-button" style="margin-right: 10px;">
+                    <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
+                  </span>
+
+                  <span> Learn more</span>
+                </div>
+              </section>
+
+            </section>
+          </a>
+        </div>
+
 
       </section>
     </section>

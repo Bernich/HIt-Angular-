@@ -13,7 +13,10 @@ export class NewProgramsLayoutComponent implements OnInit {
 
   @Input() courses: Course[];
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.courses);
+
+  }
 
 
   @HostListener('window:resize', ['$event'])
