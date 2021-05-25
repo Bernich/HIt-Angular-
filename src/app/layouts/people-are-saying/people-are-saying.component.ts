@@ -6,11 +6,43 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-jhi-people-are-saying-list',
   templateUrl: './people-are-saying.component.html',
-  styleUrls: ['./people-are-saying.component.css'],
+  styleUrls: ['./people-are-saying.component.css', 'photo.css'],
 })
 export class PeopleAreSayingComponent implements OnInit {
 
 
+  current = null;
+
+
+  peoples = [
+    {
+      name: "Lauren, Senior Software Engineer",
+      quote: "At Microsoft, you’ll be empowered to work on things that you’re passionate about. You’ll be given autonomy. Your ideas will matter.",
+      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_lauren_large-1556621246311.jpg"
+    },
+    {
+      name: "Lauren, Senior Software Engineer",
+      quote: "The freedom to create really powerful and engaging solutions is the thing that I really like. And I know what we are creating, millions of people are using.",
+      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_nitish_large-1556621859158.jpg"
+    },
+    {
+      name: "Lauren, Senior Software Engineer",
+
+      quote: "I want to transform how people experience 'Halo' in their living rooms and on their PCs. We will never do anything that doesn't move the universe forward.",
+      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_kiki_large-1556622046009.jpg"
+    },
+    {
+      name: "Lauren, Senior Software Engineer",
+
+      quote: "Technology provides that avenue to compensate in areas where something might be more difficult.It's really cool to be able to help to enable people.",
+      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_chris_large-1556622175233.jpg"
+    },
+    {
+      name: "Lauren, Senior Software Engineer",
+      quote: "The world has a lot to offer, and it's not about how much you take and grow; it's about how much you give back.",
+      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_vidya_large-1556623300618.jpg"
+    }
+  ]
 
   news = [
     {
@@ -31,7 +63,9 @@ export class PeopleAreSayingComponent implements OnInit {
 
     }
   ]
-  ngOnInit() { }
+  ngOnInit() {
+    this.current = this.peoples[0];
+  }
 
 
   @HostListener('window:resize', ['$event'])
@@ -43,5 +77,9 @@ export class PeopleAreSayingComponent implements OnInit {
       // this.navigation.showNavigationArrows = true;
       // this.navigation.showNavigationIndicators = true;
     }
+  }
+
+  setCurrentImage(person) {
+    this.current = person;
   }
 }

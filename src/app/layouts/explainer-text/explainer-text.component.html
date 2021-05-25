@@ -4,13 +4,15 @@
   <p *ngIf="showHeading">{{heading}}</p>
   <h3 class="explainer-heading">{{text}}</h3>
 
-  <div *ngIf="showFooter" class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-    <span class="rounded-button" style="margin-right: 10px; background-color: #656f77;">
-      <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-    </span>
+  <a routerLink="/about">
+    <div *ngIf="showFooter" class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
+      <span class="rounded-button" style="margin-right: 10px; background-color: #656f77;">
+        <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
+      </span>
 
-    <span class="footer"> {{footer}}</span>
-  </div>
+      <span routerLink="/about" class="footer"> {{footer}}</span>
+    </div>
+  </a>
 
 </section>
 

@@ -1,30 +1,33 @@
-<section class="news-container">
+<section class="people-are-saying-container">
 
 
 
-  <section class="news-content-container">
-    <section class="news-heading-nav">
-      <h4 class="news-heading-nav-item ">Latest Stories</h4>
+  <section class="people-are-saying-content-container">
 
-      <h4 class="news-heading-nav-item font-small">
-        <!-- color: #e67e22; -->
-        <a href="http://">
-          <span>See all</span>
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </a>
-      </h4>
+
+    <section class="people-are-saying-content-container-list">
+
+      <div class="people-are-saying-content-container-list-item">
+
+        <h2>Hear from our employees </h2>
+
+        <section class="images-list">
+          <img *ngFor="let person of peoples" [src]="person.img" alt="" srcset="" (click)="setCurrentImage(person)">
+        </section>
+
+        <section class="quotes-container">
+          <p>{{current.quote}}</p>
+          <h4 class="footer">{{ "---"+current.name}}</h4>
+        </section>
+        <div class="spacer"></div>
+      </div>
+
+      <div class="people-are-saying-content-container-list-item ">
+
+        <img loading="lazy" class="cover-image-container" [src]="current.img" alt="" srcset="">
+      </div>
 
     </section>
 
-    <div class="news-divider"></div>
-
-    <div style="margin-bottom: 50px;"></div>
-
-
-    <section class="news-content-container-list">
-      <app-jhi-news-card class="news-content-container-list-item" *ngFor="let item of news" [news]="item">
-      </app-jhi-news-card>
-
-    </section>
   </section>
 </section>
