@@ -29,9 +29,11 @@ import {
   VereticalDividerComponent,
   NewProgramsLayoutComponent,
   PeopleAreSayingComponent,
-  NewHeaderComponent
+  NewHeaderComponent,
+  NewOnsiteNavbarComponent
 } from '.';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -66,7 +68,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VereticalDividerComponent,
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
-    NewHeaderComponent
+    NewHeaderComponent,
+    NewOnsiteNavbarComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -93,7 +96,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VereticalDividerComponent,
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
-    NewHeaderComponent
+    NewHeaderComponent,
+    NewOnsiteNavbarComponent
+
   ]
 })
 export class HivenewsLayoutsModule { }

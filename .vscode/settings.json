@@ -3,7 +3,7 @@
   "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace",
   "editor.tabCompletion": "on",
   "editor.cursorBlinking": "expand",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "diffEditor.codeLens": true,
   "files.autoSave": "afterDelay",
   "workbench.editor.untitled.labelFormat": "name",

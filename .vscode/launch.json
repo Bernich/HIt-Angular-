@@ -7,7 +7,7 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Hive Academy",
+      "name": "Hive Institute",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
     }

@@ -1,16 +1,16 @@
 <app-jhi-vertical-divider style="height:100px"></app-jhi-vertical-divider>
 
 <section [style.textAlign]="alignLeft ? 'left' : 'center'" class="explainer-container">
-  <p *ngIf="showHeading">{{heading}}</p>
-  <h3 class="explainer-heading">{{text}}</h3>
+    <p *ngIf="showHeading">{{heading}}</p>
+    <h3 class="explainer-heading">{{text}}</h3>
 
-  <div *ngIf="showFooter" class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-    <span class="rounded-button" style="margin-right: 10px; background-color: #656f77;">
+    <div *ngIf="showFooter" class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
+        <span class="rounded-button" style="margin-right: 10px; background-color: #656f77;">
       <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
     </span>
 
-    <span class="footer"> {{footer}}</span>
-  </div>
+        <span class="footer"> {{footer}}</span>
+    </div>
 
 </section>
 

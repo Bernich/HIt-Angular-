@@ -1,60 +1,57 @@
 :host {
-  --explainer-height: 130px;
+    --explainer-height: 130px;
 }
+
 .explainer-container {
-  width: 100%;
-  /* height: var(--explainer-height); */
-
-  display: flex;
-  align-items: center;
-
-  flex-direction: column;
-
-  /* margin-top: calc((var(--explainer-height) / 2) * -1); */
-
-  /* Give all specific components */
-  font-weight: 400;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: center;
+    width: 100%;
+    /* height: var(--explainer-height); */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* margin-top: calc((var(--explainer-height) / 2) * -1); */
+    /* Give all specific components */
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
 }
-.explainer-container p {
-  font-weight: 700;
-  font-family: SFUIText-Medium;
-  font-size: 0.9rem;
 
-  line-height: 1.45em;
-  color: var(--charcoal-grey);
+.explainer-container p {
+    font-weight: 700;
+    font-family: SFUIText-Medium;
+    font-size: 0.9rem;
+    line-height: 1.45em;
+    color: var(--charcoal-grey);
 }
 
 .explainer-container h3 {
-  font-family: SFUIText-Light;
-  font-size: 2.5rem;
-
-  line-height: 1.45em;
-  color: var(--charcoal-grey);
-
-  width: 45%;
+    font-family: SFUIText-Light;
+    font-size: 2.5rem;
+    line-height: 1.45em;
+    color: var(--charcoal-grey);
+    width: 45%;
 }
+
 
 /* media queries */
-@media screen and (min-width: 768px) {
+
+@media screen and (max-width: 769px) {
+    .explainer-container h3 {
+        font-size: 1.8rem;
+    }
 }
 
-@media screen and (min-width: 1024px) {
-}
+@media screen and (min-width: 1024px) {}
 
-@media screen and (min-width: 1368px) {
-}
+@media screen and (min-width: 1368px) {}
 
-@media screen and (min-width: 1414px) {
-}
+@media screen and (min-width: 1414px) {}
 
 @media (max-width: 575px) {
-  .explainer-content-container {
-    display: flex;
-    flex-direction: column;
-    width: calc(100%);
-  }
+    .explainer-content-container {
+        display: flex;
+        flex-direction: column;
+        width: calc(100%);
+    }
 }
