@@ -3,7 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ACTIVE_LINKS } from 'src/app/shared';
 
 @Component({
-  selector: 'jhi-new-onsite-navbar',
+  selector: 'app-new-onsite-navbar',
   templateUrl: './new-onsite-navbar.component.html',
   styleUrls: ['./new-onsite-navbar.component.css']
 })

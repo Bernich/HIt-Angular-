@@ -1,5 +1,5 @@
 <header [style.backgroundImage]="getPostThumbUrl(currentPost.image)">
-    <jhi-new-onsite-navbar [activeRoute]="activeRoute"></jhi-new-onsite-navbar>
+    <app-new-onsite-navbar [activeRoute]="activeRoute"></app-new-onsite-navbar>
 
     <ngb-carousel class="header-carousel" [showNavigationArrows]="navigation.showNavigationArrows" [showNavigationIndicators]="navigation.showNavigationIndicators">
         <ng-template ngbSlide *ngFor="let post of headerPosts; assignCurrentPost(post); ">
