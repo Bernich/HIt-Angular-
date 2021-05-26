@@ -33,7 +33,6 @@
     width: 45%;
 }
 
-<<<<<<< HEAD
 
 /* media queries */
 
@@ -41,12 +40,6 @@
     .explainer-container h3 {
         font-size: 1.8rem;
     }
-=======
-@media screen and (max-width: 1024px) {
-  .explainer-container h3 {
-    width: 75%;
-  }
->>>>>>> d2f4404f6e892e75f0058a2145e2b454d1cc5097
 }
 
 @media screen and (min-width: 1024px) {}
