@@ -43,11 +43,11 @@ export class HiveAdminAddInstructorComponent implements OnInit {
 
 
     this.user = new CreateInstructor();
-    this.user.firstname = 'Simon';
-    this.user.lastname = 'Sinek';
-    this.user.email = 'simon@gmail.com';
-    this.user.bio = 'This is the bio';
-    this.user.phone_number = '+233';
+    this.user.firstname = '';
+    this.user.lastname = '';
+    this.user.email = '';
+    this.user.bio = '';
+    this.user.phone_number = '';
     this.user.skills = [];
     this.user.social_media_handles = [
       this.whatssap,

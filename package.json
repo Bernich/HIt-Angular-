@@ -6,7 +6,7 @@
     "server": "json-server server/db.json",
     "server:all": "concurrently \"npm run server\" \"ng serve\"",
     "start": "node dist/hive-institute/server/main.js",
-    "build": "ng build --prod",
+    "build": "npm run build:ssr",
     "build:stats": "ng build --prod --stats-json",
     "analyze": "webpack-bundle-analyzer dist/hive-institute/stats-es2015.json",
     "test": "ng test",
@@ -90,4 +90,3 @@
     "open": "^7.0.3"
   }
 }
-

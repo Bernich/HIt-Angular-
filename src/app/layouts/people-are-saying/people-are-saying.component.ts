@@ -27,7 +27,6 @@ export class PeopleAreSayingComponent implements OnInit {
     },
     {
       name: "Lauren, Senior Software Engineer",
-
       quote: "I want to transform how people experience 'Halo' in their living rooms and on their PCs. We will never do anything that doesn't move the universe forward.",
       img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_kiki_large-1556622046009.jpg"
     },
