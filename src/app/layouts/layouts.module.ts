@@ -30,7 +30,7 @@ import {
   NewProgramsLayoutComponent,
   PeopleAreSayingComponent,
   NewHeaderComponent,
-  NewOnsiteNavbarComponent
+  NewOnsiteNavbarComponent,
   NewNewsCardComponent,
   NewAllProgramsLayoutComponent
 } from '.';
@@ -71,7 +71,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
     NewHeaderComponent,
-    NewOnsiteNavbarComponent
+    NewOnsiteNavbarComponent,
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent
   ],
@@ -101,7 +101,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
     NewHeaderComponent,
-    NewOnsiteNavbarComponent
+    NewOnsiteNavbarComponent,
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent
   ]
