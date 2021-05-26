@@ -14,7 +14,8 @@ import { CourseService } from 'src/app/admin/shared/services';
 export class AcademicsPageComponent implements OnInit {
 
   courses: Course[];
-
+  heading = "Education";
+  education = "Our strength in interdisciplinary education, our dedicated staff and a culture of innovation set the training ground for the next generation of innovators, leaders and pioneers."
 
   isLoading: boolean;
 
@@ -54,6 +55,8 @@ export class AcademicsPageComponent implements OnInit {
       next: (courses: Course[]) => {
         this.isLoading = false;
         this.courses = courses;
+
+        console.log(courses)
       },
       error: (error: any) => {
 

@@ -1,0 +1,13 @@
+img {
+  animation: fadein 0.25s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

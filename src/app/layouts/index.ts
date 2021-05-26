@@ -24,4 +24,4 @@ export * from './image-text-card/image-text-card.component';
 export * from './vertical-divider/vertical-divider.component';
 export * from './new-programs-layout/new-programs-layout.component'
 export * from './people-are-saying/people-are-saying.component'
-export * from './new-onsite-navbar/new-onsite-navbar.component'
+export * from './new-news-card/new-news-card.component';

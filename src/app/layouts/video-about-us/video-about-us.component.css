@@ -65,7 +65,7 @@
 }
 
 .play:hover::after {
-  background-color: rgba(177, 162, 76, 0.767);
+  background-color: #4d4d4d3b;
   z-index: 1;
   animation: pulse 1150ms infinite;
 }

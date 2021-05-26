@@ -31,6 +31,8 @@ import {
   PeopleAreSayingComponent,
   NewHeaderComponent,
   NewOnsiteNavbarComponent
+  NewNewsCardComponent,
+  NewAllProgramsLayoutComponent
 } from '.';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -70,6 +72,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PeopleAreSayingComponent,
     NewHeaderComponent,
     NewOnsiteNavbarComponent
+    NewNewsCardComponent,
+    NewAllProgramsLayoutComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -98,7 +102,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PeopleAreSayingComponent,
     NewHeaderComponent,
     NewOnsiteNavbarComponent
-
+    NewNewsCardComponent,
+    NewAllProgramsLayoutComponent
   ]
 })
 export class HivenewsLayoutsModule { }

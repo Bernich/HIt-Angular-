@@ -7,7 +7,7 @@ import { ACTIVE_LINKS } from 'src/app/shared';
 @Component({
   selector: 'jhi-new-header',
   templateUrl: './new-header.component.html',
-  styleUrls: ['./new-header.component.css'],
+  styleUrls: ['./new-header.component.css', 'news-lists.css'],
   providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
 })
 export class NewHeaderComponent implements OnInit {
@@ -24,7 +24,7 @@ export class NewHeaderComponent implements OnInit {
   };
 
   constructor(private sanitizer: DomSanitizer, private config: NgbCarouselConfig) {
-    config.interval = 60000;
+    config.interval = 60000000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;
