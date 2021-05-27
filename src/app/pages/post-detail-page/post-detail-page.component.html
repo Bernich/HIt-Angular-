@@ -1,50 +1,47 @@
 <header class="header-background-image" [style.backgroundImage]="postThumb(post.header_image_url)">
-  <jhi-onsite-navbar></jhi-onsite-navbar>
+    <app-new-onsite-navbar></app-new-onsite-navbar>
 
-  <div class="post-container">
-    <div class="post">
-      <h3 class="post-title">{{ post.title }}</h3>
+    <div class="post-container">
+        <div class="post">
+            <h3 class="post-title">{{ post.title }}</h3>
 
-      <p class="post-date">{{ post.date_created | date: 'dd MMM yyyy' }}</p>
+            <p class="post-date">{{ post.date_created | date: 'dd MMM yyyy' }}</p>
 
-      <div class="post-writer">
-        <img class="post-writer-img" loading="lazy" src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" />
-        <span class="post-writer-name">Freda</span>
-      </div>
+            <div class="post-writer">
+                <img class="post-writer-img" loading="lazy" src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" />
+                <span class="post-writer-name">Freda</span>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
 
 <section>
-  <div [innerHTML]="postContent(post.content)" class="content-body"></div>
+    <div [innerHTML]="postContent(post.content)" class="content-body"></div>
 
-  <div class="writer-details">
-    <div class="writer-details-profile-pic">
-      <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" loading="lazy" alt="Article Writer"
-        class="writer-details-img" />
-      <span class="writer-details-author">AUTHOR</span>
+    <div class="writer-details">
+        <div class="writer-details-profile-pic">
+            <img src="https://kumasihive.com/wp-content/uploads/2019/10/freda.jpg" loading="lazy" alt="Article Writer" class="writer-details-img" />
+            <span class="writer-details-author">AUTHOR</span>
+        </div>
+
+        <div class="writer-details-profile">
+            <p class="writer-details-name">{{ post.authors[0] }}</p>
+
+            <p class="writer-details-info">
+                Freda Gbande is a biochemist and researcher and serves as the Research Associate for Kumasi Hive. She measures the impact of Kumasi Hive's activities and shares it with our community.
+            </p>
+
+            <p class="author-socialmedia-links">Follow Freda on:</p>
+
+            <p class="links">
+                <a class="socialmedia-link" href="#"> Facebook </a>
+                <a class="socialmedia-link" href="#">Twitter </a>
+                <a class="socialmedia-link" href="#">Instagram</a>
+            </p>
+        </div>
+
+        <div></div>
     </div>
-
-    <div class="writer-details-profile">
-      <p class="writer-details-name">{{ post.authors[0] }}</p>
-
-      <p class="writer-details-info">
-        Freda Gbande is a biochemist and researcher and serves as the Research
-        Associate for Kumasi Hive. She measures the impact of Kumasi Hive's
-        activities and shares it with our community.
-      </p>
-
-      <p class="author-socialmedia-links">Follow Freda on:</p>
-
-      <p class="links">
-        <a class="socialmedia-link" href="#"> Facebook </a>
-        <a class="socialmedia-link" href="#">Twitter </a>
-        <a class="socialmedia-link" href="#">Instagram</a>
-      </p>
-    </div>
-
-    <div></div>
-  </div>
 </section>
 
 <jhi-footer></jhi-footer>
