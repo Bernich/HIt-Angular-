@@ -12,8 +12,7 @@
           </mat-icon>
         </button>
       </div>
-      <img [src]="_profile_image_data ? _profile_image_data : user.profile_pic"
-        *ngIf="user.profile_pic || _profile_image_data" (focus)="updateFocus($event)" />
+      <img [src]="_profile_image_data" *ngIf="_profile_image_data" (focus)="updateFocus($event)" />
     </div>
   </div>
 
