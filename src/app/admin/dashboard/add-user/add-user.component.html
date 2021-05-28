@@ -1,11 +1,24 @@
 <mat-progress-bar [style.display]=" isLoading ? 'block'  :'none'" mode="indeterminate"></mat-progress-bar>
-<div class="container">
+<div class="add-user-container" *ngIf="user">
 
-  <app-add-user-form [user]="user" *ngIf="user" (saveUser)="saveUser()" [isLoading]="isLoading"
-    [initialURL]="initialURL" [isNew]="isNewInstrctor">
-  </app-add-user-form>
+  <div class="top-items">
 
-  <section class="right-tabs">
+    <div class="tabs">
+
+      <div class="link" [ngClass]="{'header' : isGeneral}" (click)="switchGeneral()">General</div>
+
+      <div class="link" [ngClass]="{'header' : !isGeneral}" (click)="switchAccount()"> {{
+        isNew ? "Create Password": "Change Password" }}</div>
+    </div>
+
+    <button [style.display]=" isLoading ? 'none' : 'block' " mat-button class="save_button"
+      (click)="updateAccountDetails()">{{ isNew ? "Create User ":"Save Changes"}}</button>
+  </div>
+
+  <app-edit-profile-form [isNew]='true' [user]="user" [isAccountVisibleState]="isGeneral">
+  </app-edit-profile-form>
+
+  <section *ngIf="!isNew" class="right-tabs">
     <div class="select-container">
       <div class="top-row">
         <div class="header">Actions</div>

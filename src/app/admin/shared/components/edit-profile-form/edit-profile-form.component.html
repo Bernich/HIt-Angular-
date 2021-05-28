@@ -41,7 +41,7 @@
 
   <div [style.display]="!isAccountVisibleState ? 'flex' : 'none'" class="input-tab">
 
-    <div class="input-container">
+    <div *ngIf="!isNew" class="input-container">
       <div class="title">OLD PASSWORD</div>
       <input type="password" [(ngModel)]="user.old_password" (keyup)="updateFocus($event)" />
     </div>

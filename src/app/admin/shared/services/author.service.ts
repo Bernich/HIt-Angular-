@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 export class AuthorService {
 
 
-  private instructorsUrl = `${SERVER_API_URL}/instructors`;
+  private instructorsUrl = `${SERVER_API_URL}/authors`;
 
   constructor(
     private httpClient: HttpClient,

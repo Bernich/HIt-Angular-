@@ -2,6 +2,7 @@ export * from './posts/admin-posts.component';
 export * from './loader/loader.component';
 export * from './instructor-list-item/admin-instructor-list-item.component';
 export * from './users-list-item/admin-user-list-item.component';
+export * from './author-list-item/admin-author-list-item.component';
 export * from './add-author-form/add-author-form.component';
 export * from './add-user-form/add-user-form.component';
 export * from './edit-profile-form/edit-profile-form.component';
@@ -9,4 +10,10 @@ export * from './add-instructor-form/add-instructor-form.component';
 export * from './rounded-button/rounded-button.component';
 export * from './rounded-file-button/rounded-file-button.component';
 export * from './course-objectives-input/course-objectives-input.component';
-export * from './course-item/course-item.component'
+export * from './course-item/course-item.component';
+export * from './course-nav-content/course-nav-content.component';
+export * from './users-nav-content/users-nav-content.component';
+export * from './instructors-nav-content/instructors-nav-content.component';
+export * from './posts-nav-content/posts-nav-content.component';
+export * from './authors-nav-content/authors-nav-content.component';
+

@@ -28,7 +28,6 @@ export class AddUserFormComponent implements OnInit {
 
   ) {
 
-    console.log("In User component")
   }
 
   ngOnInit(): void {

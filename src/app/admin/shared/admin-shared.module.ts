@@ -23,7 +23,13 @@ import {
   AddInstructorFormComponent,
   CourseObjectivesInputComponent,
   AdminCourseItemComponent,
-  EditProfileFormComponent
+  EditProfileFormComponent,
+  CourseNavContentComponent,
+  UsersNavContentComponent,
+  InstructorNavContentComponent,
+  PostNavContentComponent,
+  AdminAuthorListItemComponent,
+  AuthorsNavContentComponent
 } from './components';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,7 +49,14 @@ import { MaterialModule } from 'src/app/material.module';
     CourseObjectivesInputComponent,
     AdminCourseItemComponent,
     AddUserFormComponent,
-    EditProfileFormComponent
+    EditProfileFormComponent,
+    CourseNavContentComponent,
+    UsersNavContentComponent,
+    InstructorNavContentComponent,
+    PostNavContentComponent,
+    AdminAuthorListItemComponent,
+    AuthorsNavContentComponent
+
   ],
 
   imports: [
@@ -78,7 +91,13 @@ import { MaterialModule } from 'src/app/material.module';
     CourseObjectivesInputComponent,
     AdminCourseItemComponent,
     AddUserFormComponent,
-    EditProfileFormComponent
+    EditProfileFormComponent,
+    CourseNavContentComponent,
+    UsersNavContentComponent,
+    InstructorNavContentComponent,
+    PostNavContentComponent,
+    AdminAuthorListItemComponent,
+    AuthorsNavContentComponent
   ]
 })
 export class AdminSharedModule { }

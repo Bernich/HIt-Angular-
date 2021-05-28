@@ -118,8 +118,8 @@
 }
 
 .top-navigation .nav-content .nav-brand img {
-  width: 145px;
-  height: 145px;
+  /* width: 80px; */
+  height: 60px;
   object-fit: contain;
   object-position: center;
 }

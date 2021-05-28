@@ -17,6 +17,8 @@ import { HiveAdminCoursesListComponent } from './courses-list/courses-list.compo
 import { CoursesBottomSheetComponent } from './add-course/add-course-bottomsheet.component';
 import { HiveAdminAddUserComponent } from './add-user/add-user.component';
 import { UserAccountComponent } from './user-account/user-account.component';
+import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
+import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.component';
 @NgModule({
   declarations: [
     HivenewsDashboardComponent,
@@ -30,7 +32,9 @@ import { UserAccountComponent } from './user-account/user-account.component';
     HiveAdminAddCourseComponent,
     HiveAdminCoursesListComponent,
     HiveAdminAddUserComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    HivenewsAdminAddAuthorComponent,
+    HivenewsAdminAuthorsListComponent
   ],
   imports: [
     CommonModule,

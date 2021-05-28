@@ -11,7 +11,8 @@ import { AuthService, NavigationService, UsersService } from '../../shared/servi
 })
 export class HiveAdminAddUserComponent implements OnInit {
 
-
+  isNew = true;
+  isGeneral = true;
 
   user: IUser = null;
   whatssap = new SocialMediaHandle('LINKEDIN', '@url');
@@ -84,10 +85,7 @@ export class HiveAdminAddUserComponent implements OnInit {
   }
 
   update() {
-
-
     // const instructor: CreateUpdateInstructorDTO = InstructorMapper.convertToUpdateDTO(this.user);
-
 
     // this.usersService.updateInstructor(this.user.instructor_id, instructor).subscribe((iuser: any) => {
 
@@ -151,4 +149,25 @@ export class HiveAdminAddUserComponent implements OnInit {
   suspendAccount() { }
   updateAcctTypeAdmin(data) { }
   updateAcctTypeInstructor(instructor) { }
+  updateAccountDetails() {
+
+  }
+
+  /**
+   * Switch To the general Tab
+   */
+  switchGeneral() {
+    this.isGeneral = true;
+  }
+
+  /**
+   * Switch To the Account Tab
+   */
+  switchAccount() {
+    this.isGeneral = false;
+  }
+
+  hasRole(role: string) {
+
+  }
 }

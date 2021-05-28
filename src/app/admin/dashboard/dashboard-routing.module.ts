@@ -11,6 +11,8 @@ import { HiveAdminCoursesListComponent } from './courses-list/courses-list.compo
 import { HiveAdminAddCourseComponent } from './add-course/add-course.component';
 import { HiveAdminAddUserComponent } from './add-user/add-user.component';
 import { UserAccountComponent } from './user-account/user-account.component';
+import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
+import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.component';
 
 /**
  * Admin Dashboard routes
@@ -56,7 +58,10 @@ const routes: Routes = [
       { path: 'instructors/:id/edit', component: HiveAdminAddInstructorComponent },
       { path: 'instructors', component: HiveAdminInstructorListComponent },
 
+      { path: 'authors', component: HivenewsAdminAuthorsListComponent },
 
+      { path: 'authors/add', component: HivenewsAdminAddAuthorComponent },
+      { path: 'authors/:id/edit', component: HivenewsAdminAddAuthorComponent },
 
       { path: 'profile/edit', component: UserAccountComponent },
     ]

@@ -10,6 +10,7 @@ import { FileData, IUser } from '../../models';
 export class EditProfileFormComponent implements OnInit {
 
 
+  @Input() isNew = false;
   @Input() user: IUser;
   @Input() isAccountVisibleState;
 

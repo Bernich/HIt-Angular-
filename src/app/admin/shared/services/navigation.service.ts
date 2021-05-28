@@ -38,11 +38,25 @@ export class NavigationService {
     this.router.navigate([`/admin/courses/${id}/edit`]);
   }
 
+  navigateToCreateCourse() {
+    this.router.navigate([`/admin/courses/add`]);
+
+  }
+
+
+  navigateToCreateInstructor() {
+    this.router.navigate([`/admin/instructors/add`]);
+
+  }
   editInstructor(instructor_id: string) {
     this.router.navigate([`/admin/instructors/${instructor_id}/edit`]);
   }
 
 
+  navigateToCreateUsers() {
+    this.router.navigate([`/admin/users/add`]);
+
+  }
   editUser(id: string) {
     this.router.navigate([`/admin/users/${id}/edit`]);
   }
@@ -50,5 +64,18 @@ export class NavigationService {
 
   toCourseOverview(slug: string) {
     this.router.navigate([`/academics/${slug}`]);
+  }
+
+  addAuthor() {
+    this.router.navigate([`/admin/authors/add`]);
+  }
+
+  editAuthor(author_id: string) {
+    this.router.navigate([`/admin/authors/${author_id}/edit`]);
+  }
+
+  navigateToCreatePost() {
+    this.router.navigate([`/admin/posts/add`]);
+
   }
 }

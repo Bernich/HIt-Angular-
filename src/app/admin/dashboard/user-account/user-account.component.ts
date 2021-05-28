@@ -15,7 +15,7 @@ export class UserAccountComponent implements OnInit {
   isGeneral = true;
   isLoading = false;
   focus = false;
-
+  isNew = true;
   /**
    * Constructs the UserAccountComponent with the following injected services
    * @param authService  {AuthService}
@@ -34,6 +34,7 @@ export class UserAccountComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
   }
+
   /**
    * Switch To the general Tab
    */
@@ -170,7 +171,7 @@ export class UserAccountComponent implements OnInit {
       });
   }
 
-  
+
   focusChange(event) {
     this.focus = true;
   }

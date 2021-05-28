@@ -7,7 +7,8 @@
 
       <div class="link" [ngClass]="{'header' : isGeneral}" (click)="switchGeneral()">General</div>
 
-      <div class="link" [ngClass]="{'header' : !isGeneral}" (click)="switchAccount()"> Change Password</div>
+      <div class="link" [ngClass]="{'header' : !isGeneral}" (click)="switchAccount()"> {{ isNew ? "Create Password":
+        "Change Password"}}</div>
     </div>
 
     <button *ngIf="focus" [style.display]=" isLoading ? 'none' : 'block' " mat-button class="save_button"
