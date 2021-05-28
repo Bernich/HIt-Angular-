@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ICreateInstructorDTO } from '../../shared/dto';
+import { InstructorMapper } from '../../shared/mapper/instructor.mapper';
 import { CreateInstructor, ICourse, IInstructor, SocialMediaHandle } from '../../shared/models';
 import { InstructorService } from '../../shared/services';
 
@@ -33,14 +34,13 @@ export class HiveAdminAddInstructorComponent implements OnInit {
   ) {
 
     // Check url if there is a course id else create a new course
-    const id = this.route.snapshot.paramMap.get('slug');
+    const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      // unpack old instructor
-      // this.course = unpack
+      // unpack old instructo
+      this.loadInstructor(id);
     } else {
       // Create a new course
     }
-
 
     this.user = new CreateInstructor();
     this.user.firstname = '';
@@ -58,27 +58,22 @@ export class HiveAdminAddInstructorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadAllCourses();
   }
 
 
-  removeCheckedCourse(course: ICourse) {
-    // this.courses_ticked = this.courses_ticked.filter((item) => {
 
-    //   if (item.course.course_id != course.course_id) {
-    //     // todo uncheck as ticked
-    //     return item;
-    //   }
-    // });
-  }
+  loadInstructor(id: string) {
 
+    this.instructorService.query(id).subscribe({
+      next: (data: IInstructor) => {
 
-  loadAllCourses() {
-    // this.courseService
-    //   .allCourses()
-    //   .subscribe((courses: ICourse[]) => {
-    //     this.courses = courses;
-    //   });
+        this.user = InstructorMapper.convertFromDTO(data);
+        console.log(JSON.stringify(data));
+      },
+      error: (error) => {
+        
+      }
+    })
   }
 
   update(event, course) {
@@ -94,15 +89,7 @@ export class HiveAdminAddInstructorComponent implements OnInit {
   }
 
 
-  isChecked(courseId) {
-    // const res = this.courses_ticked.filter((course: ICourse) => {
-    //   if (course.course_id === courseId) { return true; }
-    // });
 
-    // if (res.length > 0) { return true; }
-
-    // return false;
-  }
 
   saveUser() {
     this.isLoading = true;

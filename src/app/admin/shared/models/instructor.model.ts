@@ -14,6 +14,7 @@ export interface IInstructor {
   email?: string;
   firstname?: string;
   lastname?: string;
+  phone_number?: string;
   profile_pic?: Thumbnail;
   profile_pic_data?: FileData;
   bio: string;

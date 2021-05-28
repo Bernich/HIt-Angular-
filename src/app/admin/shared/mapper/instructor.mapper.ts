@@ -1,36 +1,21 @@
 import { CreateCourseDTO, CreateSectionDTO, ISectionDTO } from "../dto/create-course.dto";
-import { Course, CreateCourse, CreateSection, IInstructor, ISection, Resource } from "../models";
+import { Course, CreateCourse, CreateInstructor, CreateSection, IInstructor, ISection, Resource } from "../models";
 import { v4 as uuidv4 } from 'uuid';
 
-export class CourseMapper {
+export class InstructorMapper {
 
 
-  static convertToDTO(course: CreateCourse): CreateCourseDTO {
-    const new_course = new CreateCourseDTO();
+  static convertFromDTO(instructor: IInstructor): CreateInstructor {
+    const new_instructor = new CreateInstructor();
+    new_instructor.firstname = instructor.firstname;
+    new_instructor.lastname = instructor.lastname;
+    new_instructor.email = instructor.email;
+    new_instructor.social_media_handles = instructor.social_media_handles;
+    new_instructor.bio = instructor.bio;
+    new_instructor.phone_number = instructor.phone_number;
+    new_instructor.skills = instructor.skills;
 
-    new_course.name = course.name;
-    new_course.course_id = course.course_id;
-    new_course.overview = course.overview;
-    new_course.skill_level = course.skill_level;
-
-    new_course.description = course.description;
-    new_course.duration = course.duration;
-
-    new_course.base_price = course.base_price;
-
-    new_course.career_paths = course.career_paths.map((data: Resource) => data.value)
-    new_course.what_you_will_learn = course.what_you_will_learn;
-    new_course.prerequisites = course.prerequisites;
-    // new_course.publicity_status = course.publicity_status;
-    new_course.with_certification = course.with_certification;
-    new_course.instructors = course.instructors;
-
-    new_course.thumbnail_data = course.thumbnail_data;
-    new_course.banner_data = course.banner_data;
-
-    new_course.curriculum = this.mapCurricullum(course.curriculum);
-
-    return new_course;
+    return new_instructor;
   }
 
 
@@ -99,3 +84,4 @@ export class CourseMapper {
     return new_sections;
   }
 }
+

@@ -24,7 +24,7 @@ export class HiveAdminInstructorListComponent implements OnInit {
   }
 
   editAuthor(author: IInstructor) {
-    this.navigationService.editAuthor(author.instructor_id);
+    this.navigationService.editInstructor(author.instructor_id);
   }
 
   loadAll() {
