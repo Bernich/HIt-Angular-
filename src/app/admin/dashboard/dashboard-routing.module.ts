@@ -46,7 +46,7 @@ const routes: Routes = [
       { path: 'courses/add', component: HiveAdminAddCourseComponent },
       { path: 'courses/:id/edit', component: HiveAdminAddCourseComponent },
 
-      { path: 'posts', component: HivenewsAdminAddNewsComponent },
+      { path: 'posts', component: HivenewsAdminListComponent },
       { path: 'posts/add', component: HivenewsAdminAddNewsComponent },
       { path: 'posts/:id/edit', component: HivenewsAdminAddNewsComponent },
 
