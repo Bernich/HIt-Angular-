@@ -22,6 +22,7 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuardService],
     component: HivenewsDashboardComponent,
+    // component: HiveAdminCoursesListComponent,
     // canActivate: [RoleGuardService],
 
     /**Expected Roles to Guard the Route
@@ -36,7 +37,7 @@ const routes: Routes = [
       /**Course List Component can be accessed by both Admin and instructors
        * This route is similar to the Dashboard component which is commented out
        */
-      { path: '', component: HivenewsAdminListComponent, },
+      { path: '', component: HiveAdminCoursesListComponent, },
       { path: 'courses', component: HiveAdminCoursesListComponent, },
       { path: 'courses/add', component: HiveAdminAddCourseComponent },
       { path: 'courses/:id/edit', component: HiveAdminAddCourseComponent },
