@@ -43,6 +43,11 @@ export class NavigationService {
   }
 
 
+  editUser(id: string) {
+    this.router.navigate([`/admin/users/${id}/edit`]);
+  }
+
+
   toCourseOverview(slug: string) {
     this.router.navigate([`/academics/${slug}`]);
   }

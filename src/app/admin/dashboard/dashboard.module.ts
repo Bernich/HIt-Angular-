@@ -15,6 +15,8 @@ import { AuthorsBottomSheetComponent } from './add-post/authors-bottomsheet.comp
 import { HiveAdminAddCourseComponent } from './add-course/add-course.component';
 import { HiveAdminCoursesListComponent } from './courses-list/courses-list.component';
 import { CoursesBottomSheetComponent } from './add-course/add-course-bottomsheet.component';
+import { HiveAdminAddUserComponent } from './add-user/add-user.component';
+import { UserAccountComponent } from './user-account/user-account.component';
 @NgModule({
   declarations: [
     HivenewsDashboardComponent,
@@ -26,7 +28,9 @@ import { CoursesBottomSheetComponent } from './add-course/add-course-bottomsheet
     AuthorsBottomSheetComponent,
     CoursesBottomSheetComponent,
     HiveAdminAddCourseComponent,
-    HiveAdminCoursesListComponent
+    HiveAdminCoursesListComponent,
+    HiveAdminAddUserComponent,
+    UserAccountComponent
   ],
   imports: [
     CommonModule,

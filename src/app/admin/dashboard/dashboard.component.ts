@@ -26,6 +26,7 @@ export class HivenewsDashboardComponent implements OnInit {
     { path: 'instructors/add', icon: 'apps', title: 'Add Instructor' },
 
     { path: 'users', icon: 'supervisor_account', title: 'Users' },
+    { path: 'users/add', icon: 'apps', title: 'Add User' },
   ];
 
 

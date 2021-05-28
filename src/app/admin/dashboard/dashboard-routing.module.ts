@@ -9,6 +9,8 @@ import { HivenewsAdminListComponent } from './posts-list/posts-list.component';
 import { HivenewsAdminUsersListComponent } from './users-list/users-list.component';
 import { HiveAdminCoursesListComponent } from './courses-list/courses-list.component';
 import { HiveAdminAddCourseComponent } from './add-course/add-course.component';
+import { HiveAdminAddUserComponent } from './add-user/add-user.component';
+import { UserAccountComponent } from './user-account/user-account.component';
 
 /**
  * Admin Dashboard routes
@@ -47,9 +49,16 @@ const routes: Routes = [
       { path: 'posts/:id/edit', component: HivenewsAdminAddNewsComponent },
 
       { path: 'users', component: HivenewsAdminUsersListComponent },
+      { path: 'users/add', component: HiveAdminAddUserComponent },
+      { path: 'users/:id/edit', component: HiveAdminAddUserComponent },
+
       { path: 'instructors/add', component: HiveAdminAddInstructorComponent },
       { path: 'instructors/:id/edit', component: HiveAdminAddInstructorComponent },
-      { path: 'instructors', component: HiveAdminInstructorListComponent }
+      { path: 'instructors', component: HiveAdminInstructorListComponent },
+
+
+
+      { path: 'profile/edit', component: UserAccountComponent },
     ]
   },
 ];

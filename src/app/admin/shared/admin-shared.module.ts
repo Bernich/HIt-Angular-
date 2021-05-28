@@ -13,6 +13,7 @@ import {
 } from './services';
 import {
   AddAuthorFormComponent,
+  AddUserFormComponent,
   AdminInstructorListItemComponent,
   AdminUserListItemComponent,
   HivenewsAdminPostsComponent,
@@ -21,7 +22,8 @@ import {
   RoundedFileButtonComponent,
   AddInstructorFormComponent,
   CourseObjectivesInputComponent,
-  AdminCourseItemComponent
+  AdminCourseItemComponent,
+  EditProfileFormComponent
 } from './components';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -39,7 +41,9 @@ import { MaterialModule } from 'src/app/material.module';
     RoundedFileButtonComponent,
     AddInstructorFormComponent,
     CourseObjectivesInputComponent,
-    AdminCourseItemComponent
+    AdminCourseItemComponent,
+    AddUserFormComponent,
+    EditProfileFormComponent
   ],
 
   imports: [
@@ -72,7 +76,9 @@ import { MaterialModule } from 'src/app/material.module';
     RoundedFileButtonComponent,
     AddInstructorFormComponent,
     CourseObjectivesInputComponent,
-    AdminCourseItemComponent
+    AdminCourseItemComponent,
+    AddUserFormComponent,
+    EditProfileFormComponent
   ]
 })
 export class AdminSharedModule { }

@@ -1,0 +1,132 @@
+<section class="Container">
+
+  <div class="heading-toggle">
+    <div class="tabs">
+      <div [ngClass]="{'active-heading' : isAccountVisibleState}" class="heading" (click)=" isAccountVisibleState=true">
+        General</div>
+      <div [ngClass]="{'active-heading' : !isAccountVisibleState}" class="heading"
+        (click)="isAccountVisibleState = false">
+        Bio</div>
+    </div>
+
+
+    <button mat-button [style.display]="isLoading ? 'none' : 'block'" class="save_button"
+      (click)="saveUser.emit($event)">Save Changes</button>
+  </div>
+
+  <section class="add-user-tab">
+    <div class="image-description-tab">
+      <div class="image">
+        <div class="image-selector">
+          <button class="image" mat-icon-button>
+            <mat-icon class="mat-18">
+              edit
+              <div class="custom-file-upload">
+                <input type="file" #image type="file" accept="image/*" (change)="processFile(image)"
+                  name="profile_pic" />
+              </div>
+            </mat-icon>
+          </button>
+        </div>
+        <img [src]="_profile_image_data" *ngIf="_profile_image_data" />
+      </div>
+
+      <div class="description">
+        <div class="name">{{ user.firstname + " " + user.lastname }}</div>
+
+
+        <!-- <div class="role">
+          <div *ngIf="user.roles.length <= 0; else elseBlock">ROLE</div>
+          <ng-template #elseBlock>
+            <span *ngFor="let role of user.roles">{{
+            role + " "
+          }}</span></ng-template>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="input-tab" [style.display]="isAccountVisibleState ? 'flex' : 'none'">
+      <div class="input-container">
+        <div class="title">FIRST NAME</div>
+        <input type="text" [(ngModel)]="user.firstname" />
+      </div>
+
+      <div class="input-container">
+        <div class="title">LAST NAME</div>
+        <input [(ngModel)]="user.lastname" (keyup)="updateLastName()" type="text" />
+      </div>
+
+      <div class="input-container">
+        <div class="title">EMAIL</div>
+        <input [(ngModel)]="user.email" type="email" />
+      </div>
+
+      <div class="input-container">
+        <div class="title">PHONE</div>
+        <input [(ngModel)]="user.phone_number" type="tel" />
+      </div>
+
+
+      <!-- <div class="input-container">
+        <div class="title">Sepciality</div>
+        <input type="text" [(ngModel)]="speciality" (focusout)="buildList()" />
+      </div> -->
+
+
+      <!-- <div class="input-container">
+        <div class="title">GENDER</div>
+        <section class="gender-container">
+          <mat-checkbox #male class="margin" [(ngModel)]="maleCheckBox" (change)="updateMaleGender(male.checked)">Male
+          </mat-checkbox>
+          <mat-checkbox #female class="margin" [(ngModel)]="femaleCheckBox"
+            (change)="updateFemaleGender(female.checked)">Female</mat-checkbox>
+        </section>
+      </div> -->
+
+
+
+      <!-- Accuount Toggle -->
+      <div class="input-container">
+        <div class="title">ACCOUNT TYPE</div>
+        <section class="gender-container">
+          <mat-checkbox #admin class="margin" (change)="updateAcctTypeAdmin(admin.checked)">Admin</mat-checkbox>
+          <mat-checkbox #instructor class="margin" (change)="updateAcctTypeInstructor(instructor.checked)">Instructor
+          </mat-checkbox>
+        </section>
+      </div>
+    </div>
+
+    <div class="input-tab" [style.display]="isAccountVisibleState ? 'none' : 'flex'">
+
+
+      <!-- <div class="input-container">
+        <div class="title">Bio</div>
+        <textarea [(ngModel)]="user.bio" type="text" rows="10" cols="40"> </textarea>
+      </div> -->
+
+      <!-- <div class="input-container" *ngFor="let social of user.social_media_handles">
+        <div class="title">{{social.platform}}</div>
+        <input [(ngModel)]="social.url" type="email" />
+      </div> -->
+
+      <!-- <div class="input-container">
+        <div class="title">Facebook</div>
+        <input [(ngModel)]="facebook.url" type="email" />
+      </div>
+
+      <div class="input-container">
+        <div class="title">Twitter</div>
+        <input [(ngModel)]="twitter.url" type="email" />
+      </div>
+
+      <div class="input-container">
+        <div class="title">Whatssap</div>
+        <input [(ngModel)]="whatssap.url" type="email" />
+      </div> -->
+
+
+    </div>
+  </section>
+
+
+</section>

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CreateUpdateInstructorDTO, ICreateInstructorDTO } from '../../shared/dto';
 import { InstructorMapper } from '../../shared/mapper/instructor.mapper';
 import { CreateInstructor, ICourse, IInstructor, SocialMediaHandle } from '../../shared/models';
-import { InstructorService } from '../../shared/services';
+import { InstructorService, NavigationService } from '../../shared/services';
 
 @Component({
   selector: 'app-add-instructor',
@@ -30,6 +30,7 @@ export class HiveAdminAddInstructorComponent implements OnInit {
 
   checked = true;
   constructor(
+    private navigationService: NavigationService,
     private route: ActivatedRoute,
     private instructorService: InstructorService,
     private _snackBar: MatSnackBar,
@@ -98,7 +99,9 @@ export class HiveAdminAddInstructorComponent implements OnInit {
 
     this.instructorService.updateInstructor(this.user.instructor_id, instructor).subscribe((iuser: any) => {
 
-      // this.navigationService.navigateToAdminInstructors();
+      this.isLoading = false;
+      // Navigating to the same route doesnt work
+      // this.navigationService.editInstructor(this.user.instructor_id);
 
       this._snackBar.open('Update Instructor', `${this.user.firstname}`, {
         duration: 3000,
@@ -135,7 +138,9 @@ export class HiveAdminAddInstructorComponent implements OnInit {
 
     this.instructorService.add(instructor).subscribe((iuser: any) => {
 
-      // this.navigationService.navigateToAdminInstructors();
+
+      this.isLoading = false;
+      this.navigationService.editInstructor(this.user.instructor_id);
 
       this._snackBar.open('Created Instructor', `${this.user.firstname}`, {
         duration: 3000,

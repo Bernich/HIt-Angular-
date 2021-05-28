@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IUser } from '../../shared/models';
-import { UsersService } from '../../shared/services';
+import { NavigationService, UsersService } from '../../shared/services';
 
 @Component({
   selector: 'app-hivenews-admin-news-list-page',
@@ -13,7 +13,9 @@ export class HivenewsAdminUsersListComponent implements OnInit {
   users: IUser[];
 
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private navigationService: NavigationService,
+    private usersService: UsersService) { }
 
 
   ngOnInit(): void {
@@ -30,10 +32,15 @@ export class HivenewsAdminUsersListComponent implements OnInit {
         this.isLoading = false;
         this.users = data;
       },
-
       error: (error) => {
         this.isLoading = false;
       }
     });
+  }
+
+
+  editUser(user) {
+    console.log(user.user_id);
+    this.navigationService.editUser(user.user_id);
   }
 }
