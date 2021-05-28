@@ -1,15 +1,18 @@
-.academic-introduction {
+/* .academic-introduction {
     max-width: 100%;
     display: flex;
     justify-content: center;
     /* Give all specific components */
-    /* font-weight: 400;
+
+
+/* font-weight: 400;
     font-stretch: normal;
     font-style: normal;
     letter-spacing: normal;
     text-align: left; */
-}
 
+*/
+/* 
 .academic-intro {
     display: flex;
     align-items: center;
@@ -83,9 +86,9 @@
     font-family: SFUIText-Medium;
     line-height: normal;
     color: #4a4a4a;
-}
+} */
 
-.academic-info-con p {
+p {
     font-family: SFUIText-Light;
     font-size: 1.297rem;
     line-height: 1.45;

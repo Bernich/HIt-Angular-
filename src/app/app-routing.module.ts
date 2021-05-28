@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
 
 const routes: Routes = [
+
 
   {
     path: '',
@@ -39,13 +41,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
+
 ];
 
 
 // { enableTracing: true }
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes,)
+    RouterModule.forRoot(
+      routes
+    )
   ],
   exports: [RouterModule]
 })

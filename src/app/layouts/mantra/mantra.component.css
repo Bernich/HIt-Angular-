@@ -27,6 +27,14 @@
 .mantra-content-container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    width: calc(65%);
+    height: 100%;
+}
+
+.mantra-content-container {
+    display: flex;
+    justify-content: space-between;
     width: calc(65%);
     height: 100%;
     /* border-radius: 0.75rem; */
@@ -63,8 +71,8 @@
 
 .mantra-item p {
     font-family: SFUIText-Light;
-    font-size: 0.97rem;
-    line-height: 1.25;
+    font-size: 0.99rem;
+    line-height: 1.75;
     color: var(--brownish-grey);
 }
 
@@ -78,32 +86,56 @@
     /* border-style: dashed; */
 }
 
+@media screen and (max-width: 1414px) {}
 
-/* media queries */
+@media screen and (max-width: 1368px) {}
 
-@media screen and (max-width: 769px) {
-    .mantra-item {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 30px;
-    }
+@media screen and (max-width: 1280px) {
     .mantra-content-container {
-        width: calc(100%);
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        width: calc(85%);
+        height: 100%;
     }
 }
 
-@media screen and (min-width: 1024px) {}
+@media screen and (max-width: 1024px) {}
 
-@media screen and (min-width: 1368px) {}
 
-@media screen and (min-width: 1414px) {}
+/* media queries */
+
+@media screen and (max-width: 938px) {
+    .mantra-content-container {
+        justify-content: center;
+    }
+    .mantra-item {
+        width: calc((100% / 2) - 25px);
+        justify-content: flex-start;
+    }
+    .mantra-item:first-child {
+        margin-right: calc(25px);
+    }
+    .mantra-middle-item {
+        order: -1;
+        /* background-color: red; */
+        width: 70%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* media queries */
+
+@media screen and (max-width: 768px) {}
 
 @media (max-width: 575px) {
     .mantra-content-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
         width: calc(100%);
+    }
+    .mantra-item {
+        width: 90%;
     }
 }

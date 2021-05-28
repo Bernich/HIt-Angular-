@@ -24,12 +24,12 @@ export class HeaderComponent implements OnInit {
   };
 
   constructor(private sanitizer: DomSanitizer, private config: NgbCarouselConfig) {
-    config.interval = 60000;
+    config.interval = 30000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;
     config.showNavigationArrows = true;
-    config.showNavigationIndicators = false;
+    config.showNavigationIndicators = true;
     config.animation = false;
   }
 

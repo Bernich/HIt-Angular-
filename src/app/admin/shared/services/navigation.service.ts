@@ -38,8 +38,8 @@ export class NavigationService {
     this.router.navigate([`/admin/courses/${id}/edit`]);
   }
 
-  editAuthor(author_id: string) {
-    this.router.navigate([`/admin/author/${author_id}/edit`]);
+  editInstructor(instructor_id: string) {
+    this.router.navigate([`/admin/instructors/${instructor_id}/edit`]);
   }
 
 

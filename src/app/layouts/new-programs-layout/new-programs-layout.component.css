@@ -39,6 +39,7 @@
 .engagement-grid {
     width: 100%;
     height: 600px;
+    flex-wrap: wrap;
     /* background-color: rgba(137, 43, 226, 0.233); */
     display: flex;
     justify-content: space-between;
@@ -122,6 +123,7 @@
 
 .top-header-grid {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -164,7 +166,7 @@
 }
 
 ._program-grid-items {
-    max-width: 500px;
+    /* max-width: 500px; */
     width: calc(100% / 3 - 30px);
     background-color: antiquewhite;
     position: relative;
@@ -230,44 +232,58 @@
     font-size: 0.85rem;
 }
 
+@media screen and (min-width: 1414px) {}
 
-/* media queries */
-
-@media screen and (max-width:769px) {
-    .engagement-grid {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-    }
-    .engagement-items {
-        width: calc(100%);
-        height: 100%;
-        /* background-color: lightsalmon; */
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        margin-bottom: 2rem;
+@media screen and (max-width: 1368px) {
+    ._program-grid-items {
+        /* max-width: 500px; */
+        width: calc(100% / 2 - 30px);
+        margin-bottom: 20px;
     }
     ._program-grid {
-        justify-content: center;
-        min-width: 450px;
+        width: 100%;
+        flex-wrap: wrap;
     }
-    ._program-grid-items {
-        width: calc(100%);
+    .new-programs-content-container {
+        width: calc(95%);
     }
 }
 
+
+/* media queries */
+
+@media screen and (max-width: 980px) {}
+
 @media screen and (min-width: 1024px) {}
 
-@media screen and (min-width: 1368px) {}
-
-@media screen and (min-width: 1414px) {}
-
 @media (max-width: 575px) {
+    .top-header-grid-items {
+        width: calc(100%);
+    }
+    .subheading-programs div:nth-child(1) {
+        display: none;
+    }
+    .engagement-grid {
+        width: 100%;
+        height: fit-content;
+    }
+    .engagement-items {
+        width: calc(100%);
+        height: 400px;
+        margin-bottom: 20px;
+    }
+    ._program-grid {
+        width: 100%;
+        height: fit-content;
+    }
+    ._program-grid-items {
+        width: calc(100%);
+        height: 300px;
+        margin-bottom: 20px;
+    }
     .new-programs-content-container {
         display: flex;
         flex-direction: column;
-        width: calc(100%);
+        width: calc(95%);
     }
 }

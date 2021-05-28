@@ -1,0 +1,39 @@
+{
+  "instructor_id": "f969fb5b-bc79-4406-8cb9-67f966ae5d9c",
+  "email": "simon@gmail.com",
+  "firstname": "Simon",
+  "lastname": "Sinek",
+  "profile_pic": {
+    "id": "ba5c4339-9301-41b5-80af-4e191809399d",
+    "url": "https://storage.googleapis.com/hit-storage/instructors/instructor_ba5c4339-9301-41b5-80af-4e191809399d"
+  },
+  "phone_number": "+233",
+  "bio": "<p>This is the bio</p>",
+  "skills": [
+    "Software"
+  ],
+  "courses": [
+    "c3ca9208-2fc7-4945-ac8a-c492a3aae76a",
+    "4237bb5a-e879-4326-8dfb-c594cd8650ff",
+    "46474820-8c50-4848-adc2-766cc50c2a5e"
+  ],
+  "social_media_handles": [
+    {
+      "platform": "LINKEDIN",
+      "url": "@url"
+    },
+    {
+      "platform": "FACEBOOK",
+      "url": "@url"
+    },
+    {
+      "platform": "INSTAGRAM",
+      "url": "@url"
+    },
+    {
+      "platform": "TWITTER",
+      "url": "@url"
+    }
+  ],
+  "creator_id": "bf9b0338-7387-4c6e-b66b-e7413daaaa87"
+}

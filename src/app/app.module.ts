@@ -12,9 +12,10 @@ import { HivenewsCoreModule } from './core';
 import { HivenewsLayoutsModule } from './layouts/layouts.module';
 import { HivenewsLandingPageModule } from './pages/landing-page';
 import { HivenewsEntityModule } from './entities/entity.module';
-import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminModule } from './admin/admin.module';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
 
 
 // Note we need a separate function as it's required
@@ -24,7 +25,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 // }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, ComingSoonPageComponent
   ],
   imports: [
     CommonModule,
