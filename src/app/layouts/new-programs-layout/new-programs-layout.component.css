@@ -256,6 +256,24 @@
 
 @media screen and (min-width: 1024px) {}
 
+@media screen and (max-width: 1368px) {
+    ._program-grid-items {
+        /* max-width: 500px; */
+        width: calc(100% / 2 - 30px);
+        margin-bottom: 20px;
+    }
+    ._program-grid {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .new-programs-content-container {
+        width: calc(95%);
+    }
+    ._program-grid-items:hover p {
+        display: none;
+    }
+}
+
 @media (max-width: 575px) {
     .top-header-grid-items {
         width: calc(100%);

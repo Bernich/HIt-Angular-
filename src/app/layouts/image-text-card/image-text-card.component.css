@@ -29,7 +29,6 @@
 .image-text-card-content-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
     width: calc(85%);
     height: 100%;
     /* border-radius: 0.75rem; */
@@ -47,13 +46,11 @@
 
 .image-text-card-content-container img {
     /*Fix issue with the width on mozilla browser*/
-    width: 50%;
+    width: 48.5%;
     box-sizing: border-box;
     height: 450px;
     object-fit: cover;
     object-position: right;
-    /* Fix this */
-    margin-right: 50px;
 }
 
 .image-text-card-content-container .image-text-card-content-text {
@@ -61,15 +58,14 @@
     /* width: 40%; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
     text-align: left;
     /* background-color: tomato; */
-    width: 50%;
+    width: 48.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 1;
     text-align: left;
 }
 
@@ -86,7 +82,7 @@
 .image-text-card-content-container .image-text-card-content-text p {
     /* font-size: 18px; */
     text-align: left;
-    width: 80%;
+    width: 90%;
     font-family: SFUIText-Light;
     font-size: 1.197rem;
     line-height: 1.75;
@@ -117,36 +113,29 @@
     /* border-style: dashed; */
 }
 
-@media screen and (min-width: 1414px) {}
-
-
-/* media queries */
-
-.image-text-card-content-container {
-    flex-direction: column;
-}
-
-.image-text-card-content-container img {
-    width: 100%;
-    margin: 0;
-}
-
-.image-text-card-content-container {
-    flex-direction: column-reverse;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.image-text-card-container {
-    width: 100%;
-}
-
-.image-text-card-content-container img {
-    padding: 0;
-}
-
-.image-text-card-content-container .image-text-card-content-text {
-    width: 100%;
+@media screen and (max-width: 879px) {
+    /* media queries */
+    .image-text-card-content-container {
+        flex-direction: column;
+    }
+    .image-text-card-content-container img {
+        width: 100%;
+        margin: 0;
+    }
+    .image-text-card-content-container {
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .image-text-card-container {
+        width: 100%;
+    }
+    .image-text-card-content-container img {
+        padding: 0;
+    }
+    .image-text-card-content-container .image-text-card-content-text {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1024px) {}
