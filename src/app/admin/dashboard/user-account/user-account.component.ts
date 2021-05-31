@@ -15,7 +15,7 @@ export class UserAccountComponent implements OnInit {
   isGeneral = true;
   isLoading = false;
   focus = false;
-  isNew = true;
+  isNew = false;
   /**
    * Constructs the UserAccountComponent with the following injected services
    * @param authService  {AuthService}

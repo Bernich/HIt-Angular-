@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 export class AuthorService {
 
 
-  private instructorsUrl = `${SERVER_API_URL}/authors`;
+  private authorsUrl = `${SERVER_API_URL}/authors`;
 
   constructor(
     private httpClient: HttpClient,
@@ -30,7 +30,7 @@ export class AuthorService {
       }),
     };
 
-    return this.httpClient.get(this.instructorsUrl, httpOptions);
+    return this.httpClient.get(this.authorsUrl, httpOptions);
   }
 
 
@@ -49,7 +49,7 @@ export class AuthorService {
 
     console.log(JSON.stringify(author));
 
-    return this.httpClient.post<ICreateInstructorDTO>(this.instructorsUrl, author, httpOptions);
+    return this.httpClient.post<ICreateInstructorDTO>(this.authorsUrl, author, httpOptions);
   }
 
 
@@ -66,7 +66,7 @@ export class AuthorService {
       }),
     };
 
-    return this.httpClient.get(this.instructorsUrl + `/${uid}`, httpOptions);
+    return this.httpClient.get(this.authorsUrl + `/${uid}`, httpOptions);
   }
 
 
@@ -80,7 +80,7 @@ export class AuthorService {
       email
     };
 
-    return this.httpClient.post(`${this.instructorsUrl}/begin_password_reset`, payload,);
+    return this.httpClient.post(`${this.authorsUrl}/begin_password_reset`, payload,);
   }
 
 
