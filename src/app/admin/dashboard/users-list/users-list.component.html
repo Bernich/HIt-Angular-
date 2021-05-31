@@ -1,7 +1,8 @@
 <section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
   <section class="admin-dashboard-users-content-container ">
 
-    <app-admin-user-list-item style="margin-right: 20px; ;" *ngFor="let user of users" [user]="user">
+    <app-admin-user-list-item style="margin-right: 20px; ;" *ngFor="let user of users" [user]="user"
+      (editUser)="editUser(user)">
     </app-admin-user-list-item>
 
   </section>

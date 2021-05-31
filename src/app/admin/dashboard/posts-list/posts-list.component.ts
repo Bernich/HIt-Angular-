@@ -32,6 +32,10 @@ export class HivenewsAdminListComponent implements OnInit {
       this.posts.forEach((p: IPost) => (p.show = false));
       // this.headerPosts = this.posts.slice(0, 3);
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        this.isLoading = false;
+
+      });
   }
 }

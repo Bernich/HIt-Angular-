@@ -64,7 +64,7 @@
 }
 
 .side-nav {
-  /* min-width: 200px; */
+  min-width: 250px;
   flex-shrink: 1;
   width: 15%;
 }
@@ -105,7 +105,7 @@
 
 .top-navigation .nav-content .nav-brand {
   width: 15%;
-  /* min-width: 200px; */
+  min-width: 250px;
   height: 100%;
   opacity: 0.8;
   background-image: linear-gradient(142deg, #ff8b21 34%, #ff055b);
@@ -118,8 +118,8 @@
 }
 
 .top-navigation .nav-content .nav-brand img {
-  width: 145px;
-  height: 145px;
+  /* width: 80px; */
+  height: 60px;
   object-fit: contain;
   object-position: center;
 }
@@ -162,7 +162,8 @@
 .nav-link .icon {
   margin-right: 10px;
 }
-pppppppppppppppppp .active {
+
+.active {
   background-color: var(--pumpkin-orange-15);
 
   font-family: SFUIText-Medium;

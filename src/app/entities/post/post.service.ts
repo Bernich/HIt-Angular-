@@ -25,7 +25,7 @@ export class PostService {
     const options = createRequestOption(req);
 
     return this.http.get<IPost[]>(
-      `${this.resourceUrl}/?sort=createdDate,desc`,
+      `${this.resourceUrl}`,
       {
         params: options,
         observe: 'response'

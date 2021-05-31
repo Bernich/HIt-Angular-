@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SERVER_API_URL } from 'src/app/app.constants';
-import { ICreateInstructorDTO } from '../dto';
+import { CreateUpdateInstructorDTO, ICreateInstructorDTO } from '../dto';
 import { CreateInstructor } from '../models';
 import { AuthService } from './auth.service';
 
@@ -51,6 +51,30 @@ export class InstructorService {
     console.log(JSON.stringify(author));
 
     return this.httpClient.post<ICreateInstructorDTO>(this.instructorsUrl, author, httpOptions);
+  }
+
+
+
+  /**
+   * Updates an Instructor
+   * @param user {IUser} - specified instructor account data
+   * @see IUser
+   */
+  updateInstructor(instructorId: string, user: CreateUpdateInstructorDTO) {
+    const token = localStorage.getItem('currentUser');
+
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.httpClient.put(`${this.instructorsUrl}/${instructorId}`, user, httpOptions);
   }
 
 

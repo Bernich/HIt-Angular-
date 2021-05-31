@@ -1,0 +1,81 @@
+<mat-progress-bar [style.display]=" isLoading ? 'block'  :'none'" mode="indeterminate"></mat-progress-bar>
+<div class="add-user-container" *ngIf="user">
+
+  <div class="top-items">
+
+    <div class="tabs">
+
+      <div class="link" [ngClass]="{'header' : isGeneral}" (click)="switchGeneral()">General</div>
+
+      <div class="link" [ngClass]="{'header' : !isGeneral}" (click)="switchAccount()"> {{
+        isNew ? "Create Password": "Change Password" }}</div>
+    </div>
+
+    <button [style.display]=" isLoading ? 'none' : 'block' " mat-button class="save_button"
+      (click)="updateAccountDetails()">{{ isNew ? "Create User ":"Save Changes"}}</button>
+  </div>
+
+  <app-edit-profile-form [isNew]='true' [user]="user" [isAccountVisibleState]="isGeneral">
+  </app-edit-profile-form>
+
+  <section *ngIf="!isNew" class="right-tabs">
+    <div class="select-container">
+      <div class="top-row">
+        <div class="header">Actions</div>
+
+        <!-- <button class="add-button" mat-icon-button>
+          <mat-icon class="mat-18">add</mat-icon>
+        </button> -->
+      </div>
+
+      <mat-list>
+        <!-- <mat-list-item matRipple>
+          <mat-icon mat-list-icon>delete_outline</mat-icon>
+          <div mat-line>Delete User</div>
+        </mat-list-item> -->
+
+        <mat-list-item *ngIf="user" matRipple (click)="suspendAccount()">
+          <mat-icon mat-list-icon>{{ user.is_active ? "lock_open" : "lock"}}</mat-icon>
+          <div mat-line>{{ user.is_active ? "Suspend Account" : "Activate Account"}}</div>
+        </mat-list-item>
+
+      </mat-list>
+
+    </div>
+
+
+    <div class="select-container">
+      <div class="top-row">
+        <div class="header">Account Roles</div>
+      </div>
+
+      <mat-list *ngIf="user">
+        <mat-list-item>
+          <mat-checkbox #userRole [value]="true" [checked]="authService.hasRole('USER')" class="margin"
+            (change)="updateAcctTypeUser(userRole.checked)">User
+          </mat-checkbox>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-checkbox #instructor class="margin" [checked]="authService.hasRole('INSTRUCTOR')"
+            (change)="updateAcctTypeInstructor(instructor.checked)">Instructor
+          </mat-checkbox>
+        </mat-list-item>
+
+
+        <mat-list-item>
+          <mat-checkbox #admin class="margin" [checked]="authService.hasRole('ADMIN')"
+            (change)="updateAcctTypeAdmin(admin.checked)">
+            Admin</mat-checkbox>
+        </mat-list-item>
+
+      </mat-list>
+
+    </div>
+
+
+  </section>
+
+
+
+</div>

@@ -1,0 +1,26 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+<div class="container" *ngIf="user else loader">
+  <div class="top-items">
+
+    <div class="tabs">
+
+      <div class="link" [ngClass]="{'header' : isGeneral}" (click)="switchGeneral()">General</div>
+
+      <div class="link" [ngClass]="{'header' : !isGeneral}" (click)="switchAccount()"> {{ isNew ? "Create Password":
+        "Change Password"}}</div>
+    </div>
+
+    <button *ngIf="focus" [style.display]=" isLoading ? 'none' : 'block' " mat-button class="save_button"
+      (click)="updateAccountDetails()">Save Changes</button>
+  </div>
+  <app-edit-profile-form [user]="user" (focusEvent)="focusChange($event)" [isAccountVisibleState]="isGeneral">
+  </app-edit-profile-form>
+</div>
+
+
+<ng-template #loader>
+
+  <app-loader></app-loader>
+
+</ng-template>
