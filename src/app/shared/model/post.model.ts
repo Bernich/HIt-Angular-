@@ -25,7 +25,7 @@ export class Post implements IPost {
     public content?: any,
     public thumb_content_type?: string,
     public thumb?: any,
-    public category?: string,
+    public post_category?: string,
     public publicity_status?: boolean,
     public authors?: string[],
     public date_created?: string,
@@ -44,15 +44,15 @@ export class CreatePost implements IPost {
   constructor(
     public title?: string,
     public content?: string,
-    public post_id?: string,
-    public category?: string,
+    public post_category?: string,
     public publicity_status?: boolean,
     public post_authors?: string[],
   ) {
     this.publicity_status = this.publicity_status || false;
   }
 
-  public header_image?: FileData;
+  public thumbnail_image_data: FileData
+  public header_image_data?: FileData;
 
 }
 
