@@ -21,16 +21,19 @@ export class PostService {
     });
   }
 
-  query(req?: any): Observable<EntityArrayResponseType> {
+  query(req?: any) {
+    const token = localStorage.getItem('currentUser');
+
     const options = createRequestOption(req);
 
-    return this.http.get<IPost[]>(
-      `${this.resourceUrl}`,
-      {
-        params: options,
-        observe: 'response'
-      }
-    );
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.http.get(this.resourceUrl + '/all', httpOptions);
   }
 
 

@@ -27,15 +27,17 @@ export class HivenewsAdminListComponent implements OnInit {
   loadAll() {
     this.isLoading = true;
 
-    this.postService.query().subscribe((res: HttpResponse<IPost[]>) => {
-      this.posts = res.body;
-      this.posts.forEach((p: IPost) => (p.show = false));
-      // this.headerPosts = this.posts.slice(0, 3);
-      this.isLoading = false;
-    },
-      (error) => {
+    this.postService.query().subscribe({
+      next: (data: any) => {
+        this.posts = data;
+        this.posts.forEach((p: IPost) => (p.show = false));
+        // this.headerPosts = this.posts.slice(0, 3);
+        this.isLoading = false;
+      },
+      error: (error) => {
         this.isLoading = false;
 
-      });
+      }
+    });
   }
 }
