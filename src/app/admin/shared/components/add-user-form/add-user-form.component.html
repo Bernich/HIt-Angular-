@@ -6,18 +6,17 @@
         General</div>
       <div [ngClass]="{'active-heading' : !isAccountVisibleState}" class="heading"
         (click)="isAccountVisibleState = false">
-        Bio</div>
+        Password</div>
     </div>
 
-
     <button mat-button [style.display]="isLoading ? 'none' : 'block'" class="save_button"
-      (click)="saveUser.emit($event)">Save Changes</button>
+      (click)="saveUser.emit($event)">{{ isNew? "Save Changes" : "Update Changes"}}</button>
   </div>
 
   <section class="add-user-tab">
     <div class="image-description-tab">
       <div class="image">
-        <div class="image-selector">
+        <div *ngIf="!isNew" class="image-selector">
           <button class="image" mat-icon-button>
             <mat-icon class="mat-18">
               edit
@@ -96,36 +95,28 @@
       </div> -->
     </div>
 
-    <div class="input-tab" [style.display]="isAccountVisibleState ? 'none' : 'flex'">
 
 
-      <!-- <div class="input-container">
-        <div class="title">Bio</div>
-        <textarea [(ngModel)]="user.bio" type="text" rows="10" cols="40"> </textarea>
-      </div> -->
+    <div [style.display]="!isAccountVisibleState ? 'flex' : 'none'" class="input-tab">
 
-      <!-- <div class="input-container" *ngFor="let social of user.social_media_handles">
-        <div class="title">{{social.platform}}</div>
-        <input [(ngModel)]="social.url" type="email" />
-      </div> -->
-
-      <!-- <div class="input-container">
-        <div class="title">Facebook</div>
-        <input [(ngModel)]="facebook.url" type="email" />
+      <div *ngIf="!isNew" class="input-container">
+        <div class="title">OLD PASSWORD</div>
+        <input type="password" [(ngModel)]="user.password" />
       </div>
 
       <div class="input-container">
-        <div class="title">Twitter</div>
-        <input [(ngModel)]="twitter.url" type="email" />
+        <div class="title">NEW PASSWORD</div>
+        <input type="password" [(ngModel)]="user.password" />
       </div>
 
       <div class="input-container">
-        <div class="title">Whatssap</div>
-        <input [(ngModel)]="whatssap.url" type="email" />
-      </div> -->
-
+        <div class="title">Confirm PASSWORD</div>
+        <input type="password" [(ngModel)]="user.password_confirm" />
+      </div>
 
     </div>
+
+
   </section>
 
 

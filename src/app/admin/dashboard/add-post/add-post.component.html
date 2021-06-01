@@ -1,7 +1,6 @@
 <section class="admin-dashboard-content " *ngIf="!isLoading; else loader">
 
   <div style="margin-bottom: 100px;"></div>
-
   <!-- Fix this class later -->
   <section class="admin-dashboard-content-content-container">
 
@@ -15,11 +14,8 @@
 
           <div class="spacer"></div>
           <section class="admin-dashboard-posts-button">
-
             <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
-              (click)="savePost()">{{ isNewPost ? "Save" : "Update" }}</button>
-
-
+              (click)="isNewPost ? savePost() : updatePost()">{{ isNewPost ? "Save" : "Update" }}</button>
           </section>
         </section>
 
@@ -31,8 +27,7 @@
 
               <!-- Request fix from the backend -->
               <section class="instructor-profile">
-                <img *ngFor="let author of selectedAuthors"
-                  [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
+                <img *ngFor="let author of selectedAuthors" [src]="author.profile_image.url"
                   alt="profile image of {{author.firstname}}" srcset="">
               </section>
 
@@ -103,8 +98,7 @@
             <div mat-card-avatar class="add-post-header-image">
 
               <section class="instructor-profile">
-                <img *ngFor="let author of selectedAuthors"
-                  [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
+                <img *ngFor="let author of selectedAuthors" [src]="author.profile_image.url"
                   alt="profile image of {{author.firstname}}" srcset="">
               </section>
 
@@ -209,7 +203,7 @@
         <div class="items-container">
           <div *ngFor="let item of selectedAuthors" class="menu-items-container" style="margin-bottom: 10px">
             <div class="_container">
-              <img class="menu-image" src="{{ isNewPost ? item.profile_image.url : item.profile_image_url }}" alt="" />
+              <img class="menu-image" src="{{item.profile_image.url}}" alt="" />
               <div>
                 {{item.first_name +" "+ item.last_name }}
               </div>

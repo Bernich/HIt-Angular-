@@ -27,6 +27,8 @@ export interface IUser {
   social_media_handles?: SocialMediaHandle[];
   is_active?: boolean;
 
+  password?: string;
+
   old_password?: string;
   new_password?: string;
   password_confirm?: string;
@@ -63,7 +65,7 @@ export class CreateUser implements IUser {
   public courses?: ICourse[];
   public creator_id?: string;
   public profile_pic_data: FileData;
-
+  social_media_handles?: SocialMediaHandle[];
 }
 
 
