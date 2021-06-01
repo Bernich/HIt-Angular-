@@ -15,10 +15,18 @@ export class PostService {
   public resourceUrl = SERVER_API_URL + '/posts';
   constructor(protected http: HttpClient) { }
 
-  find(id: string): Observable<EntityResponseType> {
-    return this.http.get<IPost>(`${this.resourceUrl}/${id}`, {
-      observe: 'response'
-    });
+  find(id: string) {
+    const token = localStorage.getItem('currentUser');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.http.get(this.resourceUrl + '/' + id, httpOptions);
+
   }
 
   query(req?: any) {

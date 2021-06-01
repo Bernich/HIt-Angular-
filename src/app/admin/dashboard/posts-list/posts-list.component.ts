@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from 'src/app/entities/post';
 import { IPost } from 'src/app/shared/model/post.model';
+import { NavigationService } from '../../shared/services';
 
 @Component({
   selector: 'app-hivenews-admin-news-list-page',
@@ -13,7 +14,10 @@ export class HivenewsAdminListComponent implements OnInit {
   isLoading = false;
   posts: IPost[];
 
-  constructor(private postService: PostService) { }
+  constructor(
+    private postService: PostService,
+    private navigationService: NavigationService
+  ) { }
 
   ngOnInit() {
     this.loadAll();
@@ -21,7 +25,7 @@ export class HivenewsAdminListComponent implements OnInit {
 
 
   editPost(post: IPost) {
-    console.log("post ", post.post_id);
+    this.navigationService.editPost(post.post_id)
   }
 
   loadAll() {
@@ -31,7 +35,6 @@ export class HivenewsAdminListComponent implements OnInit {
       next: (data: any) => {
         this.posts = data;
         this.posts.forEach((p: IPost) => (p.show = false));
-        // this.headerPosts = this.posts.slice(0, 3);
         this.isLoading = false;
       },
       error: (error) => {

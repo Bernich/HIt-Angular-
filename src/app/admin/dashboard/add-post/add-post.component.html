@@ -17,7 +17,7 @@
           <section class="admin-dashboard-posts-button">
 
             <button [style.display]="isLoading ? 'none' : 'block'" class="save_button" mat-flat-button
-              (click)="savePost()">Save</button>
+              (click)="savePost()">{{ isNewPost ? "Save" : "Update" }}</button>
 
 
           </section>
@@ -29,7 +29,8 @@
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
 
-              <img *ngFor="let author of selectedAuthors" [src]="author.profile_image.url"
+              <img *ngFor="let author of selectedAuthors"
+                [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
                 alt="profile image of {{author.first_name}}" srcset="">
 
             </div>
@@ -97,7 +98,8 @@
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
 
-              <img *ngFor="let author of selectedAuthors" [src]="author.profile_image.url"
+              <img *ngFor="let author of selectedAuthors"
+                [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
                 alt="profile image of {{author.first_name}}" srcset="">
 
             </div>
@@ -139,28 +141,28 @@
     <section class="right-details">
 
       <!-- -->
-      <div *ngIf="authService.hasRole('ADMIN') && !isNewCourse" style="margin-bottom:40px"
+      <div *ngIf="authService.hasRole('ADMIN') && !isNewPost" style="margin-bottom:40px"
         class="course-specifics select-container">
         <div class="top-row">
           <div class="header">Actions</div>
 
-          <button class="add-button" mat-icon-button>
+          <!-- <button class="add-button" mat-icon-button>
             <mat-icon class="mat-18">add</mat-icon>
-          </button>
+          </button> -->
         </div>
 
-        <!-- <mat-list style="width: 100%;">
-        <mat-list-item style="cursor: pointer;" matRipple>
-          <mat-icon mat-list-icon>delete_outline</mat-icon>
-          <div mat-line>Delete Course</div>
-        </mat-list-item>
+        <mat-list style="width: 100%;">
+          <mat-list-item style="cursor: pointer;" matRipple>
+            <mat-icon mat-list-icon>delete_outline</mat-icon>
+            <div mat-line>Delete Post</div>
+          </mat-list-item>
 
-        <mat-list-item style="cursor: pointer;" matRipple (click)="publisCourse()">
-          <mat-icon mat-list-icon>{{ !isPublished ? "lock_open" : "lock"}}</mat-icon>
-          <div mat-line>{{ !isPublished ? "Publish Course" : "Unpublish Course"}}</div>
-        </mat-list-item>
+          <mat-list-item style="cursor: pointer;" matRipple (click)="publisCourse()">
+            <mat-icon mat-list-icon>{{ !postService.post.publicity_status ? "lock_open" : "lock"}}</mat-icon>
+            <div mat-line>{{ !postService.post.publicity_status ? "Publish Course" : "Unpublish Course"}}</div>
+          </mat-list-item>
 
-      </mat-list> -->
+        </mat-list>
 
       </div>
 
@@ -201,7 +203,7 @@
         <div class="items-container">
           <div *ngFor="let item of selectedAuthors" class="menu-items-container" style="margin-bottom: 10px">
             <div class="_container">
-              <img class="menu-image" src="{{ item.profile_image.url }}" alt="" />
+              <img class="menu-image" src="{{ isNewPost ? item.profile_image.url : item.profile_image_url }}" alt="" />
               <div>
                 {{item.first_name +" "+ item.last_name }}
               </div>

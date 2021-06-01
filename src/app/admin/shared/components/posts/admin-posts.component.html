@@ -1,5 +1,5 @@
 <div class="blog-container" (click)="edit.emit(post)">
-  <img class="blog-image" [src]="post.header_image_url || post.banner.url" loading="lazy" alt="" srcset="">
+  <img class="blog-image" [src]="post.thumbnail.url" loading="lazy" alt="" srcset="">
 
   <section class="blog-content">
 
@@ -19,8 +19,12 @@
       </div>
 
       <div class="blog-footer-options">
-        <span><img src="/assets/svg/share.svg" loading="lazy" alt="" srcset=""></span>
-        <span> <img src="/assets/svg/bookmark-outline.svg" loading="lazy" alt="" srcset=""></span>
+        <span matRipple>
+          <mat-icon>bubble_chart</mat-icon>
+        </span>
+        <span matRipple>
+          <mat-icon>edit</mat-icon>
+        </span>
       </div>
     </div>
   </section>

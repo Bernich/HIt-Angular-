@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActivatedRoute } from '@angular/router';
-import { CreatePost } from 'src/app/shared/model/post.model';
+import { PostService } from 'src/app/entities/post';
+import { CreatePost, IPost } from 'src/app/shared/model/post.model';
+import { PostMapper } from '../../shared/mapper';
 import { FileData, IAuthor } from '../../shared/models';
 import { AuthorService, AuthService, CreatePostService } from '../../shared/services';
 import { AuthorsBottomSheetComponent } from './authors-bottomsheet.component';
@@ -22,7 +24,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
   categoryControl = new FormControl('', Validators.required);
 
 
-  isNewCourse = true; /**Check if a course is new */
+  isNewPost = true; /**Check if a course is new */
 
 
   isLoading = false;
@@ -42,7 +44,8 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     public postService: CreatePostService,
     private bottomSheet: MatBottomSheet,
     private authorService: AuthorService,
-    public authService: AuthService
+    public authService: AuthService,
+    private postsService: PostService
   ) { }
 
   ngOnInit(): void {
@@ -55,17 +58,45 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      this.isNewCourse = false;
+      this.isNewPost = false;
       // load course and unpack
-      // this.loadCourse(id);
+      this.loadCourse(id);
     } else {
-      this.isNewCourse = true;
+      this.isNewPost = true;
 
       // Create a new course
       // this.course = new CreateCourse()
+
+
     }
   }
 
+  ngAfterViewChecked() {
+    // this.refillSelectedAuthors();
+  }
+
+
+  loadCourse(id) {
+
+    this.postsService.find(id).subscribe({
+      next: (data: IPost) => {
+        console.log(data)
+        // unwrap post for edit
+        this.postService.post = PostMapper.convertToCreateCourse(data);
+        this.imgUrl = data.banner.url;
+        this.thumbnailURL = data.thumbnail.url;
+
+        // use author ids to insert them again
+        this.selectedAuthors = data.authors;
+
+        this.categoryControl.setValue(data.post_category)
+        console.log(data.post_category)
+        //
+        // place contents in here
+      },
+      error: (error) => { }
+    })
+  }
 
   saveButton() {
     console.log(this.postService.post);
@@ -128,6 +159,8 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
         this.isLoading = false;
         this.authors = data;
+
+        console.log("Authors loaded")
       },
 
       error: (error) => {
@@ -166,4 +199,31 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
   }
 
+  publisCourse() {
+    console.log("Publish course")
+  }
+
+
+  /**
+   * Since the Authors are difficult processing,
+   * after the authors are loaded, check if its an old course
+   * and reinsert the authors again in the selectedAuthors
+   */
+  refillSelectedAuthors() {
+
+
+    const new_authors = [];
+    for (const sAuthor of this.selectedAuthors) {
+      this.authors.forEach((author: IAuthor) => {
+        if (author.author_id === sAuthor.author_id) {
+          new_authors.push(author);
+        }
+
+      })
+    }
+
+    this.selectedAuthors = new_authors;
+    console.log("Content Loaded already");
+
+  }
 }
