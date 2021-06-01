@@ -1,6 +1,6 @@
 <section class="admin-add-author-content ">
 
-  <app-add-author-form [author]="author" (saveAuthor)="saveAuthor($event)" [isLoading]="isLoading">
+  <app-add-author-form [isNew]="isNew" [author]="author" (saveAuthor)="saveAuthor($event)" [isLoading]="isLoading">
   </app-add-author-form>
 
   <section class="right-tabs">

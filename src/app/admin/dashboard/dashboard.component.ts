@@ -54,7 +54,7 @@ export class HivenewsDashboardComponent implements OnInit {
       //TODO  - Fix this, Decompose This was a proof of CONCEPT
       if (event instanceof NavigationEnd) {
         console.log(this.router.url);
-        if (this.router.url === '/admin/courses') {
+        if (this.router.url === '/admin/courses' || this.router.url === '/admin/dashboard/courses') {
           this.showNavs = {
             ...this.showNavs,
             users: false,
@@ -64,7 +64,7 @@ export class HivenewsDashboardComponent implements OnInit {
             authors: false,
 
           }
-        } else if (this.router.url === '/admin/users') {
+        } else if (this.router.url === '/admin/users' || this.router.url === '/admin/dashboard/users') {
           this.showNavs = {
             ...this.showNavs,
             courses: false,
@@ -74,7 +74,7 @@ export class HivenewsDashboardComponent implements OnInit {
             authors: false,
 
           }
-        } else if (this.router.url === '/admin/instructors') {
+        } else if (this.router.url === '/admin/instructors' || this.router.url === '/admin/dashboard/instructors') {
           this.showNavs = {
             ...this.showNavs,
             courses: false,
@@ -84,7 +84,7 @@ export class HivenewsDashboardComponent implements OnInit {
             authors: false,
 
           }
-        } else if (this.router.url === '/admin/posts') {
+        } else if (this.router.url === '/admin/posts' || this.router.url === '/admin/dashboard/posts') {
           this.showNavs = {
             ...this.showNavs,
             courses: false,
@@ -95,7 +95,7 @@ export class HivenewsDashboardComponent implements OnInit {
 
           }
         }
-        else if (this.router.url === '/admin/authors') {
+        else if (this.router.url === '/admin/authors' || this.router.url === '/admin/dashboard/authors') {
           this.showNavs = {
             ...this.showNavs,
             courses: false,

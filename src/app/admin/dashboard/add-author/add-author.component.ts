@@ -14,6 +14,7 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
   imgUrl = 'https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg';
 
   isLoading = false;
+  isNew = true;
 
   whatssap = new SocialMediaHandle('LINKEDIN', '@url');
   facebook = new SocialMediaHandle('FACEBOOK', '@url');
@@ -39,15 +40,21 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
 
   ngOnInit(): void {
     // check if there is an id in the url, then load the id else create a new author
-    const slug = this.route.snapshot.paramMap.get('id');
-    if (slug) {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
       console.log('Has id, fetch and change state to update')
+      this.isNew = false;
     } else {
       console.log('Has no id, create author');
+      this.isNew = true;
     }
 
   }
 
+
+  loadAuthor(id: string) {
+    // this.authorService
+  }
 
 
   saveAuthor(author) {

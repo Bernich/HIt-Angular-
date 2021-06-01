@@ -12,6 +12,7 @@ import { AuthService } from '../../services';
 export class AddAuthorFormComponent implements OnInit {
 
   @Input() isLoading: boolean;
+  @Input() isNew: boolean;
 
   @Output() saveAuthor = new EventEmitter<CreateAuthor>();
   @Input() author: CreateAuthor;
