@@ -60,5 +60,19 @@ export class PostService {
     return this.http.post(this.resourceUrl, post, httpOptions);
   }
 
+  update(post: CreatePostDTO) {
+    const token = localStorage.getItem('currentUser');
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.http.put(this.resourceUrl, post, httpOptions);
+  }
 
 }

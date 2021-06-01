@@ -60,7 +60,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     if (id) {
       this.isNewPost = false;
       // load course and unpack
-      this.loadCourse(id);
+      this.loadPost(id);
     } else {
       this.isNewPost = true;
 
@@ -76,13 +76,13 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
   }
 
 
-  loadCourse(id) {
+  loadPost(id) {
 
     this.postsService.find(id).subscribe({
       next: (data: IPost) => {
         console.log(data)
         // unwrap post for edit
-        this.postService.post = PostMapper.convertToCreateCourse(data);
+        this.postService.post = PostMapper.convertToCreatePost(data);
         this.imgUrl = data.banner.url;
         this.thumbnailURL = data.thumbnail.url;
 
@@ -98,16 +98,12 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     })
   }
 
-  saveButton() {
-    console.log(this.postService.post);
-  }
 
   savePost() {
 
     this.isLoading = true;
     // convert post authors into an id
     const author_ids = this.getPostAuthors();
-    console.log(author_ids);
 
     this.postService.savePost(this.categoryControl.value, author_ids).subscribe({
       next: (data: any) => {
@@ -119,6 +115,22 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     });
   }
 
+
+  updatePost() {
+
+    this.isLoading = true;
+    // convert post authors into an id
+    const author_ids = this.getPostAuthors();
+
+    this.postService.updatePost(this.categoryControl.value, author_ids).subscribe({
+      next: (data: any) => {
+        console.log(data); this.isLoading = false;
+      },
+      error: (err: any) => {
+        console.log(err); this.isLoading = false;
+      }
+    });
+  }
 
   updateBannerImage(data: { url: string, data: FileData }) {
     this.imgUrl = data.url;

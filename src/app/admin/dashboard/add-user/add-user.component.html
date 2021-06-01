@@ -1,24 +1,12 @@
 <mat-progress-bar [style.display]=" isLoading ? 'block'  :'none'" mode="indeterminate"></mat-progress-bar>
 <div class="add-user-container" *ngIf="user">
 
-  <div class="top-items">
 
-    <div class="tabs">
+  <app-add-user-form [initialURL]="imageUrl" [isNew]='isNewUser' [user]="user" [isAccountVisibleState]="isGeneral"
+    (saveUser)="saveUser()">
+  </app-add-user-form>
 
-      <div class="link" [ngClass]="{'header' : isGeneral}" (click)="switchGeneral()">General</div>
-
-      <div class="link" [ngClass]="{'header' : !isGeneral}" (click)="switchAccount()"> {{
-        isNew ? "Create Password": "Change Password" }}</div>
-    </div>
-
-    <button [style.display]=" isLoading ? 'none' : 'block' " mat-button class="save_button"
-      (click)="updateAccountDetails()">{{ isNew ? "Create User ":"Save Changes"}}</button>
-  </div>
-
-  <app-edit-profile-form [isNew]='true' [user]="user" [isAccountVisibleState]="isGeneral">
-  </app-edit-profile-form>
-
-  <section *ngIf="!isNew" class="right-tabs">
+  <section *ngIf="!isNewUser" class="right-tabs">
     <div class="select-container">
       <div class="top-row">
         <div class="header">Actions</div>
@@ -29,15 +17,15 @@
       </div>
 
       <mat-list>
-        <!-- <mat-list-item matRipple>
+        <mat-list-item matRipple>
           <mat-icon mat-list-icon>delete_outline</mat-icon>
           <div mat-line>Delete User</div>
-        </mat-list-item> -->
+        </mat-list-item>
 
-        <mat-list-item *ngIf="user" matRipple (click)="suspendAccount()">
+        <!-- <mat-list-item *ngIf="user" matRipple (click)="suspendAccount()">
           <mat-icon mat-list-icon>{{ user.is_active ? "lock_open" : "lock"}}</mat-icon>
           <div mat-line>{{ user.is_active ? "Suspend Account" : "Activate Account"}}</div>
-        </mat-list-item>
+        </mat-list-item> -->
 
       </mat-list>
 

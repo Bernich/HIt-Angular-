@@ -48,4 +48,28 @@ export class CreatePostService {
     return this.postService.add(post);
   }
 
+  /**
+     * Saves Post
+     * @param category
+     * @param authors_id
+     * @returns
+     * Fix paramters
+     */
+  updatePost(category: string, authors_id: string[]) {
+    // convert to post DTO, save
+    const post = new CreatePostDTO(
+      this.post.title,
+      this.post.content,
+      category,
+      this.post.publicity_status,
+      authors_id,
+      this.post.header_image_data,
+      this.post.thumbnail_image_data
+    );
+
+    console.log(JSON.stringify(post));
+
+    return this.postService.update(post);
+  }
+
 }

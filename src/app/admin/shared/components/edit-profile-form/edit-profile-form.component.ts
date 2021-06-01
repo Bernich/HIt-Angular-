@@ -10,6 +10,7 @@ import { FileData, IUser } from '../../models';
 export class EditProfileFormComponent implements OnInit {
 
 
+  @Input() imageUrl;
   @Input() isNew = false;
   @Input() user: IUser;
   @Input() isAccountVisibleState;
@@ -33,10 +34,10 @@ export class EditProfileFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (!this.user.profile_pic) {
-      this._profile_image_data = 'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder.jpg';
+    if (this.isNew) {
+      this.imageUrl = 'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder.jpg';
     } else {
-      this._profile_image_data = this.user.profile_pic.url;
+      this.imageUrl = this.user.profile_pic.url;
     }
   }
 
@@ -67,7 +68,7 @@ export class EditProfileFormComponent implements OnInit {
 
       const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
       this.user.profile_pic_data = new FileData(file.type, data);
-      this._profile_image_data = event.target.result;
+      this.imageUrl = event.target.result;
     });
 
   }

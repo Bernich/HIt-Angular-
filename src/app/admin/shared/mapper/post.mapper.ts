@@ -6,7 +6,7 @@ import { CreatePost, IPost } from "src/app/shared/model/post.model";
 export class PostMapper {
 
 
-  static convertToCreateCourse(post: IPost): CreatePost {
+  static convertToCreatePost(post: IPost): CreatePost {
     const new_post = new CreatePost();
 
     new_post.title = post.title;

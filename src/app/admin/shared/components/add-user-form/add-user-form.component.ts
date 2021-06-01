@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CreateUser } from '../../models';
+import { CreateUser, FileData } from '../../models';
 
 
 @Component({
@@ -14,9 +14,9 @@ export class AddUserFormComponent implements OnInit {
   @Input() user: CreateUser;
   @Input() initialURL;
   @Input() isNew;
+  @Input() isAccountVisibleState = true;
 
 
-  isAccountVisibleState = true;
   _profile_image_data = null;
   // user: CreateInstructor = null;
   genderState = true;
@@ -93,10 +93,8 @@ export class AddUserFormComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.addEventListener('load', (event: any) => {
 
-
-
       const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
-      // this.user.profile_pic = new FileData(file.type, data);
+      this.user.profile_pic_data = new FileData(file.type, data);
       // this.user.profile_pic_data = new FileData(file.type, data);
       // this.userService.updateImage(new FileData(file.type, data))
       this._profile_image_data = event.target.result;
