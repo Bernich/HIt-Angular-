@@ -11,7 +11,7 @@
 
 
     <button mat-button [style.display]="isLoading ? 'none' : 'block'" class="save_button"
-      (click)="saveAuthor.emit(author); isLoading = false;  ">Save</button>
+      (click)="saveAuthor.emit(author); isLoading = false;  ">{{ isNew ? "Save" : "Update"}}</button>
   </div>
 
   <section class="add-author-tab">

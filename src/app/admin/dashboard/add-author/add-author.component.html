@@ -1,6 +1,7 @@
 <section class="admin-add-author-content ">
 
-  <app-add-author-form [author]="author" (saveAuthor)="saveAuthor($event)" [isLoading]="isLoading">
+  <app-add-author-form *ngIf="author" [isNew]="isNew" [imageUrl]="imgUrl" [author]="author"
+    (saveAuthor)="saveAuthor($event)" [isLoading]="isLoading">
   </app-add-author-form>
 
   <section class="right-tabs">

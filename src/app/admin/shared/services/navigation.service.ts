@@ -74,6 +74,10 @@ export class NavigationService {
     this.router.navigate([`/admin/authors/${author_id}/edit`]);
   }
 
+  editPost(post_id: string) {
+    this.router.navigate([`/admin/posts/${post_id}/edit`]);
+  }
+  
   navigateToCreatePost() {
     this.router.navigate([`/admin/posts/add`]);
 

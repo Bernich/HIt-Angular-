@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SERVER_API_URL } from 'src/app/app.constants';
-import { ICreateInstructorDTO } from '../dto';
+import { ICreateAuthorDTO, ICreateInstructorDTO } from '../dto';
+import { IAuthor } from '../models/section.model';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -34,7 +35,7 @@ export class AuthorService {
   }
 
 
-  add(author: ICreateInstructorDTO) {
+  add(author: ICreateAuthorDTO) {
     const token = localStorage.getItem('currentUser');
     /**
      * Creates an httpOptions and attaches a Bearer token
@@ -46,10 +47,7 @@ export class AuthorService {
       }),
     };
 
-
-    console.log(JSON.stringify(author));
-
-    return this.httpClient.post<ICreateInstructorDTO>(this.authorsUrl, author, httpOptions);
+    return this.httpClient.post<IAuthor>(this.authorsUrl, author, httpOptions);
   }
 
 

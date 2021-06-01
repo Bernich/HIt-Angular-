@@ -147,19 +147,4 @@ export class CreateSection implements ISection {
   public duration: number = 0;
 }
 
-export class CreatePost {
-  constructor(
-    public title?: string,
-    public content?: string,
-    public post_id?: string,
-    public category?: string,
-    public publicity_status?: boolean,
-    public post_authors?: string[],
-  ) {
-    this.publicity_status = this.publicity_status || false;
-  }
-
-  public header_image?: FileData;
-
-}
 

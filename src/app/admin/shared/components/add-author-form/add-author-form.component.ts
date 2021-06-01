@@ -12,7 +12,9 @@ import { AuthService } from '../../services';
 export class AddAuthorFormComponent implements OnInit {
 
   @Input() isLoading: boolean;
+  @Input() isNew: boolean;
 
+  @Input() imageUrl;
   @Output() saveAuthor = new EventEmitter<CreateAuthor>();
   @Input() author: CreateAuthor;
 
@@ -30,13 +32,18 @@ export class AddAuthorFormComponent implements OnInit {
   constructor(
     private authService: AuthService
   ) {
-
   }
 
   ngOnInit(): void {
 
     // Check if User has an Image
     // this._profile_image_data = this.user.profile_pic.url || '/assets/img/placeholder.png';
+    if (!this.isNew) {
+      this.profile_pic_url = this.imageUrl;
+
+      console.log("Image url ", this.imageUrl)
+    }
+
   }
 
 
