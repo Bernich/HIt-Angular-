@@ -29,9 +29,13 @@
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
 
-              <img *ngFor="let author of selectedAuthors"
-                [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
-                alt="profile image of {{author.first_name}}" srcset="">
+              <!-- Request fix from the backend -->
+              <section class="instructor-profile">
+                <img *ngFor="let author of selectedAuthors"
+                  [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
+                  alt="profile image of {{author.firstname}}" srcset="">
+              </section>
+
 
             </div>
             <mat-card-title>Authors </mat-card-title>
@@ -98,9 +102,11 @@
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
 
-              <img *ngFor="let author of selectedAuthors"
-                [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
-                alt="profile image of {{author.first_name}}" srcset="">
+              <section class="instructor-profile">
+                <img *ngFor="let author of selectedAuthors"
+                  [src]="isNewPost ? author.profile_image.url : author.profile_image_url"
+                  alt="profile image of {{author.firstname}}" srcset="">
+              </section>
 
             </div>
             <mat-card-title>Blog Content </mat-card-title>

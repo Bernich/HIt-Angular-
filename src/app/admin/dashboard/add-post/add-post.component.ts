@@ -12,7 +12,7 @@ import { AuthorsBottomSheetComponent } from './authors-bottomsheet.component';
 @Component({
   selector: 'app-hivenews-admin-add-news-page',
   templateUrl: './add-post.component.html',
-  styleUrls: ['./add-post.component.css'],
+  styleUrls: ['./add-post.component.css', 'instructors-image-profile.css'],
   providers: [CreatePostService]
 })
 export class HivenewsAdminAddNewsComponent implements OnInit {
