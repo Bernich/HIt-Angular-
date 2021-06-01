@@ -14,6 +14,9 @@ export class AddInstructorFormComponent implements OnInit {
 
   @Output() saveUser = new EventEmitter();
   @Input() user: CreateInstructor;
+  @Input() isNew;
+  @Input() initialURL = "";
+
   isAccountVisibleState = true;
   _profile_image_data = null;
 
@@ -33,8 +36,12 @@ export class AddInstructorFormComponent implements OnInit {
     this.speciality = this.parseList(this.user.skills);
 
     // Check if User has an Image
-    this._profile_image_data = '/assets/img/placeholder.png';
-
+    console.log(this.initialURL)
+    if (this.isNew) {
+      this._profile_image_data = 'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder.jpg';
+    } else {
+      this._profile_image_data = this.initialURL;
+    }
     // this._profile_image_data = this.user.profile_pic.url || '/assets/img/placeholder.png';
   }
 

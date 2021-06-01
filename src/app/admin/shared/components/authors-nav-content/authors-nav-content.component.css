@@ -1,0 +1,23 @@
+.add-course-button {
+  width: 130px;
+  height: 40px;
+  opacity: 0.8;
+  border-radius: 30px;
+  border: solid 2px var(--pumpkin-orange-60);
+  background-color: var(--white);
+
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--pumpkin-orange);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  outline: none;
+}

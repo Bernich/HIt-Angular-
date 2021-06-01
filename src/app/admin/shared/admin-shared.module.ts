@@ -13,6 +13,7 @@ import {
 } from './services';
 import {
   AddAuthorFormComponent,
+  AddUserFormComponent,
   AdminInstructorListItemComponent,
   AdminUserListItemComponent,
   HivenewsAdminPostsComponent,
@@ -21,7 +22,14 @@ import {
   RoundedFileButtonComponent,
   AddInstructorFormComponent,
   CourseObjectivesInputComponent,
-  AdminCourseItemComponent
+  AdminCourseItemComponent,
+  EditProfileFormComponent,
+  CourseNavContentComponent,
+  UsersNavContentComponent,
+  InstructorNavContentComponent,
+  PostNavContentComponent,
+  AdminAuthorListItemComponent,
+  AuthorsNavContentComponent
 } from './components';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -39,7 +47,16 @@ import { MaterialModule } from 'src/app/material.module';
     RoundedFileButtonComponent,
     AddInstructorFormComponent,
     CourseObjectivesInputComponent,
-    AdminCourseItemComponent
+    AdminCourseItemComponent,
+    AddUserFormComponent,
+    EditProfileFormComponent,
+    CourseNavContentComponent,
+    UsersNavContentComponent,
+    InstructorNavContentComponent,
+    PostNavContentComponent,
+    AdminAuthorListItemComponent,
+    AuthorsNavContentComponent
+
   ],
 
   imports: [
@@ -72,7 +89,15 @@ import { MaterialModule } from 'src/app/material.module';
     RoundedFileButtonComponent,
     AddInstructorFormComponent,
     CourseObjectivesInputComponent,
-    AdminCourseItemComponent
+    AdminCourseItemComponent,
+    AddUserFormComponent,
+    EditProfileFormComponent,
+    CourseNavContentComponent,
+    UsersNavContentComponent,
+    InstructorNavContentComponent,
+    PostNavContentComponent,
+    AdminAuthorListItemComponent,
+    AuthorsNavContentComponent
   ]
 })
 export class AdminSharedModule { }

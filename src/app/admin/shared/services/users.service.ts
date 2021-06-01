@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SERVER_API_URL } from 'src/app/app.constants';
+import { IUpdateUser, IUser } from '../models';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -49,6 +50,27 @@ export class UsersService {
 
     return this.httpClient.get(this.usersURL + `/${uid}`, httpOptions);
   }
+
+  /**
+ *
+ * @param user {IUser} - specified user account data
+ * @see IUser
+ */
+  updateUser(user: IUpdateUser) {
+    const token = localStorage.getItem('currentUser');
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.httpClient.put(`${this.usersURL}`, user, httpOptions);
+  }
+
 
 
   /**

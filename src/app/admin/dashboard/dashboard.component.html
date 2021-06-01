@@ -4,12 +4,26 @@
 
     <!-- (click)="drawer.toggle() To toggle drawer" -->
     <div class="nav-brand" routerLink="/">
-      <img src="/assets/images/media.png" loading="lazy" />
+      <img src="/assets/images/logo-w.png" loading="lazy" />
     </div>
 
 
 
     <div class="left-content">
+
+      <!-- All Nav Headers for different sections of the screen -->
+      <div class="nav-content-dynamic">
+        <app-course-nav-content *ngIf="showNavs.courses"></app-course-nav-content>
+
+        <app-users-nav-content *ngIf="showNavs.users"></app-users-nav-content>
+
+        <app-instructors-nav-content *ngIf="showNavs.instructors"></app-instructors-nav-content>
+
+        <app-posts-nav-content *ngIf="showNavs.posts"></app-posts-nav-content>
+
+        <app-authors-nav-content *ngIf="showNavs.authors"></app-authors-nav-content>
+
+      </div>
 
 
       <div class="profile-section">
@@ -34,10 +48,19 @@
   <mat-menu #menu="matMenu">
 
 
-    <button mat-menu-item (click)="logout()">
+    <a style="width:200px" routerLink='profile/edit'>
+      <button mat-menu-item>
+        <mat-icon>perm_identity</mat-icon>
+        <span>Profile</span>
+      </button>
+    </a>
+
+    <button style="width:200px" button mat-menu-item (click)="logout()">
       <mat-icon>power_settings_new</mat-icon>
       <span>Log Out</span>
     </button>
+
+
   </mat-menu>
 </mat-toolbar>
 

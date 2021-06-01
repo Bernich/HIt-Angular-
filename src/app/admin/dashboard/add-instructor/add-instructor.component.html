@@ -1,7 +1,8 @@
 <mat-progress-bar [style.display]=" isLoading ? 'block'  :'none'" mode="indeterminate"></mat-progress-bar>
 <div class="container">
 
-  <app-add-instructor-form [user]="user" (saveUser)="saveUser()" [isLoading]="isLoading">
+  <app-add-instructor-form [user]="user" *ngIf="user" (saveUser)="saveUser()" [isLoading]="isLoading"
+    [initialURL]="initialURL" [isNew]="isNewInstrctor">
   </app-add-instructor-form>
 
   <section class="right-tabs">

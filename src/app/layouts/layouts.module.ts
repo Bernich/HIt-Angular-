@@ -30,10 +30,12 @@ import {
   NewProgramsLayoutComponent,
   PeopleAreSayingComponent,
   NewHeaderComponent,
+  NewOnsiteNavbarComponent,
   NewNewsCardComponent,
   NewAllProgramsLayoutComponent
 } from '.';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -69,6 +71,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
     NewHeaderComponent,
+    NewOnsiteNavbarComponent,
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent
   ],
@@ -98,6 +101,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewProgramsLayoutComponent,
     PeopleAreSayingComponent,
     NewHeaderComponent,
+    NewOnsiteNavbarComponent,
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent
   ]

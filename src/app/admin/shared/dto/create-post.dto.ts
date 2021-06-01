@@ -7,7 +7,9 @@ export interface ICreatePost {
   post_category?: string;
   publicity_status?: boolean;
   authors?: string[];
-  header_image?: FileData;
+  header_image_data?: FileData;
+  thumbnail_image_data?: FileData;
+
 }
 
 export class CreatePostDTO implements ICreatePost {
@@ -17,7 +19,9 @@ export class CreatePostDTO implements ICreatePost {
     public post_category: string,
     public publicity_status: boolean,
     public authors_id: string[],
-    public header_image: FileData
+    public header_image_data: FileData,
+    public thumbnail_image_data: FileData
+
   ) {
 
   }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IUser } from '../../models';
 
 @Component({
@@ -8,10 +8,11 @@ import { IUser } from '../../models';
 })
 export class AdminUserListItemComponent implements OnInit {
 
+  @Output() editUser = new EventEmitter();
   @Input() user: IUser;
 
   constructor() { }
-
+  
 
   ngOnInit(): void {
 
