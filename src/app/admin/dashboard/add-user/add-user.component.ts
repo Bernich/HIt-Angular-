@@ -14,7 +14,7 @@ export class HiveAdminAddUserComponent implements OnInit {
   isGeneral = true;
   imageUrl = "";
 
-  user: CreateUser = null;
+  user: any = null;
   whatssap = new SocialMediaHandle('LINKEDIN', '@url');
   facebook = new SocialMediaHandle('FACEBOOK', '@url');
   instagram = new SocialMediaHandle('INSTAGRAM', '@url');
@@ -86,25 +86,28 @@ export class HiveAdminAddUserComponent implements OnInit {
   }
 
   update() {
-    const _user: CreateUser = this.user;
 
-    this.usersService.updateUser(_user).subscribe((iuser: any) => {
+    console.log(this.user)
 
-      this.isLoading = false;
-      // Navigating to the same route doesnt work
-      // this.navigationService.editInstructor(this.user.instructor_id);
+    // const _user: CreateUser = this.user;
 
-      this._snackBar.open('Update Instructor', `${this.user.firstname}`, {
-        duration: 3000,
-      });
-    },
-      (error) => {
-        this.isLoading = false;
-        this._snackBar.open('Couldn\'t Update Instructor', `${this.user.firstname}`, {
-          duration: 3000,
-        });
-      }
-    );
+    // this.usersService.updateUser(_user).subscribe((iuser: any) => {
+
+    //   this.isLoading = false;
+    //   // Navigating to the same route doesnt work
+    //   // this.navigationService.editInstructor(this.user.instructor_id);
+
+    //   this._snackBar.open('Update Instructor', `${this.user.firstname}`, {
+    //     duration: 3000,
+    //   });
+    // },
+    //   (error) => {
+    //     this.isLoading = false;
+    //     this._snackBar.open('Couldn\'t Update Instructor', `${this.user.firstname}`, {
+    //       duration: 3000,
+    //     });
+    //   }
+    // );
 
   }
 

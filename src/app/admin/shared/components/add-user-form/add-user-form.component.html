@@ -34,13 +34,7 @@
         <div class="name">{{ user.firstname + " " + user.lastname }}</div>
 
 
-        <!-- <div class="role">
-          <div *ngIf="user.roles.length <= 0; else elseBlock">ROLE</div>
-          <ng-template #elseBlock>
-            <span *ngFor="let role of user.roles">{{
-            role + " "
-          }}</span></ng-template>
-        </div> -->
+
       </div>
     </div>
 
@@ -66,33 +60,6 @@
       </div>
 
 
-      <!-- <div class="input-container">
-        <div class="title">Sepciality</div>
-        <input type="text" [(ngModel)]="speciality" (focusout)="buildList()" />
-      </div> -->
-
-
-      <!-- <div class="input-container">
-        <div class="title">GENDER</div>
-        <section class="gender-container">
-          <mat-checkbox #male class="margin" [(ngModel)]="maleCheckBox" (change)="updateMaleGender(male.checked)">Male
-          </mat-checkbox>
-          <mat-checkbox #female class="margin" [(ngModel)]="femaleCheckBox"
-            (change)="updateFemaleGender(female.checked)">Female</mat-checkbox>
-        </section>
-      </div> -->
-
-
-
-      <!-- Accuount Toggle -->
-      <!-- <div class="input-container">
-        <div class="title">ACCOUNT TYPE</div>
-        <section class="gender-container">
-          <mat-checkbox #admin class="margin" (change)="updateAcctTypeAdmin(admin.checked)">Admin</mat-checkbox>
-          <mat-checkbox #instructor class="margin" (change)="updateAcctTypeInstructor(instructor.checked)">Instructor
-          </mat-checkbox>
-        </section>
-      </div> -->
     </div>
 
 
@@ -101,16 +68,16 @@
 
       <div *ngIf="!isNew" class="input-container">
         <div class="title">OLD PASSWORD</div>
-        <input type="password" [(ngModel)]="user.password" />
+        <input type="password" [(ngModel)]=" user.old_password " />
       </div>
 
       <div class="input-container">
-        <div class="title">NEW PASSWORD</div>
-        <input type="password" [(ngModel)]="user.password" />
+        <div class="title">{{ isNew ? " PASSWORD" : "NEW PASSWORD"}}</div>
+        <input type="password" [(ngModel)]=" isNew ? user.password : user.new_password" />
       </div>
 
       <div class="input-container">
-        <div class="title">Confirm PASSWORD</div>
+        <div class="title">CONFIRM PASSWORD</div>
         <input type="password" [(ngModel)]="user.password_confirm" />
       </div>
 

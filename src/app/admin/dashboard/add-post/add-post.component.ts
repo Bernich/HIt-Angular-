@@ -22,7 +22,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
   publish: false = false;
   categoryControl = new FormControl('', Validators.required);
-
+  postId: string;
 
   isNewPost = true; /**Check if a course is new */
 
@@ -55,12 +55,12 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     this.loadAllAuthors();
 
     // Check url if there is a course id else create a new course
-    const id = this.route.snapshot.paramMap.get('id');
+    this.postId = this.route.snapshot.paramMap.get('id');
 
-    if (id) {
+    if (this.postId) {
       this.isNewPost = false;
       // load course and unpack
-      this.loadPost(id);
+      this.loadPost(this.postId);
     } else {
       this.isNewPost = true;
 
@@ -122,7 +122,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     // convert post authors into an id
     const author_ids = this.getPostAuthors();
 
-    this.postService.updatePost(this.categoryControl.value, author_ids).subscribe({
+    this.postService.updatePost(this.postId, this.categoryControl.value, author_ids).subscribe({
       next: (data: any) => {
         console.log(data); this.isLoading = false;
       },

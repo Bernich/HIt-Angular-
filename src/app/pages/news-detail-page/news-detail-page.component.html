@@ -1,34 +1,47 @@
 <div>
-  <jhi-new-header [activeRoute]="'news'" [headerPosts]="headerPosts"></jhi-new-header>
-  <!-- <app-jhi-partners></app-jhi-partners> -->
-  <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
+  <jhi-news-header [activeRoute]="'news'" [headerPosts]="headerPosts"></jhi-news-header>
 
-  <section class="news-page-list-content">
-    <app-jhi-vertical-divider style="margin-top:-30px"></app-jhi-vertical-divider>
+  <section class="news-page-content">
+    <!-- <app-jhi-vertical-divider style="margin-top:-30px"></app-jhi-vertical-divider> -->
+    <div style="margin-bottom: 100px;"></div>
 
-    <section class="news-page-list-content-header">
-      <mat-form-field appearance="fill">
-        <mat-label>States</mat-label>
-        <mat-select>
-          <mat-option>None</mat-option>
-          <mat-option value="state">State 1</mat-option>
-          <mat-option value="state">State 2</mat-option>
-          <mat-option value="state">State 3</mat-option>
-          <mat-option value="state">State 4</mat-option>
+    <section class="news-page-detail-content">
 
-        </mat-select>
-      </mat-form-field>
+      <p style="font-size:20px; line-height:1.75em; margin-right: 50px;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
-      <h2 class="post-count">{{ news.length + " posts" }}</h2>
+        Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+        aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
+        enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+        qui
+        ratione
+
+        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+        aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+        nihil
+        molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+      </p>
+
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+      </div>
+      <section>
+
+      </section>
     </section>
+    <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
+    <div style="margin-bottom: 100px;"></div>
 
-    <section class="news-page-new-list">
-
-      <app-jhi-new-news-card class="news-content-container-list-item" *ngFor="let item of news" [news]="item">
-      </app-jhi-new-news-card>
-
-    </section>
-    <app-jhi-vertical-divider></app-jhi-vertical-divider>
 
   </section>
 

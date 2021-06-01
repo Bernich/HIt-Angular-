@@ -28,3 +28,24 @@ export class CreatePostDTO implements ICreatePost {
 
 
 }
+
+
+
+
+export class UpdatePostDTO implements ICreatePost {
+  constructor(
+    public post_id: string,
+    public title: string,
+    public content: string,
+    public post_category: string,
+    public publicity_status: boolean,
+    public authors_id: string[],
+    public header_image_data: FileData,
+    public thumbnail_image_data: FileData
+
+  ) {
+
+  }
+
+
+}

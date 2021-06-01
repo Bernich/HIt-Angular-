@@ -29,7 +29,7 @@ export class AuthGuardService implements CanActivate {
 
       this.stateStorageService.storeUrl(state.url);
 
-      this.router.navigate(['admin', 'login']);
+      this.router.navigate(['admin', 'root', 'login']);
       return false;
     }
 

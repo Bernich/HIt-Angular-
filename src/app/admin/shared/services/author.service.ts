@@ -50,6 +50,21 @@ export class AuthorService {
     return this.httpClient.post<IAuthor>(this.authorsUrl, author, httpOptions);
   }
 
+  update(author: ICreateAuthorDTO) {
+    const token = localStorage.getItem('currentUser');
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.httpClient.put<IAuthor>(this.authorsUrl + "/" + author.id, author, httpOptions);
+  }
+
 
   query(uid: string) {
     const token = localStorage.getItem('currentUser');

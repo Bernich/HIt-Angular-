@@ -36,7 +36,7 @@ const routes: Routes = [
         path: '', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.HivenewsDashboardModule),
       },
 
-      { path: 'login', component: HivenewsAdminLoginComponent },
+      { path: 'root/login', component: HivenewsAdminLoginComponent },
 
       {
         path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.HivenewsDashboardModule),

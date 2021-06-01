@@ -104,6 +104,18 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
   }
 
   update(author) {
+    this.isLoading = true;
+    this.authorService.add(author).subscribe({
+      next: (data: any) => {
+        this.isLoading = false;
 
+        this.navigationService.editAuthor(data.author_id)
+        console.log(data);
+      },
+      error: (err: any) => {
+        this.isLoading = false;
+        console.log(err);
+      }
+    });
   }
 }

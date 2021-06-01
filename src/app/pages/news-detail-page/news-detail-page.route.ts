@@ -6,10 +6,7 @@ export const landingPageRoute: Routes = [
   {
     path: '',
     component: NewsDetailPageComponent,
-    data: {
-      authorities: [],
-      pageTitle: 'home.title'
-    }
+
   }
 ];
 
@@ -21,4 +18,4 @@ export const landingPageRoute: Routes = [
   ],
   exports: [RouterModule]
 })
-export class NewsPageRoutingModule { }
+export class NewsDetailPageRoutingModule { }

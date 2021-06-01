@@ -1,0 +1,29 @@
+<header [style.backgroundImage]="getPostThumbUrl(currentPost.image)">
+  <app-new-onsite-navbar [activeRoute]="activeRoute"> </app-new-onsite-navbar>
+
+  <ngb-carousel class="header-carousel" [showNavigationArrows]="navigation.showNavigationArrows"
+    [showNavigationIndicators]="navigation.showNavigationIndicators">
+    <ng-template ngbSlide *ngFor="let post of headerPosts; assignCurrentPost(post); ">
+
+      <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.image)">
+
+        <div class="post">
+          <!-- This is a Specific design -->
+          <section class="left-side">
+            <!-- <h3 class="post-title">{{ post.title }}</h3> -->
+            <h3 class="post-title">Kumasi Hive Recognised in Berlin for Empowering Female Tech Entrepreneurs</h3>
+
+            <section class="instructor-profile">
+              <img *ngFor="let instructor of selectedInstructors" [src]="instructor" alt="profile image of asas"
+                srcset="">
+            </section>
+
+          </section>
+
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+
+</header>
