@@ -47,6 +47,10 @@ const routes: Routes = [
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
 
+  {
+    path: "**",
+    redirectTo: "/"
+  }
 ];
 
 

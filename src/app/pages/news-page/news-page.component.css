@@ -59,3 +59,16 @@
   font-size: 15px;
   font-weight: 600;
 }
+
+@media screen and (max-width: 879px) {
+  
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1368px) {
+}
+
+@media screen and (min-width: 1414px) {
+}

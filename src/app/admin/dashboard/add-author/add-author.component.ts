@@ -82,7 +82,7 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
     if (this.isNew) {
       this.save(author);
     } else {
-      this.notificationService.openSnackBar("Update not implemented", "Try Again");
+      this.update(author);
     }
   }
 
@@ -105,16 +105,15 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
 
   update(author) {
     this.isLoading = true;
-    this.authorService.add(author).subscribe({
+    this.authorService.update(author).subscribe({
       next: (data: any) => {
         this.isLoading = false;
-
+        this.notificationService.openSnackBar(" successfully updated ", this.author.first_name)
         this.navigationService.editAuthor(data.author_id)
-        console.log(data);
       },
       error: (err: any) => {
         this.isLoading = false;
-        console.log(err);
+        this.notificationService.openSnackBar(" Failed updating ", this.author.first_name)
       }
     });
   }

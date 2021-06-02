@@ -62,7 +62,7 @@ export class AuthorService {
       }),
     };
 
-    return this.httpClient.put<IAuthor>(this.authorsUrl + "/" + author.id, author, httpOptions);
+    return this.httpClient.put<IAuthor>(this.authorsUrl + "/" + author.author_id, author, httpOptions);
   }
 
 
