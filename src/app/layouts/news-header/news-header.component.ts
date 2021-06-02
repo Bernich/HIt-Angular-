@@ -13,7 +13,7 @@ import { ACTIVE_LINKS } from 'src/app/shared';
 export class NewsHeaderComponent implements OnInit {
 
   @Input() activeRoute: string = "home";
-  @Input() headerPosts;
+  @Input() headerPost: IPost;
 
   currentPost = null;
 
@@ -35,10 +35,12 @@ export class NewsHeaderComponent implements OnInit {
     config.showNavigationArrows = false;
     config.showNavigationIndicators = false;
     config.animation = false;
+
+    console.log(this.headerPost)
   }
 
   ngOnInit() {
-    this.currentPost = this.headerPosts[0];
+    this.currentPost = this.headerPost;
   }
 
   getPostThumbUrl(headerImageUrl: string): SafeUrl {

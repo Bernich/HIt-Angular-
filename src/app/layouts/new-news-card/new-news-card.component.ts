@@ -10,7 +10,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewNewsCardComponent implements OnInit {
 
-  @Input() news: any;
+  @Input() news: IPost;
 
   ngOnInit() { }
 

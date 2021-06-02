@@ -1,35 +1,38 @@
-<section class="news-card-container">
+<a [routerLink]="''+news.post_id">
+  <section class="news-card-container">
 
-  <!-- <img [src]="news.image" alt="" srcset=""> -->
-  <section class="news-card-content-text">
-    <h3 class="news-card-title"> {{news.title}} </h3>
-    <!-- <p class="news-card-description">
-    </p> -->
+    <!-- <img [src]="news.image" alt="" srcset=""> -->
+    <section class="news-card-content-text">
+      <h3 class="news-card-title"> {{news.title}} </h3>
+      <!-- <p class="news-card-description">
+      </p> -->
 
-    <div class="spacer"></div>
-    <section class="flex-height-center news-card-footer">
-      <div class="flex-height-center"> 2 hours ago Christian Zenkis</div>
+      <div class="spacer"></div>
+      <section class="flex-height-center news-card-footer">
+        <div class="flex-height-center"> 2 hours ago Christian Zenkis</div>
 
-      <!-- <div class="footer-rounded-button" style="cursor: pointer;">
-        <span class="rounded-button" style="background-color: #656f77; margin-right: 10px;">
-          <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-        </span>
+        <!-- <div class="footer-rounded-button" style="cursor: pointer;">
+          <span class="rounded-button" style="background-color: #656f77; margin-right: 10px;">
+            <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
+          </span>
 
-        <span> Read More</span>
-      </div> -->
-      <!-- <div class="flex-height-center">
-        <div class="flex-height-center" style="margin-right: 20px;">
-          <mat-icon>favorite_border</mat-icon>
-          <span>73</span>
-        </div>
+          <span> Read More</span>
+        </div> -->
+        <!-- <div class="flex-height-center">
+          <div class="flex-height-center" style="margin-right: 20px;">
+            <mat-icon>favorite_border</mat-icon>
+            <span>73</span>
+          </div>
 
-        <div class="flex-height-center">
-          <mat-icon>favorite_border</mat-icon>
-          <span>share</span>
-        </div>
-      </div> -->
+          <div class="flex-height-center">
+            <mat-icon>favorite_border</mat-icon>
+            <span>share</span>
+          </div>
+        </div> -->
+
+      </section>
     </section>
+
+
   </section>
-
-
-</section>
+</a>

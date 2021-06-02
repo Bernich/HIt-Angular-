@@ -149,12 +149,12 @@ h1 {
 
   .post-date {
     /* font-size: 15px; */
-    margin-top: 10px;
+    margin-top: 0px;
   }
 
   .post-read {
     font-size: 18px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
   }
 }
 
@@ -170,7 +170,7 @@ h1 {
 
   .post-date {
     /* font-size: 15px; */
-    margin-top: 40px;
+    margin-top: 0px;
   }
 
   .post-read {
@@ -195,6 +195,7 @@ h1 {
 
   .post-date {
     /* font-size: 15px; */
+    margin-top: 0px;
   }
 }
 

@@ -1,22 +1,22 @@
-<header [style.backgroundImage]="getPostThumbUrl(currentPost.image)">
+<header [style.backgroundImage]="getPostThumbUrl(currentPost.banner.url)">
   <app-new-onsite-navbar [activeRoute]="activeRoute"> </app-new-onsite-navbar>
 
   <ngb-carousel class="header-carousel" [showNavigationArrows]="navigation.showNavigationArrows"
     [showNavigationIndicators]="navigation.showNavigationIndicators">
-    <ng-template ngbSlide *ngFor="let post of headerPosts; assignCurrentPost(post); ">
+    <ng-template ngbSlide>
 
-      <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.image)">
+      <div class=" slider" [style.backgroundImage]="getPostThumbUrl(headerPost.banner.url)">
 
         <div class="post">
           <!-- This is a Specific design -->
           <section class="left-side">
             <!-- <h3 class="post-title">{{ post.title }}</h3> -->
-            <h3 class="post-title">Kumasi Hive Recognised in Berlin for Empowering Female Tech Entrepreneurs</h3>
-            <span class="post-date">{{ "12th January 2021" }}</span>
+            <h3 class="post-title">{{headerPost.title}}</h3>
+            <span class="post-date">{{ headerPost.date_created }}</span>
 
             <section class="instructor-profile">
-              <img *ngFor="let instructor of selectedInstructors" [src]="instructor" alt="profile image of asas"
-                srcset="">
+              <img *ngFor="let author of headerPost.authors" [src]="author.profile_image.url"
+                alt="profile image of asas" srcset="">
             </section>
 
           </section>

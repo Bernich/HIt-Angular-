@@ -179,7 +179,7 @@ h1 {
   }
 }
 
-@media screen and (min-width: 1368px) {
+@media screen and (max-width: 1368px) {
   .post {
     /* width: 1050px; */
     margin: 0 auto;
@@ -196,9 +196,21 @@ h1 {
   .post-date {
     /* font-size: 15px; */
   }
+
+  .post .left-side {
+    width: 75%;
+  }
+
+  .post .left-side h3,
+  .post .left-side p {
+    width: 100%;
+  }
+  .post .right-side {
+    display: none;
+  }
 }
 
-@media screen and (min-width: 1414px) {
+@media screen and (max-width: 1414px) {
   .post {
     /* width: 1050px; */
     margin: 0 auto;
