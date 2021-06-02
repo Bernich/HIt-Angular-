@@ -41,7 +41,6 @@ export class AddAuthorFormComponent implements OnInit {
     if (!this.isNew) {
       this.profile_pic_url = this.imageUrl;
 
-      console.log("Image url ", this.imageUrl)
     }
 
   }
@@ -50,7 +49,6 @@ export class AddAuthorFormComponent implements OnInit {
 
   processFile(imageInput) {
 
-    console.log("File Selected");
 
     const file: File = imageInput.files[0];
     const reader = new FileReader();
@@ -64,7 +62,6 @@ export class AddAuthorFormComponent implements OnInit {
       // this.user.profile_pic_data = new FileData(file.type, data);
       // this.userService.updateImage(new FileData(file.type, data))
 
-      console.log(event);
 
       this.profile_pic_url = event.target.result;
 

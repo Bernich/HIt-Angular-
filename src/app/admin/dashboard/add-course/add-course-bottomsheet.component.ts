@@ -17,7 +17,6 @@ export class CoursesBottomSheetComponent {
   ) {
 
     this.instructors = data.instructors;
-    console.log(data);
 
   }
 

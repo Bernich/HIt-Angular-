@@ -36,7 +36,6 @@ export class AddInstructorFormComponent implements OnInit {
     this.speciality = this.parseList(this.user.skills);
 
     // Check if User has an Image
-    console.log(this.initialURL)
     if (this.isNew) {
       this._profile_image_data = 'https://pdtxar.com/wp-content/uploads/2019/04/person-placeholder.jpg';
     } else {

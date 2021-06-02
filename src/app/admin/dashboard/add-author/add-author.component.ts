@@ -65,10 +65,8 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
     this.authorService.query(id).subscribe({
       next: (data: Author) => {
         this.author = AuthorMapper.convertFromDTO(data);
-        console.log(data)
         this.imgUrl = data.profile_image.url;
 
-        console.log("URL is ", this.imgUrl)
       },
       error: (err: any) => { }
     });
@@ -94,11 +92,10 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
         this.isLoading = false;
 
         this.navigationService.editAuthor(data.author_id)
-        console.log(data);
       },
       error: (err: any) => {
         this.isLoading = false;
-        console.log(err);
+        // console.log(err);
       }
     });
   }

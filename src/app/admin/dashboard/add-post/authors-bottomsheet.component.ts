@@ -17,7 +17,6 @@ export class AuthorsBottomSheetComponent {
   ) {
 
     this.authors = data.authors;
-    console.log(data);
 
   }
 

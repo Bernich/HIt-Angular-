@@ -12,8 +12,6 @@ export class NewAllProgramsLayoutComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.courses);
-
   }
 
 

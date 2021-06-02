@@ -33,7 +33,6 @@ export class HiveAdminInstructorListComponent implements OnInit {
     this.instructorService.all().subscribe({
       next: (data: any) => {
 
-        console.log(data);
 
         this.isLoading = false;
         this.instructors = data;

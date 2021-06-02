@@ -40,7 +40,6 @@ export class HivenewsAdminUsersListComponent implements OnInit {
 
 
   editUser(user) {
-    console.log(user.user_id);
     this.navigationService.editUser(user.user_id);
   }
 }

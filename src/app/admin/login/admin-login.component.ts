@@ -32,7 +32,6 @@ export class HivenewsAdminLoginComponent implements OnInit {
 
     this.authService.signin(this.email, this.password).subscribe({
       next: (data: any) => {
-        console.log(data);
         // save token to local storage
         this.authService.saveUserToken(data.token);
 
@@ -40,7 +39,7 @@ export class HivenewsAdminLoginComponent implements OnInit {
         this.navigationService.navigateToDashboard();
       },
       error: (err: any) => {
-        console.log(err);
+        // console.log(err);
         this.isLoading = false;
 
         this.notificationService.openSnackBar("Login Failed", err.error)

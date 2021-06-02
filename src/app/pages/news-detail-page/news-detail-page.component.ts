@@ -21,7 +21,6 @@ export class NewsDetailPageComponent implements OnInit {
     private route: ActivatedRoute,
     private postService: PostService) {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
 
     if (id) {
       this.loadPost(id);
@@ -38,7 +37,6 @@ export class NewsDetailPageComponent implements OnInit {
     this.postService.find(postId).subscribe({
       next: (data: any) => {
         this.post = data;
-        console.log(data)
       },
       error: (error: any) => { }
     })

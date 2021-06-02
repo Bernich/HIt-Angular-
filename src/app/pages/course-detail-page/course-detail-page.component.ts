@@ -28,8 +28,6 @@ export class CourseDetailPageComponent implements OnInit {
     // Check url if there is a course id else create a new course
     const slug = this.route.snapshot.paramMap.get('slug');
 
-    console.log(slug);
-
     if (slug) {
       // unpack old course
       // this.course = unpack

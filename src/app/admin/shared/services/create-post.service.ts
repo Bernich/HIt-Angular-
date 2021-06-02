@@ -43,7 +43,6 @@ export class CreatePostService {
       this.post.thumbnail_image_data
     );
 
-    console.log(JSON.stringify(post));
 
     return this.postService.add(post);
   }
@@ -69,7 +68,6 @@ export class CreatePostService {
       this.post.thumbnail_image_data
     );
 
-    console.log(JSON.stringify(post));
 
     return this.postService.update(post);
   }

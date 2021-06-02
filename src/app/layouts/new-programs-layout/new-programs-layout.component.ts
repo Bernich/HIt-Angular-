@@ -14,7 +14,6 @@ export class NewProgramsLayoutComponent implements OnInit {
   @Input() courses: Course[];
 
   ngOnInit() {
-    console.log(this.courses);
 
   }
 

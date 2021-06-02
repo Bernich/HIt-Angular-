@@ -82,7 +82,6 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
     this.postsService.find(id).subscribe({
       next: (data: IPost) => {
-        console.log(data)
         // unwrap post for edit
         this.postService.post = PostMapper.convertToCreatePost(data);
         this.imgUrl = data.banner.url;
@@ -92,8 +91,6 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
         this.selectedAuthors = data.authors;
 
         this.categoryControl.setValue(data.post_category)
-        console.log(data.post_category)
-        //
         // place contents in here
       },
       error: (error) => { }
@@ -109,14 +106,12 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
     this.postService.savePost(this.categoryControl.value, author_ids).subscribe({
       next: (data: any) => {
-        // console.log(data);
         this.isLoading = false;
 
         this.navigationService.editPost(data.post_id);
         this.notificationService.openSnackBar("Creates post ", data.title)
       },
       error: (err: any) => {
-        // console.log(err);
         this.isLoading = false;
         this.notificationService.openSnackBar("Failed creating post ", this.postService.post.title)
 
@@ -133,7 +128,6 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
     this.postService.updatePost(this.postId, this.categoryControl.value, author_ids).subscribe({
       next: (data: any) => {
-        // console.log(data);
         this.isLoading = false;
         this.notificationService.openSnackBar("Updated  post ", this.postService.post.title)
 
@@ -187,7 +181,6 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
         this.isLoading = false;
         this.authors = data;
 
-        console.log("Authors loaded")
       },
 
       error: (error) => {
@@ -227,7 +220,8 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
   }
 
   publisCourse() {
-    console.log("Publish course")
+    // console.log("Publish course")
+    this.notificationService.openSnackBar("Pulish Course not implemented", "Try Again");
   }
 
 
@@ -250,7 +244,6 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     }
 
     this.selectedAuthors = new_authors;
-    console.log("Content Loaded already");
 
   }
 }

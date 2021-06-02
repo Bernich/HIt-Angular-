@@ -46,7 +46,6 @@ export class CourseService {
       }),
     };
 
-    console.log(post);
 
     return this.http.post(this.resourceUrl, post, httpOptions);
   }

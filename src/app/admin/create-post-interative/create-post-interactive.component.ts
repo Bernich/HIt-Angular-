@@ -17,7 +17,6 @@ export class InteractiveCreatePostComponent implements OnInit {
 
 
   constructor(public postService: CreatePostService) {
-    // console.log(this.postService.post)
   }
 
   ngOnInit() {

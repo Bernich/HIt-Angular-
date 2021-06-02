@@ -56,7 +56,6 @@ export class AcademicsPageComponent implements OnInit {
         this.isLoading = false;
         this.courses = courses;
 
-        console.log(courses)
       },
       error: (error: any) => {
 

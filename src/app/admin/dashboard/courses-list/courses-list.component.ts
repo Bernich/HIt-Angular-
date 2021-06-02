@@ -41,7 +41,6 @@ export class HiveAdminCoursesListComponent implements OnInit {
       next: (courses: ICourse[]) => {
 
         this.isLoading = false;
-        console.log(courses);
         this.courses = courses;
       },
 

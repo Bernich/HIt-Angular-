@@ -48,8 +48,6 @@ export class InstructorService {
     };
 
 
-    console.log(JSON.stringify(author));
-
     return this.httpClient.post<ICreateInstructorDTO>(this.instructorsUrl, author, httpOptions);
   }
 

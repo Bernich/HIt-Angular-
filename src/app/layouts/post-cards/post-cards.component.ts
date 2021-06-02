@@ -37,7 +37,5 @@ export class PostCardsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  podcastLoaded() {
-    // console.log('podcast loaded');
-  }
+
 }

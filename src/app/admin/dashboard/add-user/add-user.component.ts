@@ -41,7 +41,6 @@ export class HiveAdminAddUserComponent implements OnInit {
     if (id) {
       // unpack old instructo
       this.loadUser(id);
-      console.log(id)
       this.isNewUser = false;
       this.isLoading = true;
     } else {
@@ -87,7 +86,7 @@ export class HiveAdminAddUserComponent implements OnInit {
 
   update() {
 
-    console.log(this.user)
+    (this.user)
 
     // const _user: CreateUser = this.user;
 

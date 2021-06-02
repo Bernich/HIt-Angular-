@@ -33,7 +33,6 @@ export class HivenewsAdminAuthorsListComponent implements OnInit {
     this.authorService.all().subscribe({
       next: (data: any) => {
 
-        console.log(data);
 
         this.isLoading = false;
         this.authors = data;

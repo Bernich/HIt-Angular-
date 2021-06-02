@@ -53,7 +53,6 @@ export class HivenewsDashboardComponent implements OnInit {
     this.router.events.forEach((event) => {
       //TODO  - Fix this, Decompose This was a proof of CONCEPT
       if (event instanceof NavigationEnd) {
-        console.log(this.router.url);
         if (this.router.url === '/admin/courses' || this.router.url === '/admin/dashboard/courses') {
           this.showNavs = {
             ...this.showNavs,
@@ -131,13 +130,13 @@ export class HivenewsDashboardComponent implements OnInit {
 
     this.authService.getCurrentUser().subscribe({
       next: (data: any) => {
-        console.log(data); this.user = data;
+        this.user = data;
 
         // Switch state to not loading
         this.state = { ...this.state, isLoading: false };
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err);
 
         // Switch state to not loading
         this.state = { ...this.state, isLoading: false };

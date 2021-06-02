@@ -91,9 +91,6 @@ export class HiveAdminAddInstructorComponent implements OnInit {
 
   update() {
 
-    console.log(this.user.instructor_id)
-
-
     const instructor: CreateUpdateInstructorDTO = InstructorMapper.convertToUpdateDTO(this.user);
 
 

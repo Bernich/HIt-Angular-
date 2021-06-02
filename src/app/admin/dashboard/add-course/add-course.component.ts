@@ -170,7 +170,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
     this.courseService.updateCourse(new_course).subscribe({
       next: (data: ICourse) => {
-        console.log(data);
 
         this.isLoading = { ...this.isLoading, course: false };
 
@@ -186,7 +185,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
   saveCourse() {
-    console.log(this.course);
 
     // convert post authors into an id
     this.course.instructors = this.getCourseInstructos();
@@ -195,7 +193,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
     this.courseService.add(new_course).subscribe({
       next: (data: ICourse) => {
-        console.log(data);
 
         this.notificationService.openSnackBar("Course Saved", data.name);
         this.navigationService.navigateToEditCourse(data.course_id)

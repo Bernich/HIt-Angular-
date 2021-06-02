@@ -36,7 +36,6 @@ export class NewsHeaderComponent implements OnInit {
     config.showNavigationIndicators = false;
     config.animation = false;
 
-    console.log(this.headerPost)
   }
 
   ngOnInit() {
