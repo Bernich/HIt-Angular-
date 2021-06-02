@@ -1,7 +1,7 @@
 <a [routerLink]="''+news.post_id">
   <section class="news-card-container">
 
-    <!-- <img [src]="news.image" alt="" srcset=""> -->
+    <img [src]="news.thumbnail.url" alt="" srcset="" loading="lazy">
     <section class="news-card-content-text">
       <h3 class="news-card-title"> {{news.title}} </h3>
       <!-- <p class="news-card-description">
@@ -9,7 +9,7 @@
 
       <div class="spacer"></div>
       <section class="flex-height-center news-card-footer">
-        <div class="flex-height-center"> 2 hours ago Christian Zenkis</div>
+        <div class="flex-height-center">{{ getDate(news.date_created) + "Christian Zenkis" || ""}}</div>
 
         <!-- <div class="footer-rounded-button" style="cursor: pointer;">
           <span class="rounded-button" style="background-color: #656f77; margin-right: 10px;">

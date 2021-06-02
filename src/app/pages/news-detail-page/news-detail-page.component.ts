@@ -47,4 +47,8 @@ export class NewsDetailPageComponent implements OnInit {
   update(description) {
     description.innerHTML = this.post.content;
   }
+
+
+
+
 }

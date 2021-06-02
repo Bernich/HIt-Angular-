@@ -25,4 +25,9 @@ export class NewNewsCardComponent implements OnInit {
       // this.navigation.showNavigationIndicators = true;
     }
   }
+
+
+  getDate(data: string) {
+    return new Date(data).toLocaleDateString()
+  }
 }

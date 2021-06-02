@@ -1,36 +1,41 @@
-<section class="news-card-container">
+<a [routerLink]="'news/'+news.post_id">
+  <section class="news-card-container">
 
-  <!-- <img [src]="news.image" alt="" srcset=""> -->
-  <section class="news-card-content-text">
-    <h3 class="news-card-title"> {{news.title}} </h3>
-    <p class="news-card-description">
-      We aim to foster a practical skilled generation that is able to articulate problems and develop sustainable and
-      effective future proof ideas.
-    </p>
+    <img [src]="news.thumbnail.url" alt="" srcset="">
+    <section class="news-card-content-text">
+      <h3 class="news-card-title"> {{news.title}} </h3>
+      <!-- <p class="news-card-description">
+        We aim to foster a practical skilled generation that is able to articulate problems and develop sustainable and
+        effective future proof ideas.
+      </p> -->
 
-    <section class="flex-height-center news-card-footer">
-      <div class="flex-height-center"> 2 hours ago Christian Zenkis</div>
+      <div class="spacer"></div>
 
-      <div class="footer-rounded-button" style="cursor: pointer;">
-        <span class="rounded-button" style="background-color: #656f77; margin-right: 10px;">
-          <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-        </span>
+      <section class="flex-height-center news-card-footer">
+        <div class="flex-height-center"> {{getDate(news.date_created) || ""}} </div>
 
-        <span> Read More</span>
-      </div>
-      <!-- <div class="flex-height-center">
-        <div class="flex-height-center" style="margin-right: 20px;">
-          <mat-icon>favorite_border</mat-icon>
-          <span>73</span>
+        <div class="footer-rounded-button" style="cursor: pointer;">
+          <span class="rounded-button" style="background-color: #656f77; margin-right: 10px;">
+            <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
+          </span>
+
+          <span> Read More</span>
         </div>
+        <!-- <div class="flex-height-center">
+          <div class="flex-height-center" style="margin-right: 20px;">
+            <mat-icon>favorite_border</mat-icon>
+            <span>73</span>
+          </div>
 
-        <div class="flex-height-center">
-          <mat-icon>favorite_border</mat-icon>
-          <span>share</span>
-        </div>
-      </div> -->
+          <div class="flex-height-center">
+            <mat-icon>favorite_border</mat-icon>
+            <span>share</span>
+          </div>
+        </div> -->
+      </section>
     </section>
+
+
   </section>
 
-
-</section>
+</a>

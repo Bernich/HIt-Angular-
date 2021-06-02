@@ -12,7 +12,7 @@
           <section class="left-side">
             <!-- <h3 class="post-title">{{ post.title }}</h3> -->
             <h3 class="post-title">{{headerPost.title}}</h3>
-            <span class="post-date">{{ headerPost.date_created }}</span>
+            <span class="post-date">{{ getDate(headerPost.date_created) }}</span>
 
             <section class="instructor-profile">
               <img *ngFor="let author of headerPost.authors" [src]="author.profile_image.url"

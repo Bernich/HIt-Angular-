@@ -6,7 +6,7 @@ import { PostService } from 'src/app/entities/post';
 import { CreatePost, IPost } from 'src/app/shared/model/post.model';
 import { PostMapper } from '../../shared/mapper';
 import { FileData, IAuthor } from '../../shared/models';
-import { AuthorService, AuthService, CreatePostService } from '../../shared/services';
+import { AuthorService, AuthService, CreatePostService, NavigationService, NotificationService } from '../../shared/services';
 import { AuthorsBottomSheetComponent } from './authors-bottomsheet.component';
 
 @Component({
@@ -45,7 +45,9 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     private bottomSheet: MatBottomSheet,
     private authorService: AuthorService,
     public authService: AuthService,
-    private postsService: PostService
+    private postsService: PostService,
+    private navigationService: NavigationService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -107,10 +109,17 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
     this.postService.savePost(this.categoryControl.value, author_ids).subscribe({
       next: (data: any) => {
-        console.log(data); this.isLoading = false;
+        // console.log(data);
+        this.isLoading = false;
+
+        this.navigationService.editPost(data.post_id);
+        this.notificationService.openSnackBar("Creates post ", data.title)
       },
       error: (err: any) => {
-        console.log(err); this.isLoading = false;
+        // console.log(err);
+        this.isLoading = false;
+        this.notificationService.openSnackBar("Failed creating post ", this.postService.post.title)
+
       }
     });
   }
@@ -124,10 +133,16 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
     this.postService.updatePost(this.postId, this.categoryControl.value, author_ids).subscribe({
       next: (data: any) => {
-        console.log(data); this.isLoading = false;
+        // console.log(data);
+        this.isLoading = false;
+        this.notificationService.openSnackBar("Updated  post ", this.postService.post.title)
+
       },
       error: (err: any) => {
-        console.log(err); this.isLoading = false;
+        // console.log(err);
+        this.isLoading = false;
+        this.notificationService.openSnackBar("Failed updating post ", this.postService.post.title)
+
       }
     });
   }
