@@ -46,7 +46,7 @@ export class HivenewsDashboardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService,
+    public authService: AuthService,
     private navigationService: NavigationService
   ) {
 
