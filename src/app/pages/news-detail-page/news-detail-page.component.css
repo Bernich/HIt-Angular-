@@ -1,0 +1,34 @@
+.spinner {
+  width: 485px;
+  margin: 20px auto;
+}
+
+.news-page-content {
+  width: 100%;
+  /* height: 600px; */
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.news-page-detail-content {
+  width: 80%;
+
+  /* background-color: red; */
+
+  display: grid;
+  grid-template-columns: 70% 30%;
+  height: 90%;
+}
+
+.news-content-container-list-item {
+  width: calc((100% / 3) - 30px);
+  height: 220px;
+  border: 0.5px solid rgba(0, 0, 0, 0.0558);
+
+  margin-bottom: 30px;
+}

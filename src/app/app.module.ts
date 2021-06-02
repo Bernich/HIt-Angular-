@@ -16,6 +16,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminModule } from './admin/admin.module';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
+import { NewsDetailPageModule } from './pages/news-detail-page';
 
 
 // Note we need a separate function as it's required
@@ -40,10 +41,11 @@ import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-pa
     HivenewsCoreModule,
     HivenewsLayoutsModule,
     HivenewsLandingPageModule,
-    HivenewsEntityModule,
+    // HivenewsEntityModule,
     // Extract all similar modules to shared
     ModalModule.forRoot(),
     AdminModule,
+    NewsDetailPageModule,
     NgxWebstorageModule.forRoot(),
 
   ],

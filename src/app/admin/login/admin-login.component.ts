@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NavigationService } from '../shared/services';
+import { NavigationService, NotificationService } from '../shared/services';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -14,7 +14,11 @@ export class HivenewsAdminLoginComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(private authService: AuthService, private navigationService: NavigationService) { }
+  constructor(
+    private authService: AuthService,
+    private navigationService: NavigationService,
+    private notificationService: NotificationService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -35,9 +39,11 @@ export class HivenewsAdminLoginComponent implements OnInit {
         // redirect user to the dashboard
         this.navigationService.navigateToDashboard();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.log(err);
+        this.isLoading = false;
 
+        this.notificationService.openSnackBar("Login Failed", err.error)
       }
     })
   }

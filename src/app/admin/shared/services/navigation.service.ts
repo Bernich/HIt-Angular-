@@ -28,7 +28,7 @@ export class NavigationService {
    * Navigate to login page
    */
   navigateToLogin() {
-    this.router.navigate([`/admin/login`]);
+    this.router.navigate([`/admin/root/login`]);
   }
 
   /**
@@ -77,7 +77,7 @@ export class NavigationService {
   editPost(post_id: string) {
     this.router.navigate([`/admin/posts/${post_id}/edit`]);
   }
-  
+
   navigateToCreatePost() {
     this.router.navigate([`/admin/posts/add`]);
 

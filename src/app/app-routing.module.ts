@@ -26,6 +26,11 @@ const routes: Routes = [
       import('./pages/news-page/news-page.module').then((m) => m.NewsPageModule),
   },
   {
+    path: 'news/:id',
+    loadChildren: () =>
+      import('./pages/news-detail-page/news-detail-page.module').then((m) => m.NewsDetailPageModule),
+  },
+  {
     path: 'academics/:slug',
     loadChildren: () =>
       import('./pages/course-detail-page/course-detail-page.module').then((m) => m.CourseDetailPageModule),
@@ -42,6 +47,10 @@ const routes: Routes = [
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
 
+  {
+    path: "**",
+    redirectTo: "/"
+  }
 ];
 
 

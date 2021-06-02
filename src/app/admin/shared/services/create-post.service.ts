@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { PostService } from 'src/app/entities/post';
 import { CreatePost } from 'src/app/shared/model/post.model';
-import { CreatePostDTO } from '../dto';
+import { CreatePostDTO, UpdatePostDTO } from '../dto';
 import { v4 as uuidv4 } from 'uuid';
 import { FileData } from '../models';
 
@@ -55,9 +55,11 @@ export class CreatePostService {
      * @returns
      * Fix paramters
      */
-  updatePost(category: string, authors_id: string[]) {
+  updatePost(post_id: string, category: string, authors_id: string[]) {
+
     // convert to post DTO, save
-    const post = new CreatePostDTO(
+    const post = new UpdatePostDTO(
+      post_id,
       this.post.title,
       this.post.content,
       category,

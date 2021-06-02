@@ -11,7 +11,7 @@ export class AddUserFormComponent implements OnInit {
 
   @Input() isLoading: boolean;
   @Output() saveUser = new EventEmitter();
-  @Input() user: CreateUser;
+  @Input() user: any;
   @Input() initialURL;
   @Input() isNew;
   @Input() isAccountVisibleState = true;

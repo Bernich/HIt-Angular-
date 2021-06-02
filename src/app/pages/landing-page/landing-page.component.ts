@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IPost, Post } from 'src/app/shared/model/post.model';
 import { Course } from 'src/app/admin/shared/models';
 import { CourseService } from 'src/app/admin/shared/services';
+import { PostService } from 'src/app/entities/post';
 
 @Component({
   selector: 'jhi-landing-page',
@@ -10,6 +11,7 @@ import { CourseService } from 'src/app/admin/shared/services';
 })
 export class LandingPageComponent implements OnInit {
   courses: Course[];
+  posts: IPost[];
 
   isLoading: boolean;
   isPodcast: boolean;
@@ -42,11 +44,15 @@ export class LandingPageComponent implements OnInit {
   footer = "Learn about us";
 
   shapedBy = "Hive Institute is shaped and strengthened by our many communities venturing into unfamiliar fields of knowledge and, perhaps, discovering new passions that will take them in a different direction altogether."
-  constructor(private courseService: CourseService) { }
+  constructor(
+    private courseService: CourseService,
+    private postService: PostService
+  ) { }
 
   ngOnInit() {
 
     this.loadAllCourses();
+    this.loadAllPosts();
 
   }
 
@@ -60,6 +66,23 @@ export class LandingPageComponent implements OnInit {
         this.courses = courses;
         console.log(courses);
 
+      },
+      error: (error: any) => {
+
+      },
+    });
+  }
+
+
+  loadAllPosts() {
+    this.isLoading = true;
+
+    this.postService.query().subscribe({
+      next: (posts: IPost[]) => {
+        this.isLoading = false;
+        this.posts = posts;
+
+        console.log(posts)
       },
       error: (error: any) => {
 

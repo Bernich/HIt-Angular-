@@ -7,7 +7,8 @@
     <app-jhi-vertical-divider style="margin-top:-30px"></app-jhi-vertical-divider>
 
     <section class="news-page-list-content-header">
-      <mat-form-field appearance="fill">
+      <div></div>
+      <!-- <mat-form-field appearance="fill">
         <mat-label>States</mat-label>
         <mat-select>
           <mat-option>None</mat-option>
@@ -17,14 +18,14 @@
           <mat-option value="state">State 4</mat-option>
 
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <h2 class="post-count">{{ news.length + " posts" }}</h2>
+      <h2 *ngIf="posts" class="post-count">{{ posts.length + " posts" }}</h2>
     </section>
 
-    <section class="news-page-new-list">
+    <section class="news-page-new-list" *ngIf="posts else loader">
 
-      <app-jhi-new-news-card class="news-content-container-list-item" *ngFor="let item of news" [news]="item">
+      <app-jhi-new-news-card class="news-content-container-list-item" *ngFor="let post of posts" [news]="post">
       </app-jhi-new-news-card>
 
     </section>
@@ -40,3 +41,10 @@
   <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
   <jhi-footer></jhi-footer>
 </div>
+
+
+
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

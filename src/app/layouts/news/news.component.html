@@ -1,29 +1,29 @@
 <section class="news-container">
-    <section class="news-content-container">
-        <section class="news-heading-nav">
-            <h4 class="news-heading-nav-item ">Latest Stories</h4>
+  <section class="news-content-container">
+    <section class="news-heading-nav">
+      <h4 class="news-heading-nav-item ">Latest Stories</h4>
 
-            <h4 class="news-heading-nav-item font-small">
-                <!-- color: #e67e22; -->
-                <a routerLink="/news">
-                    <span>See all</span>
-                    <mat-icon>keyboard_arrow_right</mat-icon>
-                </a>
-            </h4>
+      <h4 class="news-heading-nav-item font-small">
+        <!-- color: #e67e22; -->
+        <a routerLink="/news">
+          <span>See all</span>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </a>
+      </h4>
 
-        </section>
-
-
-        <div class="news-divider"></div>
-
-        <div style="margin-bottom: 50px;"></div>
-
-
-        <section class="news-content-container-list">
-
-            <app-jhi-news-card class="news-content-container-list-item" *ngFor="let item of news" [news]="item">
-            </app-jhi-news-card>
-
-        </section>
     </section>
+
+
+    <div class="news-divider"></div>
+
+    <div style="margin-bottom: 50px;"></div>
+
+
+    <section class="news-content-container-list">
+
+      <app-jhi-news-card class="news-content-container-list-item" *ngFor="let item of posts" [news]="item">
+      </app-jhi-news-card>
+
+    </section>
+  </section>
 </section>

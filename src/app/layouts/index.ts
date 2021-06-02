@@ -2,6 +2,7 @@ export * from './footer/footer.component';
 export * from './header/header.component';
 export * from './header/header.route';
 export * from './new-header/new-header.component';
+export * from './news-header/news-header.component';
 export * from './onsite-navbar/onsite-navbar.component';
 export * from './new-onsite-navbar/new-onsite-navbar.component';
 export * from './subscribe-dialog/subscribe-dialog.component';

@@ -1,5 +1,5 @@
 header {
-  height: 105vh;
+  height: 65vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,7 +22,7 @@ header {
   z-index: 0 !important;
 }
 .slider {
-  height: 105vh;
+  height: 65vh;
   position: relative;
   background-position: center;
   background-size: cover;
@@ -61,7 +61,7 @@ header {
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   /* background-color: tomato; */
 }
@@ -78,10 +78,10 @@ header {
 }
 .post-title,
 .post-date {
-  width: 55%;
+  /* width: 55%; */
 }
 .post-title {
-  font-size: 1.2rem;
+  font-size: 28px;
   font-weight: 600;
   color: #ffffff;
   line-height: normal;
@@ -144,17 +144,17 @@ h1 {
   }
 
   .post-title {
-    font-size: 40px;
+    font-size: 25px;
   }
 
   .post-date {
     /* font-size: 15px; */
-    margin-top: 10px;
+    margin-top: 0px;
   }
 
   .post-read {
     font-size: 18px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
   }
 }
 
@@ -165,12 +165,12 @@ h1 {
   }
 
   .post-title {
-    font-size: 40px;
+    font-size: 25px;
   }
 
   .post-date {
     /* font-size: 15px; */
-    margin-top: 40px;
+    margin-top: 0px;
   }
 
   .post-read {
@@ -186,7 +186,7 @@ h1 {
   }
 
   .post-title {
-    font-size: 50px;
+    /* font-size: 50px; */
   }
 
   .post-read {
@@ -195,18 +195,7 @@ h1 {
 
   .post-date {
     /* font-size: 15px; */
-  }
-
-  .post .left-side {
-    width: 75%;
-  }
-
-  .post .left-side h3,
-  .post .left-side p {
-    width: 100%;
-  }
-  .post .right-side {
-    display: none;
+    margin-top: 0px;
   }
 }
 

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'src/app/app.constants';
 import { createRequestOption } from 'src/app/shared';
 import { IPost } from 'src/app/shared/model/post.model';
-import { CreatePostDTO } from 'src/app/admin/shared/dto';
+import { CreatePostDTO, UpdatePostDTO } from 'src/app/admin/shared/dto';
 
 type EntityResponseType = HttpResponse<IPost>;
 type EntityArrayResponseType = HttpResponse<IPost[]>;
@@ -60,7 +60,7 @@ export class PostService {
     return this.http.post(this.resourceUrl, post, httpOptions);
   }
 
-  update(post: CreatePostDTO) {
+  update(post: UpdatePostDTO) {
     const token = localStorage.getItem('currentUser');
     /**
      * Creates an httpOptions and attaches a Bearer token
@@ -72,7 +72,7 @@ export class PostService {
       }),
     };
 
-    return this.http.put(this.resourceUrl, post, httpOptions);
+    return this.http.put(this.resourceUrl + "/" + post.post_id, post, httpOptions);
   }
 
 }

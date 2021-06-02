@@ -1,0 +1,26 @@
+.instructor-profile {
+  display: flex;
+  width: 100%;
+}
+
+.instructor-profile img {
+  width: 50px;
+  height: 50px;
+
+  object-fit: cover;
+  object-fit: center;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.instructor-profile img:not(:first-child) {
+  margin-left: -25px;
+}
+
+.instructor-profile:hover > img {
+  margin: 0px 10px;
+}

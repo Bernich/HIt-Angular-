@@ -10,7 +10,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewNewsCardComponent implements OnInit {
 
-  @Input() news: any;
+  @Input() news: IPost;
 
   ngOnInit() { }
 
@@ -24,5 +24,10 @@ export class NewNewsCardComponent implements OnInit {
       // this.navigation.showNavigationArrows = true;
       // this.navigation.showNavigationIndicators = true;
     }
+  }
+
+
+  getDate(data: string) {
+    return new Date(data).toLocaleDateString()
   }
 }

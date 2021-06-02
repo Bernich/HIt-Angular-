@@ -1,0 +1,30 @@
+<header [style.backgroundImage]="getPostThumbUrl(currentPost.banner.url)">
+  <app-new-onsite-navbar [activeRoute]="activeRoute"> </app-new-onsite-navbar>
+
+  <ngb-carousel class="header-carousel" [showNavigationArrows]="navigation.showNavigationArrows"
+    [showNavigationIndicators]="navigation.showNavigationIndicators">
+    <ng-template ngbSlide>
+
+      <div class=" slider" [style.backgroundImage]="getPostThumbUrl(headerPost.banner.url)">
+
+        <div class="post">
+          <!-- This is a Specific design -->
+          <section class="left-side">
+            <!-- <h3 class="post-title">{{ post.title }}</h3> -->
+            <h3 class="post-title">{{headerPost.title}}</h3>
+            <span class="post-date">{{ getDate(headerPost.date_created) }}</span>
+
+            <section class="instructor-profile">
+              <img *ngFor="let author of headerPost.authors" [src]="author.profile_image.url"
+                alt="profile image of asas" srcset="">
+            </section>
+
+          </section>
+
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+
+</header>

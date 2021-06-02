@@ -1,3 +1,5 @@
+<mat-progress-bar [style.display]=" isLoading ? 'block'  :'none'" mode="indeterminate"></mat-progress-bar>
+
 <section class="admin-add-author-content ">
 
   <app-add-author-form *ngIf="author" [isNew]="isNew" [imageUrl]="imgUrl" [author]="author"
