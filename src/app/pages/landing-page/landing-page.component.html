@@ -36,7 +36,7 @@ We celebrate our hometown of New Haven, CT for all that it offers, including its
 
   <div style="margin-bottom: 50px;"></div>
 
-  <app-jhi-news-list [posts]="posts.length > 3 ? posts.slice(0,3) : posts"></app-jhi-news-list>
+  <app-jhi-news-list *ngIf="posts" [posts]="posts.length > 3 ? posts.slice(0,3) : posts"></app-jhi-news-list>
 
   <app-jhi-vertical-divider></app-jhi-vertical-divider>
 

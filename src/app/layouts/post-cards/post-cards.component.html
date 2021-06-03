@@ -1,22 +1,3 @@
-<ng-template [ngIf]="isPodcast" [ngIfElse]="post">
-  <div class="container">
-    <iframe
-      src="https://anchor.fm/hive-podcast/embed/episodes/The-Power-of-Youth-with-Reeta-Roy---CEO-of-Mastercard-Foundation--Episode-003-e62alt/a-aq0m3s"
-      frameborder="0" scrolling="no" (load)="podcastLoaded()"
-      style="width: 100%; height: 165px; margin-bottom: 20px;"></iframe>
-    <iframe
-      src="https://anchor.fm/hive-podcast/embed/episodes/Open-Bioeconomy-Lab-with-Dr--Chiara-Gandini-and-Harry-Aglikoh--Episode-002-e5fcih/a-ao7ah2"
-      frameborder="0" scrolling="no" (load)="podcastLoaded()"
-      style="width: 100%; height: 165px; margin-bottom: 20px;"></iframe>
-    <iframe
-      src="https://anchor.fm/hive-podcast/embed/episodes/Tech-and-Innovation-with-Prince-Banini--Episode-001-e4queb/a-ak3mn9"
-      frameborder="0" scrolling="no" (load)="podcastLoaded()"
-      style="width: 100%; height: 165px; margin-bottom: 20px;"></iframe>
-    <iframe src="https://anchor.fm/hive-podcast/embed/episodes/Hive-Podcast-Promo-e4m3f1/a-aj5pfq" frameborder="0"
-      scrolling="no" (load)="podcastLoaded()" style="width: 100%; height: 165px; margin-bottom: 20px;"></iframe>
-  </div>
-</ng-template>
-
 <ng-template #post>
   <div class="news_card_container">
     <mat-card *ngFor="let post of posts" (deferLoad)="post.show = true">
