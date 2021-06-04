@@ -171,7 +171,6 @@ export class HivenewsDashboardComponent implements OnInit {
 
   visible(title: string) {
 
-    console.log(title);
 
     // If hes an ADMIN show
     if (this.authService.hasRole('ADMIN')) return true;
