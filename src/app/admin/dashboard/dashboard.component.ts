@@ -174,8 +174,8 @@ export class HivenewsDashboardComponent implements OnInit {
 
     // If hes an ADMIN show
     if (this.authService.hasRole('ADMIN')) return true;
-    else if ((title === 'Author' || title === 'Articles') && this.hasRole('Author')) return true;
-    else if ((title === 'Instructor' || title === 'Courses') && this.hasRole('USER')) return true;
+    else if ((title === 'Author' || title === 'Articles') && this.hasRole('AUTHOR')) return true;
+    else if ((title === 'Instructor' || title === 'Courses') && this.hasRole('INSTRUCTOR')) return true;
     else if (title === 'USER' && this.hasRole('USER')) return true;
 
 
