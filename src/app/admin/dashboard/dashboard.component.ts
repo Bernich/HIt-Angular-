@@ -154,4 +154,32 @@ export class HivenewsDashboardComponent implements OnInit {
     // navigate to login page
     this.navigationService.navigateToLogin();
   }
+
+  hasRole(role: string) {
+    // decode the token to get its payload
+
+    const roles = this.user.roles.filter((role) => role.toLowerCase() === role.toLowerCase());
+
+    if (roles.length >= 1) {
+      return true;
+    }
+
+    console.log(roles)
+    return false;
+  }
+
+
+  visible(title: string) {
+
+    console.log(title);
+
+    // If hes an ADMIN show
+    if (this.authService.hasRole('ADMIN')) return true;
+    else if ((title === 'Author' || title === 'Articles') && this.hasRole('Author')) return true;
+    else if ((title === 'Instructor' || title === 'Courses') && this.hasRole('USER')) return true;
+    else if (title === 'USER' && this.hasRole('USER')) return true;
+
+
+    return false;
+  }
 }

@@ -30,6 +30,24 @@ export class CourseService {
    *
    */
   all() {
+
+    const token = localStorage.getItem('currentUser');
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+    return this.http.get(this.resourceUrl + "/all", httpOptions);
+  }
+
+  /**
+ *
+ */
+  query() {
     return this.http.get(this.resourceUrl);
 
   }

@@ -39,24 +39,33 @@
 
       <mat-list *ngIf="user">
         <mat-list-item>
-          <mat-checkbox #userRole [value]="true" [checked]="authService.hasRole('USER')" class="margin"
-            (change)="updateAcctTypeUser(userRole.checked)">User
+          <mat-checkbox #userRole [value]="true" [checked]="hasRole('USER')" class="margin"
+            (change)="updateAcctTypeUser(userRole.checked)">
+            User
           </mat-checkbox>
         </mat-list-item>
 
         <mat-list-item>
-          <mat-checkbox #instructor class="margin" [checked]="authService.hasRole('INSTRUCTOR')"
-            (change)="updateAcctTypeInstructor(instructor.checked)">Instructor
+          <mat-checkbox #instructor class="margin" [checked]="hasRole('INSTRUCTOR')"
+            (change)="updateAcctTypeInstructor(instructor.checked)">
+            Instructor
           </mat-checkbox>
         </mat-list-item>
 
 
         <mat-list-item>
-          <mat-checkbox #admin class="margin" [checked]="authService.hasRole('ADMIN')"
+          <mat-checkbox #admin class="margin" [checked]="hasRole('ADMIN')"
             (change)="updateAcctTypeAdmin(admin.checked)">
-            Admin</mat-checkbox>
+            Admin
+          </mat-checkbox>
         </mat-list-item>
 
+        <mat-list-item>
+          <mat-checkbox #admin class="margin" [checked]="hasRole('AUTHOR')"
+            (change)="updateAcctTypeAdmin(admin.checked)">
+            AUTHOR
+          </mat-checkbox>
+        </mat-list-item>
       </mat-list>
 
     </div>

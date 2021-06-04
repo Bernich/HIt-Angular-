@@ -33,7 +33,7 @@ export class AddInstructorFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.speciality = this.parseList(this.user.skills);
+    this.speciality = this.user.skills ? this.parseList(this.user.skills) : "";
 
     // Check if User has an Image
     if (this.isNew) {

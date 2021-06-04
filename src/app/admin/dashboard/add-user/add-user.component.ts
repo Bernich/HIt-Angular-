@@ -168,7 +168,16 @@ export class HiveAdminAddUserComponent implements OnInit {
     this.isGeneral = false;
   }
 
-  hasRole(role: string) {
+  hasRole(user_role: string) {
+    // decode the token to get its payload
 
+    const roles = this.user.roles.filter((role) => role.toLowerCase() === user_role.toLowerCase());
+
+    if (roles.length >= 1) {
+      return true;
+    }
+
+    console.log(roles)
+    return false;
   }
 }

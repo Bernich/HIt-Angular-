@@ -32,6 +32,19 @@ export class PostService {
   query(req?: any) {
     const token = localStorage.getItem('currentUser');
 
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    return this.http.get(this.resourceUrl, httpOptions);
+  }
+
+  all(req?: any) {
+    const token = localStorage.getItem('currentUser');
+
     const options = createRequestOption(req);
 
     const httpOptions = {
@@ -43,7 +56,6 @@ export class PostService {
 
     return this.http.get(this.resourceUrl + '/all', httpOptions);
   }
-
 
   add(post: CreatePostDTO) {
     const token = localStorage.getItem('currentUser');

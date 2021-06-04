@@ -67,8 +67,8 @@ export class CourseMapper {
     new_course.base_price = course.base_price;
 
     new_course.career_paths = course.career_paths ? course.career_paths.map((data: string) => new Resource(uuidv4(), data)) : []
-    new_course.what_you_will_learn = course.what_you_will_learn;
-    new_course.prerequisites = course.prerequisites;
+    new_course.what_you_will_learn = course.what_you_will_learn ? course.what_you_will_learn : [];
+    new_course.prerequisites = course.prerequisites ? course.prerequisites : [];
     new_course.with_certification = course.with_certification;
     new_course.instructors = course.instructors.map((instructor: IInstructor) => instructor.instructor_id);
 
