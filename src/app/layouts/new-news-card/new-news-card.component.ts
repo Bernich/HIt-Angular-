@@ -2,6 +2,7 @@ import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { IPost } from '../../shared/model/post.model';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { IAuthor } from 'src/app/admin/shared/models';
 
 @Component({
   selector: 'app-jhi-new-news-card',
@@ -27,7 +28,22 @@ export class NewNewsCardComponent implements OnInit {
   }
 
 
-  getDate(data: string) {
-    return new Date(data).toLocaleDateString()
+  getDate(date: string) {
+    if (date) { return new Date(date).toDateString(); }
+    return '---';
+  }
+
+  // Fix this
+  getAuthors(authors: IAuthor[]) {
+    let names = authors[0].first_name;
+
+    if (authors.length > 1) {
+      for (let i = 1; i < authors.length - 1; i++) {
+        names = authors[i].first_name + " & " + names;
+      }
+
+    }
+
+    return names;
   }
 }

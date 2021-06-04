@@ -27,7 +27,8 @@ export class NewsCardComponent implements OnInit {
   }
 
 
-  getDate(data: string) {
-    return new Date(data).toLocaleDateString()
+  getDate(date: string) {
+    if (date) { return new Date(date).toDateString(); }
+    return '---';
   }
 }
