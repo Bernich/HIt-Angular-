@@ -10,6 +10,13 @@
   border-bottom: 1px solid rgba(236, 236, 236, 0.59);
 }
 
+ol,
+li,
+ul,
+dl {
+  margin: 0px;
+}
+
 ul {
   list-style: none;
 }
@@ -106,6 +113,9 @@ hr,
   font-size: 1.3em;
   list-style: none;
   text-transform: uppercase;
+  padding-bottom: 10px;
+  letter-spacing: 3px;
+  margin-top: 10px;
 }
 
 .navlinks li a:link,
@@ -125,7 +135,7 @@ hr,
 }
 
 .scrolled {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(18, 18, 18, 0.95);
 }
 
 @media screen and (max-width: 769px) {
