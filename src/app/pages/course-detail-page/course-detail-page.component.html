@@ -38,6 +38,7 @@
                 <div class="profile-wrapper">
                     <img class="profile" [src]="instructor.profile_pic.url" alt="">
                     <p class="instructor-name">{{instructor.firstname + " " + instructor.lastname }}</p>
+                    <mat-icon>facebook</mat-icon>
                     <p class="position">Instructor</p>
                     <p class="instructor-desc" #bio> {{ updateInstructorDescription(bio) }}</p>
                     <button class="btn-enroll">ENROLL</button>
