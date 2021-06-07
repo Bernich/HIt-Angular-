@@ -60,7 +60,7 @@ export class LandingPageComponent implements OnInit {
   loadAllCourses() {
     this.isLoading = true;
 
-    this.courseService.all().subscribe({
+    this.courseService.query().subscribe({
       next: (courses: Course[]) => {
         this.isLoading = false;
         this.courses = courses;

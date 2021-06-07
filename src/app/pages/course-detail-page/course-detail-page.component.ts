@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CourseService } from 'src/app/admin/shared/services';
 import { Course, IInstructor } from 'src/app/admin/shared/models';
 
+
 @Component({
   selector: 'jhi-course-detail-page',
   templateUrl: './course-detail-page.component.html',
@@ -62,5 +63,16 @@ export class CourseDetailPageComponent implements OnInit {
   }
   updateInstructorDescription(description) {
     description.innerHTML = this.instructor.bio;
+  }
+
+
+  getUrl(platform) {
+    if (platform === 'LINKEDIN') { return '/assets/svg/linkedin.svg'; }
+    if (platform === 'WHATSSAP') { return '/assets/svg/whatsapp.svg'; }
+    if (platform === 'FACEBOOK') { return '/assets/svg/facebook.svg'; }
+    if (platform === 'INSTAGRAM') { return '/assets/svg/instagram.svg'; }
+    if (platform === 'TWITTER') { return '/assets/svg/twitter.svg'; }
+
+    return null;
   }
 }

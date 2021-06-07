@@ -6,7 +6,7 @@
 }
 
 .course-detail-page-container {
-  background-color: rgba(0, 0, 0, 0.0251);
+  background-color: hsla(0, 0%, 0%, 0.025);
 }
 .course-banner {
   width: 100%;
@@ -141,7 +141,7 @@
 
 .unordered-list {
   /* margin: 1rem; */
-  color: #8585bd !important;
+  color: var(--brownish-grey) !important;
   font-weight: lighter;
 
   font-family: SFProText;
@@ -152,7 +152,7 @@ li {
 }
 
 .duration {
-  color: #8585bd !important;
+  color: var(--brownish-grey) !important;
   font-weight: 600;
 }
 
@@ -181,7 +181,7 @@ li {
 
 .position {
   font-weight: 700;
-  color: #8585bd !important;
+  color: var(--brownish-grey) !important;
   margin-bottom: 1rem;
 }
 
@@ -190,7 +190,7 @@ li {
   padding: 5px;
   margin-bottom: 1rem;
   font-weight: lighter;
-  color: #8585bd !important;
+  color: var(--brownish-grey) !important;
   line-height: 2rem;
 
   flex: 1;
@@ -201,17 +201,23 @@ li {
 .btn-enroll {
   color: #ffffff;
   border-width: 10px;
-  border-color: #4747bc;
+  border-color: #e67e22;
   border-radius: 100px;
   letter-spacing: 1px;
   font-size: 14px;
+  font-weight: bold;
   text-transform: uppercase;
-  background-color: #4747bc;
+  background-color: #e67e22;
   outline: none;
   border: none;
   padding: 1em 2em;
 }
 
+.social-media-handles img {
+  /* width: 30px; */
+  height: 20px;
+  margin-right: 10px;
+}
 @media screen and (max-width: 579px) {
   .course-banner h1 {
     width: 50%;

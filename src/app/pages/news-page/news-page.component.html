@@ -1,5 +1,5 @@
-<div>
-  <jhi-new-header [activeRoute]="'news'" [headerPosts]="headerPosts"></jhi-new-header>
+<div *ngIf="posts">
+  <jhi-new-header [posts]="posts.slice(0,2)" [activeRoute]="'news'" [headerPosts]="posts"></jhi-new-header>
   <!-- <app-jhi-partners></app-jhi-partners> -->
   <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
 

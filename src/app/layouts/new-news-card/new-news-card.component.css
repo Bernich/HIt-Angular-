@@ -72,6 +72,12 @@
   flex: 1;
 }
 
+.news-card-container:hover > h3 {
+  background-size: 100% 2px;
+  transition: all 0.4s ease-in-out;
+  color: red;
+}
+
 .news-card-content-text h3 {
   font-size: 21px;
   line-height: 1.3em;
@@ -79,6 +85,14 @@
   width: 100%;
   color: #252424cc;
   font-family: SFUIText-Medium;
+
+  /* Added  */
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  transition: background-size 0.3s;
+  position: relative;
 }
 
 .news-card-content-text p {

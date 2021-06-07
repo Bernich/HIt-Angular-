@@ -60,7 +60,7 @@ export class HiveAdminAddInstructorComponent implements OnInit {
     this.user.email = '';
     this.user.bio = '';
     this.user.phone_number = '';
-    this.user.skills = [];
+    this.user.skills = [''];
     this.user.social_media_handles = [
       this.whatssap,
       this.facebook,

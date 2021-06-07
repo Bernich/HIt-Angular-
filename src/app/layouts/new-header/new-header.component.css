@@ -21,6 +21,10 @@ header {
 .header-carousel {
   z-index: 0 !important;
 }
+
+a {
+  color: black;
+}
 .slider {
   height: 105vh;
   position: relative;
@@ -81,7 +85,7 @@ header {
   width: 55%;
 }
 .post-title {
-  font-size: 1.2rem;
+  font-size: 3.2rem;
   font-weight: 600;
   color: #ffffff;
   line-height: normal;
@@ -136,49 +140,6 @@ h1 {
   font-weight: 600;
 }
 
-/* media queries */
-@media screen and (max-width: 768px) {
-  .post {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .post-title {
-    font-size: 40px;
-  }
-
-  .post-date {
-    /* font-size: 15px; */
-    margin-top: 10px;
-  }
-
-  .post-read {
-    font-size: 18px;
-    margin-top: 15px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .post {
-    /* width: 750px; */
-    margin: 0 auto;
-  }
-
-  .post-title {
-    font-size: 40px;
-  }
-
-  .post-date {
-    /* font-size: 15px; */
-    margin-top: 40px;
-  }
-
-  .post-read {
-    font-size: 18px;
-    margin-top: 40px;
-  }
-}
-
 @media screen and (max-width: 1368px) {
   .post {
     /* width: 1050px; */
@@ -214,6 +175,49 @@ h1 {
   .post {
     /* width: 1050px; */
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .post {
+    /* width: 750px; */
+    margin: 0 auto;
+  }
+
+  .post-title {
+    font-size: 40px;
+  }
+
+  .post-date {
+    /* font-size: 15px; */
+    margin-top: 40px;
+  }
+
+  .post-read {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+}
+
+/* media queries */
+@media screen and (max-width: 768px) {
+  .post {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .post-title {
+    font-size: 40px;
+  }
+
+  .post-date {
+    /* font-size: 15px; */
+    margin-top: 10px;
+  }
+
+  .post-read {
+    font-size: 18px;
+    margin-top: 15px;
   }
 }
 

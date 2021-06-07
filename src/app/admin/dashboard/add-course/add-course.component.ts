@@ -2,7 +2,17 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Course, CreateCourse, CreateLesson, CreateSection, FileData, ICourse, IInstructor, ILesson, Resource } from '../../shared/models';
+import {
+  Course,
+  CreateCourse,
+  CreateLesson,
+  CreateSection,
+  FileData,
+  ICourse,
+  IInstructor,
+  ILesson,
+  Resource
+} from '../../shared/models';
 import {
   AuthService,
   InstructorService,
@@ -122,7 +132,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
   loadCourse(id) {
-    this.courseService.getCourse(id).subscribe({
+    this.courseService.findAny(id).subscribe({
       next: (data: Course) => {
         // unmap course into
 

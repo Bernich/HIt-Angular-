@@ -60,6 +60,19 @@
   font-weight: 600;
 }
 
+@media screen and (max-width: 1400px) {
+  .news-page-new-list {
+  }
+
+  .news-content-container-list-item {
+    width: calc((100% / 4) - 15px);
+    height: 380px;
+    border: 0.5px solid rgba(0, 0, 0, 0.0558);
+
+    margin-bottom: 30px;
+  }
+}
+
 @media screen and (max-width: 1300px) {
   .news-page-new-list {
   }

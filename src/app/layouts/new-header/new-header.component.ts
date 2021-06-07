@@ -13,8 +13,8 @@ import { ACTIVE_LINKS } from 'src/app/shared';
 export class NewHeaderComponent implements OnInit {
 
   @Input() activeRoute: string = "home";
-  @Input() headerPosts;
-
+  @Input() headerPosts: IPost;
+  @Input() posts: IPost[]
   currentPost = null;
 
 
@@ -55,5 +55,10 @@ export class NewHeaderComponent implements OnInit {
       this.navigation.showNavigationArrows = true;
       this.navigation.showNavigationIndicators = true;
     }
+  }
+
+  getDate(date: string) {
+    if (date) { return new Date(date).toDateString(); }
+    return '---';
   }
 }

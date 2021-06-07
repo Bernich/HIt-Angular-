@@ -32,7 +32,7 @@ export class NewsDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
   getPostThumbUrl(headerImageUrl: string): SafeUrl {
 
@@ -50,9 +50,10 @@ export class NewsDetailPageComponent implements OnInit {
     })
   }
 
-  update(description) {
-    description.innerHTML = this.post.content;
+  update(element, data) {
+    element.innerHTML = data;
   }
+
 
 
 

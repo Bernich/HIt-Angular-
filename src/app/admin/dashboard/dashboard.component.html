@@ -69,10 +69,10 @@
   <mat-drawer #drawer mode="side" opened class="side-nav" id="side-drawer">
     <div class="nav-title">APP MENU</div>
 
+    <!-- Hidde all  -->
     <nav>
-      <div class="link-container"
-        [style.display]="(!authService.hasRole('ADMIN') && authService.hasRole('USER')  && (link.title==='Users'  ) ) ? 'none' : 'block'"
-        *ngFor="let link of links" routerLinkActive="div-active">
+      <div *ngFor="let link of links" class="link-container" [ngClass]="{'hidden' : !visible(link.title)}"
+        routerLinkActive="div-active">
         <a mat-button class=" nav-link" [routerLink]="link.path" routerLinkActive="active">
           <mat-icon class="mat-18 icon">{{ link.icon }}</mat-icon>
           {{ link.title }}
