@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { IPost, Post } from 'src/app/shared/model/post.model';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { PostService } from 'src/app/entities/post';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,10 +10,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./news-detail-page.component.css',]
 })
 export class NewsDetailPageComponent implements OnInit {
+  newsDetail = null;
   post: IPost;
   isLoading: boolean;
 
-
+  // headerImageUrl
 
 
 
@@ -30,7 +32,13 @@ export class NewsDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
+  getPostThumbUrl(headerImageUrl: string): SafeUrl {
+
+    return `url(${headerImageUrl})`;
+  }
+
 
 
   loadPost(postId: string) {
@@ -42,9 +50,10 @@ export class NewsDetailPageComponent implements OnInit {
     })
   }
 
-  update(description) {
-    description.innerHTML = this.post.content;
+  update(element, data) {
+    element.innerHTML = data;
   }
+
 
 
 
