@@ -26,6 +26,7 @@ export class CourseService {
     });
   }
 
+
   /**
    *
    */
@@ -134,4 +135,18 @@ export class CourseService {
     return this.http.put(`${this.resourceUrl}/${course.course_id}`, course, httpOptions);
   }
 
+  findAny(courseId: string) {
+    const token = localStorage.getItem('currentUser');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    // /api/v1/courses/admin/:id
+    return this.http.get(`${this.resourceUrl}/admin/${courseId}`, httpOptions);
+
+  }
 }

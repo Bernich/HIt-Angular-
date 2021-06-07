@@ -205,6 +205,7 @@ li {
   border-radius: 100px;
   letter-spacing: 1px;
   font-size: 14px;
+  font-weight: bold;
   text-transform: uppercase;
   background-color: #e67e22;
   outline: none;
@@ -212,6 +213,11 @@ li {
   padding: 1em 2em;
 }
 
+.social-media-handles img {
+  /* width: 30px; */
+  height: 20px;
+  margin-right: 10px;
+}
 @media screen and (max-width: 579px) {
   .course-banner h1 {
     width: 50%;

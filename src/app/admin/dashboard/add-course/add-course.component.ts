@@ -132,7 +132,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
   loadCourse(id) {
-    this.courseService.getCourse(id).subscribe({
+    this.courseService.findAny(id).subscribe({
       next: (data: Course) => {
         // unmap course into
 
