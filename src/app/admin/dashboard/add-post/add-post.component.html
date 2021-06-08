@@ -152,14 +152,14 @@
         </div>
 
         <mat-list style="width: 100%;">
-          <mat-list-item style="cursor: pointer;" matRipple>
+          <mat-list-item (click)="deleteCourse()" style="cursor: pointer;" matRipple>
             <mat-icon mat-list-icon>delete_outline</mat-icon>
             <div mat-line>Delete Post</div>
           </mat-list-item>
 
           <mat-list-item style="cursor: pointer;" matRipple (click)="publisCourse()">
             <mat-icon mat-list-icon>{{ !postService.post.publicity_status ? "lock_open" : "lock"}}</mat-icon>
-            <div mat-line>{{ !postService.post.publicity_status ? "Publish Course" : "Unpublish Course"}}</div>
+            <div mat-line>{{ !postService.post.publicity_status ? "Publish Post" : "Unpublish Post"}}</div>
           </mat-list-item>
 
         </mat-list>

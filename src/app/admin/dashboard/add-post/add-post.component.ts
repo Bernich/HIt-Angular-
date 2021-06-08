@@ -80,7 +80,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
   loadPost(id) {
 
-    this.postsService.find(id).subscribe({
+    this.postsService.findAdminPost(id).subscribe({
       next: (data: IPost) => {
         // unwrap post for edit
         this.postService.post = PostMapper.convertToCreatePost(data);
@@ -224,6 +224,10 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
     this.notificationService.openSnackBar("Pulish Course not implemented", "Try Again");
   }
 
+  deleteCourse() {
+    this.notificationService.openSnackBar("Delete Course not implemented", "Try Again");
+
+  }
 
   /**
    * Since the Authors are difficult processing,

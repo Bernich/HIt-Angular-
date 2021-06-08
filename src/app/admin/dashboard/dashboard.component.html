@@ -70,7 +70,7 @@
     <div class="nav-title">APP MENU</div>
 
     <!-- Hidde all  -->
-    <nav>
+    <nav *ngIf="user.roles.length > 1 || !this.hasRole('USER')">
       <div *ngFor="let link of links" class="link-container" [ngClass]="{'hidden' : !visible(link.title)}"
         routerLinkActive="div-active">
         <a mat-button class=" nav-link" [routerLink]="link.path" routerLinkActive="active">

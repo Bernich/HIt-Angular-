@@ -25,10 +25,26 @@ export class PostService {
       }),
     };
 
+
+    //TODO :  For admin, USE ADMIN/:id
+
     return this.http.get(this.resourceUrl + '/' + id, httpOptions);
 
   }
 
+  findAdminPost(id: string) {
+    const token = localStorage.getItem('currentUser');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+
+    return this.http.get(this.resourceUrl + '/admin/' + id, httpOptions);
+  }
   query(req?: any) {
     const token = localStorage.getItem('currentUser');
 
@@ -42,10 +58,10 @@ export class PostService {
     return this.http.get(this.resourceUrl, httpOptions);
   }
 
-  all(req?: any) {
+
+  allAdmin() {
     const token = localStorage.getItem('currentUser');
 
-    const options = createRequestOption(req);
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -54,7 +70,21 @@ export class PostService {
       }),
     };
 
-    return this.http.get(this.resourceUrl + '/all', httpOptions);
+    return this.http.get(this.resourceUrl + '/admin/list', httpOptions);
+  }
+
+  all() {
+    const token = localStorage.getItem('currentUser');
+
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.http.get(this.resourceUrl + '/admin/list', httpOptions);
   }
 
   add(post: CreatePostDTO) {

@@ -42,7 +42,7 @@ export class CourseService {
         Authorization: 'Bearer ' + token,
       }),
     };
-    return this.http.get(this.resourceUrl + "/all", httpOptions);
+    return this.http.get(this.resourceUrl + "/admin/list", httpOptions);
   }
 
   /**
@@ -135,7 +135,7 @@ export class CourseService {
     return this.http.put(`${this.resourceUrl}/${course.course_id}`, course, httpOptions);
   }
 
-  findAny(courseId: string) {
+  findAdminCourse(courseId: string) {
     const token = localStorage.getItem('currentUser');
 
     const httpOptions = {

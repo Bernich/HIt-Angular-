@@ -21,7 +21,7 @@ export class NavigationService {
    * Navigate to to dashboard page
    */
   navigateToDashboard() {
-    this.router.navigate([`/admin/dashboard`]);
+    this.router.navigate([`/admin/dashboard/courses`]);
   }
 
   /**
@@ -81,5 +81,9 @@ export class NavigationService {
   navigateToCreatePost() {
     this.router.navigate([`/admin/posts/add`]);
 
+  }
+
+  navigateToProfile() {
+    this.router.navigate([`/admin/dashboard/profile/edit`]);
   }
 }

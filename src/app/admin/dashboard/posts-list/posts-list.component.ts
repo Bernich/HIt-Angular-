@@ -31,7 +31,7 @@ export class HivenewsAdminListComponent implements OnInit {
   loadAll() {
     this.isLoading = true;
 
-    this.postService.query().subscribe({
+    this.postService.all().subscribe({
       next: (data: any) => {
         this.posts = data;
         this.posts.forEach((p: IPost) => (p.show = false));

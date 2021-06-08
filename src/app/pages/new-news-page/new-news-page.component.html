@@ -24,13 +24,16 @@
 
   </section> -->
 
+  <app-jhi-vertical-divider></app-jhi-vertical-divider>
+
+
   <section class="grid-news-container">
     <div *ngFor="let post of posts" [style.backgroundImage]="'url('+ post.thumbnail.url +')'" class="block">
       <a [routerLink]="'/news/'+ post.post_id">
         <div class="text-container">
 
           <section class="instructors-grid">
-            <img src="" alt="" srcset="">
+            <img *ngFor="let item of post.authors" [src]="item.profile_image.url" alt="" srcset="">
           </section>
           <p>{{post.title}}</p>
 
@@ -40,13 +43,12 @@
 
 
 
-
   </section>
+  <app-jhi-vertical-divider></app-jhi-vertical-divider>
 
 
   <!-- <div style="margin-bottom: 100px;"></div> -->
 
-  <!-- <app-jhi-partners-full-list></app-jhi-partners-full-list> -->
   <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
   <jhi-footer></jhi-footer>
 </div>

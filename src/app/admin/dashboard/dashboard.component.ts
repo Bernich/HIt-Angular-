@@ -132,6 +132,9 @@ export class HivenewsDashboardComponent implements OnInit {
       next: (data: any) => {
         this.user = data;
 
+        // Validate the users
+        if (this.user.roles.length === 1 && this.hasRole('USER')) this.navigationService.navigateToProfile();
+
         // Switch state to not loading
         this.state = { ...this.state, isLoading: false };
       },
@@ -176,7 +179,7 @@ export class HivenewsDashboardComponent implements OnInit {
     if (this.authService.hasRole('ADMIN')) return true;
     else if ((title === 'Author' || title === 'Articles') && this.hasRole('AUTHOR')) return true;
     else if ((title === 'Instructor' || title === 'Courses') && this.hasRole('INSTRUCTOR')) return true;
-    else if (title === 'USER' && this.hasRole('USER')) return true;
+    else if (this.user.roles.length === 1 && this.hasRole('USER')) return false;
 
 
     return false;
