@@ -151,10 +151,140 @@ export class HiveAdminAddUserComponent implements OnInit {
     );
   }
 
-  updateAcctTypeUser(data) { }
-  suspendAccount() { }
-  updateAcctTypeAdmin(data) { }
-  updateAcctTypeInstructor(instructor) { }
+
+
+  /**
+   * Suspends or Activagte a users account by toggling isActive
+   * @see IUser.is_active
+   */
+  suspendAccount() {
+    /**Creates an object to post and set is_active to the not(is_avtive)
+     * That means if initially
+     * is_active = true
+     * !is_active = false
+    */
+
+    /**
+     * todo fix this
+     */
+    const status = {
+      is_active: !this.user.is_active
+    };
+
+
+    /**Trigger update status */
+    this.usersService.updateAccountStatus(this.user.user_id, status).subscribe((x) => {
+      this.isLoading = true;
+      this.loadUser(this.user.user_id);
+      this._snackBar.open('Account status updated', 'successfully', {
+        duration: 3000,
+      });
+    },
+      (error) => {
+        this._snackBar.open('Updating account status Failed', 'Please try again', {
+          duration: 3000,
+        });
+      });
+  }
+
+  /**
+   * Adds a role to a users list of roles
+   * @param role {string}
+   */
+  addRole(role: string) {
+    this.user.roles.push(role);
+  }
+
+
+
+  /**
+  * Update An Account Type to User
+  * @param isChecked {boolean}
+  */
+  updateAcctTypeUser(isChecked) {
+    if (isChecked) {
+      this.addRole('USER');
+    }
+    else {
+      this.removeRole('USER');
+    }
+
+    // Update the roles of the user
+    this.updateUserRole();
+  }
+
+
+
+  /**
+   *Update An Account Type to Admin
+   * @param isChecked {boolean}
+   */
+  updateAcctTypeAdmin(isChecked) {
+    if (isChecked) {
+      this.addRole('ADMIN');
+    } else {
+      this.removeRole('ADMIN');
+    }
+
+    // Update the roles of the user
+    this.updateUserRole();
+  }
+
+  /**
+   * Update An Account Type to Instructor
+   * @param isChecked {boolean}
+   */
+  updateAcctTypeInstructor(isChecked) {
+    if (isChecked) {
+      this.addRole('INSTRUCTOR');
+    }
+    else {
+      this.removeRole('INSTRUCTOR');
+    }
+
+    // Update the roles of the user
+    this.updateUserRole();
+  }
+
+  /**
+ * Update An Account Type to Author
+ * @param isChecked {boolean}
+ */
+  updateAcctTypeAuthor(isChecked) {
+    if (isChecked) {
+      this.addRole('AUTHOR');
+    }
+    else {
+      this.removeRole('AUTHOR');
+    }
+
+    // Update the roles of the user
+    this.updateUserRole();
+  }
+
+  /**
+   * Removes a role from a users list of roles
+   * @param role
+   */
+  removeRole(role: string) {
+    this.user.roles = this.user.roles.filter((val) => {
+      if (role != val) {
+        return role;
+      }
+    });
+  }
+
+
+  /**
+   *Updates a user account data
+   */
+  updateUserRole() {
+    const uid = this.user.user_id;
+
+    this.usersService.updateRole(uid, this.user.roles).subscribe((iuser) => {
+      this.loadUser(this.user.user_id);
+    });
+  }
 
 
 

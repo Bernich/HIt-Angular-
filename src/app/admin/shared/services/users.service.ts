@@ -34,7 +34,6 @@ export class UsersService {
   }
 
 
-
   getUserById(uid: string) {
     const token = localStorage.getItem('currentUser');
 
@@ -71,6 +70,59 @@ export class UsersService {
     return this.httpClient.put(`${this.usersURL}`, user, httpOptions);
   }
 
+
+
+  /**
+   * Updates a users role
+   * @param roles {string[]}
+   */
+  updateRole(uid: string, roles: string[]) {
+    const token = localStorage.getItem('currentUser');
+
+    /**
+    * Creates an httpOptions and attaches a Bearer token
+    */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    const payload = {
+      roles
+    };
+
+    return this.httpClient.post(`${this.usersURL}/${uid}/roles`, payload, httpOptions);
+  }
+
+
+
+  /**
+   * Activate or Deactivate a User Account
+   * @param uid {String} - Specified users Id
+   * @param status - status object with is_active field that takes a boolean
+   *
+   */
+  updateAccountStatus(uid: string, status) {
+    /**
+     *  * const status = {
+     *    is_active : false
+      *  }
+     */
+    const token = localStorage.getItem('currentUser');
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+
+    return this.httpClient.post(`${this.usersURL}/${uid}/status`, status, httpOptions);
+  }
 
 
   /**

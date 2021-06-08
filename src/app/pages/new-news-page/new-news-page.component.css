@@ -93,7 +93,7 @@ div.block a {
 div.block .text-container {
   width: 80%;
   height: auto;
-  background-color: orangered;
+  background-color: white;
 
   position: absolute;
   bottom: 0;
@@ -136,7 +136,7 @@ div.block .text-container {
   }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1200px) {
   .grid-news-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -154,6 +154,10 @@ div.block .text-container {
 @media screen and (max-width: 1024px) {
   .news-page-new-list {
     width: calc(90%);
+  }
+  .grid-news-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .news-content-container-list-item {
@@ -182,6 +186,10 @@ div.block .text-container {
 @media screen and (max-width: 680px) {
   .news-page-new-list {
     width: calc(95%);
+  }
+  .grid-news-container {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .news-content-container-list-item {
