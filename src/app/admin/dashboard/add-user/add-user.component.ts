@@ -114,6 +114,9 @@ export class HiveAdminAddUserComponent implements OnInit {
 
 
   saveUser() {
+
+    console.log("This is wrong ", this.user);
+
     this.isLoading = true;
 
     if (this.isNewUser) {
@@ -127,12 +130,13 @@ export class HiveAdminAddUserComponent implements OnInit {
   save() {
 
 
+
     const new_user: CreateUser = this.user;
 
     this.authService.signUp(new_user).subscribe((iuser: any) => {
 
       this.isLoading = false;
-      this.navigationService.editUser(this.user.user_id);
+      this.navigationService.editUser(iuser.user_id);
 
       this._snackBar.open('Created user', `${this.user.firstname}`, {
         duration: 3000,
@@ -177,7 +181,6 @@ export class HiveAdminAddUserComponent implements OnInit {
       return true;
     }
 
-    console.log(roles)
     return false;
   }
 }

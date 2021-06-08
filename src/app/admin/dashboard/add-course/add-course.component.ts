@@ -133,14 +133,14 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
   loadCourse(id) {
     this.courseService.findAny(id).subscribe({
-      next: (data: Course) => {
+      next: (data: any) => {
         // unmap course into
 
         this.isLoading = { ...this.isLoading, course: false };
 
 
         this.course = CourseMapper.convertToCreate(data);
-
+        this.isPublished = data.is_approved;
         // setisNew to false
         this.isNewCourse = false;
 

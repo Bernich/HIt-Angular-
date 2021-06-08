@@ -27,8 +27,14 @@
   <section class="grid-news-container">
     <div *ngFor="let post of posts" [style.backgroundImage]="'url('+ post.thumbnail.url +')'" class="block">
       <a>
+        <div class="text-container">
 
+          <section class="instructors-grid">
+            <img src="" alt="" srcset="">
+          </section>
+          <p>{{post.title}}</p>
 
+        </div>
       </a>
     </div>
 
