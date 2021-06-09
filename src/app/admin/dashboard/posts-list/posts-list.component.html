@@ -4,6 +4,10 @@
     <app-hivenews-admin-posts *ngFor="let post of posts" [post]="post" (edit)="editPost(post)">
     </app-hivenews-admin-posts>
 
+    <section class="no-post-message" style="color: black;">
+      You Do not have any Post
+    </section>
+
   </section>
 
 </section>
