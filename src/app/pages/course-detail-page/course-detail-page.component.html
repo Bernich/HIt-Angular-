@@ -28,10 +28,28 @@
                         </ul>
                         <!-- <p class="duration">{{section.duration +"hrs"}}</p> -->
                     </div>
+                    <hr>
+                    <div class="course-req-container">
+                        <h3 class="course-header">{{"Course Requirements"}}</h3>
+                        <ul class="unordered-list">
+                            <li *ngFor="let item of  course.prerequisites " class="content"> {{item.value}} </li>
+                        </ul>
+                    </div>
+
+                    <hr>
+                    <div *ngIf="course.career_paths.length > 0 " class="course-req-container">
+                        <h3 class="course-header">{{'Career Path'}}</h3>
+                        <ul class="unordered-list">
+                            <li *ngFor="let path of course.career_paths" class="content"> {{path}} </li>
+                        </ul>
+                    </div>
+
                 </div>
 
                 <div *ngFor="let section of course.curriculum; let count  = index;" class="course-details-wrapper">
-                    <img class="icon" src="/assets/images/note.bmp" alt="note">
+                    <div class="icon-con">
+                        <img class="icon" src="/assets/images/note.bmp" alt="note">
+                    </div>
                     <div class="course-description">
                         <h3 class="course-header">{{"Chapter "+ (count + 1)+" "+section.name}}</h3>
                         <ul class="unordered-list">
@@ -39,20 +57,6 @@
                         </ul>
                         <p class="duration">{{section.duration +"hrs"}}</p>
                     </div>
-                </div>
-                <div class="course-req-container">
-                    <h3 class="course-header">{{"Course Requirements"}}</h3>
-                    <ul class="unordered-list">
-                        <li *ngFor="let item of  course.prerequisites " class="content"> {{item.value}} </li>
-                    </ul>
-                </div>
-
-                <hr>
-                <div *ngIf="course.career_paths.length > 0 " class="course-req-container">
-                    <h3 class="course-header">{{'Career Path'}}</h3>
-                    <ul class="unordored-list">
-                        <li *ngFor="let path of course.career_paths" class="content"> {{path}} </li>
-                    </ul>
                 </div>
 
             </div>

@@ -60,6 +60,10 @@
     width: 93%;
 }
 
+.course-req-container {
+    margin-left: 2rem;
+}
+
 .course-header {
     font-family: SFUIText-Medium;
     font-weight: 600;
@@ -92,6 +96,10 @@
     position: relative;
 }
 
+div.course-details-wrapper:nth-child(1) {
+    flex-wrap: wrap;
+}
+
 .course-details-wrapper {
     width: 93%;
     padding: 2em 2em;
@@ -104,6 +112,10 @@
     margin-bottom: 2rem;
 }
 
+.icon-con {
+    width: 20%;
+}
+
 .icon {
     height: 3rem;
     width: 3rem;
@@ -111,6 +123,7 @@
 
 .course-description {
     margin-left: 2rem;
+    width: 100%;
 }
 
 .course-details-wrapper h3 {
