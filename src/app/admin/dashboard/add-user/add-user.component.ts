@@ -251,6 +251,7 @@ export class HiveAdminAddUserComponent implements OnInit {
  * @param isChecked {boolean}
  */
   updateAcctTypeAuthor(isChecked) {
+
     if (isChecked) {
       this.addRole('AUTHOR');
     }

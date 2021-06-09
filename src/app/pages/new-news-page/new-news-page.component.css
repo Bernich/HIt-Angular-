@@ -73,7 +73,7 @@
 
 div.block {
   width: 100%;
-  height: 400px;
+  height: 350px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -113,9 +113,24 @@ div.block .text-container .instructors-grid {
   margin-top: calc((30px + 10px) * -1);
 }
 
+div.block .text-container .container-text-content {
+  margin-top: 10px;
+}
+
+div.block .text-container .container-text-content p {
+  font-size: 21px;
+  font-weight: 500;
+  font-family: SFUIText-Medium;
+}
+
+div.block .text-container .container-text-content span {
+  font-size: 16px;
+}
 div.block .text-container .instructors-grid img {
   width: 60px;
   height: 60px;
+  border: 2px solid whitesmoke;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1600px) {

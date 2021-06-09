@@ -32,6 +32,35 @@ export class PostService {
 
   }
 
+
+
+  /**
+ * Updates the state of a post to either  enabled or disabled
+ * @param courseId
+ */
+  approvePost(postId: string) {
+    const token = localStorage.getItem('currentUser');
+
+    /**
+     * Creates an httpOptions and attaches a Bearer token
+     */
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+
+    };
+
+    const body = {
+      id: postId,
+    };
+
+    return this.http.put(this.resourceUrl + `/${postId}/approve`, body, httpOptions);
+  }
+
+
+
   findAdminPost(id: string) {
     const token = localStorage.getItem('currentUser');
 
