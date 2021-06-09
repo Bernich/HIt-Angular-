@@ -175,11 +175,44 @@ export class HivenewsDashboardComponent implements OnInit {
   visible(title: string) {
 
 
+
+    // console.log("Has Roles Author", this.hasRole("Author"))
+    // console.log("Has Roles Iinstructor", this.hasRole("INSTRUCTOR"))
+    // console.log("Has Roles Admin", this.hasRole("AUTHOR"))
+    // console.log("Has Roles User", this.hasRole("USER"))
+
     // If hes an ADMIN show
-    if (this.authService.hasRole('ADMIN')) return true;
-    else if ((title === 'Author' || title === 'Articles') && this.hasRole('AUTHOR')) return true;
-    else if ((title === 'Instructor' || title === 'Courses') && this.hasRole('INSTRUCTOR')) return true;
-    else if (this.user.roles.length === 1 && this.hasRole('USER')) return false;
+    if (this.authService.hasRole('ADMIN')) {
+      console.log("User is an admin");
+      return true;
+    }
+
+
+    // Check for Articles
+    if (
+      (title.toLocaleLowerCase() === 'Authors'.toLocaleLowerCase()
+        ||
+        title.toLocaleLowerCase() === 'Articles'.toLocaleLowerCase())
+      && this.authService.hasRole('AUTHOR')
+    ) {
+      // console.log("Is an Author");
+      return true;
+    }
+
+    // Check for Instructors
+    if ((title.toLocaleLowerCase() === 'Instructors'.toLocaleLowerCase()
+      ||
+      title.toLocaleLowerCase() === 'Courses'.toLocaleLowerCase())
+      && this.authService.hasRole('INSTRUCTOR')) {
+      // console.log("is an instructor");
+      return true;
+    }
+
+    // Check for users
+    if (this.user.roles.length === 1 && this.hasRole('USER')) {
+      // console.log("Is is normal user");
+      return false;
+    }
 
 
     return false;

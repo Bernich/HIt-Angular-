@@ -44,7 +44,10 @@ export class HiveAdminCoursesListComponent implements OnInit {
         this.courses = courses;
       },
 
-      error: (err: any) => { }
+      error: (err: any) => {
+        this.isLoading = false;
+
+      }
     });
   }
 }

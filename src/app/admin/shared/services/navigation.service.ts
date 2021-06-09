@@ -21,7 +21,8 @@ export class NavigationService {
    * Navigate to to dashboard page
    */
   navigateToDashboard() {
-    this.router.navigate([`/admin/dashboard/courses`]);
+    // this.router.navigate([`/admin/dashboard/courses`]);
+    this.router.navigate([`/admin/dashboard`]);
   }
 
   /**
