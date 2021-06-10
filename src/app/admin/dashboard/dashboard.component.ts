@@ -174,13 +174,6 @@ export class HivenewsDashboardComponent implements OnInit {
 
   visible(title: string) {
 
-
-
-    // console.log("Has Roles Author", this.hasRole("Author"))
-    // console.log("Has Roles Iinstructor", this.hasRole("INSTRUCTOR"))
-    // console.log("Has Roles Admin", this.hasRole("AUTHOR"))
-    // console.log("Has Roles User", this.hasRole("USER"))
-
     // If hes an ADMIN show
     if (this.authService.hasRole('ADMIN')) {
       console.log("User is an admin");
@@ -190,12 +183,9 @@ export class HivenewsDashboardComponent implements OnInit {
 
     // Check for Articles
     if (
-      (title.toLocaleLowerCase() === 'Authors'.toLocaleLowerCase()
-        ||
-        title.toLocaleLowerCase() === 'Articles'.toLocaleLowerCase())
+      (title.toLocaleLowerCase() === 'Articles'.toLocaleLowerCase())
       && this.authService.hasRole('AUTHOR')
     ) {
-      // console.log("Is an Author");
       return true;
     }
 
@@ -204,13 +194,11 @@ export class HivenewsDashboardComponent implements OnInit {
       ||
       title.toLocaleLowerCase() === 'Courses'.toLocaleLowerCase())
       && this.authService.hasRole('INSTRUCTOR')) {
-      // console.log("is an instructor");
       return true;
     }
 
     // Check for users
     if (this.user.roles.length === 1 && this.hasRole('USER')) {
-      // console.log("Is is normal user");
       return false;
     }
 

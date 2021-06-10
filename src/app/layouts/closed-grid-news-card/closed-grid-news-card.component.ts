@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
+import { IPost } from 'src/app/shared/model/post.model';
 
 @Component({
   selector: 'app-jhi-closed-grid-news-card',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit, HostListener } from '@angular/core';
 })
 export class ClosedGridNewsCardComponent implements OnInit {
 
-  @Input() news: any;
+  @Input() post: IPost;
 
   ngOnInit() { }
 

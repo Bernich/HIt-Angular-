@@ -64,11 +64,13 @@
 .grid-news-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 0px;
   /* grid-template-rows: 300px 1fr; */
   /* grid-gap: 10px; */
   /* height: 500px; */
 
-  background-color: antiquewhite;
+  background-color: rgb(250, 250, 250);
 }
 
 div.block {
@@ -107,6 +109,8 @@ div.block .text-container {
 
   line-height: 1.25em;
   font-family: SFUIText-Light;
+
+  border-top-right-radius: 5px;
 }
 
 div.block .text-container .instructors-grid {
@@ -117,14 +121,34 @@ div.block .text-container .container-text-content {
   margin-top: 10px;
 }
 
-div.block .text-container .container-text-content p {
-  font-size: 21px;
+div.block .text-container .container-text-content .head {
+  font-size: 22px;
+  display: inline;
   font-weight: 500;
   font-family: SFUIText-Medium;
+  color: #4a4a4a;
+  transition: all 0.2s ease-in-out;
+  /* Underline */
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  transition: background-size 0.3s;
+  position: relative;
+
+  margin-bottom: 10px;
 }
 
-div.block .text-container .container-text-content span {
-  font-size: 16px;
+div.block .text-container .container-text-content:hover .head {
+  /* text-decoration: underline; */
+  background-size: 100% 2px;
+  transition: all 0.4s ease-in-out;
+}
+
+div.block .text-container .container-text-content .footer {
+  width: 100%;
+  display: block;
+  font-size: 13px;
 }
 div.block .text-container .instructors-grid img {
   width: 60px;

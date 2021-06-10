@@ -31,7 +31,7 @@ export class AuthorService {
       }),
     };
 
-    return this.httpClient.get(this.authorsUrl, httpOptions);
+    return this.httpClient.get(this.authorsUrl + "/admin/list", httpOptions);
   }
 
 
