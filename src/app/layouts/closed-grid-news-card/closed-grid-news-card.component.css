@@ -49,6 +49,8 @@ div.block .text-container {
   font-family: SFUIText-Light;
 
   border-top-right-radius: 5px;
+
+  text-align: left;
 }
 
 div.block .text-container .instructors-grid {
@@ -73,8 +75,6 @@ div.block .text-container .container-text-content .head {
   background-size: 0 2px;
   transition: background-size 0.3s;
   position: relative;
-
-  margin-bottom: 10px;
 }
 
 div.block .text-container .container-text-content:hover .head {
@@ -87,6 +87,8 @@ div.block .text-container .container-text-content .footer {
   width: 100%;
   display: block;
   font-size: 13px;
+
+  margin-top: 15px;
 }
 div.block .text-container .instructors-grid img {
   width: 60px;
