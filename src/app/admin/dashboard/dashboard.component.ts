@@ -139,8 +139,6 @@ export class HivenewsDashboardComponent implements OnInit {
         this.state = { ...this.state, isLoading: false };
       },
       error: (err) => {
-        // console.log(err);
-
         // Switch state to not loading
         this.state = { ...this.state, isLoading: false };
       }
@@ -166,8 +164,6 @@ export class HivenewsDashboardComponent implements OnInit {
     if (roles.length >= 1) {
       return true;
     }
-
-    console.log(roles)
     return false;
   }
 
@@ -176,14 +172,13 @@ export class HivenewsDashboardComponent implements OnInit {
 
     // If hes an ADMIN show
     if (this.authService.hasRole('ADMIN')) {
-      console.log("User is an admin");
       return true;
     }
 
 
     // Check for Articles
     if (
-      (title.toLocaleLowerCase() === 'Articles'.toLocaleLowerCase())
+      (title.toLocaleLowerCase() === 'Articles'.toLocaleLowerCase() || title.toLocaleLowerCase() === 'Authors'.toLocaleLowerCase())
       && this.authService.hasRole('AUTHOR')
     ) {
       return true;

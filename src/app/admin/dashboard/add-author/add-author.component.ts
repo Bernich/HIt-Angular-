@@ -95,7 +95,6 @@ export class HivenewsAdminAddAuthorComponent implements OnInit {
       },
       error: (err: any) => {
         this.isLoading = false;
-        // console.log(err);
       }
     });
   }

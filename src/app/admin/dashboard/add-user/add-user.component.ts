@@ -115,8 +115,6 @@ export class HiveAdminAddUserComponent implements OnInit {
 
   saveUser() {
 
-    console.log("This is wrong ", this.user);
-
     this.isLoading = true;
 
     if (this.isNewUser) {
@@ -128,8 +126,6 @@ export class HiveAdminAddUserComponent implements OnInit {
 
 
   save() {
-
-
 
     const new_user: CreateUser = this.user;
 
