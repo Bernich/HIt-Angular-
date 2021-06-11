@@ -11,7 +11,7 @@
 
         <div class="spacer"></div>
         <!-- TODO : USe moment js to get the date -->
-        <span class="footer">Mat Ryer · 9 months ago
+        <span class="footer"> {{ getAuthors(post.authors) + " · " +getDate(post.date_created)}}
         </span>
       </section>
 

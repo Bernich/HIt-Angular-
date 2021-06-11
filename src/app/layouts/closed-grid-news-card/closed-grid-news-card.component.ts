@@ -1,5 +1,9 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { IPost } from 'src/app/shared/model/post.model';
+import * as moment from 'moment';
+import { IAuthor } from 'src/app/admin/shared/models';
+import { convertToMoment } from 'src/app/shared';
+import { getAllAuthorsString } from 'src/app/shared/util/author.utils';
 
 @Component({
   selector: 'app-jhi-closed-grid-news-card',
@@ -9,6 +13,7 @@ import { IPost } from 'src/app/shared/model/post.model';
 export class ClosedGridNewsCardComponent implements OnInit {
 
   @Input() post: IPost;
+  myMoment: moment.Moment;
 
   ngOnInit() { }
 
@@ -26,7 +31,15 @@ export class ClosedGridNewsCardComponent implements OnInit {
 
 
   getDate(date: string) {
-    if (date) { return new Date(date).toDateString(); }
+
+    if (date) {
+      return convertToMoment(date);
+    }
     return '---';
+  }
+
+  getAuthors(authors: IAuthor[]) {
+    return getAllAuthorsString(authors);
+
   }
 }

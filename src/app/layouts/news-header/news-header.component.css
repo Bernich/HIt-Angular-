@@ -81,10 +81,14 @@ header {
   /* width: 55%; */
 }
 .post-title {
-  font-size: 28px;
+  font-size: 42px;
   font-weight: 600;
   color: #ffffff;
   line-height: normal;
+}
+
+h3 {
+  margin: 0px;
 }
 
 .post-date {

@@ -6,73 +6,31 @@
   <!-- <app-jhi-partners></app-jhi-partners> -->
   <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
 
-  <!-- <section class="news-page-list-content">
+  <section class="news-page-list-content">
     <app-jhi-vertical-divider style="margin-top:-30px"></app-jhi-vertical-divider>
 
     <section class="news-page-list-content-header">
       <div></div>
 
 
-      <h2 *ngIf="posts" class="post-count">{{ posts.length + " posts" }}</h2>
+      <h2 *ngIf="posts" class="post-count">{{ posts.length + " Articles" }}</h2>
     </section>
 
     <section class="news-page-new-list" *ngIf="posts else loader">
 
-      <app-jhi-new-news-card class="news-content-container-list-item" *ngFor="let post of posts" [news]="post">
-      </app-jhi-new-news-card>
+      <!-- <app-jhi-new-news-card class="news-content-container-list-item" *ngFor="let post of posts" [news]="post">
+      </app-jhi-new-news-card> -->
 
     </section>
 
-    <app-jhi-vertical-divider></app-jhi-vertical-divider>
+    <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
 
-  </section> -->
+  </section>
 
-  <app-jhi-vertical-divider></app-jhi-vertical-divider>
+  <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
 
 
   <section class="grid-news-container">
-    <div *ngFor="let post of posts" [style.backgroundImage]="'url('+ post.thumbnail.url +')'" class="block">
-      <a [routerLink]="'/news/'+ post.post_id">
-        <div class="text-container">
-
-          <section class="instructors-grid">
-            <img *ngFor="let item of post.authors" [src]="item.profile_image.url" alt="" srcset="">
-          </section>
-
-          <section class="container-text-content">
-            <span class="head">{{post.title}}</span>
-
-            <div class="spacer"></div>
-            <!-- TODO : USe moment js to get the date -->
-            <span class="footer">Mat Ryer · 9 months ago
-            </span>
-          </section>
-
-        </div>
-      </a>
-    </div>
-
-    <div *ngFor="let post of posts" [style.backgroundImage]="'url('+ post.thumbnail.url +')'" class="block">
-      <a [routerLink]="'/news/'+ post.post_id">
-        <div class="text-container">
-
-          <section class="instructors-grid">
-            <img *ngFor="let item of post.authors" [src]="item.profile_image.url" alt="" srcset="">
-          </section>
-
-          <section class="container-text-content">
-            <span class="head">{{post.title}}</span>
-
-            <div class="spacer"></div>
-            <!-- TODO : USe moment js to get the date -->
-            <span class="footer">Mat Ryer · 9 months ago
-            </span>
-          </section>
-
-        </div>
-      </a>
-    </div>
-
 
     <app-jhi-closed-grid-news-card *ngFor="let post of posts" [post]='post'>
 

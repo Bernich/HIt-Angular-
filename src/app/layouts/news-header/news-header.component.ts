@@ -2,7 +2,9 @@ import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { IPost } from '../../shared/model/post.model';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { ACTIVE_LINKS } from 'src/app/shared';
+import { ACTIVE_LINKS, convertToMoment } from 'src/app/shared';
+import { getAllAuthorsString } from 'src/app/shared/util/author.utils';
+import { IAuthor } from 'src/app/admin/shared/models';
 
 @Component({
   selector: 'jhi-news-header',
@@ -57,13 +59,21 @@ export class NewsHeaderComponent implements OnInit {
       this.navigation.showNavigationArrows = false;
       this.navigation.showNavigationIndicators = false;
     } else {
-      this.navigation.showNavigationArrows = true;
-      this.navigation.showNavigationIndicators = true;
+      this.navigation.showNavigationArrows = false;
+      this.navigation.showNavigationIndicators = false;
     }
   }
 
   getDate(date: string) {
-    if (date) { return new Date(date).toDateString(); }
+    if (date) {
+      return convertToMoment(date);
+    }
+
     return '---';
+  }
+
+  getAuthors(authors: IAuthor[]) {
+    return getAllAuthorsString(authors);
+
   }
 }

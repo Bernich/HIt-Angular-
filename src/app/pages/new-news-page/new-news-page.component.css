@@ -55,9 +55,19 @@
 }
 
 .news-page-list-content-header .post-count {
-  font-family: SFProText;
-  font-size: 15px;
-  font-weight: 600;
+  font-family: SFUIText-Light;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* USE SIMILAR TO POST COUNT */
+h2.post-count:after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 4px;
+  background-color: #e26118;
+  margin-top: 10px;
 }
 
 /* New Grid List  */
