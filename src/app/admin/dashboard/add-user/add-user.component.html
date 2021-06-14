@@ -61,9 +61,9 @@
         </mat-list-item>
 
         <mat-list-item>
-          <mat-checkbox #admin class="margin" [checked]="hasRole('AUTHOR')"
-            (change)="updateAcctTypeAdmin(admin.checked)">
-            AUTHOR
+          <mat-checkbox #author class="margin" [checked]="hasRole('AUTHOR')"
+            (change)="updateAcctTypeAuthor(author.checked)">
+            Author
           </mat-checkbox>
         </mat-list-item>
       </mat-list>

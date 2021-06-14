@@ -4,7 +4,7 @@
     <div class="tabs">
       <div [ngClass]="{'active-heading' : isAccountVisibleState}" class="heading" (click)=" isAccountVisibleState=true">
         General</div>
-      <div [ngClass]="{'active-heading' : !isAccountVisibleState}" class="heading"
+      <div *ngIf="isNew" [ngClass]="{'active-heading' : !isAccountVisibleState}" class="heading"
         (click)="isAccountVisibleState = false">
         Password</div>
     </div>
@@ -64,16 +64,12 @@
 
 
 
-    <div [style.display]="!isAccountVisibleState ? 'flex' : 'none'" class="input-tab">
+    <div *ngIf="isNew" [style.display]="!isAccountVisibleState ? 'flex' : 'none'" class="input-tab">
 
-      <div *ngIf="!isNew" class="input-container">
-        <div class="title">OLD PASSWORD</div>
-        <input type="password" [(ngModel)]=" user.old_password " />
-      </div>
 
       <div class="input-container">
-        <div class="title">{{ isNew ? " PASSWORD" : "NEW PASSWORD"}}</div>
-        <input type="password" [(ngModel)]=" isNew ? user.password : user.new_password" />
+        <div class="title">{{" PASSWORD"}}</div>
+        <input type="password" [(ngModel)]="user.password" />
       </div>
 
       <div class="input-container">

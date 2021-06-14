@@ -30,7 +30,8 @@
                 <span class="news-list-tile-header">
                   {{post.title}}
                 </span>
-                <div class="news-list-tile-date"> {{ getDate(post.date_created)}}</div>
+                <div class="news-list-tile-date"> {{ getAuthors(post.authors) + " · " + getDate(post.date_created)}}
+                </div>
               </div>
             </a>
             <!-- <div class="news-list-tile">

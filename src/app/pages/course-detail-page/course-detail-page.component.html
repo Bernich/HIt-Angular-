@@ -1,95 +1,95 @@
 <section class="course-detail-page-container" *ngIf="!isLoading; else loader">
-    <app-new-onsite-navbar [activeRoute]="'academics'"></app-new-onsite-navbar>
+  <app-new-onsite-navbar [activeRoute]="'academics'"></app-new-onsite-navbar>
 
-    <section>
-        <div [style.backgroundImage]="'url('+course.banner.url+')'" class="course-banner">
+  <section>
+    <div [style.backgroundImage]="'url('+course.banner.url+')'" class="course-banner">
 
-            <div class="course-detail-summary">
-                <h1>{{course.name}}</h1><span>{{course.duration}}</span>
-                <p>
-                    {{course.overview}}
-                </p>
-            </div>
+      <div class="course-detail-summary">
+        <h1>{{course.name}}</h1><span>{{course.duration}}</span>
+        <p>
+          {{course.overview}}
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="course-wrapper">
+      <div class="course-details-container">
+
+        <!-- Course Prerequisites -->
+        <div class="course-details-wrapper">
+          <!-- <img class="icon" src="/assets/images/note.bmp" alt="note"> -->
+          <div class="course-description">
+            <h3 class="course-header">{{"What You Will Learn"}}</h3>
+            <ul class="unordered-list">
+              <li *ngFor="let item of course.what_you_will_learn">{{item.value}}</li>
+            </ul>
+            <!-- <p class="duration">{{section.duration +"hrs"}}</p> -->
+          </div>
+
+          <div class="course-req-container">
+            <h3 class="course-header">{{"Course Requirements"}}</h3>
+            <ul class="unordered-list">
+              <li *ngFor="let item of  course.prerequisites " class="content"> {{item.value}} </li>
+            </ul>
+          </div>
+
+          <div *ngIf="course.career_paths.length > 0 " class="course-req-container">
+            <h3 class="course-header">{{'Career Path'}}</h3>
+            <ul class="unordered-list">
+              <li *ngFor="let path of course.career_paths" class="content"> {{path}} </li>
+            </ul>
+          </div>
 
         </div>
-    </section>
 
-    <section>
-        <div class="course-wrapper">
-            <div class="course-details-container">
-
-                <!-- Course Prerequisites -->
-                <div class="course-details-wrapper">
-                    <!-- <img class="icon" src="/assets/images/note.bmp" alt="note"> -->
-                    <div class="course-description">
-                        <h3 class="course-header">{{"What You Will Learn"}}</h3>
-                        <ul class="unordered-list">
-                            <li *ngFor="let item of course.what_you_will_learn">{{item.value}}</li>
-                        </ul>
-                        <!-- <p class="duration">{{section.duration +"hrs"}}</p> -->
-                    </div>
-                    <hr>
-                    <div class="course-req-container">
-                        <h3 class="course-header">{{"Course Requirements"}}</h3>
-                        <ul class="unordered-list">
-                            <li *ngFor="let item of  course.prerequisites " class="content"> {{item.value}} </li>
-                        </ul>
-                    </div>
-
-                    <hr>
-                    <div *ngIf="course.career_paths.length > 0 " class="course-req-container">
-                        <h3 class="course-header">{{'Career Path'}}</h3>
-                        <ul class="unordered-list">
-                            <li *ngFor="let path of course.career_paths" class="content"> {{path}} </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div *ngFor="let section of course.curriculum; let count  = index;" class="course-details-wrapper">
-                    <div class="icon-con">
-                        <img class="icon" src="/assets/images/note.bmp" alt="note">
-                    </div>
-                    <div class="course-description">
-                        <h3 class="course-header">{{"Chapter "+ (count + 1)+" "+section.name}}</h3>
-                        <ul class="unordered-list">
-                            <li *ngFor="let lesson of section.lessons">{{lesson.name}}</li>
-                        </ul>
-                        <p class="duration">{{section.duration +"hrs"}}</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="instructor-container">
-                <!-- If course has multiple instructors, show the images and allow clicking -->
-                <section class="instructor-profile" *ngIf="course.instructors.length > 1">
-                    <img *ngFor="let instructor of course.instructors" (mouseover)="updateCurrentInstructor(instructor)" [src]="instructor.profile_pic.url" alt="" srcset="">
-                </section>
-                <div class="profile-wrapper">
-                    <img class="profile" [src]="instructor.profile_pic.url" alt="">
-                    <p class="instructor-name">{{instructor.firstname + " " + instructor.lastname }}</p>
-                    <p class="position">Instructor</p>
-                    <div class="social-media-handles">
-                        <a *ngFor="let social of instructor.social_media_handles" href="{{social.url}}" target="_blank">
-                            <img src="{{getUrl(social.platform)}}" /></a>
-
-                    </div>
-                    <p class="instructor-desc" #bio> {{ updateInstructorDescription(bio) }}</p>
-                    <button class="btn-enroll">ENROLL</button>
-                </div>
-
-            </div>
+        <div *ngFor="let section of course.curriculum; let count  = index;" class="course-details-wrapper">
+          <div class="icon-con">
+            <img class="icon" src="/assets/images/note.bmp" alt="note">
+          </div>
+          <div class="course-description">
+            <h3 class="course-header">{{"Chapter "+ (count + 1)+" "+section.name}}</h3>
+            <ul class="unordered-list">
+              <li *ngFor="let lesson of section.lessons">{{lesson.name}}</li>
+            </ul>
+            <p class="duration">{{section.duration +"hrs"}}</p>
+          </div>
         </div>
-    </section>
 
-    <div style="margin-bottom: 100px;"></div>
-    <jhi-footer></jhi-footer>
+      </div>
+
+      <div class="instructor-container">
+        <!-- If course has multiple instructors, show the images and allow clicking -->
+        <section class="instructor-profile" *ngIf="course.instructors.length > 1">
+          <img *ngFor="let instructor of course.instructors" (mouseover)="updateCurrentInstructor(instructor)"
+            [src]="instructor.profile_pic.url" alt="" srcset="">
+        </section>
+        <div class="profile-wrapper">
+          <img class="profile" [src]="instructor.profile_pic.url" alt="">
+          <p class="instructor-name">{{instructor.firstname + " " + instructor.lastname }}</p>
+          <p class="position">Instructor</p>
+          <div class="social-media-handles">
+            <a *ngFor="let social of instructor.social_media_handles" href="{{social.url}}" target="_blank">
+              <img src="{{getUrl(social.platform)}}" /></a>
+
+          </div>
+          <p class="instructor-desc" #bio> {{ updateInstructorDescription(bio) }}</p>
+          <button class="btn-enroll">ENROLL</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="margin-bottom: 100px;"></div>
+  <jhi-footer></jhi-footer>
 </section>
 
 
 
 
 <ng-template #loader>
-    <app-loader></app-loader>
+  <app-loader></app-loader>
 </ng-template>

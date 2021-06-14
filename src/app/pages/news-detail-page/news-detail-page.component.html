@@ -1,66 +1,66 @@
 <div *ngIf="post">
-    <jhi-news-header [activeRoute]="'news'" [headerPost]="post"></jhi-news-header>
+  <jhi-news-header [activeRoute]="'news'" [headerPost]="post"></jhi-news-header>
 
-    <section class="news-page-content">
-        <!-- <app-jhi-vertical-divider style="margin-top:-30px"></app-jhi-vertical-divider> -->
-        <div style="margin-bottom: 100px;"></div>
+  <section class="news-page-content">
+    <!-- <app-jhi-vertical-divider style="margin-top:-30px"></app-jhi-vertical-divider> -->
+    <div style="margin-bottom: 100px;"></div>
 
-        <section class="news-page-detail-content">
+    <section class="news-page-detail-content">
 
-            <p class="update-content" #content style="font-size:20px; line-height:1.75em; margin-right: 50px;">
+      <p class="update-content" #content style="font-size:20px; line-height:1.75em; margin-right: 50px;">
 
 
-                {{ update(content, post.content) }}
+        {{ update(content, post.content) }}
 
-            </p>
+      </p>
 
-            <!-- <div>
+      <!-- <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur.
       </div> -->
-            <section class="trending">
-                <p class="trending-text">Trending</p>
-                <div class="trending-container">
-                    <div class="order-container">
-                        <p class="number">1</p>
-                    </div>
-                    <div class="trending-post-header">
-                        <p class="description">There is more to Jeremy Lin than 'Linsanity</p>
-                    </div>
-                    <div class="trending-pic">
-                        <img src="../../../assets/images/naspos.bmp" alt="">
-                    </div>
-                </div>
-            </section>
-            <section>
+      <section class="trending">
+        <p class="trending-text">Trending</p>
+        <div class="trending-container">
+          <div class="order-container">
+            <p class="number">1</p>
+          </div>
+          <div class="trending-post-header">
+            <p class="description">There is more to Jeremy Lin than 'Linsanity</p>
+          </div>
+          <div class="trending-pic">
+            <img src="../../../assets/images/naspos.bmp" alt="">
+          </div>
+        </div>
+      </section>
+      <section>
 
-                <section>
-                    <!-- Details of the posts users -->
-                    <div *ngFor="let author of post.authors" class="author-container">
-                        <div class="author-img">
-                            <img [src]="author.profile_image.url" alt="profile image of asas" srcset="">
-                        </div>
-                        <div class="author-bio">
-                            <h6 class="author-name">{{ author.first_name + " " + author.last_name }}</h6>
-                            <p class="description2" #bio> {{ update(bio, author.bio)}}</p>
-                        </div>
-                    </div>
-                </section>
-            </section>
+        <section>
+          <!-- Details of the posts users -->
+          <div *ngFor="let author of post.authors" class="author-container">
+            <div class="author-img">
+              <img [src]="author.profile_image.url" alt="profile image of asas" srcset="">
+            </div>
+            <div class="author-bio">
+              <h6 class="author-name">{{ author.first_name + " " + author.last_name }}</h6>
+              <p class="description2" #bio> {{ update(bio, author.bio)}}</p>
+            </div>
+          </div>
         </section>
-        <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
-        <div style="margin-bottom: 100px;"></div>
-
-
+      </section>
     </section>
-
-
-
-    <!-- <div style="margin-bottom: 100px;"></div> -->
-
-    <!-- <app-jhi-partners-full-list></app-jhi-partners-full-list> -->
     <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
-    <jhi-footer></jhi-footer>
+    <div style="margin-bottom: 100px;"></div>
+
+
+  </section>
+
+
+
+  <!-- <div style="margin-bottom: 100px;"></div> -->
+
+  <!-- <app-jhi-partners-full-list></app-jhi-partners-full-list> -->
+  <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
+  <jhi-footer></jhi-footer>
 </div>

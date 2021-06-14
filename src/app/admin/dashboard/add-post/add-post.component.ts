@@ -80,7 +80,7 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
 
   loadPost(id) {
 
-    this.postsService.find(id).subscribe({
+    this.postsService.findAdminPost(id).subscribe({
       next: (data: IPost) => {
         // unwrap post for edit
         this.postService.post = PostMapper.convertToCreatePost(data);
@@ -220,10 +220,27 @@ export class HivenewsAdminAddNewsComponent implements OnInit {
   }
 
   publisCourse() {
-    // console.log("Publish course")
-    this.notificationService.openSnackBar("Pulish Course not implemented", "Try Again");
+
+    this.postsService.approvePost(this.postId).subscribe({
+      next: (data) => {
+        this.notificationService.openSnackBar("Post Updated", this.postService.post.title + "");
+
+        // reload course
+        this.loadPost(this.postId);
+      },
+      error: (err) => {
+        this.notificationService.openSnackBar("Post Update Failed " + err.error, "Try Again");
+      }
+    });
   }
 
+
+
+
+  deleteCourse() {
+    this.notificationService.openSnackBar("Delete Course not implemented", "Try Again");
+
+  }
 
   /**
    * Since the Authors are difficult processing,

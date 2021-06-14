@@ -12,6 +12,10 @@ import { ActivatedRoute } from '@angular/router';
 export class NewsDetailPageComponent implements OnInit {
   newsDetail = null;
   post: IPost;
+
+
+  randomPosts: IPost[] = null;
+
   isLoading: boolean;
 
   // headerImageUrl
@@ -54,7 +58,14 @@ export class NewsDetailPageComponent implements OnInit {
     element.innerHTML = data;
   }
 
-
+  loadRandomPost() {
+    this.postService.all().subscribe({
+      next: (data: IPost[]) => {
+        this.randomPosts = data
+      },
+      error: (err: any) => { }
+    })
+  }
 
 
 

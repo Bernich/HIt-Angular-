@@ -1,0 +1,20 @@
+<div [style.backgroundImage]="'url('+ post.thumbnail.url +')'" class="block">
+  <a [routerLink]="'/news/'+ post.post_id">
+    <div class="text-container">
+
+      <section class="instructors-grid">
+        <img *ngFor="let item of post.authors" [src]="item.profile_image.url" alt="" srcset="">
+      </section>
+
+      <section class="container-text-content">
+        <span class="head">{{post.title}}</span>
+
+        <div class="spacer"></div>
+        <!-- TODO : USe moment js to get the date -->
+        <span class="footer"> {{ getAuthors(post.authors) + " · " +getDate(post.date_created)}}
+        </span>
+      </section>
+
+    </div>
+  </a>
+</div>

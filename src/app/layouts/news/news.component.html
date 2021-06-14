@@ -21,8 +21,14 @@
 
     <section class="news-content-container-list">
 
-      <app-jhi-news-card class="news-content-container-list-item" *ngFor="let item of posts" [news]="item">
-      </app-jhi-news-card>
+      <!-- <app-jhi-news-card class="news-content-container-list-item" *ngFor="let item of posts" [news]="item">
+      </app-jhi-news-card> -->
+
+
+
+      <app-jhi-closed-grid-news-card class="news-content-container-list-item" *ngFor="let post of posts" [post]='post'>
+
+      </app-jhi-closed-grid-news-card>
 
     </section>
   </section>

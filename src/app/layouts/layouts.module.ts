@@ -33,8 +33,9 @@ import {
   NewOnsiteNavbarComponent,
   NewNewsCardComponent,
   NewAllProgramsLayoutComponent,
-  NewsHeaderComponent
-} from '.';
+  NewsHeaderComponent,
+  ClosedGridNewsCardComponent
+} from './index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -75,7 +76,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewOnsiteNavbarComponent,
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent,
-    NewsHeaderComponent
+    NewsHeaderComponent,
+    ClosedGridNewsCardComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -106,7 +108,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewOnsiteNavbarComponent,
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent,
-    NewsHeaderComponent
+    NewsHeaderComponent,
+    ClosedGridNewsCardComponent
   ]
 })
 export class HivenewsLayoutsModule { }

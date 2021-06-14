@@ -69,7 +69,7 @@
   <mat-drawer #drawer mode="side" opened class="side-nav" id="side-drawer">
     <div class="nav-title">APP MENU</div>
 
-    <!-- Hidde all  -->
+    <!-- Hidde all : *ngIf="user.roles.length > 1 || !this.hasRole('USER')"  -->
     <nav>
       <div *ngFor="let link of links" class="link-container" [ngClass]="{'hidden' : !visible(link.title)}"
         routerLinkActive="div-active">

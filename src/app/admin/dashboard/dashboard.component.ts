@@ -132,12 +132,13 @@ export class HivenewsDashboardComponent implements OnInit {
       next: (data: any) => {
         this.user = data;
 
+        // Validate the users
+        if (this.user.roles.length === 1 && this.hasRole('USER')) this.navigationService.navigateToProfile();
+
         // Switch state to not loading
         this.state = { ...this.state, isLoading: false };
       },
       error: (err) => {
-        // console.log(err);
-
         // Switch state to not loading
         this.state = { ...this.state, isLoading: false };
       }
@@ -163,20 +164,38 @@ export class HivenewsDashboardComponent implements OnInit {
     if (roles.length >= 1) {
       return true;
     }
-
-    console.log(roles)
     return false;
   }
 
 
   visible(title: string) {
 
-
     // If hes an ADMIN show
-    if (this.authService.hasRole('ADMIN')) return true;
-    else if ((title === 'Author' || title === 'Articles') && this.hasRole('AUTHOR')) return true;
-    else if ((title === 'Instructor' || title === 'Courses') && this.hasRole('INSTRUCTOR')) return true;
-    else if (title === 'USER' && this.hasRole('USER')) return true;
+    if (this.authService.hasRole('ADMIN')) {
+      return true;
+    }
+
+
+    // Check for Articles
+    if (
+      (title.toLocaleLowerCase() === 'Articles'.toLocaleLowerCase() || title.toLocaleLowerCase() === 'Authors'.toLocaleLowerCase())
+      && this.authService.hasRole('AUTHOR')
+    ) {
+      return true;
+    }
+
+    // Check for Instructors
+    if ((title.toLocaleLowerCase() === 'Instructors'.toLocaleLowerCase()
+      ||
+      title.toLocaleLowerCase() === 'Courses'.toLocaleLowerCase())
+      && this.authService.hasRole('INSTRUCTOR')) {
+      return true;
+    }
+
+    // Check for users
+    if (this.user.roles.length === 1 && this.hasRole('USER')) {
+      return false;
+    }
 
 
     return false;

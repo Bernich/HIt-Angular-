@@ -1,75 +1,3 @@
-.spinner {
-  width: 485px;
-  margin: 20px auto;
-}
-
-.news-page-list-content {
-  width: 100%;
-  /* height: 600px; */
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-
-  background-color: rgba(0, 0, 0, 0.02);
-}
-
-.news-page-new-list {
-  width: 100%;
-
-  /* background-color: red; */
-
-  height: 90%;
-}
-.news-page-new-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-
-  width: calc(100% - 25%);
-}
-
-.news-content-container-list-item {
-  width: calc((100% / 3) - 30px);
-  height: 390px;
-  border: 0.5px solid rgba(0, 0, 0, 0.0558);
-
-  margin-bottom: 30px;
-}
-
-.news-page-list-content-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-}
-
-.news-page-list-content-header {
-  width: calc(100% - 25%);
-
-  margin-bottom: 30px;
-}
-
-.news-page-list-content-header .post-count {
-  font-family: SFUIText-Light;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-/* USE SIMILAR TO POST COUNT */
-h2.post-count:after {
-  content: "";
-  display: block;
-  width: 70%;
-  height: 4px;
-  background-color: #e26118;
-  margin-top: 10px;
-}
-
 /* New Grid List  */
 .grid-news-container {
   display: grid;
@@ -121,6 +49,8 @@ div.block .text-container {
   font-family: SFUIText-Light;
 
   border-top-right-radius: 5px;
+
+  text-align: left;
 }
 
 div.block .text-container .instructors-grid {
@@ -145,8 +75,6 @@ div.block .text-container .container-text-content .head {
   background-size: 0 2px;
   transition: background-size 0.3s;
   position: relative;
-
-  margin-bottom: 10px;
 }
 
 div.block .text-container .container-text-content:hover .head {
@@ -159,6 +87,8 @@ div.block .text-container .container-text-content .footer {
   width: 100%;
   display: block;
   font-size: 13px;
+
+  margin-top: 15px;
 }
 div.block .text-container .instructors-grid img {
   width: 60px;

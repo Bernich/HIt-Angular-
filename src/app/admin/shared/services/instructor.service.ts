@@ -31,7 +31,7 @@ export class InstructorService {
       }),
     };
 
-    return this.httpClient.get(this.instructorsUrl, httpOptions);
+    return this.httpClient.get(this.instructorsUrl + "/admin/list", httpOptions);
   }
 
 

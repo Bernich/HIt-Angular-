@@ -45,44 +45,8 @@ export class AddUserFormComponent implements OnInit {
 
 
 
-  updateFemaleGender(isChecked) {
-    if (isChecked) {
-      // uncheck male
-      this.maleCheckBox = false;
-    }
-  }
 
-  updateMaleGender(isChecked) {
-    if (isChecked) {
-      // uncheck male
-      this.femaleCheckBox = false;
-    }
-  }
 
-  updateAcctTypeAdmin(isChecked) {
-    if (isChecked) {
-      this.femaleCheckBox = false;
-      // this.userService.addRole("ADMIN");
-    } else {
-      // remove from Role
-
-      this.femaleCheckBox = false;
-      // this.userService.removeRole("ADMIN");
-    }
-  }
-
-  updateAcctTypeInstructor(isChecked) {
-    if (isChecked) {
-      this.femaleCheckBox = false;
-      // this.userService.addRole("INSTRUCTOR");
-    } else {
-      // remove from Role
-      // remove from Role
-
-      this.femaleCheckBox = false;
-      // this.userService.removeRole("INSTRUCTOR");
-    }
-  }
 
 
 
