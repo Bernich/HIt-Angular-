@@ -21,6 +21,10 @@
       <!-- <app-jhi-new-news-card class="news-content-container-list-item" *ngFor="let post of posts" [news]="post">
       </app-jhi-new-news-card> -->
 
+      <app-jhi-closed-grid-news-card class="news-content-container-list-item" *ngFor="let post of posts" [post]='post'>
+
+      </app-jhi-closed-grid-news-card>
+
     </section>
 
     <!-- <app-jhi-vertical-divider></app-jhi-vertical-divider> -->
@@ -32,9 +36,9 @@
 
   <section class="grid-news-container">
 
-    <app-jhi-closed-grid-news-card *ngFor="let post of posts" [post]='post'>
+    <!-- <app-jhi-closed-grid-news-card *ngFor="let post of posts" [post]='post'>
 
-    </app-jhi-closed-grid-news-card>
+    </app-jhi-closed-grid-news-card> -->
   </section>
   <app-jhi-vertical-divider></app-jhi-vertical-divider>
 
