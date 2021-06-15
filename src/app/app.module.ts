@@ -18,6 +18,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
 import { NewsDetailPageModule } from './pages/news-detail-page';
 import { NewNewsPageComponent } from './pages/new-news-page';
+import { AdminSharedModule } from './admin/shared/admin-shared.module';
 
 
 // Note we need a separate function as it's required
@@ -32,6 +33,7 @@ import { NewNewsPageComponent } from './pages/new-news-page';
   imports: [
     CommonModule,
     AppRoutingModule,
+    AdminSharedModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     MaterialModule,
@@ -48,6 +50,7 @@ import { NewNewsPageComponent } from './pages/new-news-page';
     AdminModule,
     NewsDetailPageModule,
     NgxWebstorageModule.forRoot(),
+    
 
   ],
 
