@@ -1,0 +1,56 @@
+<section class="registeration-container">
+  <div class="side-page background-container">
+    <div class="left-head-title" routerLink="/"> <a href="/">Hive Institute</a> </div>
+    <div class="left-head-description">
+      <div class="title"> Innovative, Technological & Practical </div>
+      <div class="description">
+        We aim to foster a practical skilled generation that is able to articulate problems and develop sustainable and
+        effective future proof ideas.
+      </div>
+    </div>
+  </div>
+
+  <section class="side-page register-use" style="color: black;">
+
+
+    <mat-vertical-stepper>
+      <mat-step>
+        <ng-template matStepLabel>Personal Information</ng-template>
+
+        <p>This content was rendered lazily</p>
+        <section matStepContent>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, officiis est. Corrupti tempore esse,
+          quibusdam rerum veniam reprehenderit debitis excepturi fugit quae, natus, nemo necessitatibus aliquid
+          magni porro nostrum architecto!
+        </section>
+        <button mat-button matStepperNext>Next</button>
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Step 2</ng-template>
+        <ng-template matStepContent>
+          <p>This content was also rendered lazily</p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quisquam culpa expedita fuga cumque adipisci
+          debitis numquam magni soluta a illo sit consequatur iusto eius laboriosam doloremque odio, earum quam?
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </ng-template>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Step 3</ng-template>
+        <p>This content was rendered eagerly</p>
+        <button mat-button matStepperPrevious>Back</button>
+      </mat-step>
+    </mat-vertical-stepper>
+
+  </section>
+
+</section>
+
+
+<ng-template #loader>
+  <section style="display:flex; justify-content:center">
+    <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+
+  </section>
+</ng-template>

@@ -25,19 +25,24 @@ export class NewsDetailPageComponent implements OnInit {
   constructor(
 
     private route: ActivatedRoute,
-    private postService: PostService) {
-    const id = this.route.snapshot.paramMap.get('id');
+    private postService: PostService
+  ) {
+    const slug = this.route.snapshot.paramMap.get('slug');
 
-    if (id) {
-      this.loadPost(id);
+    if (slug) {
+      this.loadPost(slug);
     } else {
       // navigate from the page
     }
+
+    this.loadRandomPost();
+
   }
 
   ngOnInit() {
-
   }
+
+
   getPostThumbUrl(headerImageUrl: string): SafeUrl {
 
     return `url(${headerImageUrl})`;
@@ -45,8 +50,8 @@ export class NewsDetailPageComponent implements OnInit {
 
 
 
-  loadPost(postId: string) {
-    this.postService.find(postId).subscribe({
+  loadPost(slug: string) {
+    this.postService.getPostWithSlug(slug).subscribe({
       next: (data: any) => {
         this.post = data;
       },
@@ -61,7 +66,12 @@ export class NewsDetailPageComponent implements OnInit {
   loadRandomPost() {
     this.postService.all().subscribe({
       next: (data: IPost[]) => {
-        this.randomPosts = data
+        this.randomPosts = data;
+
+        // only show 3 random posts
+        if (this.randomPosts.length > 3) {
+          this.randomPosts = this.randomPosts.slice(0, 3);
+        }
       },
       error: (err: any) => { }
     })

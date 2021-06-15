@@ -25,7 +25,7 @@
           <section *ngIf="posts" class="right-side news-list-tile-container">
             <h3 class="trending-header">TRENDING</h3>
 
-            <a [routerLink]='' *ngFor="let post of posts">
+            <a [routerLink]="'/news/'+post.slug" *ngFor="let post of posts">
               <div class="news-list-tile">
                 <span class="news-list-tile-header">
                   {{post.title}}

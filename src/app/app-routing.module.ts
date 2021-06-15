@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
 import { NewNewsPageComponent } from './pages/new-news-page';
+import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
 
 const routes: Routes = [
 
@@ -33,7 +34,10 @@ const routes: Routes = [
   },
 
   {
-    path: 'news/:id',
+    path: 'registeration-page', component: RegisterationPageComponent
+  },
+  {
+    path: 'news/:slug',
     loadChildren: () =>
       import('./pages/news-detail-page/news-detail-page.module').then((m) => m.NewsDetailPageModule),
   },
