@@ -25,7 +25,7 @@ export interface IPost {
   authors?: any;
   date_created?: string;
   show?: boolean;
-
+  slug?: string;
 
   header_image_data?: FileData;
   thumbnail_image_data?: FileData;
@@ -48,7 +48,7 @@ export class Post implements IPost {
     this.publicity_status = this.publicity_status || false;
   }
 
-
+  
   public banner: ProfileImage
 }
 

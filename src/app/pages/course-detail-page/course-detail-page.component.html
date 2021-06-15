@@ -29,12 +29,16 @@
             <!-- <p class="duration">{{section.duration +"hrs"}}</p> -->
           </div>
 
+          <br />
+
           <div class="course-req-container">
             <h3 class="course-header">{{"Course Requirements"}}</h3>
             <ul class="unordered-list">
               <li *ngFor="let item of  course.prerequisites " class="content"> {{item.value}} </li>
             </ul>
           </div>
+
+          <br />
 
           <div *ngIf="course.career_paths.length > 0 " class="course-req-container">
             <h3 class="course-header">{{'Career Path'}}</h3>

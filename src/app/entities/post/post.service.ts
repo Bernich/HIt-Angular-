@@ -146,4 +146,12 @@ export class PostService {
     return this.http.put(this.resourceUrl + "/" + post.post_id, post, httpOptions);
   }
 
+  /**
+*  Gets a specified post based on the slug
+* @param slug {String}- specified course id
+*/
+  getPostWithSlug(slug: string) {
+    return this.http.get(`${this.resourceUrl}/slug/${slug}`);
+  }
+
 }

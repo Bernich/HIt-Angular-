@@ -22,15 +22,15 @@
       </div> -->
       <section class="trending">
         <p class="trending-text">Trending</p>
-        <div class="trending-container">
+        <div *ngFor="let post of randomPosts; let count = index" class="trending-container">
           <div class="order-container">
-            <p class="number">1</p>
+            <p class="number">{{(count + 1)}}</p>
           </div>
           <div class="trending-post-header">
-            <p class="description">There is more to Jeremy Lin than 'Linsanity</p>
+            <p class="description">{{post.title}}</p>
           </div>
           <div class="trending-pic">
-            <img src="../../../assets/images/naspos.bmp" alt="">
+            <img [src]="post.thumbnail.url" alt="">
           </div>
         </div>
       </section>

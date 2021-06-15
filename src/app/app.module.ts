@@ -18,6 +18,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
 import { NewsDetailPageModule } from './pages/news-detail-page';
 import { NewNewsPageComponent } from './pages/new-news-page';
+import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
 
 
 // Note we need a separate function as it's required
@@ -27,7 +28,7 @@ import { NewNewsPageComponent } from './pages/new-news-page';
 // }
 @NgModule({
   declarations: [
-    AppComponent, ComingSoonPageComponent, NewNewsPageComponent
+    AppComponent, ComingSoonPageComponent, NewNewsPageComponent, RegisterationPageComponent
   ],
   imports: [
     CommonModule,
