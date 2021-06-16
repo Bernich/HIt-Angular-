@@ -71,8 +71,8 @@ export class CourseMapper {
     new_course.what_you_will_learn = course.what_you_will_learn ? course.what_you_will_learn : [];
     new_course.prerequisites = course.prerequisites ? course.prerequisites : [];
     new_course.with_certification = course.with_certification;
-    new_course.instructors = course.instructors.map((instructor: IInstructor) => instructor.instructor_id);
-    new_course.developers = course.developers.map((developer: IUser) => developer.user_id);
+    new_course.instructors = course.instructors ? course.instructors.map((instructor: IInstructor) => instructor.instructor_id) : [];
+    new_course.developers = course.developers ? course.developers.map((developer: IUser) => developer.user_id) : [];
 
     new_course.thumbnail_data = course.thumbnail_data;
     new_course.banner_data = course.banner_data;

@@ -158,7 +158,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
         //put instructors in selected instructors
         this.selectedInstructors = data.instructors;
-        this.selectedDevelopers = this.convertToDeveloperToModel(data.developers);
+        this.selectedDevelopers = data.developers ? this.convertToDeveloperToModel(data.developers) : [];
 
         this.isLoading = { ...this.isLoading, course: false };
       },
