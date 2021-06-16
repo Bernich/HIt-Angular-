@@ -159,7 +159,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
         //put instructors in selected instructors
         this.selectedInstructors = data.instructors;
-        this.selectedDevelopers = this.convertToDeveloperToInstructorModel(data.developers);
+        this.selectedDevelopers = this.convertToDeveloperToModel(data.developers);
         console.log(this.selectedDevelopers)
       },
       error: (err: any) => {
@@ -170,7 +170,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
 
-  convertToDeveloperToInstructorModel(devs: any) {
+  convertToDeveloperToModel(devs: any) {
     const developers = []
 
     for (const item of devs) {
@@ -180,7 +180,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
         profile_pic: {
           url: item.image_url
         },
-        id: item.id
+        user_id: item.id
       }
 
       developers.push(new_dev)
@@ -370,6 +370,11 @@ export class HiveAdminAddCourseComponent implements OnInit {
     this.selectedInstructors = this.selectedInstructors.filter((user: IInstructor) => instructor.instructor_id !== user.instructor_id);
   }
 
+  removeDeveloper(item: any) {
+
+    this.selectedDevelopers = this.selectedDevelopers.filter((dev: any) => item.user_id !== dev.user_id);
+
+  }
   removeLesson(section_position, id) {
     this.course.curriculum[section_position].lessons = this.course.curriculum[section_position].lessons.filter((lesson: CreateLesson) => lesson.id !== id)
   }
