@@ -145,7 +145,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
       next: (data: any) => {
         // unmap course into
 
-        this.isLoading = { ...this.isLoading, course: false };
 
 
         this.course = CourseMapper.convertToCreate(data);
@@ -160,7 +159,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
         //put instructors in selected instructors
         this.selectedInstructors = data.instructors;
         this.selectedDevelopers = this.convertToDeveloperToModel(data.developers);
-        console.log(this.selectedDevelopers)
+
+        this.isLoading = { ...this.isLoading, course: false };
       },
       error: (err: any) => {
         this.isLoading = { ...this.isLoading, course: false };
