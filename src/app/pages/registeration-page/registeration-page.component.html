@@ -1,56 +1,75 @@
 <section class="registeration-container">
-  <div class="side-page background-container">
-    <div class="left-head-title" routerLink="/"> <a href="/">Hive Institute</a> </div>
-    <div class="left-head-description">
-      <div class="title"> Innovative, Technological & Practical </div>
-      <div class="description">
-        We aim to foster a practical skilled generation that is able to articulate problems and develop sustainable and
-        effective future proof ideas.
-      </div>
+    <div class="side-page background-container">
+        <div class="left-head-title" routerLink="/"> <a href="/">Hive Institute</a> </div>
+        <div class="left-head-description">
+            <div class="title"> Innovative, Technological & Practical </div>
+            <div class="description">
+                We aim to foster a practical skilled generation that is able to articulate problems and develop sustainable and effective future proof ideas.
+            </div>
+        </div>
     </div>
-  </div>
 
-  <section class="side-page register-use" style="color: black;">
+    <section class="side-page register-use" style="color: black;">
 
+        <mat-vertical-stepper>
+            <mat-step>
+                <ng-template matStepLabel>Personal Information</ng-template>
+                <section matStepContent>
+                    <section class="login-inputs">
+                        <div class="input-wrapper">
+                            <!-- <label for="">First name</label> -->
+                            <input [(ngModel)]="fname" type="text" name="fname" id="fname" placeholder="Firstname">
+                        </div>
+                        <div class="input-wrapper">
+                            <!-- <label for="">Last name</label> -->
+                            <input [(ngModel)]="lname" type="text" name="lname" id="lname" placeholder="Lastname">
+                        </div>
+                        <div class="input-wrapper">
+                            <!-- <label for="">Last name</label> -->
+                            <input [(ngModel)]="lname" type="tel" name="tel" id="tel" placeholder="Lastname">
+                        </div>
+                        <div class="input-wrapper">
+                            <!-- <label for="">Your email</label> -->
+                            <input [(ngModel)]="email" type="text" name="email" id="email" placeholder="Your email">
+                        </div>
+                        <div class="input-wrapper">
+                            <!-- <label for="">Your date of birth</label> -->
+                            <input type="date" name="dob" id="dob" placeholder="Your date of birth">
+                        </div>
 
-    <mat-vertical-stepper>
-      <mat-step>
-        <ng-template matStepLabel>Personal Information</ng-template>
+                    </section>
+                </section>
+                <button mat-button matStepperNext>Next</button>
 
-        <p>This content was rendered lazily</p>
-        <section matStepContent>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, officiis est. Corrupti tempore esse,
-          quibusdam rerum veniam reprehenderit debitis excepturi fugit quae, natus, nemo necessitatibus aliquid
-          magni porro nostrum architecto!
-        </section>
-        <button mat-button matStepperNext>Next</button>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Course requiremnets </ng-template>
+                <ng-template matStepContent>
+                    <p>This content was also rendered lazily</p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quisquam culpa expedita fuga cumque adipisci debitis numquam magni soluta a illo sit consequatur iusto eius laboriosam doloremque odio, earum quam?
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </ng-template>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Billing information</ng-template>
+                <p>This content was rendered eagerly</p>
+                <button mat-button matStepperPrevious>Back</button>
+            </mat-step>
 
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Step 2</ng-template>
-        <ng-template matStepContent>
-          <p>This content was also rendered lazily</p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quisquam culpa expedita fuga cumque adipisci
-          debitis numquam magni soluta a illo sit consequatur iusto eius laboriosam doloremque odio, earum quam?
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </ng-template>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Step 3</ng-template>
-        <p>This content was rendered eagerly</p>
-        <button mat-button matStepperPrevious>Back</button>
-      </mat-step>
-    </mat-vertical-stepper>
-
-  </section>
+        </mat-vertical-stepper>
+        <div class="submit-container">
+            <input *ngIf="!isLoading" mat-button type="button" value="Submit" (click)="signin()">
+            <div *ngIf="!isLoading else loader"></div>
+        </div>
+    </section>
 
 </section>
 
 
 <ng-template #loader>
-  <section style="display:flex; justify-content:center">
-    <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+    <section style="display:flex; justify-content:center">
+        <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
 
-  </section>
+    </section>
 </ng-template>

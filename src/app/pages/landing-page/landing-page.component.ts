@@ -40,7 +40,7 @@ export class LandingPageComponent implements OnInit {
 
   headerPosts = [
     {
-      image: 'https://www.stanford.edu/wp-content/uploads/2020/09/Academics-landing.jpg',
+      image: '/assets/images/88img.jpg',
       title: 'Set yourself apart',
       description: 'We give you the necessary knowledge to be a change leader in your sphere of influence.'
     },
@@ -50,7 +50,7 @@ export class LandingPageComponent implements OnInit {
       description: 'Be exposed to new research and technology as a student that would spark your creativity.'
     },
     {
-      image: 'https://www.stanford.edu/wp-content/uploads/2019/01/fac-staff-hero-landscape-1499x522.jpg',
+      image: '/assets/images/lailajpg.jpg',
       title: 'Get ahead of your peers',
       description: 'Our unconventional facilitation style will psychologically motivate you as you leverage on the skills of our seasoned trainers.'
     }

@@ -19,6 +19,7 @@ import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-pa
 import { NewsDetailPageModule } from './pages/news-detail-page';
 import { NewNewsPageComponent } from './pages/new-news-page';
 import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
+import { AdminSharedModule } from './admin/shared/admin-shared.module';
 
 
 // Note we need a separate function as it's required
@@ -33,6 +34,7 @@ import { RegisterationPageComponent } from './pages/registeration-page/registera
   imports: [
     CommonModule,
     AppRoutingModule,
+    AdminSharedModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     MaterialModule,
@@ -49,6 +51,7 @@ import { RegisterationPageComponent } from './pages/registeration-page/registera
     AdminModule,
     NewsDetailPageModule,
     NgxWebstorageModule.forRoot(),
+    
 
   ],
 

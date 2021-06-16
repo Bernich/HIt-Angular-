@@ -1,222 +1,229 @@
 #dark {
-  color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 #white {
-  color: white;
+    color: white;
 }
 
 .background-container {
-  background-image: url("https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg");
-
-  position: relative;
-
-  border-right: 5px solid rgba(0, 0, 0, 0.596);
-
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: url("https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg");
+    position: relative;
+    border-right: 5px solid rgba(0, 0, 0, 0.596);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .background-container::after {
-  position: absolute;
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.452);
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.452);
 }
-.registeration-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: #1e1e1e;
-  display: flex;
-  color: white;
 
-  /* Give all specific components */
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: normal;
-  line-height: normal;
+.registeration-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e1e1e;
+    display: flex;
+    color: white;
+    /* Give all specific components */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
 }
 
 .registeration-container .side-page {
-  width: 20%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 1;
-  flex-grow: 1;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    flex-grow: 1;
 }
 
 .registeration-container .side-page .left-head-title {
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 10%;
-  margin-bottom: 20%;
-  /* font-family: "Josefin Sans", "Times New Roman"; */
-  font-family: SFUIText-Medium;
-
-  z-index: 9999 !important;
-
-  color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    /* font-family: "Josefin Sans", "Times New Roman"; */
+    font-family: SFUIText-Medium;
+    z-index: 9999 !important;
+    color: white;
 }
 
 .registeration-container .side-page .left-head-description {
-  margin-left: 20%;
-  margin-right: 10%;
-  margin-bottom: 20%;
-  width: 50%;
-
-  z-index: 9999 !important;
-
-  color: white;
+    margin-left: 20%;
+    margin-right: 10%;
+    margin-bottom: 20%;
+    width: 50%;
+    z-index: 9999 !important;
+    color: white;
 }
-.registeration-container .side-page .left-head-description .title {
-  font-size: 2.2rem;
-  /* font-family: "Josefin Sans", "Times New Roman"; */
-  margin-bottom: 10%;
 
-  font-family: SFUIText-Medium;
+.registeration-container .side-page .left-head-description .title {
+    font-size: 2.2rem;
+    /* font-family: "Josefin Sans", "Times New Roman"; */
+    margin-bottom: 10%;
+    font-family: SFUIText-Medium;
 }
 
 .registeration-container .side-page .left-head-description .description {
-  font-size: 0.991rem;
-  /* font-family: "Josefin Sans", "Times New Roman"; */
-  color: rgba(240, 248, 255, 0.794);
-
-  font-family: SFUIText-Light;
+    font-size: 0.991rem;
+    /* font-family: "Josefin Sans", "Times New Roman"; */
+    color: rgba(240, 248, 255, 0.794);
+    font-family: SFUIText-Light;
 }
+
 .registeration-container .side-page:last-child {
-  background-color: white;
+    background-color: white;
 }
 
 .registeration-container .register-user {
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #1e1e1e;
-
-  font-family: SFUIText-Light;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #1e1e1e;
+    font-family: SFUIText-Light;
+    border: 4px solid rebeccapurple;
 }
 
 .registeration-container .register-user .sign-im-container {
-  width: 55%;
-  /* background-color: #1e1e1e17; */
+    width: 55%;
+    /* background-color: #1e1e1e17; */
 }
 
 .registeration-container .register-user .sign-im-container div:first-child {
-  font-size: 2.2rem;
-  /* font-family: "Josefin Sans", "Times New Roman"; */
-  /* background-color: #b6151517; */
-  margin-bottom: 10px;
-
-  font-family: SFUIText-Medium;
+    font-size: 2.2rem;
+    /* font-family: "Josefin Sans", "Times New Roman"; */
+    /* background-color: #b6151517; */
+    margin-bottom: 10px;
+    font-family: SFUIText-Medium;
 }
 
 .registeration-container .register-user .sign-im-container div:nth-child(2) {
-  font-size: 0.99rem;
-  font-family: "Josefin Sans", "Times New Roman";
-  /* background-color: #b6151517; */
+    font-size: 0.99rem;
+    font-family: "Josefin Sans", "Times New Roman";
+    /* background-color: #b6151517; */
 }
 
 .registeration-container .register-user .sign-im-container div:nth-child(3) {
-  font-size: 1.29rem;
-  font-family: "Josefin Sans", "Times New Roman";
-  margin-top: 20px;
-  margin-bottom: 20px;
-  /* background-color: #b6151517; */
+    font-size: 1.29rem;
+    font-family: "Josefin Sans", "Times New Roman";
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* background-color: #b6151517; */
 }
 
-/* registeration Inputs */
-.registeration-inputs {
-  display: flex;
-  flex-direction: column;
 
-  width: 100%;
+/* registeration Inputs */
+
+.registeration-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.submit-container {
+    display: flex;
+    width: 100%;
+    padding: 5rem;
 }
 
 input {
-  width: 100%;
-  height: 40px;
-
-  padding: 10px;
-  outline: none;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  border: 0.5px solid rgba(0, 0, 0, 0.637);
+    width: 70%;
+    height: 40px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid rgba(0, 0, 0, 0.637);
 }
 
 input[type^="button"] {
-  border-radius: 10px;
-  padding: 10px;
-
-  background-color: black;
-  color: white;
-  outline: none;
-  border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
 }
 
 input[type^="text||password"] {
-  padding: 50px;
+    padding: 50px;
 }
+
 
 /*
     Screen Resolutions Fix
     default styles here for older browsers.
        I tend to go for a 600px - 960px width max but using percentages
     */
-@media only screen and (min-width: 960px) {
-  /* styles for browsers larger than 960px; */
+
+@media only screen and (max-width: 960px) {
+    /* styles for browsers larger than 960px; */
+    input {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 1440px) {
-  /* styles for browsers larger than 1440px; */
+    /* styles for browsers larger than 1440px; */
 }
+
 @media only screen and (min-width: 2000px) {
-  /* for sumo sized (mac) screens */
+    /* for sumo sized (mac) screens */
 }
+
 @media only screen and (max-device-width: 480px) {
-  /* styles for mobile browsers smaller than 480px; (iPhone) */
+    /* styles for mobile browsers smaller than 480px; (iPhone) */
 }
 
 @media only screen and (device-width: 768px) {
-  /* default iPad screens */
+    /* default iPad screens */
 }
+
+
 /* different techniques for iPad screening */
+
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* For portrait layouts only */
+    /* For portrait layouts only */
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* For landscape layouts only */
-  .registeration-container .side-page:last-child {
-    width: 100%;
-  }
-
-  .registeration-container .register-user .sign-im-container {
-    width: 80%;
-  }
-  .registeration-container .side-page:first-child {
-    display: none;
-  }
+    /* For landscape layouts only */
+    .registeration-container .side-page:last-child {
+        width: 100%;
+    }
+    .registeration-container .register-user .sign-im-container {
+        width: 80%;
+    }
+    .registeration-container .side-page:first-child {
+        display: none;
+    }
 }
 
-/* Reaches max zoom**/
-@media (max-width: 1200px) {
-  :host {
-    display: block;
-    min-height: 100%;
-  }
-  .registeration-container .side-page:last-child {
-    width: 100%;
-  }
 
-  .registeration-container .register-user .sign-im-container {
-    width: 80%;
-  }
-  .registeration-container .side-page:first-child {
-    display: none;
-  }
+/* Reaches max zoom**/
+
+@media (max-width: 1200px) {
+     :host {
+        display: block;
+        min-height: 100%;
+    }
+    .registeration-container .side-page:last-child {
+        width: 100%;
+    }
+    .registeration-container .register-user .sign-im-container {
+        width: 80%;
+    }
+    .registeration-container .side-page:first-child {
+        display: none;
+    }
 }

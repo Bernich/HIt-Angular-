@@ -12,6 +12,10 @@ export class RegisterationPageComponent implements OnInit {
   isLoading = false;
   email: string = "";
   password: string = "";
+  fname: string = "";
+  lname: string = "";
+  dob:string = "";
+  tel:string = "";
 
   constructor(
     private authService: AuthService,

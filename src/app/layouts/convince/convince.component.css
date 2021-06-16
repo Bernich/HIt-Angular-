@@ -41,7 +41,7 @@
     width: 50%;
     height: 550px;
     object-fit: cover;
-    object-position: right;
+    object-position: center;
     /* Fix this */
     margin-right: 50px;
 }
