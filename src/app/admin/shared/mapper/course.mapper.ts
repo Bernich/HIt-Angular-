@@ -1,5 +1,5 @@
 import { CreateCourseDTO, CreateSectionDTO, ISectionDTO } from "../dto/create-course.dto";
-import { Course, CreateCourse, CreateSection, IInstructor, ISection, Resource } from "../models";
+import { Course, CreateCourse, CreateSection, IInstructor, ISection, IUser, Resource } from "../models";
 import { v4 as uuidv4 } from 'uuid';
 
 export class CourseMapper {
@@ -24,6 +24,7 @@ export class CourseMapper {
     // new_course.publicity_status = course.publicity_status;
     new_course.with_certification = course.with_certification;
     new_course.instructors = course.instructors;
+    new_course.developers = course.developers;
 
     new_course.thumbnail_data = course.thumbnail_data;
     new_course.banner_data = course.banner_data;
@@ -71,6 +72,7 @@ export class CourseMapper {
     new_course.prerequisites = course.prerequisites ? course.prerequisites : [];
     new_course.with_certification = course.with_certification;
     new_course.instructors = course.instructors.map((instructor: IInstructor) => instructor.instructor_id);
+    new_course.developers = course.developers.map((developer: IUser) => developer.user_id);
 
     new_course.thumbnail_data = course.thumbnail_data;
     new_course.banner_data = course.banner_data;

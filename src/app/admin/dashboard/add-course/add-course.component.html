@@ -399,8 +399,33 @@
       </div>
 
       <!-- COURSE COLLABORATORS TAB -->
-      <div class="course-collaborators" cdkDrag>
-        <div class="header">Course Collaborators</div>
+      <div class="course-collaborators select-container" cdkDrag>
+        <div class="top-row">
+          <div class="header">Course Developers</div>
+
+          <button class="add-button" mat-icon-button (click)="openDevelopersBottomSheet()">
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+        </div>
+
+
+        <!-- bottom list of selected developers -->
+        <div class="items-container">
+          <div *ngFor="let item of selectedDevelopers" class="menu-items-container" style="margin-bottom: 10px">
+            <div class="_container">
+              <img class="menu-image" src="{{  item.profile_pic.url }}" alt="" />
+              <div>
+                {{item.firstname +" "+ item.lastname }}
+              </div>
+            </div>
+
+            <button mat-icon-button class="remove-user" (click)="removeUser(item)">
+
+              <mat-icon>close</mat-icon>
+            </button>
+
+          </div>
+        </div>
       </div>
     </section>
 

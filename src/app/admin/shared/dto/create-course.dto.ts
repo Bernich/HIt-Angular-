@@ -87,6 +87,8 @@ export class CreateCourseDTO implements ICreateCourse {
   public prerequisites: Resource[];
   public with_certification: boolean;
   public instructors: string[]
+  public developers: string[]
+
 
   public thumbnail_data: FileData;
   public banner_data: FileData;

@@ -11,6 +11,7 @@ import {
   ICourse,
   IInstructor,
   ILesson,
+  IUser,
   Resource
 } from '../../shared/models';
 import {
@@ -19,7 +20,8 @@ import {
   CreatePostService,
   CourseService,
   NavigationService,
-  NotificationService
+  NotificationService,
+  UsersService
 } from '../../shared/services';
 import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component';
 import { v4 as uuidv4 } from 'uuid';
@@ -60,7 +62,12 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
   instructors: IInstructor[] = [];
+
+  developers: IUser[] = [];
+
+
   selectedInstructors: IInstructor[] = [];
+  selectedDevelopers: any[] = [];
 
   panelOpenState = false;
 
@@ -95,13 +102,15 @@ export class HiveAdminAddCourseComponent implements OnInit {
     private notificationService: NotificationService,
     private instructorService: InstructorService,
     private courseService: CourseService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private usersService: UsersService
   ) { }
 
   ngOnInit(): void {
     // load all authors
     this.loadAllAuthors();
 
+    this.loadDevelopers();
     // Check url if there is a course id else create a new course
     const id = this.route.snapshot.paramMap.get('id');
 
@@ -150,6 +159,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
         //put instructors in selected instructors
         this.selectedInstructors = data.instructors;
+        this.selectedDevelopers = this.convertToDeveloperToInstructorModel(data.developers);
+        console.log(this.selectedDevelopers)
       },
       error: (err: any) => {
         this.isLoading = { ...this.isLoading, course: false };
@@ -158,8 +169,36 @@ export class HiveAdminAddCourseComponent implements OnInit {
     })
   }
 
-  save() {
 
+  convertToDeveloperToInstructorModel(devs: any) {
+    const developers = []
+
+    for (const item of devs) {
+      const new_dev = {
+        firstname: item.fullname,
+        lastname: "",
+        profile_pic: {
+          url: item.image_url
+        },
+        id: item.id
+      }
+
+      developers.push(new_dev)
+    }
+
+
+    return developers;
+  }
+
+  loadDevelopers() {
+    this.usersService.all("users").subscribe({
+      next: (data: any) => {
+        this.developers = data;
+      }
+    });
+  }
+
+  save() {
     this.isLoading = { ...this.isLoading, course: true };
 
     if (this.isNewCourse) {
@@ -172,6 +211,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   updateCourse() {
     // convert post authors into an id
     this.course.instructors = this.getCourseInstructos();
+    this.course.developers = this.getCourseDevelopers();
 
     const new_course = CourseMapper.convertToDTO(this.course);
 
@@ -198,6 +238,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
     // convert post authors into an id
     this.course.instructors = this.getCourseInstructos();
+    this.course.developers = this.getCourseDevelopers();
+
 
     const new_course = CourseMapper.convertToDTO(this.course);
 
@@ -239,12 +281,35 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
 
+  openDevelopersBottomSheet() {
+
+    // open sheet
+    this.bottomSheet.open(CoursesBottomSheetComponent, {
+      data: { instructors: this.developers, selected: this.selectedDevelopers },
+    });
+
+    // subscribe to observable that emit event when bottom sheet closes
+    this.bottomSheet._openedBottomSheetRef.afterDismissed().subscribe((data: any) => {
+
+      // pick data from opened bottom sheet
+      if (data.data) {
+        this.selectedDevelopers.push(data.data);
+      }
+    });
+  }
+
+
   getCourseInstructos(): string[] {
     return this.selectedInstructors.map((instructor: IInstructor) => {
       return instructor.instructor_id
     })
   }
 
+  getCourseDevelopers(): string[] {
+    return this.selectedDevelopers.map((developer: IUser) => {
+      return developer.user_id
+    })
+  }
 
   loadAllAuthors() {
     this.isLoading = { ...this.isLoading, instructors: true };

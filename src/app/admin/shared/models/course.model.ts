@@ -1,5 +1,6 @@
 import { FileData, IInstructor, ProfileImage, Resource } from "src/app/admin/shared/models";
 import { v4 as uuidv4 } from 'uuid';
+import { IUser } from "./user.model";
 
 export interface ISection {
 
@@ -32,6 +33,8 @@ export interface ICourse {
   // publicity_status?: boolean;
   with_certification?: boolean;
   instructors?: string[] | IInstructor[];
+  developers?: string[] | IUser[];
+
 
   date_created?: string;
   show?: boolean;
@@ -65,6 +68,7 @@ export class Course implements ICourse {
   // publicity_status?: boolean;
   public with_certification?: boolean;
   public instructors?: IInstructor[];
+  public developers?: IUser[];
 
   public date_created?: string;
   public show?: boolean;
@@ -99,6 +103,8 @@ export class CreateCourse implements ICourse {
   public with_certification: boolean = false;
 
   public instructors: string[];
+  public developers: string[];
+
   public banner_data: FileData;
   public thumbnail_data: FileData;
   public base_price: number = 0;

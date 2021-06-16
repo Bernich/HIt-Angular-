@@ -18,7 +18,7 @@ export class UsersService {
   ) {
   }
 
-  all() {
+  all(queryParams?: string) {
     const token = localStorage.getItem('currentUser');
     /**
      * Creates an httpOptions and attaches a Bearer token
@@ -29,6 +29,10 @@ export class UsersService {
         Authorization: 'Bearer ' + token,
       }),
     };
+
+    if (queryParams) {
+      return this.httpClient.get(this.usersURL + "?role=instructor", httpOptions);
+    }
 
     return this.httpClient.get(this.usersURL, httpOptions);
   }
