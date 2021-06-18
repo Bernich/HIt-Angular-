@@ -1,0 +1,26 @@
+<section class="container" (click)="overview.emit(course)">
+
+  <div class="text-container">
+    <div class="title">{{course.name}}</div>
+    <div class="category">{{course.category.name}}</div>
+
+    <div class="rating-bar">
+      <div>{{ "GH₵"+course.base_price }}</div>
+
+      <mat-divider [vertical]="true" style="height: 10px; margin: 0px 10px"></mat-divider>
+      <div class="rating">
+        <app-rating-stars [readonly]="true" [size]="1" [maxStars]="5" [(initialStars)]="course.average_rating"
+          [color]="'#f4c150'">
+        </app-rating-stars>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="image-container">
+    <img src="{{course.thumbnail}}" alt="" srcset="">
+  </div>
+
+</section>

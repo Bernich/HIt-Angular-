@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { UpdateUser } from '../../shared/dto';
+import { UserMapper } from '../../shared/mapper/user.mapper';
 import { CreateUser, IInstructor, IUser, SocialMediaHandle } from '../../shared/models';
 import { AuthService, NavigationService, UsersService } from '../../shared/services';
 
@@ -88,25 +90,25 @@ export class HiveAdminAddUserComponent implements OnInit {
 
     (this.user)
 
-    // const _user: CreateUser = this.user;
+    const _user: UpdateUser = UserMapper.convertToUpdateDTO(this.user);
 
-    // this.usersService.updateUser(_user).subscribe((iuser: any) => {
+    this.usersService.updateUser(_user).subscribe((iuser: any) => {
 
-    //   this.isLoading = false;
-    //   // Navigating to the same route doesnt work
-    //   // this.navigationService.editInstructor(this.user.instructor_id);
+      this.isLoading = false;
+      // Navigating to the same route doesnt work
+      // this.navigationService.editInstructor(this.user.instructor_id);
 
-    //   this._snackBar.open('Update Instructor', `${this.user.firstname}`, {
-    //     duration: 3000,
-    //   });
-    // },
-    //   (error) => {
-    //     this.isLoading = false;
-    //     this._snackBar.open('Couldn\'t Update Instructor', `${this.user.firstname}`, {
-    //       duration: 3000,
-    //     });
-    //   }
-    // );
+      this._snackBar.open('Update Instructor', `${this.user.firstname}`, {
+        duration: 3000,
+      });
+    },
+      (error) => {
+        this.isLoading = false;
+        this._snackBar.open('Couldn\'t Update Instructor', `${this.user.firstname}`, {
+          duration: 3000,
+        });
+      }
+    );
 
   }
 

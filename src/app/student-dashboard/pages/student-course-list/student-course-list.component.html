@@ -1,0 +1,67 @@
+<!-- -->
+<mat-progress-bar [style.display]=" loadingPlayer ? 'block'  :'none'" mode="indeterminate"></mat-progress-bar>
+<div class="dashboard-container">
+
+  <br />
+  <!-- <h5 class="title">My Courses</h5> -->
+  <div class="top-header">
+    <div class="heading">My Courses</div>
+
+    <mat-divider></mat-divider>
+  </div>
+
+  <div class="courses-container" *ngIf="!isLoading; else other_content">
+
+    <div *ngIf="courses.length <= 0" class="emptyCourse center">
+
+
+      <!-- Load Animation To Enroll Course -->
+      <ng-lottie id="lottie" containerClass="moving-box another-class" [options]="options"
+        (animationCreated)="animationCreated($event)">
+      </ng-lottie>
+
+      <div id="text-container">
+        <div class="text">
+          You don't own a Course Yet
+        </div>
+
+        <button mat-flat-button routerLink="/courses"> Browse Courses</button>
+      </div>
+    </div>
+
+    <app-student-course-item *ngFor="let course of courses" class="item" [course]="course"
+      (resume)="navigateToWatchCourse(course)" (overview)="navigateToCourseDetail(course)" (review)="openReview(course)"
+      (editReview)="openEditReview(course)" (updateCourse)="updateCourseVersion(course)">
+    </app-student-course-item>
+
+  </div>
+
+  <ng-template #other_content>
+
+    <app-loader></app-loader>
+
+  </ng-template>
+
+
+
+  <div class="top-header">
+    <div class="heading"> Selections Made For You</div>
+
+    <mat-divider></mat-divider>
+  </div>
+
+
+  <div class="column-list-container">
+    <app-course-grid-item *ngFor="let course of allCourses" class="item" [course]="course"
+      (overview)="navigateToCourseDetail(course)">
+    </app-course-grid-item>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- <h5 class="title">Top Categories</h5> -->
+
+</div>

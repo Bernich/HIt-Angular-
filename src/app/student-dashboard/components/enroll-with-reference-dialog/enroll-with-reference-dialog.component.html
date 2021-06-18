@@ -1,0 +1,68 @@
+<div class="edit-dialog-container">
+
+  <div class="edit-header">
+    <div class="edit-review-header">Enroll With Transaction Reference</div>
+
+    <button [disabled]="isLoading" mat-icon-button aria-label="close enroll course with transaction reference"
+      (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-divider style="height:1px"></mat-divider>
+
+  <div class="edit-review-content">
+
+
+    <!-- <div style="margin-top: 10px;"></div> -->
+
+    <!-- <div class="input-container">
+      <div class="title">Course</div>
+      <mat-form-field class="select" appearance="none">
+        <mat-select [(value)]="course" (selectionChange)="updateSearch()" id="skill">
+          <mat-option value="None">Select Course</mat-option>
+          <mat-option *ngFor="let course of courses" [value]="course.slug">{{course.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> -->
+
+
+    <div class="comment" style="text-align:left;">
+      Use the transaction reference emailed to you enroll if the course does not reflect on the dashboard after
+      payment.
+    </div>
+    <div style="margin-top: 30px;"></div>
+
+
+    <div class="input-container">
+      <div class="title">Transaction Reference</div>
+      <input [(ngModel)]="trxRef" type="text" />
+    </div>
+
+
+  </div>
+
+
+  <div style="margin-top: 20px;"></div>
+
+  <div class="response-state">
+    <div *ngIf="state.error" class="res-state" style="text-align:left; color:red">{{message }}
+    </div>
+
+    <div *ngIf="state.success" class="res-state" style="text-align:left; color:green">{{message }}
+    </div>
+  </div>
+
+  <div class=" buttons">
+    <mat-spinner *ngIf="isLoading" [diameter]="30" [strokeWidth]="4" style="margin-right: 10px;"></mat-spinner>
+    <!-- <button mat-stroked-button (click)="deleteDialog()">Delete</button> -->
+
+    <!-- Hide button when verification is successfully -->
+    <button [style.display]="isLoading ? 'none' : 'block'" [disabled]="isLoading || !trxRef" class="stroked-button"
+      mat-stroked-button (click)="editDialog()">
+      <span> Enroll</span>
+    </button>
+  </div>
+
+
+  <div style="margin-top: 30px;"></div>
+</div>

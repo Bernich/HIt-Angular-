@@ -1,0 +1,25 @@
+<div class="edit-dialog-container">
+
+  <div class="edit-header">
+    <div class="edit-review-header">Your Review</div>
+
+    <button mat-dialog-close mat-icon-button aria-label="close edit button review">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-divider style="height:1px"></mat-divider>
+
+  <div class="edit-review-content">
+    <app-rating-stars [readonly]="true" [size]="1" [maxStars]="5" [(initialStars)]="selected" [color]="'#f4c150'">
+    </app-rating-stars>
+
+    <div style="margin-top: 10px;"></div>
+    <div class="comment" style="text-align:left;">{{comment ? comment : "There are no written comments for your
+      review."}}</div>
+  </div>
+
+  <div class="buttons">
+    <!-- <button mat-stroked-button (click)="deleteDialog()">Delete</button> -->
+    <button class="stroked-button" mat-stroked-button (click)="editDialog()">Edit Review</button>
+  </div>
+</div>
