@@ -3,7 +3,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { IUpdateUser, IUser } from '../../shared/models';
 import { AuthService, UsersService } from '../../shared/services';
 
-/** UserAccountComponent - Shows the activities that can be performed on a student account*/
+/**
+ *  UserAccountComponent
+ *    - Shows the activities that can be performed on a student account*/
 @Component({
   selector: 'app-user-account',
   templateUrl: './user-account.component.html',
@@ -16,6 +18,7 @@ export class UserAccountComponent implements OnInit {
   isLoading = false;
   focus = false;
   isNew = false;
+
   /**
    * Constructs the UserAccountComponent with the following injected services
    * @param authService  {AuthService}
@@ -65,6 +68,7 @@ export class UserAccountComponent implements OnInit {
    */
   updateAccountDetails() {
 
+    console.log(this.user)
     // open progress bar
     this.isLoading = true;
 
@@ -74,13 +78,16 @@ export class UserAccountComponent implements OnInit {
     // if there is data in the old password field
     if (this.user.old_password) {
 
+      /*******************************
+       * TODO : Rewrite this queue of info into a mapper if there is more time
+       */
       // check if the data in the new password and confirm password match
       if (this.user.new_password && this.user.password_confirm &&
         (this.user.password_confirm == this.user.new_password)
       ) {
 
         // check if the profile is an instance of a string
-        if (this.user.profile_pic instanceof String || typeof (this.user.profile_pic) === 'string') {
+        if (this.user.profile_pic_data) {
           update = {
             email: this.user.email,
             lastname: this.user.lastname,
@@ -100,13 +107,14 @@ export class UserAccountComponent implements OnInit {
             firstname: this.user.firstname,
             phone_number: this.user.phone_number,
             user_id: this.user.user_id,
-            profile_pic: this.user.profile_pic,
+            profile_pic_data: this.user.profile_pic_data,
             old_password: this.user.old_password,
             new_password: this.user.new_password,
             password_confirm: this.user.password_confirm
           };
         }
         this.saveUpdateFields(update);
+
       } else {
 
         // close progress
@@ -122,7 +130,7 @@ export class UserAccountComponent implements OnInit {
        * Password Field has no data, Update only User Info
        * check if profile pic is an instance of a string
       **/
-      if (this.user.profile_pic instanceof String || typeof (this.user.profile_pic) === 'string') {
+      if (this.user.profile_pic_data instanceof String || typeof (this.user.profile_pic_data) === 'string') {
         update = {
           email: this.user.email,
           lastname: this.user.lastname,
@@ -138,10 +146,9 @@ export class UserAccountComponent implements OnInit {
           firstname: this.user.firstname,
           phone_number: this.user.phone_number,
           user_id: this.user.user_id,
-          profile_pic: this.user.profile_pic
+          profile_pic_data: this.user.profile_pic_data
         };
       }
-
       // update data
       this.saveUpdateFields(update);
     }

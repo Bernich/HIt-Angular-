@@ -44,5 +44,9 @@ export class UserMapper {
     return new_user;
   }
 
+
+  static convertToAccountUpdate(data: IUser) {
+    
+  }
 }
 

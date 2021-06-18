@@ -68,6 +68,7 @@ export class EditProfileFormComponent implements OnInit {
 
       const data = event.target.result.substr(event.target.result.indexOf('base64,') + 'base64,'.length);
       this.user.profile_pic_data = new FileData(file.type, data);
+
       this.imageUrl = event.target.result;
     });
 

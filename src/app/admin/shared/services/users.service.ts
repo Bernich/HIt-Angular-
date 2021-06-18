@@ -71,6 +71,7 @@ export class UsersService {
       }),
     };
 
+    console.log(JSON.stringify(user));
     return this.httpClient.put(`${this.usersURL}`, user, httpOptions);
   }
 

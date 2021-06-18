@@ -41,7 +41,7 @@ export class IUpdateUser {
   firstname: string;
   lastname: string;
   phone_number: string;
-  profile_pic?: FileData;
+  profile_pic_data?: FileData;
   old_password?: string;
   new_password?: string;
   password_confirm?: string;
