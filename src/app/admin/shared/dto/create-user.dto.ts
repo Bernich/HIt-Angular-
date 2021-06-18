@@ -37,6 +37,7 @@ export class UpdateUser implements IUpdateUser {
   public phone_number: string;
   public bio: string;
   public creator_id?: string;
+
 }
 
 

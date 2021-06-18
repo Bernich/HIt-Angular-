@@ -20,15 +20,15 @@ export class UserMapper {
   /**
    *
    * @param date
-date_created: "2021-06-01T12:28:29.367866Z"
-email: "noelnuel44@gmail.com"
-firstname: "Emmanuel"
-is_active: true
-lastname: "Botwe"
-phone_number: "1111111111111111111111"
-profile_pic: {id: "", url: ""}
-roles: ["USER", "AUTHOR"]
-user_id: "ca95c542-25dc-4547-bdae-4098294adcef"
+  date_created: "2021-06-01T12:28:29.367866Z"
+  email: "noelnuel44@gmail.com"
+  firstname: "Emmanuel"
+  is_active: true
+  lastname: "Botwe"
+  phone_number: "1111111111111111111111"
+  profile_pic: {id: "", url: ""}
+  roles: ["USER", "AUTHOR"]
+  user_id: "ca95c542-25dc-4547-bdae-4098294adcef"
    * @returns
    */
 
