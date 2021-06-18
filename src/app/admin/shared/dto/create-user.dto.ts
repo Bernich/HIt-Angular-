@@ -40,4 +40,3 @@ export class UpdateUser implements IUpdateUser {
 
 }
 
-
