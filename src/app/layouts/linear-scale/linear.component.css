@@ -1,0 +1,14 @@
+.order-number {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    border: 4px solid dodgerblue;
+    width: fit-content;
+}
+
+.mat-radio-button~.mat-radio-button {
+    display: grid;
+    align-self: center;
+}

@@ -12,49 +12,73 @@
     <section class="side-page register-use" style="color: black;">
 
         <mat-vertical-stepper>
-            <mat-step>
-                <ng-template matStepLabel>Personal Information</ng-template>
-                <section matStepContent>
-                    <section class="login-inputs">
-                        <div class="input-wrapper">
-                            <!-- <label for="">First name</label> -->
-                            <input [(ngModel)]="fname" type="text" name="fname" id="fname" placeholder="Firstname">
-                        </div>
-                        <div class="input-wrapper">
-                            <!-- <label for="">Last name</label> -->
-                            <input [(ngModel)]="lname" type="text" name="lname" id="lname" placeholder="Lastname">
-                        </div>
-                        <div class="input-wrapper">
-                            <!-- <label for="">Last name</label> -->
-                            <input [(ngModel)]="lname" type="tel" name="tel" id="tel" placeholder="Lastname">
-                        </div>
-                        <div class="input-wrapper">
-                            <!-- <label for="">Your email</label> -->
-                            <input [(ngModel)]="email" type="text" name="email" id="email" placeholder="Your email">
-                        </div>
-                        <div class="input-wrapper">
-                            <!-- <label for="">Your date of birth</label> -->
-                            <input type="date" name="dob" id="dob" placeholder="Your date of birth">
-                        </div>
 
+            <mat-step>
+                <form #form="ngForm">
+                    <ng-template matStepLabel>Personal Information</ng-template>
+                    <section matStepContent>
+                        <section class="login-inputs">
+                            <div class="input-wrapper">
+                                <!-- <label for="">First name</label> -->
+                                <input [(ngModel)]="fname" type="text" name="fname" id="fname" placeholder="Firstname">
+                            </div>
+                            <div class="input-wrapper">
+                                <!-- <label for="">Last name</label> -->
+                                <input [(ngModel)]="lname" type="text" name="lname" id="lname" placeholder="Lastname">
+                            </div>
+                            <div class="input-wrapper">
+                                <!-- <label for="">Last name</label> -->
+                                <input [(ngModel)]="lname" type="tel" name="tel" id="tel" placeholder="Lastname">
+                            </div>
+                            <div class="input-wrapper">
+                                <!-- <label for="">Your email</label> -->
+                                <input [(ngModel)]="email" type="text" name="email" id="email" placeholder="Your email">
+                            </div>
+                            <div class="input-wrapper">
+                                <!-- <label for="">Your date of birth</label> -->
+                                <input type="date" name="dob" id="dob" placeholder="Your date of birth">
+                            </div>
+                        </section>
                     </section>
-                </section>
-                <button mat-button matStepperNext>Next</button>
-
-            </mat-step>
-            <mat-step>
-                <ng-template matStepLabel>Course requiremnets </ng-template>
-                <ng-template matStepContent>
-                    <p>This content was also rendered lazily</p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quisquam culpa expedita fuga cumque adipisci debitis numquam magni soluta a illo sit consequatur iusto eius laboriosam doloremque odio, earum quam?
-                    <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
-                </ng-template>
+                </form>
             </mat-step>
             <mat-step>
-                <ng-template matStepLabel>Billing information</ng-template>
-                <p>This content was rendered eagerly</p>
-                <button mat-button matStepperPrevious>Back</button>
+                <form #form="ngForm">
+
+                    <ng-template matStepLabel>Course requiremnets </ng-template>
+                    <ng-template matStepContent>
+                        <p>This content was also rendered lazily</p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quisquam culpa expedita fuga cumque adipisci debitis numquam magni soluta a illo sit consequatur iusto eius laboriosam doloremque odio, earum quam?
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </ng-template>
+                    <div class="registeration-inputs">
+                        <span>What are you intrests?</span>
+                        <mat-form-field class="example-full-width">
+                            <!-- <mat-label>Enter the text here</mat-label> -->
+                            <textarea matInput placeholder="Your answer...."></textarea>
+                        </mat-form-field>
+                        <span>Who do you have to work on ?</span>
+                        <mat-form-field class="example-full-width">
+                            <!-- <mat-label>Enter the text here</mat-label> -->
+                            <textarea matInput placeholder="Your answer...."></textarea>
+                        </mat-form-field>
+                        <section class="example-section">
+                            What brought you here?
+                            <mat-checkbox class="">Check me!</mat-checkbox>
+                            <section class="example-section">
+                                <mat-checkbox class="">Facebok</mat-checkbox>
+                            </section>
+                            <section class="example-section">
+                                <mat-checkbox class="">Instagram</mat-checkbox>
+                            </section>
+                            <section class="example-section">
+                                <mat-checkbox class="">Twitter</mat-checkbox>
+                            </section>
+                        </section>
+                    </div>
+                </form>
             </mat-step>
 
         </mat-vertical-stepper>
