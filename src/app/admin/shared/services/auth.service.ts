@@ -13,6 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class AuthService {
 
   jwtHelper = new JwtHelperService();
+
   constructor(
     private httpClient: HttpClient,
     // tslint:disable-next-line: ban-types
@@ -130,4 +131,5 @@ export class AuthService {
     return this.httpClient.post(`${this.url + '/users/set_password'}\\${token}`, payload);
   }
 
+  // TODO : Add a token is expired function
 }

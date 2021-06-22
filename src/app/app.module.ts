@@ -20,6 +20,7 @@ import { NewsDetailPageModule } from './pages/news-detail-page';
 import { NewNewsPageComponent } from './pages/new-news-page';
 import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
 import { AdminSharedModule } from './admin/shared/admin-shared.module';
+import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-details-page/confirm-course-details-page.component';
 
 
 // Note we need a separate function as it's required
@@ -29,7 +30,11 @@ import { AdminSharedModule } from './admin/shared/admin-shared.module';
 // }
 @NgModule({
   declarations: [
-    AppComponent, ComingSoonPageComponent, NewNewsPageComponent, RegisterationPageComponent
+    AppComponent,
+    ComingSoonPageComponent,
+    NewNewsPageComponent,
+    RegisterationPageComponent,
+    ConfirmCourseDetailsPageComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +56,7 @@ import { AdminSharedModule } from './admin/shared/admin-shared.module';
     AdminModule,
     NewsDetailPageModule,
     NgxWebstorageModule.forRoot(),
-    
+
 
   ],
 

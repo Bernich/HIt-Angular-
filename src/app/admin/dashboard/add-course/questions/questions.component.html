@@ -1,0 +1,102 @@
+<!-- Refactor Question Position -->
+
+<mat-expansion-panel style="width: 100%;" class="curriculum-module">
+
+  <!-- This is ending of the  -->
+  <mat-expansion-panel-header>
+
+    <mat-panel-title>
+      {{ "Question "+ (position +1)}}
+    </mat-panel-title>
+
+  </mat-expansion-panel-header>
+
+  <section class="multiple-choice-option">
+    <!-- <mat-checkbox [(checked)]="question.multiple_correct_answers" class="example-margin"
+        (change)="updateMultipleChoice(position,$event.checked)">
+        Multiple Choice Question
+      </mat-checkbox> -->
+  </section>
+  <div class="spacer" style="margin-top:20px"></div>
+
+  <!-- QUESTION ! -->
+  <!--TODO : Refactor in all course creation componenets. Make List Item a Component -->
+  <div class="list-item" style="margin-top: 10px;">
+    <mat-form-field class="title -input">
+      <textarea #description matInput type="text" name="lesson_description" rows="5" placeholder="Question"
+        [(ngModel)]="question.question"></textarea>
+    </mat-form-field>
+  </div>
+
+
+  <div class="spacer" style="margin-top:20px"></div>
+
+  <!-- TIP -->
+
+
+
+  <div class="spacer" style="margin-top:20px"></div>
+
+  <mat-form-field>
+    <mat-label>Difficult Level</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let level of difficultyLevel" [value]="level">
+        {{level}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <div style="margin-top: 25px;"></div>
+
+  <!-- ANSWER  OPTIONS-->
+  <p>Tick the Correct answers from the options</p>
+  <div *ngFor="let option of question.answers; let op_count = index" class="list-item">
+
+    <mat-checkbox [checked]="option.ticked" class="example-margin"
+      (change)="tickSelectedOption(position, op_count, $event.checked)">
+
+    </mat-checkbox>
+
+
+    <mat-form-field class="title -input" style="width: 97%">
+      <input matInput type="text" [name]="'option_'+ op_count" [placeholder]="'Options ' + op_count "
+        [(ngModel)]="option.answer" />
+
+      <button mat-button matSuffix mat-icon-button aria-label="Remove answer checkbox"
+        (click)="removeOption(position,op_count)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+
+  </div>
+
+  <section style="display:flex; justify-content:space-between; margin-top:40px">
+    <div class="bottom-add-input"
+      style="display: inline-block; border: solid 2px var(--pumpkin-orange); color: var(--pumpkin-orange);"
+      (click)="addOption(position)">
+      <!-- <div class="horizontal-divider"></div> -->
+
+      <div class="add-module-button" style="color: var(--pumpkin-orange);" mat-icon-button color="primary"
+        aria-label="Example icon button with a home icon">
+        <mat-icon>add</mat-icon>
+        Add Option
+      </div>
+    </div>
+
+    <div class="bottom-add-input"
+      style="display: inline-block; margin-left: 10px; border: solid 2px var(--pumpkin-orange);  color: var(--pumpkin-orange);"
+      (click)="removeQuestion(position)">
+      <!-- <div class="horizontal-divider"></div> -->
+
+      <div class="add-module-button" style="color: var(--pumpkin-orange);" mat-icon-button color="primary"
+        aria-label="Example icon button with a home icon">
+        <mat-icon>remove</mat-icon>
+        Remove Question
+      </div>
+    </div>
+  </section>
+
+</mat-expansion-panel>

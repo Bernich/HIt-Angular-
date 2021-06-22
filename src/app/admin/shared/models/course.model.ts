@@ -1,5 +1,6 @@
 import { FileData, IInstructor, ProfileImage, Resource } from "src/app/admin/shared/models";
 import { v4 as uuidv4 } from 'uuid';
+import { CreateQuestion, IQuestion } from "./question.model";
 import { IUser } from "./user.model";
 
 export interface ISection {
@@ -45,7 +46,9 @@ export interface ICourse {
   thumbnail_data?: FileData;
   banner_data?: FileData;
 
-  curriculum?: ISection[]
+  curriculum?: ISection[];
+
+  questions?: IQuestion[]
 }
 
 
@@ -80,6 +83,9 @@ export class Course implements ICourse {
   public banner_data?: FileData;
 
   public curriculum?: ISection[]
+
+  public questions?: IQuestion[]
+
 }
 
 
@@ -112,6 +118,8 @@ export class CreateCourse implements ICourse {
   public what_you_will_learn: Resource[] = [];
   public prerequisites: Resource[] = [];
   public career_paths: Resource[] = [];
+
+  public questions: CreateQuestion[];
 }
 
 

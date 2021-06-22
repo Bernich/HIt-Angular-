@@ -44,7 +44,6 @@ const routes: Routes = [
 
       {
         path: 'interactive', component: InteractiveCreatePostComponent, canActivate: [AuthGuardService],
-
       },
 
     ]

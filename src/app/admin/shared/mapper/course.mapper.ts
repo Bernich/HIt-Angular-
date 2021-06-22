@@ -30,6 +30,7 @@ export class CourseMapper {
     new_course.banner_data = course.banner_data;
 
     new_course.curriculum = this.mapCurricullum(course.curriculum);
+    new_course.questions = course.questions ? course.questions : []
 
     return new_course;
   }
@@ -78,6 +79,7 @@ export class CourseMapper {
     new_course.banner_data = course.banner_data;
 
     new_course.curriculum = this.convertCurricullum(course.curriculum);
+    new_course.questions = course.questions ? course.questions : [];
 
     return new_course;
 

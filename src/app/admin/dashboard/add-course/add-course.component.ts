@@ -27,6 +27,7 @@ import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component'
 import { v4 as uuidv4 } from 'uuid';
 import { ActivatedRoute } from '@angular/router';
 import { CourseMapper } from '../../shared/mapper/course.mapper';
+import { CreateQuestion, QuestionAnswer } from '../../shared/models/question.model';
 
 
 @Component({
@@ -37,6 +38,7 @@ import { CourseMapper } from '../../shared/mapper/course.mapper';
     'add-course-section.css',
     'add-course-module.css',
     'add-course-main.css',
+    'questions.component.css',
     'instructors-image-profile.css'
   ],
   providers: [CreatePostService]
@@ -89,6 +91,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
   /**Toggle between the tabs in the course state */
   stateTabs = {
     createCourse: true,
+    questions: false,
     curriculumTab: false
   };
 
@@ -330,7 +333,9 @@ export class HiveAdminAddCourseComponent implements OnInit {
     this.stateTabs = {
       ...this.stateTabs,
       curriculumTab: true,
-      createCourse: false
+      createCourse: false,
+      questions: false
+
     };
   }
 
@@ -338,10 +343,21 @@ export class HiveAdminAddCourseComponent implements OnInit {
     this.stateTabs = {
       ...this.stateTabs,
       curriculumTab: false,
-      createCourse: true
+      createCourse: true,
+      questions: false
+
     };
   }
 
+
+  switchToQuestionsTab() {
+    this.stateTabs = {
+      ...this.stateTabs,
+      curriculumTab: false,
+      createCourse: false,
+      questions: true
+    };
+  }
   /**
    * Process an input file selected by the user.
    * Checks if the type is a BANNER or a THUMBNAIL
@@ -378,21 +394,52 @@ export class HiveAdminAddCourseComponent implements OnInit {
   removeLesson(section_position, id) {
     this.course.curriculum[section_position].lessons = this.course.curriculum[section_position].lessons.filter((lesson: CreateLesson) => lesson.id !== id)
   }
+
+  /**
+   * Adds a new Lesson to the Lessons list using the lesson position
+   * @param section_position
+   * @param $event
+   */
   addLesson(section_position, $event) {
     const lesson = new CreateLesson(this.course.course_id);
     this.course.curriculum[section_position].lessons.push(lesson);
 
   }
 
+  /**
+   * Removes a section using a section ID
+   * @param section_id
+   */
   deleteSection(section_id) {
     this.course.curriculum = this.course.curriculum.filter((section: CreateSection) => section.id !== section_id)
   }
 
+  /**
+   * Rearrange a section after its dropped
+   * @param $event
+   */
   addSection($event) {
     const section = new CreateSection(this.course.course_id);
     this.course.curriculum.push(section);
   }
 
+
+  /**
+   * Adds a new Question to the questions list
+   * @param $event
+   */
+  addQuestion($event) {
+    const question = new CreateQuestion();
+    this.course.questions.push(question);
+  }
+
+  /**
+   * Rearrange a question when it is dropeed
+   * @param event
+   */
+  dropQuestion(event: CdkDragDrop<string[]>) {
+
+  }
   dropSection(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.course.curriculum, event.previousIndex, event.currentIndex);
   }
@@ -416,4 +463,119 @@ export class HiveAdminAddCourseComponent implements OnInit {
     }
     return value;
   }
+
+  /************************************* */
+
+  /**
+   *  When a question is dropped, rearrange the order of the questions
+   * @param event
+   */
+  drop(event: CdkDragDrop<string[]>) {
+    // moveItemInArray(this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions, event.previousIndex, event.currentIndex);
+  }
+
+  /**
+   *  Adds an option to the list of options for a particular question
+   * @param position
+   */
+  addOption(position: number) {
+    const new_answer: QuestionAnswer = new QuestionAnswer();
+
+    if (this.course.questions[position].answers)
+      this.course.questions[position].answers.push(new_answer);
+
+    else {
+      this.course.questions[position].answers = []
+      this.course.questions[position].answers.push(new_answer);
+    }
+  }
+
+  /**
+   * Removes a question from a set of questions
+   * @param position
+   */
+  removeQuestion(position: number) {
+    this.course.questions = this.course.questions.filter((elem, index) => index !== position);
+  }
+
+  /**
+   * Remove an option from a question
+   * @param question_position
+   * @param option_position
+   */
+  removeOption(question_position: number, option_position: number) {
+    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers = this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers.filter((elem, index) => index !== option_position);
+  }
+
+
+  /**
+   * Update Question as either multiple choice or not
+   * @param question_position
+   * @param event
+   */
+  updateMultipleChoice(question_position: number, event) {
+    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].multiple_correct_answers = event;
+
+    this.resetSelectedOptions(question_position);
+  }
+
+
+  /**
+   * Tick set of options or answers as the correct answers
+   * @param question_position
+   * @param option_position
+   * @param ticked
+   */
+  tickSelectedOption(question_position: number, option_position: number, ticked: boolean) {
+
+    // if is multiple choice
+    // if (!this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].multiple_correct_answers) {
+    //   // reset selected options
+    //   this.resetSelectedOptions(question_position);
+    // }
+
+    // // tick
+    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers[option_position].ticked = ticked;
+
+    // add to correct addToAnswersList
+    this.addToAnswersList(question_position);
+  }
+
+  /**
+   * Reset Options / answers for a particular question
+   * @param question_position
+   */
+  resetSelectedOptions(question_position: number,) {
+    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers.forEach((option: Option) => {
+    //   option.ticked = false;
+    // });
+  }
+
+  /**
+   * Adds a specified answer to the correct answer list
+   * @param question_position
+   */
+  addToAnswersList(question_position: number) {
+    // reset answers
+    // this.resetCorrectAnswersList(question_position);
+    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers.forEach((option: OptionAnswer) => {
+
+    //   // Push ticked answers to the correct answer arraylist
+    //   if (option.ticked) {
+    //     const ans = new Answers(option.id, option.answer);
+    //     this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].correct_answers.push(ans)
+    //   }
+    // });
+
+  }
+
+  /**
+   * Reset all the Correct Answers array
+   * @param question_position
+   */
+  resetCorrectAnswersList(question_position: number) {
+    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].correct_answers = [];
+  }
+
+
 }

@@ -1,4 +1,5 @@
 import { FileData, IInstructor, ISection, ProfileImage, Resource } from "../models";
+import { IQuestion } from "../models/question.model";
 
 export interface ICreateCourse {
   course_id?: string;
@@ -94,4 +95,5 @@ export class CreateCourseDTO implements ICreateCourse {
   public banner_data: FileData;
 
   public curriculum: ISectionDTO[]
+  public questions: IQuestion[]
 }

@@ -1,0 +1,150 @@
+.header {
+  font-family: SFUIText-Medium;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--warm-grey);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.module-input {
+  min-height: 200px;
+  width: 100%;
+  /* height: 200px; */
+
+  /* background-color: aquamarine; */
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  flex-direction: row;
+}
+
+.module-input .vertical-divider {
+  min-height: 100%;
+
+  width: 2px;
+  height: 100%;
+  background-color: #ff005e;
+}
+
+.module-input .inputs-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* height: 60px; */
+  width: 100%;
+}
+
+.horizontal-divider {
+  width: 20px;
+  height: 2px;
+
+  background-color: #ff005e;
+}
+
+.bottom-add-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* margin-top: -20px; */
+
+  border-radius: 50px;
+  border: 2px solid #ff005e;
+  width: 150px;
+  /* height: 30px; */
+  cursor: pointer;
+}
+
+.bottom-add-input mat-icon {
+  margin-left: 5px;
+}
+.bottom-add-input .horizontal-divider {
+  height: 2px;
+  width: 50px;
+  background-color: #ff005e;
+}
+
+.add-module-button {
+  /* border: 2px solid #ff005e; */
+  color: #ff005e;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-module-button {
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  border: solid 2px var(--pumpkin-orange);
+  /* background-color: var(--white); */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: SFUIText-Medium;
+  font-size: 11px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--pumpkin-orange);
+}
+
+.-input {
+  width: 100%;
+}
+
+.list-item:last-child {
+  margin-bottom: 50px;
+}
+
+.list-item .radio-buttons {
+  /* width: 100%; */
+}
+
+.list-item .radio-buttons .items:first-child {
+  margin-left: 20px;
+}
+.list-item .radio-buttons > * {
+  margin-right: 40px;
+}
+
+.list-item .title {
+  margin-bottom: 0px;
+}
+
+input {
+  padding-left: 10px;
+}
+
+.multiple-choice-option {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
