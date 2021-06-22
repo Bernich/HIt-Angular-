@@ -30,6 +30,8 @@ import { CourseMapper } from '../../shared/mapper/course.mapper';
 import { CreateQuestion, QuestionAnswer } from '../../shared/models/question.model';
 
 
+
+
 @Component({
   selector: 'app-hive-admin-add-news-page',
   templateUrl: './add-course.component.html',
@@ -503,8 +505,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
    * @param question_position
    * @param option_position
    */
-  removeOption(question_position: number, option_position: number) {
-    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers = this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers.filter((elem, index) => index !== option_position);
+  removeOption(question_position: number, option_id: string) {
+    this.course.questions[question_position].answers = this.course.questions[question_position].answers.filter((elem) => elem.id !== option_id);
   }
 
 
@@ -525,20 +527,39 @@ export class HiveAdminAddCourseComponent implements OnInit {
    * @param question_position
    * @param option_position
    * @param ticked
+   *
+   * @description Ticks an option as selected by populating it in the correct answers array
    */
-  tickSelectedOption(question_position: number, option_position: number, ticked: boolean) {
+  tickSelectedOption(question_position: number, option_id: string, ticked: boolean) {
 
-    // if is multiple choice
-    // if (!this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].multiple_correct_answers) {
-    //   // reset selected options
-    //   this.resetSelectedOptions(question_position);
-    // }
 
-    // // tick
-    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers[option_position].ticked = ticked;
+    if (ticked) {
+      console.log("Option selected as corret answer")
+      // Add to correct answers
 
-    // add to correct addToAnswersList
-    this.addToAnswersList(question_position);
+      // get the answer
+      const answer = this.course.questions[question_position].answers.reduce((previous, current,) => {
+        if (current.id === option_id) return current
+        else return previous
+      })
+
+      // verify if its not null
+      if (!this.course.questions[question_position].correct_answers)
+        this.course.questions[question_position].correct_answers = []
+
+
+      // Push the correct answer
+      this.course.questions[question_position].correct_answers.push(answer)
+
+    }
+    else {
+      // Remove from correct answers
+      console.log("Option selected as incorret answer")
+      this.course.questions[question_position].correct_answers = this.course.questions[question_position].correct_answers.filter((elem) => elem.id !== option_id)
+    }
+
+    console.log(this.course.questions[question_position].correct_answers);
+
   }
 
   /**

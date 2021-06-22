@@ -47,6 +47,7 @@
 
             </div>
             <mat-card-title>Instructors </mat-card-title>
+
             <mat-card-subtitle>click to remove an instructors</mat-card-subtitle>
 
             <div class="spacer"></div>
@@ -298,6 +299,16 @@
                   (change)="updateMultipleChoice(position,$event.checked)">
                   Multiple Choice Question
                 </mat-checkbox> -->
+
+              <mat-form-field style="width : 30%" #skill class="select" appearance="none">
+                <mat-select [(ngModel)]="course.skill_level" id="
+                      categories">
+                  <mat-option value="">None</mat-option>
+                  <mat-option *ngFor="let item of skill_level" value="{{ item }}">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </section>
             <div class="spacer" style="margin-top:20px"></div>
 
@@ -336,7 +347,7 @@
             <div *ngFor="let option of question.answers; let op_count = index" class="list-item">
 
               <mat-checkbox [checked]="option.ticked" class="example-margin"
-                (change)="tickSelectedOption(position, op_count, $event.checked)">
+                (change)="tickSelectedOption(position, option.id, $event.checked)">
 
               </mat-checkbox>
 
@@ -346,7 +357,7 @@
                   [(ngModel)]="option.answer" />
 
                 <button mat-button matSuffix mat-icon-button aria-label="Remove answer checkbox"
-                  (click)="removeOption(position,op_count)">
+                  (click)="removeOption(position,option.id)">
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
@@ -552,7 +563,6 @@
   </section>
 
 </section>
-
 
 
 <ng-template #loader>
