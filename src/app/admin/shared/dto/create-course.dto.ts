@@ -12,7 +12,7 @@ export interface ICreateCourse {
   duration?: string;
   base_price?: number;
 
-
+  teaching_resources: Resource[]
   career_paths?: string[]
   what_you_will_learn?: Resource[];
   prerequisites?: Resource[];
@@ -84,6 +84,8 @@ export class CreateCourseDTO implements ICreateCourse {
   public base_price: number;
 
   public career_paths: string[]
+  public teaching_resources: Resource[]
+
   public what_you_will_learn: Resource[];
   public prerequisites: Resource[];
   public with_certification: boolean;

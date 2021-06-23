@@ -30,6 +30,7 @@ export interface ICourse {
 
   teaching_resources?: Resource[];
   career_paths?: string[] | Resource[];
+
   what_you_will_learn?: Resource[];
   prerequisites?: Resource[];
   // publicity_status?: boolean;
