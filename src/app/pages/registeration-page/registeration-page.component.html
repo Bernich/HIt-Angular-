@@ -54,27 +54,51 @@
                         <button mat-button matStepperNext>Next</button>
                     </ng-template>
                     <div class="registeration-inputs">
-                        <span>What are you intrests?</span>
-                        <mat-form-field class="example-full-width">
+                        <span class="question">What are you intrests?</span>
+                        <mat-form-field class="mat-field-wrapper">
                             <!-- <mat-label>Enter the text here</mat-label> -->
                             <textarea matInput placeholder="Your answer...."></textarea>
                         </mat-form-field>
-                        <span>Who do you have to work on ?</span>
-                        <mat-form-field class="example-full-width">
+                        <span class="question">Who do you have to work on ?</span>
+                        <mat-form-field class="mat-field-wrapper">
                             <!-- <mat-label>Enter the text here</mat-label> -->
                             <textarea matInput placeholder="Your answer...."></textarea>
                         </mat-form-field>
-                        <section class="example-section">
-                            What brought you here?
-                            <mat-checkbox class="">Check me!</mat-checkbox>
-                            <section class="example-section">
+                        <section class="Input-wrapper">
+                            <span class="question">What brought you here?</span>
+
+                            <section class="checkbox-container">
                                 <mat-checkbox class="">Facebok</mat-checkbox>
                             </section>
-                            <section class="example-section">
+                            <section class="checkbox-container">
                                 <mat-checkbox class="">Instagram</mat-checkbox>
                             </section>
-                            <section class="example-section">
+                            <section class="checkbox-container">
                                 <mat-checkbox class="">Twitter</mat-checkbox>
+                            </section>
+                            <section>
+                                <p class="question">Are you a JavaScript developer</p>
+                                <!-- <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                    <p class="question">Do you know how to code?</p>
+                                    <mat-radio-button class="example-radio-button">YES
+
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                                    <p class="question">Do you know how to code?</p>
+                                    <mat-radio-button class="example-radio-button">YES
+
+                                    </mat-radio-button> -->
+
+                                <!-- </mat-radio-group> -->
+                                <mat-radio-group vertical class="input-wrapper mtb-2" aria-label="Select an option">
+                                    <mat-radio-button value="1">YES</mat-radio-button>
+                                    <br>
+                                    <br>
+                                    <mat-radio-button value="2">NO</mat-radio-button>
+                                </mat-radio-group>
+
+
                             </section>
                         </section>
                     </div>
