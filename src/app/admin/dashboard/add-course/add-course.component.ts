@@ -636,16 +636,16 @@ export class HiveAdminAddCourseComponent implements OnInit {
   resetSelectedOptions(question_position: number,) {
 
     // Fail safe
-    if (this.course.quiz.questions[question_position].answers) {
-      this.course.quiz.questions[question_position].answers = this.course.quiz.questions[question_position].answers.map((data: Options) => {
-        const new_data = data;
-        new_data.ticked = false;
+    // if (this.course.quiz.questions[question_position].answers) {
+    // this.course.quiz.questions[question_position].answers = this.course.quiz.questions[question_position].answers.map((data: Options) => {
+    //   const new_data = data;
+    //   new_data.ticked = false;
 
-        return new_data;
-      });
+    //   return new_data;
+    // });
 
-      this.resetCorrectAnswersList(question_position);
-    }
+    //   this.resetCorrectAnswersList(question_position);
+    // }
   }
 
 

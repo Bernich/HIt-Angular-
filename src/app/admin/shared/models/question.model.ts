@@ -28,7 +28,7 @@ export interface IQuiz {
 export class Quiz implements IQuiz {
   constructor() {
     this.id = uuidv4();
-    this.questions = [new CreateQuestion()];
+    this.questions = [];
   }
 
   id: string;
