@@ -6,6 +6,8 @@
   color: white;
 }
 
+
+
 .save_button {
   background-color: #ff8100;
   color: white;
@@ -179,6 +181,7 @@
 
 .admin-dashboard-image-header-container .admin-dashboard-blog-title {
 }
+
 #content-editor {
   width: 50%;
   height: 700px;

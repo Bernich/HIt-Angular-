@@ -32,9 +32,9 @@ const routes: Routes = [
        * This route is similar to the Dashboard component which is commented out
        */
       // { path: '', component: CoursesListComponent },
-      {
-        path: '', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.HivenewsDashboardModule),
-      },
+      // {
+      //   path: '', loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.HivenewsDashboardModule),
+      // },
 
       { path: 'root/login', component: HivenewsAdminLoginComponent },
 

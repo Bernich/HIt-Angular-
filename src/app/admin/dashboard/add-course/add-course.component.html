@@ -19,8 +19,8 @@
               Curriculum</div>
 
             <!-- Questions Tab -->
-            <div [ngClass]="{'active-heading' : stateTabs.questions}" class="heading" (click)="switchToQuestionsTab()">
-              Questions</div>
+            <!-- <div [ngClass]="{'active-heading' : stateTabs.questions}" class="heading" (click)="switchToQuestionsTab()">
+              Questions</div> -->
           </div>
 
         </div>
@@ -185,6 +185,15 @@
 
         </section>
 
+        <!-- COURSE MATERIALS  -->
+        <section class="course-prereq-objectives">
+          <app-course-objectives-input style="width: 100%;" title="Course Materials" [data]="course.teaching_resources"
+            (update)="updateCourseMaterials($event)">
+          </app-course-objectives-input>
+
+
+        </section>
+
         <!-- COURSE OBJECTIVES & PREREQUISITES -->
         <section class="course-prereq-objectives">
           <app-course-objectives-input style="width: 48%;" title="What You Will Learn"
@@ -279,13 +288,12 @@
 
 
       <!-- Controls the Questions Space -->
-
+      <!-- TODO : Refactor into a component -->
       <section class="full-width" *ngIf="stateTabs.questions">
         <mat-accordion cdkDropList (cdkDropListDropped)="dropQuestion($event)">
+          <!-- Question Expansion panel starts here -->
+          <mat-expansion-panel *ngFor="let question of course.quiz.questions; let position = index" cdkDrag>
 
-          <mat-expansion-panel *ngFor="let question of course.questions; let position = index" cdkDrag>
-
-            <!-- This is ending of the  -->
             <mat-expansion-panel-header>
 
               <mat-panel-title>
@@ -295,24 +303,20 @@
             </mat-expansion-panel-header>
 
             <section class="multiple-choice-option">
-              <!-- <mat-checkbox [(checked)]="question.multiple_correct_answers" class="example-margin"
-                  (change)="updateMultipleChoice(position,$event.checked)">
-                  Multiple Choice Question
-                </mat-checkbox> -->
 
-              <mat-form-field style="width : 30%" #skill class="select" appearance="none">
-                <mat-select [(ngModel)]="course.skill_level" id="
-                      categories">
-                  <mat-option value="">None</mat-option>
-                  <mat-option *ngFor="let item of skill_level" value="{{ item }}">
-                    {{item}}
+
+              <mat-form-field style="width : 30%" #questionTypeSelector class="select" appearance="none">
+                <mat-select (selectionChange)="switchQuestionType(position, $event.value)"
+                  [(ngModel)]="question.question_type" id="categories">
+                  <mat-option *ngFor="let item of questionsInputType" value="{{ item.value }}">
+                    {{item.name}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </section>
             <div class="spacer" style="margin-top:20px"></div>
 
-            <!-- QUESTION ! -->
+            <!-- QUESTIONs ! -->
             <!--TODO : Refactor in all course creation componenets. Make List Item a Component -->
             <div class="list-item" style="margin-top: 10px;">
               <mat-form-field class="title -input">
@@ -321,14 +325,7 @@
               </mat-form-field>
             </div>
 
-
-            <div class="spacer" style="margin-top:20px"></div>
-
-            <!-- TIP -->
-
-
-
-            <div class="spacer" style="margin-top:20px"></div>
+            <div style="margin-top:20px"></div>
 
             <!-- <mat-form-field>
               <mat-label>Difficult Level</mat-label>
@@ -342,32 +339,76 @@
 
             <div style="margin-top: 25px;"></div>
 
-            <!-- ANSWER  OPTIONS-->
-            <p>Tick the Correct answers from the options</p>
-            <div *ngFor="let option of question.answers; let op_count = index" class="list-item">
 
-              <mat-checkbox [checked]="option.ticked" class="example-margin"
-                (change)="tickSelectedOption(position, option.id, $event.checked)">
+            <!-- Renders Linear Scale Input options -->
+            <!-- TODO : Refactor to a component if possible -->
+            <section *ngIf="question.question_type==='LINEAR_SCALE'" class="linear-scale-input">
 
-              </mat-checkbox>
+              <section>MIN :
+
+                <mat-form-field style="width : 100px" #min class="select" appearance="none">
+                  <mat-select [(ngModel)]="question.linear_scale.min" id="
+                    categories">
+                    <mat-option value="0">0</mat-option>
+                    <mat-option value="1">1</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
+              <div style="margin-right:20px"></div>
+
+              <section>MAX : <mat-form-field style="width : 100px" #max class="select" appearance="none">
+                  <mat-select [(ngModel)]="question.linear_scale.max" id="
+                    categories">
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">4</mat-option>
+                    <mat-option value="5">5</mat-option>
+                    <mat-option value="6">6</mat-option>
+                    <mat-option value="7">7</mat-option>
+                    <mat-option value="8">8</mat-option>
+                    <mat-option value="9">9</mat-option>
+                    <mat-option value="10">10</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </section>
 
 
-              <mat-form-field class="title -input" style="width: 97%">
-                <input matInput type="text" [name]="'option_'+ op_count" [placeholder]="'Options ' + op_count "
-                  [(ngModel)]="option.answer" />
+            </section>
 
-                <button mat-button matSuffix mat-icon-button aria-label="Remove answer checkbox"
-                  (click)="removeOption(position,option.id)">
-                  <mat-icon>close</mat-icon>
-                </button>
-              </mat-form-field>
+            <mat-checkbox [(checked)]="selectedTick" class="example-margin" (change)="printTick($event.checked)">
+            </mat-checkbox>
 
 
+            <!-- ANSWER  OPTIONS - Toggle these off if the slected input type is not a Checkbox or multiple choice-->
+            <!-- TODO : Recafactor into component if possible -->
+            <p *ngIf="question.question_type==='CHECKBOXES' ||question.question_type==='MULTIPLE_CHOICE' ">Tick the
+              Correct answers from the options</p>
 
-            </div>
+            <section *ngIf="question.question_type==='CHECKBOXES' ||question.question_type==='MULTIPLE_CHOICE' ">
+
+              <div *ngFor=" let option of question.answers; let op_count=index" class="list-item">
+
+                <mat-checkbox [checked]="option.ticked" class="example-margin"
+                  (change)="tickSelectedOption(position, option.id, $event.checked)">
+                </mat-checkbox>
+
+                <mat-form-field class="title -input" style="margin-left : 10px; width: 95%">
+                  <input matInput type="text" [name]="'option_'+ op_count" [placeholder]="'Options ' + op_count "
+                    [(ngModel)]="option.answer" />
+
+                  <button mat-button matSuffix mat-icon-button aria-label="Remove answer checkbox"
+                    (click)="removeOption(position,option.id)">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+
+              </div>
+            </section>
+
 
             <section style="display:flex; justify-content:space-between; margin-top:40px">
-              <div class="bottom-add-input"
+              <div *ngIf="question.question_type==='CHECKBOXES' ||question.question_type==='MULTIPLE_CHOICE' "
+                class="bottom-add-input"
                 style="display: inline-block; border: solid 2px var(--pumpkin-orange); color: var(--pumpkin-orange);"
                 (click)="addOption(position)">
                 <!-- <div class="horizontal-divider"></div> -->
@@ -391,7 +432,7 @@
                 </div>
               </div>
             </section>
-
+            <!-- Question Expansion Panel Ends Here -->
           </mat-expansion-panel>
 
         </mat-accordion>
@@ -407,7 +448,7 @@
 
     <!--
       RIGHT SIDE BAR - ALLOW DRAGGRABLE
-      TODO - REMOVE TO ITS OWN COMPONENT
+      TODO - REFACTOR TO ITS OWN COMPONENT
       -->
     <section class="right-details">
 

@@ -1,6 +1,6 @@
 import { FileData, IInstructor, ProfileImage, Resource } from "src/app/admin/shared/models";
 import { v4 as uuidv4 } from 'uuid';
-import { CreateQuestion, IQuestion } from "./question.model";
+import { CreateQuestion, IQuestion, IQuiz, Quiz } from "./question.model";
 import { IUser } from "./user.model";
 
 export interface ISection {
@@ -28,6 +28,7 @@ export interface ICourse {
   base_price?: number;
 
 
+  teaching_resources?: Resource[];
   career_paths?: string[] | Resource[];
   what_you_will_learn?: Resource[];
   prerequisites?: Resource[];
@@ -48,7 +49,7 @@ export interface ICourse {
 
   curriculum?: ISection[];
 
-  questions?: IQuestion[]
+  quiz?: IQuiz
 }
 
 
@@ -66,6 +67,8 @@ export class Course implements ICourse {
 
 
   public career_paths?: string[];
+  public teaching_resources?: Resource[];
+
   public what_you_will_learn?: Resource[];
   public prerequisites?: Resource[];
   // publicity_status?: boolean;
@@ -84,7 +87,7 @@ export class Course implements ICourse {
 
   public curriculum?: ISection[]
 
-  public questions?: IQuestion[]
+  public quiz?: IQuiz
 
 }
 
@@ -96,6 +99,7 @@ export class CreateCourse implements ICourse {
   ) {
     // this.publicity_status = this.publicity_status || false;
     this.course_id = uuidv4();
+    this.quiz = new Quiz();
   }
 
   public name: string = "";
@@ -118,8 +122,9 @@ export class CreateCourse implements ICourse {
   public what_you_will_learn: Resource[] = [];
   public prerequisites: Resource[] = [];
   public career_paths: Resource[] = [];
+  public teaching_resources: Resource[] = [];
 
-  public questions: CreateQuestion[];
+  public quiz: IQuiz;
 }
 
 

@@ -11,6 +11,7 @@
   height: 100%;
   color: #1e1e1eab;
   display: flex;
+  flex-wrap: wrap;
   color: white;
   line-height: 1.5rem;
 
@@ -49,4 +50,5 @@
 
 /* Reaches max zoom**/
 @media (max-width: 1200px) {
+  
 }

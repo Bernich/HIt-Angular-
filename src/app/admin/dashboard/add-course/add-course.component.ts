@@ -27,10 +27,11 @@ import { CoursesBottomSheetComponent } from './add-course-bottomsheet.component'
 import { v4 as uuidv4 } from 'uuid';
 import { ActivatedRoute } from '@angular/router';
 import { CourseMapper } from '../../shared/mapper/course.mapper';
-import { CreateQuestion, QuestionAnswer } from '../../shared/models/question.model';
+import { CreateQuestion, Options, QuestionAnswer, QuestionInputTypes, Quiz } from '../../shared/models/question.model';
 
 
-
+export const CHECKBOXESTYPE = "CHECKBOXES"
+export const MULTIPLE_CHOICETYPE = "MULTIPLE_CHOICE"
 
 @Component({
   selector: 'app-hive-admin-add-news-page',
@@ -90,6 +91,19 @@ export class HiveAdminAddCourseComponent implements OnInit {
     "Professional"
   ]
 
+  /********** */
+  // Tick for users
+  selectedTick: boolean = false;
+
+  printTick(checked) {
+    console.log(checked);
+    console.log(this.selectedTick);
+
+  }
+  /************* */
+
+  questionsInputType = QuestionInputTypes;
+
   /**Toggle between the tabs in the course state */
   stateTabs = {
     createCourse: true,
@@ -148,9 +162,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
   loadCourse(id) {
     this.courseService.findAdminCourse(id).subscribe({
       next: (data: any) => {
-        // unmap course into
-
-
 
         this.course = CourseMapper.convertToCreate(data);
         this.isPublished = data.is_approved;
@@ -175,6 +186,10 @@ export class HiveAdminAddCourseComponent implements OnInit {
   }
 
 
+  /**
+   * Convert Developers model to a fixed model supported by {@link IInstructor}
+   * @param devs
+   */
   convertToDeveloperToModel(devs: any) {
     const developers = []
 
@@ -195,6 +210,9 @@ export class HiveAdminAddCourseComponent implements OnInit {
     return developers;
   }
 
+  /**
+   *Loads all developers of the curricullum
+   */
   loadDevelopers() {
     this.usersService.all("users").subscribe({
       next: (data: any) => {
@@ -203,6 +221,10 @@ export class HiveAdminAddCourseComponent implements OnInit {
     });
   }
 
+  /**
+   * Saves or Updates a course
+   *  {@link updateCourse()}
+   */
   save() {
     this.isLoading = { ...this.isLoading, course: true };
 
@@ -212,6 +234,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
       this.updateCourse();
     }
   }
+
 
   updateCourse() {
     // convert post authors into an id
@@ -262,11 +285,30 @@ export class HiveAdminAddCourseComponent implements OnInit {
     });
   }
 
+
   updateBannerImage(data: { url: string, data: FileData }) {
     this.imgUrl = data.url;
     this.course.banner_data = data.data;
   }
 
+
+  switchQuestionType(question_position, type) {
+    console.log(type)
+
+    if (type === CHECKBOXESTYPE) {
+      // TODO : reset types to checkbox
+
+    } else if (type === MULTIPLE_CHOICETYPE) {
+      this.resetSelectedOptions(question_position);
+      // TODO : reset types to checkbox
+    } else if (type === CHECKBOXESTYPE) {
+      // TODO : reset types to checkbox
+
+    }
+
+
+
+  }
   openBottomSheet() {
     // Remove all selected authors and send to bottomsheet
 
@@ -287,7 +329,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
 
   openDevelopersBottomSheet() {
-
     // open sheet
     this.bottomSheet.open(CoursesBottomSheetComponent, {
       data: { instructors: this.developers, selected: this.selectedDevelopers },
@@ -337,7 +378,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
       curriculumTab: true,
       createCourse: false,
       questions: false
-
     };
   }
 
@@ -347,7 +387,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
       curriculumTab: false,
       createCourse: true,
       questions: false
-
     };
   }
 
@@ -427,12 +466,20 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
 
   /**
-   * Adds a new Question to the questions list
+   * Adds a new Question to the questions list {@link IQuestion}
    * @param $event
+   *
    */
   addQuestion($event) {
     const question = new CreateQuestion();
-    this.course.questions.push(question);
+
+    if (!this.course.quiz.questions) {
+      this.course.quiz = new Quiz();
+      // TODO : FIX this - Forcefully map questions to array
+      this.course.quiz.questions = [];
+    }
+
+    this.course.quiz.questions.push(question);
   }
 
   /**
@@ -450,9 +497,15 @@ export class HiveAdminAddCourseComponent implements OnInit {
     this.course.what_you_will_learn = data;
   }
 
+  updateCourseMaterials(data: Resource[]) {
+    this.course.teaching_resources = data;
+  }
+
+
   updatePrereq(data: Resource[]) {
     this.course.prerequisites = data;
   }
+
   updateCareerPath(data: Resource[]) {
     // this.course.career_paths = data.map((data: Resource) => data.value);
     this.course.career_paths = data;
@@ -472,23 +525,23 @@ export class HiveAdminAddCourseComponent implements OnInit {
    *  When a question is dropped, rearrange the order of the questions
    * @param event
    */
-  drop(event: CdkDragDrop<string[]>) {
-    // moveItemInArray(this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions, event.previousIndex, event.currentIndex);
-  }
+  // drop(event: CdkDragDrop<string[]>) {
+  // moveItemInArray(this.course.quiz.questions[this.section_position].lessons[this.lesson_position].quiz.questions, event.previousIndex, event.currentIndex);
+  // }
 
   /**
    *  Adds an option to the list of options for a particular question
    * @param position
    */
   addOption(position: number) {
-    const new_answer: QuestionAnswer = new QuestionAnswer();
+    const new_answer: Options = new Options();
 
-    if (this.course.questions[position].answers)
-      this.course.questions[position].answers.push(new_answer);
+    if (this.course.quiz.questions[position].answers)
+      this.course.quiz.questions[position].answers.push(new_answer);
 
     else {
-      this.course.questions[position].answers = []
-      this.course.questions[position].answers.push(new_answer);
+      this.course.quiz.questions[position].answers = []
+      this.course.quiz.questions[position].answers.push(new_answer);
     }
   }
 
@@ -497,7 +550,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
    * @param position
    */
   removeQuestion(position: number) {
-    this.course.questions = this.course.questions.filter((elem, index) => index !== position);
+    this.course.quiz.questions = this.course.quiz.questions.filter((elem, index) => index !== position);
   }
 
   /**
@@ -506,7 +559,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
    * @param option_position
    */
   removeOption(question_position: number, option_id: string) {
-    this.course.questions[question_position].answers = this.course.questions[question_position].answers.filter((elem) => elem.id !== option_id);
+    this.course.quiz.questions[question_position].answers = this.course.quiz.questions[question_position].answers.filter((elem) => elem.id !== option_id);
   }
 
 
@@ -532,33 +585,47 @@ export class HiveAdminAddCourseComponent implements OnInit {
    */
   tickSelectedOption(question_position: number, option_id: string, ticked: boolean) {
 
+    console.log(this.course.quiz.questions[question_position]);
+
+    // Verify if the Selected type is a multiple choice or checkbox
+    if (this.course.quiz.questions[question_position].question_type === MULTIPLE_CHOICETYPE) {
+      // reset selected options
+      this.resetSelectedOptions(question_position);
+
+      console.log("Reset all")
+    }
+
 
     if (ticked) {
       console.log("Option selected as corret answer")
       // Add to correct answers
 
+
       // get the answer
-      const answer = this.course.questions[question_position].answers.reduce((previous, current,) => {
+      const answer = this.course.quiz.questions[question_position].answers.reduce((previous, current,) => {
         if (current.id === option_id) return current
         else return previous
       })
 
+      // make a new answer without the model
+      const new_answer = new QuestionAnswer(answer.id, answer.answer);
+
       // verify if its not null
-      if (!this.course.questions[question_position].correct_answers)
-        this.course.questions[question_position].correct_answers = []
+      if (!this.course.quiz.questions[question_position].correct_answers)
+        this.course.quiz.questions[question_position].correct_answers = []
 
-
-      // Push the correct answer
-      this.course.questions[question_position].correct_answers.push(answer)
+      //TODO : Bad if input changes Push the correct answer
+      this.course.quiz.questions[question_position].correct_answers.push(new_answer)
 
     }
     else {
       // Remove from correct answers
       console.log("Option selected as incorret answer")
-      this.course.questions[question_position].correct_answers = this.course.questions[question_position].correct_answers.filter((elem) => elem.id !== option_id)
+      this.course.quiz.questions[question_position].correct_answers = this.course.quiz.questions[question_position].correct_answers.filter((elem) => elem.id !== option_id)
     }
 
-    console.log(this.course.questions[question_position].correct_answers);
+    console.log(this.course.quiz.questions[question_position]);
+
 
   }
 
@@ -567,35 +634,27 @@ export class HiveAdminAddCourseComponent implements OnInit {
    * @param question_position
    */
   resetSelectedOptions(question_position: number,) {
-    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers.forEach((option: Option) => {
-    //   option.ticked = false;
-    // });
+
+    // Fail safe
+    if (this.course.quiz.questions[question_position].answers) {
+      this.course.quiz.questions[question_position].answers = this.course.quiz.questions[question_position].answers.map((data: Options) => {
+        const new_data = data;
+        new_data.ticked = false;
+
+        return new_data;
+      });
+
+      this.resetCorrectAnswersList(question_position);
+    }
   }
 
-  /**
-   * Adds a specified answer to the correct answer list
-   * @param question_position
-   */
-  addToAnswersList(question_position: number) {
-    // reset answers
-    // this.resetCorrectAnswersList(question_position);
-    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].answers.forEach((option: OptionAnswer) => {
-
-    //   // Push ticked answers to the correct answer arraylist
-    //   if (option.ticked) {
-    //     const ans = new Answers(option.id, option.answer);
-    //     this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].correct_answers.push(ans)
-    //   }
-    // });
-
-  }
 
   /**
    * Reset all the Correct Answers array
    * @param question_position
    */
   resetCorrectAnswersList(question_position: number) {
-    // this.createCourse.course.curriculum[this.section_position].lessons[this.lesson_position].quiz.questions[question_position].correct_answers = [];
+    this.course.quiz.questions[question_position].correct_answers = [];
   }
 
 
