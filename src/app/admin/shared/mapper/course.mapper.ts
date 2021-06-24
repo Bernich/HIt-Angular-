@@ -6,6 +6,11 @@ import { IQuestion, Options, QuestionAnswer } from "../models/question.model";
 export class CourseMapper {
 
 
+  /**
+   * Convert sourse to a create course model
+   * @param course
+   * @returns
+   */
   static convertToDTO(course: CreateCourse): CreateCourseDTO {
     const new_course = new CreateCourseDTO();
 
@@ -41,6 +46,11 @@ export class CourseMapper {
     return new_course;
   }
 
+  /**
+   * Removes all ticked from options model
+   * @param questions
+   * @returns
+   */
   static removeTickedFromOptions(questions: IQuestion[]) {
     let CHECKBOXESTYPE = "CHECKBOXES";
     let MULTIPLE_CHOICETYPE = "MULTIPLE_CHOICE";
@@ -87,6 +97,11 @@ export class CourseMapper {
     return new_questions;
   }
 
+  /**
+   *  Map curriculum by removing all unwanted fields when creating course
+   * @param sections
+   * @returns  ISectionDTO[]
+   */
   static mapCurricullum(sections: ISection[]) {
     const new_sections: ISectionDTO[] = [];
 
@@ -105,6 +120,11 @@ export class CourseMapper {
     return new_sections;
   }
 
+  /**
+   * Converts a course object back into a Create course model
+   * @param course
+   * @returns
+   */
   static convertToCreate(course: Course) {
 
     const new_course = new CreateCourse();
@@ -139,6 +159,11 @@ export class CourseMapper {
     return new_course;
   }
 
+  /**
+   * Tickes Correct options from the answers list
+   * @param questions
+   * @returns
+   */
   static addTickedFromOptions(questions: IQuestion[]) {
     let CHECKBOXESTYPE = "CHECKBOXES";
     let MULTIPLE_CHOICETYPE = "MULTIPLE_CHOICE";

@@ -1,188 +1,187 @@
 header {
-    height: 90vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-    /* url("../../../assets/images/republica.jpg"); */
-    /* Give all specific components */
-    font-weight: 400;
-    font-stretch: normal;
-    font-style: normal;
-    letter-spacing: normal;
-    text-align: center;
-    font-family: SFUIText-Light;
-    /* font-family: SFProText; */
-    text-align: left;
-    z-index: 0 !important;
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  /* url("../../../assets/images/republica.jpg"); */
+  /* Give all specific components */
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  font-family: SFUIText-Light;
+  /* font-family: SFProText; */
+  text-align: left;
+  z-index: 0 !important;
 }
 
 .header-carousel {
-    z-index: 0 !important;
+  z-index: 0 !important;
 }
 
 .slider {
-    height: 90vh;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 30px 0;
-    /* z-index: 0 !important; */
+  height: 90vh;
+  position: relative;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px 0;
+  /* z-index: 0 !important; */
 }
 
 .slider::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.71);
 }
 
 .post {
-    /* margin: 30px auto; */
-    width: 55%;
-    display: block;
-    padding: 0 20px;
-    z-index: 100 !important;
+  /* margin: 30px auto; */
+  width: 55%;
+  display: block;
+  padding: 0 20px;
+  z-index: 100 !important;
 }
 
 .post-title,
 .post-date {
-    width: 75%;
+  width: 75%;
 }
 
 .post-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ffffff;
-    line-height: normal;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: normal;
 }
 
 .post-date {
-    /* height: 15px; */
-    font-size: 11px;
-    /* font-weight: bold; */
-    /* letter-spacing: 1.4px; */
-    color: #fff;
-    margin-top: 15px;
-    line-height: 1.7em;
-    font-family: SFUIText-Light;
-    font-size: 1.17rem;
-    /* color: var(--brownish-grey); */
+  /* height: 15px; */
+  font-size: 11px;
+  /* font-weight: bold; */
+  /* letter-spacing: 1.4px; */
+  color: #fff;
+  margin-top: 15px;
+  line-height: 1.7em;
+  font-family: SFUIText-Light;
+  font-size: 1.17rem;
+  /* color: var(--brownish-grey); */
 }
 
 .post-read {
-    margin-top: 10px;
-    display: inline-block;
-    text-shadow: 2px 1px 2px var(--black-50);
-    font-size: 16px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    cursor: pointer;
-    color: #ff8100;
-    position: relative;
+  margin-top: 10px;
+  display: inline-block;
+  text-shadow: 2px 1px 2px var(--black-50);
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  cursor: pointer;
+  color: #ff8100;
+  position: relative;
 }
 
 .post-read::before {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
-    background-color: #ff8100;
-    width: 100%;
-    height: 2px;
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  background-color: #ff8100;
+  width: 100%;
+  height: 2px;
 }
 
 .post-read:hover {
-    color: #944d06;
+  color: #944d06;
 }
 
 h1 {
-    margin: 0;
-    color: rgb(155, 91, 91);
-    font-size: 240%;
-    font-weight: 600;
+  margin: 0;
+  color: rgb(155, 91, 91);
+  font-size: 240%;
+  font-weight: 600;
 }
-
 
 /* media queries */
 
 @media screen and (max-width: 768px) {
-    .post {
-        width: 90%;
-        margin: 0 auto;
-    }
-    .post-title {
-        font-size: 40px;
-    }
-    .post-date {
-        /* font-size: 15px; */
-        margin-top: 10px;
-    }
-    .post-read {
-        font-size: 18px;
-        margin-top: 15px;
-    }
+  .post {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .post-title {
+    font-size: 40px;
+  }
+  .post-date {
+    /* font-size: 15px; */
+    margin-top: 10px;
+  }
+  .post-read {
+    font-size: 18px;
+    margin-top: 15px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .post {
-        /* width: 750px; */
-        margin: 0 auto;
-        width: 85%;
-    }
-    .post-title {
-        font-size: 40px;
-    }
-    .post-date {
-        /* font-size: 15px; */
-        margin-top: 40px;
-    }
-    .post-read {
-        font-size: 18px;
-        margin-top: 40px;
-    }
+  .post {
+    /* width: 750px; */
+    margin: 0 auto;
+    width: 85%;
+  }
+  .post-title {
+    font-size: 40px;
+  }
+  .post-date {
+    /* font-size: 15px; */
+    margin-top: 40px;
+  }
+  .post-read {
+    font-size: 18px;
+    margin-top: 40px;
+  }
 }
 
 @media screen and (min-width: 1368px) {
-    .post {
-        /* width: 1050px; */
-        margin: 0 auto;
-    }
-    .post-title {
-        font-size: 50px;
-    }
-    .post-read {
-        font-size: 25px;
-    }
-    .post-date {
-        /* font-size: 15px; */
-    }
+  .post {
+    /* width: 1050px; */
+    margin: 0 auto;
+  }
+  .post-title {
+    font-size: 50px;
+  }
+  .post-read {
+    font-size: 25px;
+  }
+  .post-date {
+    /* font-size: 15px; */
+  }
 }
 
 @media screen and (min-width: 1414px) {
-    .post {
-        /* width: 1050px; */
-        margin: 0 auto;
-    }
+  .post {
+    /* width: 1050px; */
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 575px) {
-    .post {
-        width: 90%;
-    }
-    .post-title {
-        font-size: 25px;
-        /* line-height: normal; */
-    }
+  .post {
+    width: 90%;
+  }
+  .post-title {
+    font-size: 25px;
+    /* line-height: normal; */
+  }
 }
