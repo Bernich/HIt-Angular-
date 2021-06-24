@@ -77,7 +77,7 @@ export class CourseDetailPageComponent implements OnInit {
   }
 
   isVisible(url: string) {
-    if (url === "@url" || "") return false;
+    if (url.toLowerCase() === "@url" || "") return false;
 
     return true;
   }
