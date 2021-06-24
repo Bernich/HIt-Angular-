@@ -81,8 +81,9 @@
 
               <section *ngIf="question.question_type === CHECKBOXESTYPE">
                 <mat-checkbox style="display:block; margin-bottom: 10px" [(ngModel)]="option.ticked"
-                  (ngModelChange)="updateAllComplete($event)" *ngFor="let option of question.answers" [name]="option.id"
-                  [value]="option.id"> {{option.answer}}
+                  *ngFor="let option of question.answers; let opt_count = index" [name]="option.id" [value]="option.id"
+                  (ngModelChange)="updateAllComplete($event, opt_count)">
+                  {{option.answer}}
                 </mat-checkbox>
 
               </section>

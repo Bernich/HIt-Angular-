@@ -40,14 +40,12 @@ export class CourseMapper {
     new_course.curriculum = this.mapCurricullum(course.curriculum);
 
     // Map course out
-
     if (course.quiz.id === undefined || course.quiz.id === null || course.quiz.id === "") {
       new_course.quiz = new Quiz();
     } else {
       new_course.quiz = course.quiz;
       console.log(course.quiz)
       new_course.quiz.questions = (course.quiz.questions === null || course.quiz.questions === undefined) ? [] : this.removeTickedFromOptions(course.quiz.questions);
-
     }
 
     return new_course;

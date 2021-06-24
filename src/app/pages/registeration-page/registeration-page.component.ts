@@ -58,8 +58,8 @@ export class RegisterationPageComponent implements OnInit {
     //   }
     // })
 
-
   }
+
 
   loadCourseWithSlug(slug) {
     this.courseService.getCourseWithSlug(slug).subscribe({
@@ -71,8 +71,12 @@ export class RegisterationPageComponent implements OnInit {
   }
 
 
-  updateAllComplete(data) {
+  updateAllComplete(data, position: number) {
     console.log(data)
+
+    console.log(position)
+
+    
   }
 
 }
