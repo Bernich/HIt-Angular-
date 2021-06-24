@@ -6,6 +6,11 @@
     color: white;
 }
 
+.mtb-2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .background-container {
     background-image: url("https://hive-news.uc.r.appspot.com/republica.830aacc59b16116965b4.jpg");
     position: relative;
@@ -157,6 +162,43 @@ input[type^="button"] {
 
 input[type^="text||password"] {
     padding: 50px;
+}
+
+.checkbox-container {
+    margin: 10px;
+}
+
+.mat-form-field {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.question {
+    color: #4a4a4a;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.mat-radio-button {
+    margin-bottom: 8px;
+}
+
+.mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.mat-button-group {
+    margin: 8px 0;
+}
+
+.mat-radio-label {
+    margin-right: 8px;
+}
+
+.mat-radio-label-content {
+    margin-bottom: 8px;
 }
 
 

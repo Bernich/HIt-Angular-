@@ -34,9 +34,11 @@ import {
   NewNewsCardComponent,
   NewAllProgramsLayoutComponent,
   NewsHeaderComponent,
-  ClosedGridNewsCardComponent
+  ClosedGridNewsCardComponent,
+  LinearScaleComponent
 } from './index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material.module';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    MaterialModule,
     HivenewsSharedModule.forRoot(),
   ],
   declarations: [
@@ -77,7 +80,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent,
     NewsHeaderComponent,
-    ClosedGridNewsCardComponent
+    ClosedGridNewsCardComponent,
+    LinearScaleComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -109,7 +113,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewNewsCardComponent,
     NewAllProgramsLayoutComponent,
     NewsHeaderComponent,
-    ClosedGridNewsCardComponent
+    ClosedGridNewsCardComponent,
+    LinearScaleComponent
   ]
 })
 export class HivenewsLayoutsModule { }
