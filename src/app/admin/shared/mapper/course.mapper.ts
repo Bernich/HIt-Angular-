@@ -1,7 +1,7 @@
 import { CreateCourseDTO, CreateSectionDTO, ISectionDTO } from "../dto/create-course.dto";
 import { Course, CreateCourse, CreateSection, IInstructor, ISection, IUser, Resource } from "../models";
 import { v4 as uuidv4 } from 'uuid';
-import { IQuestion, Options, QuestionAnswer } from "../models/question.model";
+import { IQuestion, Options, QuestionAnswer, Quiz } from "../models/question.model";
 
 export class CourseMapper {
 
@@ -40,8 +40,15 @@ export class CourseMapper {
     new_course.curriculum = this.mapCurricullum(course.curriculum);
 
     // Map course out
-    new_course.quiz = course.quiz;
-    new_course.quiz.questions = (course.quiz.questions !== null || course.quiz.questions !== undefined) ? this.removeTickedFromOptions(course.quiz.questions) : [];
+
+    if (course.quiz.id === undefined || course.quiz.id === null || course.quiz.id === "") {
+      new_course.quiz = new Quiz();
+    } else {
+      new_course.quiz = course.quiz;
+      console.log(course.quiz)
+      new_course.quiz.questions = (course.quiz.questions === null || course.quiz.questions === undefined) ? [] : this.removeTickedFromOptions(course.quiz.questions);
+
+    }
 
     return new_course;
   }

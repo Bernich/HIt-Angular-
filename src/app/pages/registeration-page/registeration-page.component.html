@@ -54,17 +54,20 @@
 
           <div class="registeration-inputs" matStepContent>
 
-
+            <!-- Get the course curriculums and display them -->
             <section *ngFor="let question of course.quiz.questions; let count = index;" class="question-container">
               <span class="question">{{(count + 1) +". " + question.question }}</span>
 
               <div style="margin-bottom: 10px;"></div>
 
+              <!-- CHECK QUESTION TYPES AND USE THAT TO RENDER INPUT TYPES -->
+              <!-- RENDER TYPE FOR SHORT ANSWER -->
               <mat-form-field *ngIf="question.question_type ===SHORT_ANSWER" class="mat-field-wrapper">
-                <!-- CHECK QUESTION TYPES AND USE THAT TO RENDER INPUT TYPES -->
 
                 <textarea matInput placeholder="Your answer...."></textarea>
               </mat-form-field>
+
+              <!-- RENDER TYPE FOR SHORT ANSWER -->
 
               <mat-radio-group *ngIf="question.question_type ===MULTIPLE_CHOICETYPE" vertical
                 class="input-wrapper mtb-2" aria-label="Select an option">
@@ -93,8 +96,8 @@
             </section>
 
 
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <!-- <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button> -->
           </div>
 
           <div class="submit-container">

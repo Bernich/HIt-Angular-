@@ -6,6 +6,7 @@ import decode from 'jwt-decode';
 import { SERVER_API_URL } from 'src/app/app.constants';
 import { environment } from 'src/environments/environment';
 import { isPlatformBrowser } from '@angular/common';
+import { Enrollment } from '../models/enrollment.model';
 
 
 
@@ -130,6 +131,11 @@ export class AuthService {
   resetPassword(payload: { password: string, password_confirm: string, email: string }, token: string) {
     return this.httpClient.post(`${this.url + '/users/set_password'}\\${token}`, payload);
   }
+
+  enrollCourse(enrollment: Enrollment) {
+    return this.httpClient.post(this.url + '/enrollments', enrollment);
+  }
+
 
   // TODO : Add a token is expired function
 }
