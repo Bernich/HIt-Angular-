@@ -75,4 +75,10 @@ export class CourseDetailPageComponent implements OnInit {
 
     return null;
   }
+
+  isVisible(url: string) {
+    if (url === "@url" || "") return false;
+
+    return true;
+  }
 }

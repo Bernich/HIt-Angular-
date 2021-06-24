@@ -137,7 +137,7 @@ export class HiveAdminAddInstructorComponent implements OnInit {
 
 
       this.isLoading = false;
-      this.navigationService.editInstructor(this.user.instructor_id);
+      this.navigationService.toInstructorList();
 
       this._snackBar.open('Created Instructor', `${this.user.firstname}`, {
         duration: 3000,

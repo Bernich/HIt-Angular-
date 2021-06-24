@@ -1,6 +1,7 @@
 import { CreateCourseDTO, CreateSectionDTO, ISectionDTO } from "../dto/create-course.dto";
 import { Course, CreateCourse, CreateSection, IInstructor, ISection, IUser, Resource } from "../models";
 import { v4 as uuidv4 } from 'uuid';
+import { IQuestion, Options, QuestionAnswer } from "../models/question.model";
 
 export class CourseMapper {
 
@@ -34,11 +35,57 @@ export class CourseMapper {
     new_course.curriculum = this.mapCurricullum(course.curriculum);
 
     // Map course out
-    // new_course.quiz = course.quiz;
+    new_course.quiz = course.quiz;
+    new_course.quiz.questions = course.quiz.questions ? this.removeTickedFromOptions(course.quiz.questions) : [];
 
     return new_course;
   }
 
+  static removeTickedFromOptions(questions: IQuestion[]) {
+    let CHECKBOXESTYPE = "CHECKBOXES";
+    let MULTIPLE_CHOICETYPE = "MULTIPLE_CHOICE";
+    let SIMPLE_ANSWER_CHOICETYPE = "SHORT_ANSWER";
+
+    const new_questions: IQuestion[] = [];
+
+
+    for (const question of questions) {
+      // If it is checkbox or multiple choice then it definitely has a ticked in it
+      if (question.question_type === MULTIPLE_CHOICETYPE || question.question_type === CHECKBOXESTYPE) {
+        // go through all options and parse them
+
+        question.linear_scale = null;
+        const answers = [];
+        const correct_answers = [];
+
+        // Map through questions and fill correct answers against answers
+        question.answers.forEach((answer: Options) => {
+          const new_answer = new QuestionAnswer(answer.id, answer.answer);
+          if (answer.ticked) correct_answers.push(new_answer);
+
+          answers.push(new_answer);
+        });
+
+        // set new answers
+        question.answers = answers;
+        question.correct_answers = correct_answers;
+
+        new_questions.push(question);
+      }
+
+      else if (question.question_type === SIMPLE_ANSWER_CHOICETYPE) {
+
+        question.linear_scale = null;
+        new_questions.push(question);
+      }
+      else {
+        new_questions.push(question);
+      }
+    }
+
+
+    return new_questions;
+  }
 
   static mapCurricullum(sections: ISection[]) {
     const new_sections: ISectionDTO[] = [];
@@ -86,9 +133,66 @@ export class CourseMapper {
     new_course.curriculum = this.convertCurricullum(course.curriculum);
 
     // Map course out
-    // new_course.quiz = course.quiz;
+    new_course.quiz = course.quiz;
+    new_course.quiz.questions = this.addTickedFromOptions(course.quiz.questions);
 
     return new_course;
+  }
+
+  static addTickedFromOptions(questions: IQuestion[]) {
+    let CHECKBOXESTYPE = "CHECKBOXES";
+    let MULTIPLE_CHOICETYPE = "MULTIPLE_CHOICE";
+    let SIMPLE_ANSWER_CHOICETYPE = "SHORT_ANSWER";
+
+    const new_questions: IQuestion[] = [];
+
+
+    for (const question of questions) {
+      // If it is checkbox or multiple choice then it definitely has a ticked in it
+      if (question.question_type === MULTIPLE_CHOICETYPE || question.question_type === CHECKBOXESTYPE) {
+        // go through all options and parse them
+
+        question.linear_scale = null;
+        const answers = [];
+        const correct_answers = [];
+
+        // Map through questions and fill correct answers against answers
+        question.answers.forEach((answer: Options) => {
+          const new_answer = new Options();
+          new_answer.id = answer.id;
+          new_answer.answer = answer.answer;
+
+
+          // Verify if its part of the answers and tick
+          question.correct_answers.forEach((c_answer: QuestionAnswer) => {
+            if (c_answer.id === answer.id) new_answer.ticked = false;
+          });
+
+
+          if (answer.ticked) correct_answers.push(new_answer);
+
+          answers.push(new_answer);
+        });
+
+        // set new answers
+        question.answers = answers;
+        question.correct_answers = correct_answers;
+
+        new_questions.push(question);
+      }
+
+      else if (question.question_type === SIMPLE_ANSWER_CHOICETYPE) {
+
+        question.linear_scale = null;
+        new_questions.push(question);
+      }
+      else {
+        new_questions.push(question);
+      }
+    }
+
+
+    return new_questions;
   }
 
   static convertCurricullum(sections: ISection[]): CreateSection[] {

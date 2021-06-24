@@ -293,16 +293,14 @@ export class HiveAdminAddCourseComponent implements OnInit {
 
 
   switchQuestionType(question_position, type) {
-    console.log(type)
 
-    if (type === CHECKBOXESTYPE) {
+    if (type === CHECKBOXESTYPE || type === MULTIPLE_CHOICETYPE) {
       // TODO : reset types to checkbox
-
-    } else if (type === MULTIPLE_CHOICETYPE) {
-      this.resetSelectedOptions(question_position);
-      // TODO : reset types to checkbox
+      // remove linear scale from options
+      this.course.quiz.questions[question_position].linear_scale = null;
     } else if (type === CHECKBOXESTYPE) {
       // TODO : reset types to checkbox
+      // this.course.quiz.questions[question_position].linear_scale = null;
 
     }
 
@@ -582,6 +580,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
    * @param ticked
    *
    * @description Ticks an option as selected by populating it in the correct answers array
+   * TODO: Ticking options fails to bind to data. Manually bind options and investigate
    */
   tickSelectedOption(question_position: number, option_id: string, ticked: boolean) {
 
@@ -591,21 +590,26 @@ export class HiveAdminAddCourseComponent implements OnInit {
     if (this.course.quiz.questions[question_position].question_type === MULTIPLE_CHOICETYPE) {
       // reset selected options
       this.resetSelectedOptions(question_position);
-
       console.log("Reset all")
     }
 
 
     if (ticked) {
-      console.log("Option selected as corret answer")
-      // Add to correct answers
+      console.log("Option selected as corret answer");
 
+      //TODO : Fix or Rewrite this - Loop through the answers and set them manually
+      this.course.quiz.questions[question_position].answers.forEach((data: Options) => {
+        if (data.id === option_id) data.ticked = true;
+      });
 
       // get the answer
       const answer = this.course.quiz.questions[question_position].answers.reduce((previous, current,) => {
-        if (current.id === option_id) return current
+        if (current.id === option_id) {
+          current.ticked = true;
+          return current
+        }
         else return previous
-      })
+      });
 
       // make a new answer without the model
       const new_answer = new QuestionAnswer(answer.id, answer.answer);
@@ -617,6 +621,8 @@ export class HiveAdminAddCourseComponent implements OnInit {
       //TODO : Bad if input changes Push the correct answer
       this.course.quiz.questions[question_position].correct_answers.push(new_answer)
 
+      // TODO : Fix this, should be binded in the model
+      // Go through the answers and manually tick the selected option
     }
     else {
       // Remove from correct answers
@@ -636,16 +642,15 @@ export class HiveAdminAddCourseComponent implements OnInit {
   resetSelectedOptions(question_position: number,) {
 
     // Fail safe
-    // if (this.course.quiz.questions[question_position].answers) {
-    // this.course.quiz.questions[question_position].answers = this.course.quiz.questions[question_position].answers.map((data: Options) => {
-    //   const new_data = data;
-    //   new_data.ticked = false;
+    if (this.course.quiz.questions[question_position].answers) {
+      this.course.quiz.questions[question_position].answers.forEach((data: Options) => {
 
-    //   return new_data;
-    // });
+        data.ticked = false;
+        return data;
+      });
 
-    //   this.resetCorrectAnswersList(question_position);
-    // }
+      this.resetCorrectAnswersList(question_position);
+    }
   }
 
 

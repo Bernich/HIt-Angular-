@@ -39,7 +39,6 @@ import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.c
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     DashboardRoutingModule,
     EditorModule,
     FormsModule,

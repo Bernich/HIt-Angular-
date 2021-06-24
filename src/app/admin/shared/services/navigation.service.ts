@@ -53,6 +53,10 @@ export class NavigationService {
     this.router.navigate([`/admin/instructors/${instructor_id}/edit`]);
   }
 
+  toInstructorList() {
+    this.router.navigate([`/admin/instructors`]);
+  }
+
 
   navigateToCreateUsers() {
     this.router.navigate([`/admin/users/add`]);

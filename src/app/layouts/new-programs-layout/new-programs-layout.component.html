@@ -77,16 +77,15 @@
 
       <section class="_program-grid">
 
-        <div class="_program-grid-items">
-          <img [src]="courses[0].thumbnail.url" alt="" srcset="">
+        <div *ngFor="let course of courses" class="_program-grid-items">
+          <img [src]="course.thumbnail.url" alt="" srcset="">
 
-          <a [routerLink]=" '/academics/'+ courses[0].slug">
+          <a [routerLink]=" '/academics/'+ course.slug">
             <section class="engagement-text">
               <section class="engagement-text-content">
-                <span class="head"> {{courses[0].name}} </span>
+                <span class="head"> {{course.name}} </span>
                 <p>
-                  {{courses[0].overview}}
-                </p>
+                  {{course.overview.length > 340 ? course.overview.slice(0, 340) : course.overview}} </p>
 
                 <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
                   <span class="rounded-button" style="margin-right: 10px;">
@@ -101,53 +100,6 @@
           </a>
         </div>
 
-
-        <div class="_program-grid-items">
-          <img [src]="courses[1].thumbnail.url" alt="" srcset="">
-
-          <a [routerLink]=" '/academics/'+ courses[1].slug">
-
-            <section class="engagement-text">
-              <section class="engagement-text-content">
-                <span class="head"> {{courses[1].name}} </span>
-                <p>{{courses[1].overview}} </p>
-
-                <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-                  <span class="rounded-button" style="margin-right: 10px;">
-                    <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-                  </span>
-
-                  <span> Learn more</span>
-                </div>
-              </section>
-
-            </section>
-          </a>
-        </div>
-
-
-        <div class="_program-grid-items">
-          <img [src]="courses[2].thumbnail.url" alt="" srcset="">
-
-          <a [routerLink]=" '/academics/'+ courses[2].slug">
-
-            <section class="engagement-text">
-              <section class="engagement-text-content">
-                <span class="head"> {{courses[2].name}}</span>
-                <p>{{courses[2].overview}}</p>
-
-                <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-                  <span class="rounded-button" style="margin-right: 10px;">
-                    <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-                  </span>
-
-                  <span> Learn more</span>
-                </div>
-              </section>
-
-            </section>
-          </a>
-        </div>
 
 
       </section>

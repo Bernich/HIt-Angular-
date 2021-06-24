@@ -29,6 +29,7 @@ export class Quiz implements IQuiz {
   constructor() {
     this.id = uuidv4();
     this.questions = [];
+    this.description = "this is a quiz description";
   }
 
   id: string;

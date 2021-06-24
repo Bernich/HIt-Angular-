@@ -19,8 +19,8 @@
               Curriculum</div>
 
             <!-- Questions Tab -->
-            <!-- <div [ngClass]="{'active-heading' : stateTabs.questions}" class="heading" (click)="switchToQuestionsTab()">
-              Questions</div> -->
+            <div [ngClass]="{'active-heading' : stateTabs.questions}" class="heading" (click)="switchToQuestionsTab()">
+              Questions</div>
           </div>
 
         </div>
@@ -167,9 +167,9 @@
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <a routerLink="/admin/interactive">
+            <!-- <a routerLink="/admin/interactive">
               <button mat-button>Switch To Interactive</button>
-            </a>
+            </a> -->
 
           </mat-card-actions>
         </mat-card>
@@ -375,8 +375,8 @@
 
             </section>
 
-            <mat-checkbox [(checked)]="selectedTick" class="example-margin" (change)="printTick($event.checked)">
-            </mat-checkbox>
+            <!-- <mat-checkbox [(ngModel)]="selectedTick" (change)="printTick($event.checked)">
+            </mat-checkbox> -->
 
 
             <!-- ANSWER  OPTIONS - Toggle these off if the slected input type is not a Checkbox or multiple choice-->
@@ -388,7 +388,8 @@
 
               <div *ngFor=" let option of question.answers; let op_count=index" class="list-item">
 
-                <mat-checkbox [checked]="option.ticked" class="example-margin"
+                <!-- TODO: ngModel doesnt bind to value as well as using checked  -->
+                <mat-checkbox [(ngModel)]="option.ticked" class="example-margin" name="{{'option_' + op_count}}"
                   (change)="tickSelectedOption(position, option.id, $event.checked)">
                 </mat-checkbox>
 

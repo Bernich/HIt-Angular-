@@ -42,7 +42,7 @@
               <section class="engagement-text-content">
                 <span class="head"> {{course.name}} </span>
                 <p>
-                  {{course.overview}}
+                  {{course.overview.length > 60 ? course.overview.slice(0, 60) : course.overview}}
                 </p>
 
                 <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">

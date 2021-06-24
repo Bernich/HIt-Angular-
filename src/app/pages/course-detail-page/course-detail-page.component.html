@@ -76,7 +76,7 @@
           <p class="position">Instructor</p>
           <div class="social-media-handles">
             <a *ngFor="let social of instructor.social_media_handles" href="{{social.url}}" target="_blank">
-              <img src="{{getUrl(social.platform)}}" /></a>
+              <img *ngIf="isVisible(social.url)" src="{{getUrl(social.platform)}}" /></a>
 
           </div>
           <p class="instructor-desc" #bio> {{ updateInstructorDescription(bio) }}</p>
