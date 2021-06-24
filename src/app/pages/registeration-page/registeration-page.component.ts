@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService, NavigationService, NotificationService } from 'src/app/admin/shared/services';
+import { ICourse } from 'src/app/admin/shared/models';
+import { AuthService, CourseService, NavigationService, NotificationService } from 'src/app/admin/shared/services';
 
 @Component({
   selector: 'app-registeration-page',
@@ -14,16 +15,21 @@ export class RegisterationPageComponent implements OnInit {
   password: string = "";
   fname: string = "";
   lname: string = "";
-  dob:string = "";
-  tel:string = "";
+  dob: string = "";
+  tel: string = "";
+
+
+  course: ICourse = null;
 
   constructor(
     private authService: AuthService,
     private navigationService: NavigationService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private courseService: CourseService
   ) { }
 
   ngOnInit(): void {
+    this.loadCourseWithSlug("modern-computer-science-it-and-programming");
   }
 
 
@@ -46,5 +52,17 @@ export class RegisterationPageComponent implements OnInit {
     //     this.notificationService.openSnackBar("Login Failed", err.error)
     //   }
     // })
+
+
   }
+
+  loadCourseWithSlug(slug) {
+    this.courseService.getCourseWithSlug(slug).subscribe({
+      next: (data: ICourse) => {
+        this.course = data
+      },
+      error: (err: any) => { }
+    });
+  }
+
 }
