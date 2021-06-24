@@ -1,13 +1,13 @@
 <div class="order-number">
-    <!-- Number to be inserted when loopoing -->
-
-    <mat-radio-group aria-label="Select an option">
-        <p>{{number}}</p>
-
-        <mat-radio-button value="1"></mat-radio-button>
+  <!-- Number to be inserted when loopoing -->
 
 
-    </mat-radio-group>
+  <mat-radio-group [(ngModel)]="currentValue" *ngFor="let linear_scale of radioValues" class="radio-group"
+    aria-label="Select an option">
+    <p class="scale_value">{{linear_scale.name}}</p>
+
+    <mat-radio-button (change)="sendSelected($event.value)" [value]="linear_scale.value"></mat-radio-button>
+  </mat-radio-group>
 
 
 </div>

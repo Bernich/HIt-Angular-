@@ -10,6 +10,11 @@ import { AuthService, CourseService, NavigationService, NotificationService } fr
 export class RegisterationPageComponent implements OnInit {
 
 
+  LINEAR_SCALETYPE = "LINEAR_SCALE";
+  MULTIPLE_CHOICETYPE = "MULTIPLE_CHOICE";
+  SHORT_ANSWER = "SHORT_ANSWER";
+  CHECKBOXESTYPE = "CHECKBOXES";
+
   isLoading = false;
   email: string = "";
   password: string = "";
@@ -63,6 +68,11 @@ export class RegisterationPageComponent implements OnInit {
       },
       error: (err: any) => { }
     });
+  }
+
+
+  updateAllComplete(data) {
+    console.log(data)
   }
 
 }

@@ -10,9 +10,10 @@
     </div>
   </div>
 
-  <section class="side-page register-use" style="color: black;">
+  <section class="side-page register-user" style="color: black;">
 
-    <mat-vertical-stepper>
+
+    <mat-vertical-stepper class="reg-form-vertical-stepper">
 
       <mat-step>
         <form #form="ngForm">
@@ -54,55 +55,39 @@
           <div class="registeration-inputs" matStepContent>
 
 
+            <section *ngFor="let question of course.quiz.questions; let count = index;" class="question-container">
+              <span class="question">{{(count + 1) +". " + question.question }}</span>
 
-            <section *ngFor="let question of course.quiz.questions" class="question-container">
-              <span class="question">{{ question.question }}</span>
-              <mat-form-field class="mat-field-wrapper">
-                <!-- <mat-label>Enter the text here</mat-label> -->
+              <div style="margin-bottom: 10px;"></div>
+
+              <mat-form-field *ngIf="question.question_type ===SHORT_ANSWER" class="mat-field-wrapper">
+                <!-- CHECK QUESTION TYPES AND USE THAT TO RENDER INPUT TYPES -->
+
                 <textarea matInput placeholder="Your answer...."></textarea>
               </mat-form-field>
-            </section>
 
-            <span class="question">Who do you have to work on ?</span>
-            <mat-form-field class="mat-field-wrapper">
-              <!-- <mat-label>Enter the text here</mat-label> -->
-              <textarea matInput placeholder="Your answer...."></textarea>
-            </mat-form-field>
-            <section class="Input-wrapper">
-              <span class="question">What brought you here?</span>
+              <mat-radio-group *ngIf="question.question_type ===MULTIPLE_CHOICETYPE" vertical
+                class="input-wrapper mtb-2" aria-label="Select an option">
+                <mat-radio-button class="checkbox-block" *ngFor="let option of question.answers"
+                  [value]="option.answer">
+                  {{option.answer}}
+                </mat-radio-button>
 
-              <section class="checkbox-container">
-                <mat-checkbox class="">Facebok</mat-checkbox>
+              </mat-radio-group>
+
+
+              <section *ngIf="question.question_type === CHECKBOXESTYPE">
+                <mat-checkbox style="display:block; margin-bottom: 10px" [(ngModel)]="option.ticked"
+                  (ngModelChange)="updateAllComplete($event)" *ngFor="let option of question.answers" [name]="option.id"
+                  [value]="option.id"> {{option.answer}}
+                </mat-checkbox>
+
               </section>
-              <section class="checkbox-container">
-                <mat-checkbox class="">Instagram</mat-checkbox>
-              </section>
-              <section class="checkbox-container">
-                <mat-checkbox class="">Twitter</mat-checkbox>
-              </section>
-              <section>
-                <p class="question">Are you a JavaScript developer</p>
-                <!-- <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-                                    <p class="question">Do you know how to code?</p>
-                                    <mat-radio-button class="example-radio-button">YES
-
-                                    </mat-radio-button>
-                                </mat-radio-group>
-                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-                                    <p class="question">Do you know how to code?</p>
-                                    <mat-radio-button class="example-radio-button">YES
-
-                                    </mat-radio-button> -->
-
-                <!-- </mat-radio-group> -->
-                <mat-radio-group vertical class="input-wrapper mtb-2" aria-label="Select an option">
-                  <mat-radio-button value="1">YES</mat-radio-button>
-                  <br>
-                  <br>
-                  <mat-radio-button value="2">NO</mat-radio-button>
-                </mat-radio-group>
 
 
+              <section *ngIf="question.question_type === LINEAR_SCALETYPE">
+                <app-linear-scale [min]="question.linear_scale.min" [max]="question.linear_scale.max">
+                </app-linear-scale>
               </section>
 
             </section>
@@ -111,14 +96,17 @@
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
           </div>
+
+          <div class="submit-container">
+            <input *ngIf="!isLoading" mat-button type="button" value="Submit" (click)="signin()">
+            <div *ngIf="!isLoading else loader"></div>
+          </div>
         </form>
       </mat-step>
 
     </mat-vertical-stepper>
-    <div class="submit-container">
-      <input *ngIf="!isLoading" mat-button type="button" value="Submit" (click)="signin()">
-      <div *ngIf="!isLoading else loader"></div>
-    </div>
+
+
   </section>
 
 </section>
