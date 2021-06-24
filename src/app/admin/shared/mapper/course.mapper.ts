@@ -41,7 +41,7 @@ export class CourseMapper {
 
     // Map course out
     new_course.quiz = course.quiz;
-    new_course.quiz.questions = course.quiz.questions ? this.removeTickedFromOptions(course.quiz.questions) : [];
+    new_course.quiz.questions = (course.quiz.questions !== null || course.quiz.questions !== undefined) ? this.removeTickedFromOptions(course.quiz.questions) : [];
 
     return new_course;
   }
@@ -154,7 +154,7 @@ export class CourseMapper {
 
     // Map course out
     new_course.quiz = course.quiz;
-    new_course.quiz.questions = this.addTickedFromOptions(course.quiz.questions);
+    new_course.quiz.questions = (course.quiz.questions !== null || course.quiz.questions !== undefined) ? course.quiz.questions : this.addTickedFromOptions(course.quiz.questions);
 
     return new_course;
   }
