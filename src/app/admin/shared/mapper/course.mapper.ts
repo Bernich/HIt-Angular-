@@ -153,8 +153,8 @@ export class CourseMapper {
         // go through all options and parse them
 
         question.linear_scale = null;
-        const answers = [];
-        const correct_answers = [];
+        const answers: Options[] = [];
+        const correct_answers: QuestionAnswer[] = [];
 
         // Map through questions and fill correct answers against answers
         question.answers.forEach((answer: Options) => {
@@ -165,10 +165,11 @@ export class CourseMapper {
 
           // Verify if its part of the answers and tick
           question.correct_answers.forEach((c_answer: QuestionAnswer) => {
-            if (c_answer.id === answer.id) new_answer.ticked = false;
+            if (c_answer.id === answer.id) new_answer.ticked = true;
           });
 
-
+          // if it is ticked also push it back to the correct answers
+          // TODO : Check if its not required
           if (answer.ticked) correct_answers.push(new_answer);
 
           answers.push(new_answer);
