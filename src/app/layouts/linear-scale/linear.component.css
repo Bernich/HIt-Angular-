@@ -1,12 +1,13 @@
 .order-number {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-items: center;
     border: 4px solid dodgerblue;
     width: fit-content;
     height: 200px;
+    text-align: center;
 }
 
 .mat-radio-button~.mat-radio-button {
