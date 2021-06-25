@@ -2,7 +2,7 @@
   <div class="side-page background-container">
     <div class="left-head-title" routerLink="/"> <a href="/">Hive Institute</a> </div>
     <div class="left-head-description">
-      <div class="title"> Innovative, Technological & Practical </div>
+      <div class="title"> Hive Institute </div>
       <div class="description">
         We aim to foster a practical skilled generation that is able to articulate problems and develop sustainable and
         effective future proof ideas.
@@ -38,7 +38,7 @@
 
               <div class="input-wrapper">
                 <!-- <label for="">Last name</label> -->
-                <input [(ngModel)]="lname" type="tel" name="tel" id="tel" placeholder="Phone number">
+                <input [(ngModel)]="phonenumber" type="tel" name="tel" id="tel" placeholder="Phone number">
               </div>
 
 
@@ -62,35 +62,36 @@
 
               <!-- CHECK QUESTION TYPES AND USE THAT TO RENDER INPUT TYPES -->
               <!-- RENDER TYPE FOR SHORT ANSWER -->
-              <mat-form-field *ngIf="question.question_type ===SHORT_ANSWER" class="mat-field-wrapper">
+              <app-simple-answer-input class="answer-containers" *ngIf="question.question_type ===SHORT_ANSWER"
+                class="mat-field-wrapper" (valueChange)="updateSimpleAnswerQuestionType($event,count)">
+              </app-simple-answer-input>
 
-                <textarea matInput placeholder="Your answer...."></textarea>
-              </mat-form-field>
+
 
               <!-- RENDER TYPE FOR SHORT ANSWER -->
-
-              <mat-radio-group *ngIf="question.question_type ===MULTIPLE_CHOICETYPE" vertical
+              <mat-radio-group class="answer-containers" *ngIf="question.question_type ===MULTIPLE_CHOICETYPE" vertical
                 class="input-wrapper mtb-2" aria-label="Select an option">
-                <mat-radio-button class="checkbox-block" *ngFor="let option of question.answers"
-                  [value]="option.answer">
+                <mat-radio-button (change)="updateRadioBoxQuestionType($event,count, option)" class="checkbox-block"
+                  *ngFor="let option of question.answers" [value]="option.answer">
                   {{option.answer}}
                 </mat-radio-button>
 
               </mat-radio-group>
 
-
-              <section *ngIf="question.question_type === CHECKBOXESTYPE">
+              <!-- The Question Position uses the count -->
+              <section class="answer-containers" *ngIf="question.question_type === CHECKBOXESTYPE">
                 <mat-checkbox style="display:block; margin-bottom: 10px" [(ngModel)]="option.ticked"
                   *ngFor="let option of question.answers; let opt_count = index" [name]="option.id" [value]="option.id"
-                  (ngModelChange)="updateAllComplete($event, opt_count)">
+                  (ngModelChange)="updateCheckBoxQuestionType($event,count, option)">
                   {{option.answer}}
                 </mat-checkbox>
 
               </section>
 
 
-              <section *ngIf="question.question_type === LINEAR_SCALETYPE">
-                <app-linear-scale [min]="question.linear_scale.min" [max]="question.linear_scale.max">
+              <section class="answer-containers" *ngIf="question.question_type === LINEAR_SCALETYPE">
+                <app-linear-scale (valueChange)="updateLinearScaleQuestionType($event, count)"
+                  [min]="question.linear_scale.min" [max]="question.linear_scale.max">
                 </app-linear-scale>
               </section>
 
@@ -102,7 +103,7 @@
           </div>
 
           <div class="submit-container">
-            <input *ngIf="!isLoading" mat-button type="button" value="Submit" (click)="signin()">
+            <input *ngIf="!isLoading" mat-button type="button" value="Submit" (click)="submitEnrollment()">
             <div *ngIf="!isLoading else loader"></div>
           </div>
         </form>

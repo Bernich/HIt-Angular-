@@ -13,7 +13,7 @@ export class LinearScaleComponent implements OnInit {
 
   @Input() min_label: string = "Good";
   @Input() max_label: string = "Bad";
-  @Output() value = new EventEmitter();
+  @Output() valueChange = new EventEmitter();
 
   num_of_fields = 0;
   currentValue = 0;
@@ -38,7 +38,6 @@ export class LinearScaleComponent implements OnInit {
 
 
   sendSelected(logg) {
-    console.log(logg);
-
+    this.valueChange.emit(logg);
   }
 }

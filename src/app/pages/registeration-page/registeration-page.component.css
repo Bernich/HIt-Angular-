@@ -11,6 +11,9 @@
   margin-bottom: 20px;
 }
 
+.answer-containers {
+  margin-left: 20px;
+}
 .question-container {
   display: flex;
   flex-direction: column;

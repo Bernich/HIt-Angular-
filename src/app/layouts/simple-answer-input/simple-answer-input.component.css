@@ -1,0 +1,16 @@
+:host {
+  width: 100%;
+}
+
+.text-input {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 75%;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
