@@ -7,7 +7,7 @@ export class Enrollment {
   email: string
   firstname: string
   lastname: string
-  phonenumber: string
+  phone_number: string
   course_id: string
   course_name: string
 

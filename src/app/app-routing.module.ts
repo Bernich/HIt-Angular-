@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CompleteCourseRegisterationComponent } from './pages/completed-registeration-page/completed-registeration-page.component';
 import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-details-page/confirm-course-details-page.component';
 import { NewNewsPageComponent } from './pages/new-news-page';
 import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
@@ -34,6 +35,9 @@ const routes: Routes = [
 
   {
     path: 'register/:slug', component: RegisterationPageComponent
+  },
+  {
+    path: 'register/:slug/complete', component: CompleteCourseRegisterationComponent
   },
   {
     path: 'news/:slug',

@@ -12,13 +12,21 @@
 
   <section class="side-page register-user" style="color: black;">
 
+    <section class="register-logo-header">
+      <img _ngcontent-serverapp-c338="" alt="Hive News Logo" loading="lazy" class="registeration-logo"
+        src="/assets/images/logom.png">
+      <h1>Hive Institute</h1>
+
+    </section>
+    <p>A few things first before you enroll</p>
+    <div style="margin-bottom: 30px;"></div>
 
     <mat-vertical-stepper class="reg-form-vertical-stepper">
 
       <mat-step>
         <form #form="ngForm">
           <ng-template matStepLabel>Personal Information</ng-template>
-          <section matStepContent>
+          <section class="stepper-content" matStepContent>
             <section class="login-inputs">
 
               <div class="input-wrapper">
@@ -52,7 +60,7 @@
 
           <ng-template matStepLabel>Course requiremnets </ng-template>
 
-          <div class="registeration-inputs" matStepContent>
+          <div class="registeration-inputs stepper-content" matStepContent>
 
             <!-- Get the course curriculums and display them -->
             <section *ngFor="let question of course.quiz.questions; let count = index;" class="question-container">

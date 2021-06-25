@@ -17,6 +17,17 @@ export class NavigationService {
 
 
 
+  navigateToHomePage() {
+    this.router.navigate([`/`]);
+
+  }
+
+  navigateToCompleteEnrollment(slug: string) {
+    this.router.navigate([`/register`, slug, "complete"]);
+
+  }
+
+
   /**
    * Navigate to to dashboard page
    */

@@ -21,6 +21,7 @@ import { NewNewsPageComponent } from './pages/new-news-page';
 import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
 import { AdminSharedModule } from './admin/shared/admin-shared.module';
 import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-details-page/confirm-course-details-page.component';
+import { CompleteCourseRegisterationComponent } from './pages/completed-registeration-page/completed-registeration-page.component';
 
 
 // Note we need a separate function as it's required
@@ -34,7 +35,8 @@ import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-detail
     ComingSoonPageComponent,
     NewNewsPageComponent,
     RegisterationPageComponent,
-    ConfirmCourseDetailsPageComponent
+    ConfirmCourseDetailsPageComponent,
+    CompleteCourseRegisterationComponent
   ],
   imports: [
     CommonModule,
