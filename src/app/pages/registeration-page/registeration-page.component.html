@@ -1,4 +1,4 @@
-<section class="registeration-container" *ngIf="course; else loader">
+<section class="registeration-container" *ngIf="course; else horizontalLoader">
   <div class="side-page background-container" [style.backgroundImage]="'url('+course.banner.url+')'">
     <div class="left-head-title" routerLink="/"> <a href="/">Hive Institute</a> </div>
     <div class="left-head-description">
@@ -18,7 +18,7 @@
       <h1>Hive Institute</h1>
 
     </section>
-    <p>A few things first before you enroll</p>
+    <p>A few things first before you enroll in <em> {{course.name}}</em> </p>
     <div style="margin-bottom: 30px;"></div>
 
     <mat-vertical-stepper class="reg-form-vertical-stepper">
@@ -52,7 +52,9 @@
 
             </section>
           </section>
+
           <button mat-button matStepperNext>Next</button>
+
         </form>
       </mat-step>
       <mat-step>
@@ -108,6 +110,7 @@
 
             <!-- <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button> -->
+            
           </div>
 
           <div class="submit-container">
@@ -129,5 +132,12 @@
   <section style="display:flex; justify-content:center">
     <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
 
+  </section>
+</ng-template>
+
+<ng-template #horizontalLoader>
+
+  <section>
+    <app-loader></app-loader>
   </section>
 </ng-template>
