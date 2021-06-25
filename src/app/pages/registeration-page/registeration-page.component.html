@@ -1,5 +1,5 @@
 <section class="registeration-container" *ngIf="course; else loader">
-  <div class="side-page background-container">
+  <div class="side-page background-container" [style.backgroundImage]="'url('+course.banner.url+')'">
     <div class="left-head-title" routerLink="/"> <a href="/">Hive Institute</a> </div>
     <div class="left-head-description">
       <div class="title"> Hive Institute </div>

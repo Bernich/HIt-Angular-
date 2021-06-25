@@ -49,6 +49,7 @@
   border-right: 5px solid rgba(0, 0, 0, 0.596);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .background-container::after {
@@ -74,7 +75,7 @@
 }
 
 .registeration-container .side-page {
-  width: 40%;
+  width: 55%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -120,7 +121,7 @@
 
 .registeration-container .side-page:last-child {
   background-color: white;
-  width: 70%;
+  width: 45%;
 }
 
 .reg-form-container {
