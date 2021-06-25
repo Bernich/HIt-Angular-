@@ -80,7 +80,8 @@
 
           </div>
           <p class="instructor-desc" #bio> {{ updateInstructorDescription(bio) }}</p>
-          <button class="btn-enroll">ENROLL</button>
+          <button class="btn-enroll"> <a style="color:white" [routerLink]="'/register/'+ course.slug">ENROLL</a>
+          </button>
         </div>
 
       </div>

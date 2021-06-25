@@ -4,6 +4,7 @@ import { ICourse } from 'src/app/admin/shared/models';
 import { Options, QuestionAnswer } from 'src/app/admin/shared/models/question.model';
 import { AuthService, CourseService, NavigationService, NotificationService } from 'src/app/admin/shared/services';
 import { Enrollment } from 'src/app/admin/shared/models/enrollment.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registeration-page',
@@ -34,11 +35,26 @@ export class RegisterationPageComponent implements OnInit {
     private authService: AuthService,
     private navigationService: NavigationService,
     private notificationService: NotificationService,
-    private courseService: CourseService
+    private courseService: CourseService,
+    private route: ActivatedRoute,
+
   ) { }
 
+
+
   ngOnInit(): void {
-    this.loadCourseWithSlug("modern-computer-science-it-and-programming");
+
+    // Check url if there is a course id else create a new course
+    const slug = this.route.snapshot.paramMap.get('slug');
+
+    if (slug) {
+      // unpack old course
+      // this.course = unpack
+      this.loadCourseWithSlug(slug);
+    } else {
+      // Create a new course
+      // this.course = new CreateCourse()
+    }
   }
 
 
