@@ -35,7 +35,8 @@ import {
   NewAllProgramsLayoutComponent,
   NewsHeaderComponent,
   ClosedGridNewsCardComponent,
-  LinearScaleComponent
+  LinearScaleComponent,
+  SimpleAnswerInputComponent
 } from './index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
@@ -81,7 +82,8 @@ import { MaterialModule } from '../material.module';
     NewAllProgramsLayoutComponent,
     NewsHeaderComponent,
     ClosedGridNewsCardComponent,
-    LinearScaleComponent
+    LinearScaleComponent,
+    SimpleAnswerInputComponent
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -114,7 +116,8 @@ import { MaterialModule } from '../material.module';
     NewAllProgramsLayoutComponent,
     NewsHeaderComponent,
     ClosedGridNewsCardComponent,
-    LinearScaleComponent
+    LinearScaleComponent,
+    SimpleAnswerInputComponent
   ]
 })
 export class HivenewsLayoutsModule { }

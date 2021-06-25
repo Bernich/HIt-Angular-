@@ -16,31 +16,31 @@ export class PeopleAreSayingComponent implements OnInit {
 
   peoples = [
     {
-      name: "Lauren, Senior Software Engineer",
-      quote: "At Microsoft, you’ll be empowered to work on things that you’re passionate about. You’ll be given autonomy. Your ideas will matter.",
-      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_lauren_large-1556621246311.jpg"
+      name: "Afua A. O. Baidu, Software Developer",
+      quote: "I started at stage zero. With the Academy's courses, I was able to start learning online and eventually build up enough knowledge and skills to transition into my own startup.",
+      img: "https://hiveacademy.co/assets/img/afua.jpg"
     },
     {
-      name: "Lauren, Senior Software Engineer",
-      quote: "The freedom to create really powerful and engaging solutions is the thing that I really like. And I know what we are creating, millions of people are using.",
-      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_nitish_large-1556621859158.jpg"
+      name: "Freda Owusu Ansah, Web Developer",
+      quote: "I was able to apply to an internship because of a new skill I developed with hive academy's courses! It may be a small step for some people, but before, I wasn't even able to apply, and now, I have opened many doors for my professional future!",
+      img: "https://hiveacademy.co/assets/img/freda.jpg"
     },
     {
-      name: "Lauren, Senior Software Engineer",
-      quote: "I want to transform how people experience 'Halo' in their living rooms and on their PCs. We will never do anything that doesn't move the universe forward.",
-      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_kiki_large-1556622046009.jpg"
+      name: "Godfred Asante-Koranteng, Web Developer",
+      quote: "Take the next step toward your personal and professional goals with Hive Academy. It has world-class training and development programs developed by top instructors. All on Hive Academy.",
+      img: "https://hiveacademy.co/assets/img/godfred.jpg"
     },
-    {
-      name: "Lauren, Senior Software Engineer",
+    // {
+    //   name: "Lauren, Senior Software Engineer",
 
-      quote: "Technology provides that avenue to compensate in areas where something might be more difficult.It's really cool to be able to help to enable people.",
-      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_chris_large-1556622175233.jpg"
-    },
-    {
-      name: "Lauren, Senior Software Engineer",
-      quote: "The world has a lot to offer, and it's not about how much you take and grow; it's about how much you give back.",
-      img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_vidya_large-1556623300618.jpg"
-    }
+    //   quote: "Technology provides that avenue to compensate in areas where something might be more difficult.It's really cool to be able to help to enable people.",
+    //   img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_chris_large-1556622175233.jpg"
+    // },
+    // {
+    //   name: "Lauren, Senior Software Engineer",
+    //   quote: "The world has a lot to offer, and it's not about how much you take and grow; it's about how much you give back.",
+    //   img: "https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/images/home_testimonials_vidya_large-1556623300618.jpg"
+    // }
   ]
 
   news = [

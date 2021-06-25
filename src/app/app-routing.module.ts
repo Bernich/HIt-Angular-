@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
 import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-details-page/confirm-course-details-page.component';
 import { NewNewsPageComponent } from './pages/new-news-page';
 import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
@@ -34,7 +33,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'registeration-page', component: RegisterationPageComponent
+    path: 'register/:slug', component: RegisterationPageComponent
   },
   {
     path: 'news/:slug',

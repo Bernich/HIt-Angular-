@@ -133,7 +133,7 @@ export class AuthService {
   }
 
   enrollCourse(enrollment: Enrollment) {
-    return this.httpClient.post(this.url + '/enrollments', enrollment);
+    return this.httpClient.post(this.url + '/enrollment', enrollment);
   }
 
 

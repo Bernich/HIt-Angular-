@@ -30,3 +30,4 @@ export * from './people-are-saying/people-are-saying.component'
 export * from './new-news-card/new-news-card.component';
 export * from './closed-grid-news-card/closed-grid-news-card.component'
 export * from './linear-scale/linear.component'
+export * from './simple-answer-input/simple-answer-input.component'

@@ -584,7 +584,6 @@ export class HiveAdminAddCourseComponent implements OnInit {
    */
   tickSelectedOption(question_position: number, option_id: string, ticked: boolean) {
 
-    console.log(this.course.quiz.questions[question_position]);
 
     // Verify if the Selected type is a multiple choice or checkbox
     if (this.course.quiz.questions[question_position].question_type === MULTIPLE_CHOICETYPE) {
