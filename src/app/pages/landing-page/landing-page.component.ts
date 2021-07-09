@@ -40,7 +40,7 @@ export class LandingPageComponent implements OnInit {
 
   headerPosts = [
     {
-      image: '/assets/images/88img.jpg',
+      image: '/assets/images/header-banner.jpg',
       title: 'Set yourself apart',
       description: 'We give you the necessary knowledge to be a change leader in your sphere of influence.'
     },
@@ -49,11 +49,7 @@ export class LandingPageComponent implements OnInit {
       title: 'Get caught up with the latest in tech.',
       description: 'Be exposed to new research and technology as a student that would spark your creativity.'
     },
-    {
-      image: '/assets/images/lailajpg.jpg',
-      title: 'Get ahead of your peers',
-      description: 'Our unconventional facilitation style will psychologically motivate you as you leverage on the skills of our seasoned trainers.'
-    }
+
   ];
 
 
