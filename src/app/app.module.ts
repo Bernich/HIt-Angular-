@@ -22,6 +22,7 @@ import { RegisterationPageComponent } from './pages/registeration-page/registera
 import { AdminSharedModule } from './admin/shared/admin-shared.module';
 import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-details-page/confirm-course-details-page.component';
 import { CompleteCourseRegisterationComponent } from './pages/completed-registeration-page/completed-registeration-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 // Note we need a separate function as it's required
@@ -52,6 +53,7 @@ import { CompleteCourseRegisterationComponent } from './pages/completed-register
     HivenewsCoreModule,
     HivenewsLayoutsModule,
     HivenewsLandingPageModule,
+    ReactiveFormsModule,
     // HivenewsEntityModule,
     // Extract all similar modules to shared
     ModalModule.forRoot(),

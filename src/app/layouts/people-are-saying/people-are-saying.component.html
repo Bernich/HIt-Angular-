@@ -2,32 +2,32 @@
 
 
 
-  <section class="people-are-saying-content-container">
+    <section class="people-are-saying-content-container">
 
 
-    <section class="people-are-saying-content-container-list">
+        <section class="people-are-saying-content-container-list">
 
-      <div class="people-are-saying-content-container-list-item">
+            <div class="people-are-saying-content-container-list-item">
 
-        <h2>Hear from our past students </h2>
+                <h2>Hear from our past trainees </h2>
 
-        <section class="images-list">
-          <img *ngFor="let person of peoples" [src]="person.img" alt="" srcset="" (click)="setCurrentImage(person)">
+                <section class="images-list">
+                    <img *ngFor="let person of peoples" [src]="person.img" alt="" srcset="" (click)="setCurrentImage(person)">
+                </section>
+
+                <section class="quotes-container">
+                    <p>{{current.quote}}</p>
+                    <h4 class="footer">{{ "---"+current.name}}</h4>
+                </section>
+                <div class="spacer"></div>
+            </div>
+
+            <div class="people-are-saying-content-container-list-item ">
+
+                <img loading="lazy" class="cover-image-container" [src]="current.img" alt="" srcset="">
+            </div>
+
         </section>
-
-        <section class="quotes-container">
-          <p>{{current.quote}}</p>
-          <h4 class="footer">{{ "---"+current.name}}</h4>
-        </section>
-        <div class="spacer"></div>
-      </div>
-
-      <div class="people-are-saying-content-container-list-item ">
-
-        <img loading="lazy" class="cover-image-container" [src]="current.img" alt="" srcset="">
-      </div>
 
     </section>
-
-  </section>
 </section>

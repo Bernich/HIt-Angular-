@@ -5,6 +5,7 @@ import { IQuestion, IQuiz, Options, QuestionAnswer } from 'src/app/admin/shared/
 import { AuthService, CourseService, NavigationService, NotificationService } from 'src/app/admin/shared/services';
 import { Enrollment } from 'src/app/admin/shared/models/enrollment.model';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registeration-page',
@@ -12,7 +13,39 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./registeration-page.component.css']
 })
 export class RegisterationPageComponent implements OnInit {
+ registrationForm: FormGroup;
+submitted = false;
 
+ ngOnInit():void{
+
+  // Check url if there is a course id else create a new course
+  const slug = this.route.snapshot.paramMap.get('slug');
+
+  if (slug) {
+    // unpack old course
+    // this.course = unpack
+    this.loadCourseWithSlug(slug);
+  } else {
+    // Create a new course
+    // this.course = new CreateCourse()
+  }
+
+
+  this.registrationForm = new FormGroup({
+    fname: new FormControl(null,Validators.required),
+    email : new FormControl(null,[Validators.required,Validators.email]),
+    lname : new FormControl(null,Validators.required),
+    phonenumber : new FormControl(
+      null,
+      [
+        Validators.required,
+        Validators.pattern('^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$')
+      ]),
+   })
+
+
+
+}
 
   LINEAR_SCALETYPE = "LINEAR_SCALE";
   MULTIPLE_CHOICETYPE = "MULTIPLE_CHOICE";
@@ -20,10 +53,10 @@ export class RegisterationPageComponent implements OnInit {
   CHECKBOXESTYPE = "CHECKBOXES";
 
   isLoading = false;
-  email: string = "";
+  fname: string =""
+  email: string =""
   password: string = "";
-  fname: string = "";
-  lname: string = "";
+  lname :string = "";
   dob: string = "";
   phonenumber: string = "";
 
@@ -38,25 +71,22 @@ export class RegisterationPageComponent implements OnInit {
     private courseService: CourseService,
     private route: ActivatedRoute,
 
+
+
   ) { }
 
 
 
-  ngOnInit(): void {
 
-    // Check url if there is a course id else create a new course
-    const slug = this.route.snapshot.paramMap.get('slug');
-
-    if (slug) {
-      // unpack old course
-      // this.course = unpack
-      this.loadCourseWithSlug(slug);
-    } else {
-      // Create a new course
-      // this.course = new CreateCourse()
-    }
-  }
-
+  // get fname() {
+  //   return this.registrationForm.get('name');
+  // }
+  // get email() {
+  //   return this.registrationForm.get('email');
+  // }
+  // get phonenumber() {
+  //   return this.registrationForm.get('phone');
+  // }
 
   signin() {
 
@@ -79,6 +109,7 @@ export class RegisterationPageComponent implements OnInit {
     // })
 
   }
+
 
 
   loadCourseWithSlug(slug) {
@@ -186,10 +217,18 @@ export class RegisterationPageComponent implements OnInit {
     console.log(this.course.quiz.questions[question_position].user_answers)
 
   }
-
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.registrationForm.value);
+  }
 
   submitEnrollment() {
     // copy quiz
+    if(this.submitted ===false ){
+      //block the button
+    }else{
+
+    }
     const quiz = this.course.quiz;
 
     const enrollment = new Enrollment();

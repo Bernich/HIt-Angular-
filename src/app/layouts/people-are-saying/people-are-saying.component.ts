@@ -18,17 +18,17 @@ export class PeopleAreSayingComponent implements OnInit {
     {
       name: "Afua A. O. Baidu, Software Developer",
       quote: "I started at stage zero. With the Academy's courses, I was able to start learning online and eventually build up enough knowledge and skills to transition into my own startup.",
-      img: "https://hiveacademy.co/assets/img/afua.jpg"
+      img: "../../../assets/images/afua.png"
     },
     {
       name: "Freda Owusu Ansah, Web Developer",
       quote: "I was able to apply to an internship because of a new skill I developed with hive academy's courses! It may be a small step for some people, but before, I wasn't even able to apply, and now, I have opened many doors for my professional future!",
-      img: "https://hiveacademy.co/assets/img/freda.jpg"
+      img: "../../../assets/images/freda.png"
     },
     {
       name: "Godfred Asante-Koranteng, Web Developer",
       quote: "Take the next step toward your personal and professional goals with Hive Academy. It has world-class training and development programs developed by top instructors. All on Hive Academy.",
-      img: "https://hiveacademy.co/assets/img/godfred.jpg"
+      img: "../../../assets/images/godfred.png"
     },
     // {
     //   name: "Lauren, Senior Software Engineer",
