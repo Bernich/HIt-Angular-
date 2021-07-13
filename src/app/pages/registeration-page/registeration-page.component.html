@@ -23,7 +23,7 @@
 
         <mat-vertical-stepper class="reg-form-vertical-stepper">
 
-            <mat-step>
+            <mat-step [stepControl]="registrationForm">
                 <form #1form="ngForm" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                     <ng-template matStepLabel>Personal Information</ng-template>
                     <section class=" stepper-content" matStepContent>
@@ -32,25 +32,25 @@
                             <div class="input-wrapper">
                                 <!-- <label for="email">Your email</label> -->
                                 <input [(ngModel)]="email" type="text" name="email" id="email" placeholder="Your email" formControlName="email">
-                                <small *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched" class="text-error">Please input the correct email</small>
+                                <small *ngIf="registrationForm.get( 'email').invalid && registrationForm.get( 'email').touched" class="text-error">Please input the correct email</small>
                             </div>
 
                             <div class="input-wrapper">
                                 <!-- <label for="fname">First name</label> -->
                                 <input type="text" name="fname" id="fname" placeholder="Firstname" formControlName=fname>
-                                <small *ngIf="registrationForm.get('fname').invalid && registrationForm.get('fname').touched" class="text-error">Please enter your first name</small>
+                                <small *ngIf="registrationForm.get( 'fname').invalid && registrationForm.get( 'fname').touched" class="text-error">Please enter your first name</small>
                             </div>
 
                             <div class="input-wrapper">
                                 <!-- <label for="">Last name</label> -->
                                 <input [(ngModel)]="lname" type="text" name="lname" id="lname" placeholder="Lastname" formControlName="lname">
-                                <small *ngIf="registrationForm.get('lname').invalid && registrationForm.get('lname').touched" class="text-error">Please enter your last name</small>
+                                <small *ngIf="registrationForm.get( 'lname').invalid && registrationForm.get( 'lname').touched" class="text-error">Please enter your last name</small>
                             </div>
 
                             <div class="input-wrapper">
                                 <!-- <label for="">Last name</label> -->
                                 <input [(ngModel)]="phonenumber" type="tel" name="tel" id="tel" placeholder="Phone number" formControlName="phonenumber">
-                                <small *ngIf="registrationForm.get('phonenumber').invalid && registrationForm.get( 'phonenumber').touched" class="text-error"> Your number should be 10 digits</small>
+                                <small *ngIf="registrationForm.get( 'phonenumber').invalid && registrationForm.get( 'phonenumber').touched" class="text-error"> Your number should be 10 digits</small>
                             </div>
 
 
@@ -69,20 +69,20 @@
                     <div class="registeration-inputs stepper-content" matStepContent>
 
                         <!-- Get the course curriculums and display them -->
-                        <section *ngFor="let question of course.quiz.questions; let count = index;" class="question-container">
+                        <section *ngFor="let question of course.quiz.questions; let count=index;" class="question-container">
                             <span class="question">{{(count + 1) +"." + question.question }}</span>
 
                             <div style="margin-bottom: 10px;"></div>
 
                             <!-- CHECK QUESTION TYPES AND USE THAT TO RENDER INPUT TYPES -->
                             <!-- RENDER TYPE FOR SHORT ANSWER -->
-                            <app-simple-answer-input class="answer-containers" *ngIf="question.question_type ===SHORT_ANSWER" class="mat-field-wrapper" (valueChange)="updateSimpleAnswerQuestionType($event,count)">
+                            <app-simple-answer-input class="answer-containers" *ngIf="question.question_type===SHORT_ANSWER" class="mat-field-wrapper" (valueChange)="updateSimpleAnswerQuestionType($event,count)">
                             </app-simple-answer-input>
 
 
 
                             <!-- RENDER TYPE FOR SHORT ANSWER -->
-                            <mat-radio-group class="answer-containers" *ngIf="question.question_type ===MULTIPLE_CHOICETYPE" vertical class="input-wrapper mtb-2" aria-label="Select an option">
+                            <mat-radio-group class="answer-containers" *ngIf="question.question_type===MULTIPLE_CHOICETYPE" vertical class="input-wrapper mtb-2" aria-label="Select an option">
                                 <mat-radio-button (change)="updateRadioBoxQuestionType($event,count, option)" class="checkbox-block" *ngFor="let option of question.answers" [value]="option.answer">
                                     {{option.answer}}
                                 </mat-radio-button>
@@ -90,15 +90,16 @@
                             </mat-radio-group>
 
                             <!-- The Question Position uses the count -->
-                            <section class="answer-containers" *ngIf="question.question_type === CHECKBOXESTYPE">
-                                <mat-checkbox style="display:block; margin-bottom: 10px" [(ngModel)]="option.ticked" *ngFor="let option of question.answers; let opt_count = index" [name]="option.id" [value]="option.id" (ngModelChange)="updateCheckBoxQuestionType($event,count, option)">
+                            <section class="answer-containers" *ngIf="question.question_type===CHECKBOXESTYPE">
+                                <mat-checkbox style="display:block; margin-bottom: 10px" [(ngModel)]="option.ticked" *ngFor="let option of question.answers; let opt_count=i ndex" [name]="option.id" [value]="option.id" (ngModelChange)="updateCheckBoxQuestionType($event,count,
+                option)">
                                     {{option.answer}}
                                 </mat-checkbox>
 
                             </section>
 
 
-                            <section class="answer-containers" *ngIf="question.question_type === LINEAR_SCALETYPE">
+                            <section class="answer-containers" *ngIf="question.question_type===LINEAR_SCALETYPE">
                                 <app-linear-scale (valueChange)="updateLinearScaleQuestionType($event, count)" [min]="question.linear_scale.min" [max]="question.linear_scale.max">
                                 </app-linear-scale>
                             </section>
@@ -107,7 +108,7 @@
 
 
                         <!-- <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button matStepperNext>Next</button> -->
+                <button mat-button matStepperNext>Next</button> -->
                     </div>
 
                     <div class="submit-container">
