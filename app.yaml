@@ -2,9 +2,9 @@
 runtime: nodejs12
 handlers:
   - url: /
-    upload: dist/hive-institute/browser/coming-soon.html
+    upload: dist/hive-institute/browser/index.html
     secure: always
-    static_files: dist/hive-institute/browser/coming-soon.html
+    static_files: dist/hive-institute/browser/index.html
     redirect_http_response_code: 301
   - url: /
     static_dir: dist/hive-institute/browser/
