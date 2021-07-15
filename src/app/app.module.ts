@@ -18,10 +18,10 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ComingSoonPageComponent } from './pages/coming-soon-page/coming-soon-page.component';
 import { NewsDetailPageModule } from './pages/news-detail-page';
 import { NewNewsPageComponent } from './pages/new-news-page';
-import { RegisterationPageComponent } from './pages/registeration-page/registeration-page.component';
+import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { AdminSharedModule } from './admin/shared/admin-shared.module';
 import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-details-page/confirm-course-details-page.component';
-import { CompleteCourseRegisterationComponent } from './pages/completed-registeration-page/completed-registeration-page.component';
+import { CompleteCourseRegistrationComponent } from './pages/completed-registration-page/completed-registration-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -35,9 +35,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     ComingSoonPageComponent,
     NewNewsPageComponent,
-    RegisterationPageComponent,
+    RegistrationPageComponent,
     ConfirmCourseDetailsPageComponent,
-    CompleteCourseRegisterationComponent
+    CompleteCourseRegistrationComponent
   ],
   imports: [
     CommonModule,

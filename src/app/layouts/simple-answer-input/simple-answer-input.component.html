@@ -1,10 +1,15 @@
 <div class="text-input">
-  <!-- Number to be inserted when loopoing -->
+  <!-- Number to be inserted when looping -->
 
-
-
-
-  <textarea #message cols="80" matInput (keyup)="emitValue(message.value)" placeholder="Your answer...."></textarea>
-
-
+  <textarea
+    required
+    ngModel
+    #message="ngModel"
+    id="message"
+    cols="80"
+    matInput
+    name="message"
+    placeholder="Your answer...."
+    (keyup)="emitValue(message.value)"
+  ></textarea>
 </div>

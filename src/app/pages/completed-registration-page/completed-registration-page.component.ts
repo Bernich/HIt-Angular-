@@ -8,11 +8,11 @@ import { ICourse } from 'src/app/admin/shared/models';
 import { CourseService, NavigationService } from 'src/app/admin/shared/services';
 
 @Component({
-  selector: 'app-completed-registeration-page',
-  templateUrl: './completed-registeration-page.component.html',
-  styleUrls: ['./completed-registeration-page.component.css']
+  selector: 'app-completed-registration-page',
+  templateUrl: './completed-registration-page.component.html',
+  styleUrls: ['./completed-registration-page.component.css']
 })
-export class CompleteCourseRegisterationComponent implements OnInit {
+export class CompleteCourseRegistrationComponent implements OnInit {
 
   course: ICourse = null;
   isLoading = true;

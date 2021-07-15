@@ -1,0 +1,260 @@
+<section class="registeration-container" *ngIf="course; else horizontalLoader">
+  <div
+    class="side-page background-container"
+    [style.backgroundImage]="'url(' + course.banner.url + ')'"
+  >
+    <div class="left-head-title" routerLink="/">
+      <a href="/"
+        ><img
+          src="../../../assets/images/HIT-W.png"
+          width="200"
+          height="100"
+          alt="logo"
+      /></a>
+    </div>
+    <div class="left-head-description">
+      <div class="description">
+        We aim to foster a practical skilled generation that is able to
+        articulate problems and develop sustainable and effective future proof
+        ideas.
+      </div>
+    </div>
+  </div>
+
+  <section class="side-page register-user" style="color: black">
+    <section class="register-logo-header">
+      <img
+        _ngcontent-serverapp-c338=""
+        alt="Hive News Logo"
+        loading="lazy"
+        class="registeration-logo"
+        src="/assets/images/logom.png"
+      />
+    </section>
+    <p>
+      A few things first before you enroll in <b> {{ course.name }}</b>
+    </p>
+    <div style="margin-bottom: 30px"></div>
+
+    <mat-vertical-stepper [linear] class="reg-form-vertical-stepper">
+      <mat-step [stepControl]="registrationForm">
+        <form
+          #form="ngForm"
+          [formGroup]="registrationForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <ng-template matStepLabel>Personal Information</ng-template>
+          <section class="stepper-content" matStepContent>
+            <section class="login-inputs">
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="Your email"
+                  formControlName="email"
+                />
+                <small
+                  *ngIf="
+                    registrationForm.get('email').invalid &&
+                    registrationForm.get('email').touched
+                  "
+                  class="text-error"
+                  >Please input the correct email</small
+                >
+              </div>
+
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="firstname"
+                  id="firstname"
+                  placeholder="Firstname"
+                  formControlName="firstname"
+                />
+                <small
+                  *ngIf="
+                    registrationForm.get('firstname').invalid &&
+                    registrationForm.get('firstname').touched
+                  "
+                  class="text-error"
+                  >Please enter your first name</small
+                >
+              </div>
+
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  placeholder="Lastname"
+                  formControlName="lastname"
+                />
+                <small
+                  *ngIf="
+                    registrationForm.get('lastname').invalid &&
+                    registrationForm.get('lastname').touched
+                  "
+                  class="text-error"
+                  >Please enter your last name</small
+                >
+              </div>
+
+              <div class="input-wrapper">
+                <input
+                  type="tel"
+                  name="tel"
+                  id="tel"
+                  placeholder="Phone number"
+                  formControlName="phoneNumber"
+                />
+                <small
+                  *ngIf="
+                    registrationForm.get('phoneNumber').invalid &&
+                    registrationForm.get('phoneNumber').touched
+                  "
+                  class="text-error"
+                >
+                  Your number should be 10 digits</small
+                >
+              </div>
+            </section>
+          </section>
+
+          <button
+            style="background-color: rgb(255, 247, 232)"
+            mat-button
+            matStepperNext
+            [disabled]="!registrationForm.valid"
+          >
+            Next
+          </button>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form #courseRequirements="ngForm">
+          <ng-template matStepLabel>Course requirements </ng-template>
+
+          <div class="registeration-inputs stepper-content" matStepContent>
+            <!-- Get the course curriculums and display them -->
+            <section
+              *ngFor="let question of course.quiz.questions; let count = index"
+              class="question-container"
+            >
+              <span class="question">{{
+                count + 1 + "." + question.question
+              }}</span>
+
+              <div style="margin-bottom: 10px"></div>
+
+              <!-- CHECK QUESTION TYPES AND USE THAT TO RENDER INPUT TYPES -->
+
+              <!-- RENDER TYPE FOR SHORT ANSWER -->
+              <div
+                class="text-input"
+                *ngIf="question.question_type === SHORT_ANSWER"
+              >
+                <textarea
+                  required
+                  ngModel
+                  #answer="ngModel"
+                  id="answer"
+                  cols="80"
+                  matInput
+                  name="answer"
+                  placeholder="Your answer...."
+                  (keyup)="updateSimpleAnswerQuestionType(answer.value, count)"
+                ></textarea>
+              </div>
+
+              <!-- RENDER TYPE FOR SHORT ANSWER -->
+              <mat-radio-group
+                required
+                ngModel
+                ng-model="'question.question'"
+                [name]="question.question"
+                class="answer-containers"
+                *ngIf="question.question_type === MULTIPLE_CHOICE_TYPE"
+                vertical
+                class="input-wrapper mtb-2"
+                aria-label="Select an option"
+              >
+                <mat-radio-button
+                  (change)="updateRadioBoxQuestionType(option, count)"
+                  class="checkbox-block"
+                  *ngFor="let option of question.answers"
+                  [value]="option.answer"
+                >
+                  {{ option.answer }}
+                </mat-radio-button>
+              </mat-radio-group>
+
+              <!-- The Question Position uses the count -->
+              <section
+                class="answer-containers"
+                *ngIf="question.question_type === CHECKBOXES_TYPE"
+              >
+                <mat-checkbox
+                  style="display: block; margin-bottom: 10px"
+                  *ngFor="
+                    let option of question.answers;
+                    let opt_count = i;
+                    index
+                  "
+                  required
+                  ngModel
+                  #checker="ngModel"
+                  name="checker"
+                  [value]="option.id"
+                  (ngModelChange)="
+                    updateCheckBoxQuestionType($event, option, count)
+                  "
+                >
+                  {{ option.answer }}
+                </mat-checkbox>
+              </section>
+
+              <section
+                class="answer-containers"
+                *ngIf="question.question_type === LINEAR_SCALE_TYPE"
+              >
+                <app-linear-scale
+                  (valueChange)="updateLinearScaleQuestionType($event, count)"
+                  [min]="question.linear_scale.min"
+                  [max]="question.linear_scale.max"
+                >
+                </app-linear-scale>
+              </section>
+            </section>
+          </div>
+
+          <p>Course requirements valid: {{ courseRequirements.valid }}</p>
+
+          <div class="submit-container">
+            <input
+              *ngIf="!isLoading"
+              mat-button
+              type="button"
+              value="Submit"
+              [disabled]="!courseRequirements.valid || !registrationForm.valid"
+              (click)="submitEnrollment()"
+            />
+            <div *ngIf="!isLoading; else loader"></div>
+          </div>
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+  </section>
+</section>
+
+<ng-template #loader>
+  <section style="display: flex; justify-content: center">
+    <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
+  </section>
+</ng-template>
+
+<ng-template #horizontalLoader>
+  <section>
+    <app-loader></app-loader>
+  </section>
+</ng-template>
