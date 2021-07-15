@@ -1,18 +1,21 @@
-import { FileData, IInstructor, ProfileImage, Resource } from "src/app/admin/shared/models";
+import {
+  FileData,
+  IInstructor,
+  ProfileImage,
+  Resource,
+} from 'src/app/admin/shared/models';
 import { v4 as uuidv4 } from 'uuid';
-import { CreateQuestion, IQuestion, IQuiz, Quiz } from "./question.model";
-import { IUser } from "./user.model";
+import { CreateQuestion, IQuestion, IQuiz, Quiz } from './question.model';
+import { IUser } from './user.model';
 
 export interface ISection {
-
-
   id?: string;
   course_id?: string;
   name: string;
   lessons?: ILesson[];
   duration?: number;
   compeleted?: boolean;
-  order?: number
+  order?: number;
 }
 
 export interface ICourse {
@@ -27,7 +30,6 @@ export interface ICourse {
   duration?: string;
   base_price?: number;
 
-
   teaching_resources?: Resource[];
   career_paths?: string[] | Resource[];
 
@@ -38,21 +40,19 @@ export interface ICourse {
   instructors?: string[] | IInstructor[];
   developers?: string[] | IUser[];
 
-
   date_created?: string;
   show?: boolean;
 
-  banner?: ProfileImage
-  thumbnail?: ProfileImage
+  banner?: ProfileImage;
+  thumbnail?: ProfileImage;
 
   thumbnail_data?: FileData;
   banner_data?: FileData;
 
   curriculum?: ISection[];
 
-  quiz?: IQuiz
+  quiz?: IQuiz;
 }
-
 
 export class Course implements ICourse {
   public course_id?: string;
@@ -65,7 +65,6 @@ export class Course implements ICourse {
 
   public duration?: string;
   public base_price?: number;
-
 
   public career_paths?: string[];
   public teaching_resources?: Resource[];
@@ -80,36 +79,31 @@ export class Course implements ICourse {
   public date_created?: string;
   public show?: boolean;
 
-  public banner?: ProfileImage
-  public thumbnail?: ProfileImage
+  public banner?: ProfileImage;
+  public thumbnail?: ProfileImage;
 
   public thumbnail_data?: FileData;
   public banner_data?: FileData;
 
-  public curriculum?: ISection[]
+  public curriculum?: ISection[];
 
-  public quiz?: IQuiz
-
+  public quiz?: IQuiz;
 }
 
-
-
 export class CreateCourse implements ICourse {
-  constructor(
-
-  ) {
+  constructor() {
     // this.publicity_status = this.publicity_status || false;
     this.course_id = uuidv4();
     this.quiz = new Quiz();
   }
 
-  public name: string = "";
+  public name: string = '';
   public course_id: string;
-  public overview: string = "";
-  public description: string = "";
-  public skill_level: string = "";
+  public overview: string = '';
+  public description: string = '';
+  public skill_level: string = '';
 
-  public duration: string = "2"
+  public duration: string = '2';
   // public publicity_status?: boolean;
   public with_certification: boolean = false;
 
@@ -128,43 +122,32 @@ export class CreateCourse implements ICourse {
   public quiz: IQuiz;
 }
 
-
-
 export interface ILesson {
-
   id: string;
   name: string;
   course_id?: string;
 }
 
-
 export class CreateLesson implements ILesson {
-  constructor(
-    courseId: string,
-  ) {
+  constructor(courseId: string) {
     this.id = uuidv4();
-    this.course_id = courseId
+    this.course_id = courseId;
   }
 
   public id;
-  public name = "this";
+  public name = 'this';
   public course_id: string;
 }
 
-
 export class CreateSection implements ISection {
-  constructor(
-    courseId: string
-  ) {
+  constructor(courseId: string) {
     this.id = uuidv4();
     this.course_id = courseId;
   }
 
   public id?: string;
   public course_id: string;
-  public name: string = "";
+  public name: string = '';
   public lessons: ILesson[] = [];
   public duration: number = 0;
 }
-
-

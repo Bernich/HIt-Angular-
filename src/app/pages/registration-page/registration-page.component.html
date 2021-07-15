@@ -36,7 +36,7 @@
     </p>
     <div style="margin-bottom: 30px"></div>
 
-    <mat-vertical-stepper [linear] class="reg-form-vertical-stepper">
+    <mat-vertical-stepper [linear]="'true'" class="reg-form-vertical-stepper">
       <mat-step [stepControl]="registrationForm">
         <form
           #form="ngForm"
@@ -227,8 +227,6 @@
               </section>
             </section>
           </div>
-
-          <p>Course requirements valid: {{ courseRequirements.valid }}</p>
 
           <div class="submit-container">
             <input

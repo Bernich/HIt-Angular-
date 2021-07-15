@@ -1,13 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
 
-
 export type LINEAR_SCALE = 'LINEAR_SCALE';
 export type MULTIPLE_CHOICE = 'MULTIPLE_CHOICE';
 export type SHORT_ANSWER = 'SHORT_ANSWER';
 export type CHECKBOXES = 'CHECKBOXES';
 
-export type QuestionType = LINEAR_SCALE | MULTIPLE_CHOICE | SHORT_ANSWER | CHECKBOXES;
-
+export type QuestionType =
+  | LINEAR_SCALE
+  | MULTIPLE_CHOICE
+  | SHORT_ANSWER
+  | CHECKBOXES;
 
 export const QuestionInputTypes = [
   { name: 'Short Answer', value: 'SHORT_ANSWER' },
@@ -15,7 +17,6 @@ export const QuestionInputTypes = [
   { name: 'Multiple Choice', value: 'MULTIPLE_CHOICE' },
   { name: 'Checkboxes', value: 'CHECKBOXES' },
 ];
-
 
 export interface IQuiz {
   id: string;
@@ -35,7 +36,6 @@ export class Quiz implements IQuiz {
   questions: IQuestion[] = [];
 }
 
-
 export interface IQuestionAnswer {
   id: string;
   answer: string;
@@ -54,15 +54,8 @@ export class Options implements IQuestionAnswer {
 }
 
 export class QuestionAnswer implements IQuestionAnswer {
-
-  constructor(
-    public id: string,
-    public answer: string
-  ) {
-  }
+  constructor(public id: string, public answer: string) {}
 }
-
-
 
 export interface IQuestion {
   id: string;
@@ -72,11 +65,8 @@ export interface IQuestion {
   user_answers?: QuestionAnswer[];
   answers?: Options[] | QuestionAnswer[];
   correct_answers?: QuestionAnswer[];
-  linear_scale?: ILinearScaleInputType
+  linear_scale?: ILinearScaleInputType;
 }
-
-
-
 
 export interface ILinearScaleInputType {
   min: number;
@@ -87,7 +77,6 @@ export interface ILinearScaleInputType {
 }
 
 export class LinearScaleInputType implements ILinearScaleInputType {
-
   constructor() {
     this.min = 1;
     this.max = 4;
@@ -97,14 +86,12 @@ export class LinearScaleInputType implements ILinearScaleInputType {
   max: number;
   min_label?: string;
   max_label?: string;
-
 }
 export class CreateQuestion implements IQuestion {
   constructor() {
     this.id = uuidv4();
     this.question_type = 'SHORT_ANSWER';
     this.linear_scale = new LinearScaleInputType();
-
   }
   id: string;
   question: string;
@@ -113,7 +100,5 @@ export class CreateQuestion implements IQuestion {
   answers?: Options[] | QuestionAnswer[];
   correct_answers?: QuestionAnswer[];
 
-  linear_scale?: LinearScaleInputType
+  linear_scale?: LinearScaleInputType;
 }
-
-
