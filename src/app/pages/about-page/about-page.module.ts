@@ -6,9 +6,13 @@ import { AboutPageComponent } from './about-page.component';
 import { AboutPageRoutingModule } from './about-page.route';
 
 @NgModule({
-  imports: [HivenewsSharedModule, HivenewsLayoutsModule, AboutPageRoutingModule],
+  imports: [
+    HivenewsSharedModule,
+    HivenewsLayoutsModule,
+    AboutPageRoutingModule,
+  ],
   declarations: [AboutPageComponent],
   entryComponents: [AboutPageComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AboutPageModule { }
+export class AboutPageModule {}

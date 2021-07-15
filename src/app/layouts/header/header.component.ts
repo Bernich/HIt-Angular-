@@ -8,22 +8,23 @@ import { ACTIVE_LINKS } from 'src/app/shared';
   selector: 'jhi-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
+  providers: [NgbCarouselConfig], // add NgbCarouselConfig to the component providers
 })
 export class HeaderComponent implements OnInit {
-
-  @Input() activeRoute: string = "home";
+  @Input() activeRoute = 'home';
   @Input() headerPosts;
 
   currentPost = null;
 
-
   navigation = {
     showNavigationArrows: false,
-    showNavigationIndicators: false
+    showNavigationIndicators: false,
   };
 
-  constructor(private sanitizer: DomSanitizer, private config: NgbCarouselConfig) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private config: NgbCarouselConfig
+  ) {
     config.interval = 30000;
     config.wrap = true;
     config.keyboard = false;
@@ -38,7 +39,6 @@ export class HeaderComponent implements OnInit {
   }
 
   getPostThumbUrl(headerImageUrl: string): SafeUrl {
-
     return `url(${headerImageUrl})`;
   }
 

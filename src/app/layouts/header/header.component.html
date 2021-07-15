@@ -1,20 +1,22 @@
 <header [style.backgroundImage]="getPostThumbUrl(currentPost.image)">
-    <app-new-onsite-navbar [activeRoute]="activeRoute"></app-new-onsite-navbar>
+  <app-new-onsite-navbar [activeRoute]="activeRoute"></app-new-onsite-navbar>
 
-    <ngb-carousel class="header-carousel" [showNavigationArrows]="navigation.showNavigationArrows" [showNavigationIndicators]="navigation.showNavigationIndicators">
-        <ng-template ngbSlide *ngFor="let post of headerPosts; assignCurrentPost(post); ">
+  <ngb-carousel
+    class="header-carousel"
+    [showNavigationArrows]="navigation.showNavigationArrows"
+    [showNavigationIndicators]="navigation.showNavigationIndicators"
+  >
+    <ng-template
+      ngbSlide
+      *ngFor="let post of headerPosts; assignCurrentPost: post"
+    >
+      <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.image)">
+        <div class="post">
+          <h3 class="post-title">{{ post.title }}</h3>
 
-            <div class="slider" [style.backgroundImage]="getPostThumbUrl(post.image)">
-
-                <div class="post">
-                    <h3 class="post-title">{{ post.title }}</h3>
-
-                    <p class="post-date">{{ post.description }}</p>
-
-                </div>
-            </div>
-        </ng-template>
-    </ngb-carousel>
-
-
+          <p class="post-date">{{ post.description }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
 </header>

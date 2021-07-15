@@ -1,43 +1,51 @@
 <nav class="navbar" [ngClass]="{ scrolled: scrolled }">
   <div class="header-nav">
-    <a [routerLink]="['/']">
-      <img [src]="!scrolled ? '/assets/images/logom.png' : '/assets/images/white-logo.png'" alt="Hive News Logo"
-        loading="lazy" class="logo" />
+    <a routerLink="/">
+      <img
+        [src]="
+          !scrolled
+            ? '/assets/images/logom.png'
+            : '/assets/images/white-logo.png'
+        "
+        alt="Hive News Logo"
+        loading="lazy"
+        class="logo"
+      />
     </a>
 
     <ul class="main-nav">
-      <!-- <li>
-        <button (click)="openModal(template)" class="subscribe-btn">
-          SUBSCRIBE
-        </button>
-      </li> -->
-      <!-- <li>
-        <a href="https://kumasihive.com">
-          <img src="../../../assets/images/HomeIcons.svg" loading="lazy" alt="" />
-        </a>
-      </li> -->
-
       <li>
-        <a [ngClass]="{ 'active-route' : activeRoute==='home'}" href="/">
+        <a
+          [ngClass]="{ 'active-route': activeRoute === '/' }"
+          routerLink="/"
+          routerLinkActive="active"
+        >
           Home
         </a>
       </li>
 
       <li>
-        <a [ngClass]="{ 'active-route' : activeRoute==='academics'}" href="/academics" routerLink="/academics"
-          routerLinkActive="active">
+        <a
+          [ngClass]="{ 'active-route': activeRoute === 'academics' }"
+          routerLink="/academics"
+          routerLinkActive="active"
+        >
           Academics
         </a>
       </li>
 
       <li>
-        <a [ngClass]="{ 'active-route' : activeRoute==='about'}" href="/about">
+        <a
+          [ngClass]="{ 'active-route': activeRoute === 'about' }"
+          routerLink="/about"
+          routerLinkActive="active"
+        >
           About
         </a>
       </li>
     </ul>
 
-    <ng-template #template style="margin-top: 155px;">
+    <ng-template #template style="margin-top: 155px">
       <jhi-subscribe-dialog></jhi-subscribe-dialog>
     </ng-template>
   </div>

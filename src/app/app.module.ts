@@ -6,7 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {
+  CommonModule,
+  HashLocationStrategy,
+  LocationStrategy,
+  PathLocationStrategy,
+} from '@angular/common';
 import { HivenewsSharedModule } from './shared';
 import { HivenewsCoreModule } from './core';
 import { HivenewsLayoutsModule } from './layouts/layouts.module';
@@ -24,7 +29,6 @@ import { ConfirmCourseDetailsPageComponent } from './pages/confirm-course-detail
 import { CompleteCourseRegistrationComponent } from './pages/completed-registration-page/completed-registration-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 // Note we need a separate function as it's required
 // by the AOT compiler.
 // export function playerFactory() {
@@ -37,7 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewNewsPageComponent,
     RegistrationPageComponent,
     ConfirmCourseDetailsPageComponent,
-    CompleteCourseRegistrationComponent
+    CompleteCourseRegistrationComponent,
   ],
   imports: [
     CommonModule,
@@ -60,14 +64,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminModule,
     NewsDetailPageModule,
     NgxWebstorageModule.forRoot(),
-
-
   ],
 
-  providers: [
-    { provide: LocationStrategy, useClass: PathLocationStrategy },
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}
