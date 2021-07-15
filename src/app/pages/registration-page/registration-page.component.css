@@ -53,7 +53,7 @@ textarea {
   /* margin-right: 20px; */
 }
 
-.registeration-logo {
+.registration-logo {
   width: 50px;
   height: 50px;
 }
@@ -86,7 +86,12 @@ textarea {
   background-color: rgba(0, 0, 0, 0.452);
 }
 
-.registeration-container {
+.btn-btn {
+  width: 180px;
+  background-color: rgb(255, 247, 232);
+}
+
+.registration-container {
   width: 100vw;
   height: 100vh;
   background-color: #1e1e1e;
@@ -99,7 +104,7 @@ textarea {
   line-height: normal;
 }
 
-.registeration-container .side-page {
+.registration-container .side-page {
   width: 55%;
   height: 100%;
   display: flex;
@@ -109,7 +114,7 @@ textarea {
   overflow-y: no-scroll;
 }
 
-.registeration-container .side-page .left-head-title {
+.registration-container .side-page .left-head-title {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 10%;
@@ -120,7 +125,7 @@ textarea {
   color: white;
 }
 
-.registeration-container .side-page .left-head-description {
+.registration-container .side-page .left-head-description {
   margin-left: 20%;
   margin-right: 10%;
   margin-bottom: 20%;
@@ -129,21 +134,21 @@ textarea {
   color: white;
 }
 
-.registeration-container .side-page .left-head-description .title {
+.registration-container .side-page .left-head-description .title {
   font-size: 2.2rem;
   /* font-family: "Josefin Sans", "Times New Roman"; */
   margin-bottom: 10%;
   font-family: SFUIText-Medium;
 }
 
-.registeration-container .side-page .left-head-description .description {
+.registration-container .side-page .left-head-description .description {
   font-size: 0.991rem;
   /* font-family: "Josefin Sans", "Times New Roman"; */
   color: rgba(240, 248, 255, 0.794);
   font-family: SFUIText-Light;
 }
 
-.registeration-container .side-page:last-child {
+.registration-container .side-page:last-child {
   background-color: white;
   width: 45%;
 }
@@ -163,14 +168,7 @@ textarea {
   overflow-y: scroll;
 }
 
-.stepper-content {
-  /* width: 60%; */
-}
-
-.reg-form-vertical-stepper mat-step {
-}
-
-.registeration-container .register-user {
+.registration-container .register-user {
   /* width: 50%; */
   display: flex;
   justify-content: center;
@@ -182,12 +180,12 @@ textarea {
   padding: 60px 0px 20px 20px;
 }
 
-.registeration-container .register-user .sign-im-container {
+.registration-container .register-user .sign-im-container {
   width: 55%;
   /* background-color: #1e1e1e17; */
 }
 
-.registeration-container .register-user .sign-im-container div:first-child {
+.registration-container .register-user .sign-im-container div:first-child {
   font-size: 2.2rem;
   /* font-family: "Josefin Sans", "Times New Roman"; */
   /* background-color: #b6151517; */
@@ -195,13 +193,13 @@ textarea {
   font-family: SFUIText-Medium;
 }
 
-.registeration-container .register-user .sign-im-container div:nth-child(2) {
+.registration-container .register-user .sign-im-container div:nth-child(2) {
   font-size: 0.99rem;
   font-family: "Josefin Sans", "Times New Roman";
   /* background-color: #b6151517; */
 }
 
-.registeration-container .register-user .sign-im-container div:nth-child(3) {
+.registration-container .register-user .sign-im-container div:nth-child(3) {
   font-size: 1.29rem;
   font-family: "Josefin Sans", "Times New Roman";
   margin-top: 20px;
@@ -211,7 +209,7 @@ textarea {
 
 /* registeration Inputs */
 
-.registeration-inputs {
+.registration-inputs {
   display: flex;
   flex-direction: column;
   /* width: 100%; */
@@ -220,7 +218,6 @@ textarea {
 .submit-container {
   display: flex;
   width: 100%;
-  padding: 5rem;
 }
 
 input {
@@ -329,13 +326,13 @@ input[type^="text||password"] {
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
   /* For landscape layouts only */
-  .registeration-container .side-page:last-child {
+  .registration-container .side-page:last-child {
     width: 100%;
   }
-  .registeration-container .register-user .sign-im-container {
+  .registration-container .register-user .sign-im-container {
     width: 80%;
   }
-  .registeration-container .side-page:first-child {
+  .registration-container .side-page:first-child {
     display: none;
   }
 }
@@ -347,13 +344,13 @@ input[type^="text||password"] {
     display: block;
     min-height: 100%;
   }
-  .registeration-container .side-page:last-child {
+  .registration-container .side-page:last-child {
     width: 100%;
   }
-  .registeration-container .register-user .sign-im-container {
+  .registration-container .register-user .sign-im-container {
     width: 80%;
   }
-  .registeration-container .side-page:first-child {
+  .registration-container .side-page:first-child {
     display: none;
   }
 }

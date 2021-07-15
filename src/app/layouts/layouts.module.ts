@@ -36,11 +36,11 @@ import {
   NewsHeaderComponent,
   ClosedGridNewsCardComponent,
   LinearScaleComponent,
-  SimpleAnswerInputComponent
+  SimpleAnswerInputComponent,
 } from './index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
-
+import { FlashComponent } from './flash/flash.component';
 
 @NgModule({
   imports: [
@@ -83,7 +83,8 @@ import { MaterialModule } from '../material.module';
     NewsHeaderComponent,
     ClosedGridNewsCardComponent,
     LinearScaleComponent,
-    SimpleAnswerInputComponent
+    SimpleAnswerInputComponent,
+    FlashComponent,
   ],
   exports: [
     OnsiteNavbarComponent,
@@ -117,7 +118,8 @@ import { MaterialModule } from '../material.module';
     NewsHeaderComponent,
     ClosedGridNewsCardComponent,
     LinearScaleComponent,
-    SimpleAnswerInputComponent
-  ]
+    SimpleAnswerInputComponent,
+    FlashComponent,
+  ],
 })
-export class HivenewsLayoutsModule { }
+export class HivenewsLayoutsModule {}

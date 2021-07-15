@@ -1,4 +1,4 @@
-<section class="registeration-container" *ngIf="course; else horizontalLoader">
+<section class="registration-container" *ngIf="course; else horizontalLoader">
   <div
     class="side-page background-container"
     [style.backgroundImage]="'url(' + course.banner.url + ')'"
@@ -24,15 +24,15 @@
   <section class="side-page register-user" style="color: black">
     <section class="register-logo-header">
       <img
-        _ngcontent-serverapp-c338=""
         alt="Hive News Logo"
         loading="lazy"
-        class="registeration-logo"
+        class="registration-logo"
         src="/assets/images/logom.png"
       />
     </section>
     <p>
-      A few things first before you enroll in <b> {{ course.name }}</b>
+      A few things first before you enroll in
+      <strong> {{ course.name }}</strong>
     </p>
     <div style="margin-bottom: 30px"></div>
 
@@ -122,7 +122,7 @@
           </section>
 
           <button
-            style="background-color: rgb(255, 247, 232)"
+            class="btn-btn"
             mat-button
             matStepperNext
             [disabled]="!registrationForm.valid"
@@ -135,7 +135,7 @@
         <form #courseRequirements="ngForm">
           <ng-template matStepLabel>Course requirements </ng-template>
 
-          <div class="registeration-inputs stepper-content" matStepContent>
+          <div class="registration-inputs stepper-content" matStepContent>
             <!-- Get the course curriculums and display them -->
             <section
               *ngFor="let question of course.quiz.questions; let count = index"
@@ -158,10 +158,9 @@
                   required
                   ngModel
                   #answer="ngModel"
-                  id="answer"
                   cols="80"
                   matInput
-                  name="answer"
+                  [name]="'user-answer'"
                   placeholder="Your answer...."
                   (keyup)="updateSimpleAnswerQuestionType(answer.value, count)"
                 ></textarea>
@@ -228,28 +227,35 @@
             </section>
           </div>
 
+          <app-flash
+            *ngIf="flash"
+            alertCategory="{{ alertCategory }}"
+            alertMessage="{{ alertMessage }}"
+          ></app-flash>
+
           <div class="submit-container">
-            <input
-              *ngIf="!isLoading"
+            <button
               mat-button
-              type="button"
-              value="Submit"
+              class="btn-btn"
+              type="submit"
               [disabled]="!courseRequirements.valid || !registrationForm.valid"
               (click)="submitEnrollment()"
-            />
-            <div *ngIf="!isLoading; else loader"></div>
+            >
+              Enroll
+              <img
+                src="assets/images/spinner.gif"
+                [style.display]="isLoading ? 'inline' : 'none'"
+                width="16"
+                height="11"
+                alt="Spinner"
+              />
+            </button>
           </div>
         </form>
       </mat-step>
     </mat-vertical-stepper>
   </section>
 </section>
-
-<ng-template #loader>
-  <section style="display: flex; justify-content: center">
-    <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
-  </section>
-</ng-template>
 
 <ng-template #horizontalLoader>
   <section>

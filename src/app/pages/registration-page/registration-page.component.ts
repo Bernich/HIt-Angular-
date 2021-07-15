@@ -25,7 +25,10 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 export class RegistrationPageComponent implements OnInit {
   isLoading = false;
   submitted = false;
+  flash = false;
 
+  alertMessage: string;
+  alertCategory: string;
   firstname: string;
   email: string;
   password: string;
@@ -188,6 +191,10 @@ export class RegistrationPageComponent implements OnInit {
         this.navigationService.navigateToCompleteEnrollment(this.course.slug);
       },
       error: (err) => {
+        this.flash = true;
+        this.alertCategory = 'error';
+        this.alertMessage =
+          err.error.error || 'Unable to enroll into course, try again!';
         this.isLoading = false;
       },
     });
