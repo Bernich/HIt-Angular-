@@ -1,227 +1,262 @@
-<section class="admin-dashboard-content " *ngIf="(!isLoading.instructors && !isLoading.course); else loader">
-
-  <div style="margin-bottom: 100px;"></div>
+<section
+  class="admin-dashboard-content"
+  *ngIf="!isLoading.instructors && !isLoading.course; else loader"
+>
+  <div style="margin-bottom: 100px"></div>
 
   <section class="content-container">
-
     <!-- Main Content -->
-    <section class="admin-dashboard-content-container ">
-
+    <section class="admin-dashboard-content-container">
       <section class="admin-dashboard-post-header">
         <!-- TOGGLE BETWEEN CURRICULLUM OR COURSE DETAILS -->
         <div class="heading-toggle">
           <div class="tabs">
-            <div [ngClass]="{'active-heading' : stateTabs.createCourse}" class="heading"
-              (click)="switchToEditCourseTab()">
-              Create Course</div>
-            <div [ngClass]="{'active-heading' : stateTabs.curriculumTab}" class="heading"
-              (click)="switchToCurriculumCourseTab()">
-              Curriculum</div>
+            <div
+              [ngClass]="{ 'active-heading': stateTabs.createCourse }"
+              class="heading"
+              (click)="switchToEditCourseTab()"
+            >
+              Create Course
+            </div>
+            <div
+              [ngClass]="{ 'active-heading': stateTabs.curriculumTab }"
+              class="heading"
+              (click)="switchToCurriculumCourseTab()"
+            >
+              Curriculum
+            </div>
 
             <!-- Questions Tab -->
-            <div [ngClass]="{'active-heading' : stateTabs.questions}" class="heading" (click)="switchToQuestionsTab()">
-              Questions</div>
+            <div
+              [ngClass]="{ 'active-heading': stateTabs.questions }"
+              class="heading"
+              (click)="switchToQuestionsTab()"
+            >
+              Questions
+            </div>
           </div>
-
         </div>
 
         <div class="spacer"></div>
         <section class="admin-dashboard-posts-button">
-          <button [style.display]="isLoading.course ? 'none' : 'block'" class="save_button" mat-flat-button
-            (click)="save()">{{ isNewCourse ? 'Save' : 'Update'}}</button>
+          <button
+            [style.display]="isLoading.course ? 'none' : 'block'"
+            class="save_button"
+            mat-flat-button
+            (click)="save()"
+          >
+            {{ isNewCourse ? "Save" : "Update" }}
+          </button>
         </section>
       </section>
 
-      <div style="margin-bottom: 30px;"></div>
+      <div style="margin-bottom: 30px"></div>
 
       <!-- Course Specific Space -->
-      <section style="width: 100%;" *ngIf="stateTabs.createCourse">
+      <section style="width: 100%" *ngIf="stateTabs.createCourse">
         <mat-card class="blog-content-input-card">
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
-
               <section class="instructor-profile">
-                <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
-                  alt="profile image of {{instructors.firstname}}" srcset="">
+                <img
+                  *ngFor="let instructors of selectedInstructors"
+                  [src]="instructors.profile_pic.url"
+                  alt="profile image of {{ instructors.firstname }}"
+                  srcset=""
+                />
               </section>
-
             </div>
             <mat-card-title>Instructors </mat-card-title>
 
-            <mat-card-subtitle>click to remove an instructors</mat-card-subtitle>
+            <mat-card-subtitle
+              >click to remove an instructors</mat-card-subtitle
+            >
 
             <div class="spacer"></div>
 
             <section>
-              <app-rounded-button (triggerClick)="openBottomSheet()" [text]="'Add Author'">
-
+              <app-rounded-button
+                (triggerClick)="openBottomSheet()"
+                [text]="'Add Author'"
+              >
               </app-rounded-button>
             </section>
-
           </mat-card-header>
-          <img [(src)]="imgUrl" loading="lazy" style="height:400px" mat-card-image alt="blog header image">
+          <img
+            [(src)]="imgUrl"
+            loading="lazy"
+            style="height: 400px"
+            mat-card-image
+            alt="blog header image"
+          />
 
           <!-- Position file button absolutely -->
-          <app-rounded-file-button (receiveFile)="updateBannerImage($event)" class="update-file-button">
+          <app-rounded-file-button
+            (receiveFile)="updateBannerImage($event)"
+            class="update-file-button"
+          >
           </app-rounded-file-button>
-
 
           <mat-card-content>
             <p>
               <mat-form-field class="add-post-form-field">
                 <mat-label>Course Name</mat-label>
-                <input matInput type="text" [(ngModel)]="course.name">
-                <button mat-button *ngIf="course.name" matSuffix mat-icon-button aria-label="Clear"
-                  (click)="course.name=''">
+                <input matInput type="text" [(ngModel)]="course.name" />
+                <button
+                  mat-button
+                  *ngIf="course.name"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="course.name = ''"
+                >
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
             </p>
-
-            <!-- <mat-form-field class="blog-content-post-category" appearance="fill">
-              <mat-label>Category</mat-label>
-              <mat-select [formControl]="categoryControl" required>
-                <mat-option>--</mat-option>
-                <mat-option *ngFor="let category of categories" [value]="category">
-                  {{category}}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="categoryControl.hasError('required')">Please choose a category</mat-error>
-              <mat-hint>{{categoryControl.value?.sound}}</mat-hint>
-            </mat-form-field> -->
-
           </mat-card-content>
           <mat-card-actions class="blog-content-input-card-header">
-
-            <mat-slide-toggle [labelPosition]="'before'" [(ngModel)]="course.with_certification" name="publish_status">
+            <mat-slide-toggle
+              [labelPosition]="'before'"
+              [(ngModel)]="course.with_certification"
+              name="publish_status"
+            >
               With Certification
             </mat-slide-toggle>
 
             <div class="spacer"></div>
 
             <!-- DISABLE COURSE PUBLISHING -->
-            <!-- <mat-slide-toggle name="publish_status">Publish Course
-            </mat-slide-toggle> -->
-
           </mat-card-actions>
         </mat-card>
 
-        <div style="margin-bottom: 30px;"></div>
+        <div style="margin-bottom: 30px"></div>
 
         <mat-card class="blog-content-input-card">
-
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
-
               <section class="instructor-profile">
-                <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
-                  alt="profile image of {{instructors.firstname}}" srcset="">
+                <img
+                  *ngFor="let instructors of selectedInstructors"
+                  [src]="instructors.profile_pic.url"
+                  alt="profile image of {{ instructors.firstname }}"
+                  srcset=""
+                />
               </section>
             </div>
             <mat-card-title>Course Summary </mat-card-title>
             <mat-card-subtitle>Short summary of course</mat-card-subtitle>
-
-
           </mat-card-header>
 
           <mat-card-content>
             <p>
-              <textarea [(ngModel)]="course.overview" style="width: 100%; height: 300px;"></textarea>
+              <textarea
+                [(ngModel)]="course.overview"
+                style="width: 100%; height: 300px"
+              ></textarea>
             </p>
           </mat-card-content>
-          <mat-card-actions>
-            <!-- <a routerLink="/admin/interactive">
-              <button mat-button>Switch To Interactive</button>
-            </a> -->
-
-          </mat-card-actions>
+          <mat-card-actions> </mat-card-actions>
         </mat-card>
 
-        <div style="margin-bottom: 100px;"></div>
+        <div style="margin-bottom: 100px"></div>
 
         <mat-card class="blog-content-input-card">
-
           <mat-card-header class="blog-content-input-card-header">
             <div mat-card-avatar class="add-post-header-image">
-
               <section class="instructor-profile">
-                <img *ngFor="let instructors of selectedInstructors" [src]="instructors.profile_pic.url"
-                  alt="profile image of {{instructors.firstname}}" srcset="">
+                <img
+                  *ngFor="let instructors of selectedInstructors"
+                  [src]="instructors.profile_pic.url"
+                  alt="profile image of {{ instructors.firstname }}"
+                  srcset=""
+                />
               </section>
-
             </div>
             <mat-card-title>Course Description </mat-card-title>
             <mat-card-subtitle>Brief course description</mat-card-subtitle>
-
-
           </mat-card-header>
 
           <mat-card-content>
             <p>
-              <editor style="width: 100%; " apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
-                [(ngModel)]="course.description" id="contenteditor" name="description" #description [init]="{
-        height: '600',
-        menubar: 'file edit view insert format tools table help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl'
-      }"></editor>
+              <editor
+                style="width: 100%"
+                apiKey="mkiodid3popw490o9qgtltwij2uo1xhveyklcrqx1f65ces3"
+                [(ngModel)]="course.description"
+                id="contenteditor"
+                name="description"
+                #description
+                [init]="{
+                  height: '600',
+                  menubar: 'file edit view insert format tools table help',
+                  toolbar:
+                    'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl'
+                }"
+              ></editor>
             </p>
           </mat-card-content>
-          <mat-card-actions>
-            <!-- <a routerLink="/admin/interactive">
-              <button mat-button>Switch To Interactive</button>
-            </a> -->
-
-          </mat-card-actions>
+          <mat-card-actions> </mat-card-actions>
         </mat-card>
 
-        <div style="margin-bottom: 100px;"></div>
+        <div style="margin-bottom: 100px"></div>
 
         <!-- CAREER PATH -->
         <section class="course-prereq-objectives">
-          <app-course-objectives-input style="width: 100%;" title="Career Path" [data]="course.career_paths"
-            (update)="updateCareerPath($event)">
+          <app-course-objectives-input
+            style="width: 100%"
+            title="Career Path"
+            [data]="course.career_paths"
+            (update)="updateCareerPath($event)"
+          >
           </app-course-objectives-input>
-
-
         </section>
 
         <!-- COURSE MATERIALS  -->
         <section class="course-prereq-objectives">
-          <app-course-objectives-input style="width: 100%;" title="Course Materials" [data]="course.teaching_resources"
-            (update)="updateCourseMaterials($event)">
+          <app-course-objectives-input
+            style="width: 100%"
+            title="Course Materials"
+            [data]="course.teaching_resources"
+            (update)="updateCourseMaterials($event)"
+          >
           </app-course-objectives-input>
-
-
         </section>
 
         <!-- COURSE OBJECTIVES & PREREQUISITES -->
         <section class="course-prereq-objectives">
-          <app-course-objectives-input style="width: 48%;" title="What You Will Learn"
-            [data]="course.what_you_will_learn" (update)="updateObjective($event)">
+          <app-course-objectives-input
+            style="width: 48%"
+            title="What You Will Learn"
+            [data]="course.what_you_will_learn"
+            (update)="updateObjective($event)"
+          >
           </app-course-objectives-input>
 
-          <app-course-objectives-input style="width: 48%;" title="Prerequisites" [data]="course.prerequisites"
-            (update)="updatePrereq($event)">
+          <app-course-objectives-input
+            style="width: 48%"
+            title="Prerequisites"
+            [data]="course.prerequisites"
+            (update)="updatePrereq($event)"
+          >
           </app-course-objectives-input>
-
         </section>
-
-
-
       </section>
 
       <!-- CUrricullum Space -->
       <section class="full-width" *ngIf="stateTabs.curriculumTab">
         <mat-accordion cdkDropList (cdkDropListDropped)="dropSection($event)">
-
-          <mat-expansion-panel *ngFor="let section of course.curriculum; let section_position = index" cdkDrag>
-
+          <mat-expansion-panel
+            *ngFor="
+              let section of course.curriculum;
+              let section_position = index
+            "
+            cdkDrag
+          >
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{"Chapter "+ (section_position + 1) + " : " + section.name}}
+                {{ "Chapter " + (section_position + 1) + " : " + section.name }}
               </mat-panel-title>
-              <mat-panel-description>
-              </mat-panel-description>
+              <mat-panel-description> </mat-panel-description>
             </mat-expansion-panel-header>
 
             <section class="objectives-add-list">
@@ -230,135 +265,192 @@
                 <!-- Editable Text for the Section title -->
                 <mat-label> Name</mat-label>
                 <input #name matInput type="text" [(ngModel)]="section.name" />
-                <button mat-button *ngIf="section.name" matSuffix mat-icon-button aria-label="Clear Screen"
-                  (click)="section.name = ''">
+                <button
+                  mat-button
+                  *ngIf="section.name"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear Screen"
+                  (click)="section.name = ''"
+                >
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
 
-              <div class="list-item" style="margin-top: 20px;">
-                <div>{{"Duration ( " + (section.duration || 0) + " hrs)" }}</div>
-                <mat-slider style="width: 75%; flex : 1;margin-left:10px" thumbLabel [(ngModel)]="section.duration"
-                  [displayWith]="formatLabel" tickInterval="1000" min="1" max="60">
+              <div class="list-item" style="margin-top: 20px">
+                <div>
+                  {{ "Duration ( " + (section.duration || 0) + " hrs)" }}
+                </div>
+                <mat-slider
+                  style="width: 75%; flex: 1; margin-left: 10px"
+                  thumbLabel
+                  [(ngModel)]="section.duration"
+                  [displayWith]="formatLabel"
+                  tickInterval="1000"
+                  min="1"
+                  max="60"
+                >
                 </mat-slider>
               </div>
 
               <h2>Lessons</h2>
-              <div class="list-item" *ngFor="let obj of section.lessons; let lesson_position = index">
-                <!-- <div class="horizontal-divider"></div> -->
-                <!-- <p>{{obj | json}}</p> -->
+              <div
+                class="list-item"
+                *ngFor="let obj of section.lessons; let lesson_position = index"
+              >
                 <mat-form-field class="title -input">
-                  <input matInput type="text" name="url" placeholder="{{'Lesson '+ (lesson_position + 1)}}"
-                    [(ngModel)]="obj.name" />
-                  <button mat-button *ngIf="obj.name" matSuffix mat-icon-button aria-label="Clear Screen"
-                    (click)="removeLesson(section_position,obj.id)">
+                  <input
+                    matInput
+                    type="text"
+                    name="url"
+                    placeholder="{{ 'Lesson ' + (lesson_position + 1) }}"
+                    [(ngModel)]="obj.name"
+                  />
+                  <button
+                    mat-button
+                    *ngIf="obj.name"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear Screen"
+                    (click)="removeLesson(section_position, obj.id)"
+                  >
                     <mat-icon>close</mat-icon>
                   </button>
                 </mat-form-field>
-
               </div>
-
             </section>
 
-
             <div class="bottom-buttons">
-              <button class="remove-button" mat-flat-button style="margin-right: 20px"
-                (click)="deleteSection(section.id)">
+              <button
+                class="remove-button"
+                mat-flat-button
+                style="margin-right: 20px"
+                (click)="deleteSection(section.id)"
+              >
                 <mat-icon>remove</mat-icon>
                 Remove Section
               </button>
 
-              <button class="add-button" mat-flat-button (click)="addLesson(section_position,$event)">
+              <button
+                class="add-button"
+                mat-flat-button
+                (click)="addLesson(section_position, $event)"
+              >
                 <mat-icon class="icon">add</mat-icon>
                 Add Lesson
               </button>
-
             </div>
           </mat-expansion-panel>
-
-
         </mat-accordion>
 
-        <button class="add-curriculu-section-button" mat-flat-button (click)="addSection($event)">
+        <button
+          class="add-curriculu-section-button"
+          mat-flat-button
+          (click)="addSection($event)"
+        >
           <mat-icon>add</mat-icon>
           Add Section
         </button>
-
       </section>
-
 
       <!-- Controls the Questions Space -->
       <!-- TODO : Refactor into a component -->
       <section class="full-width" *ngIf="stateTabs.questions">
         <mat-accordion cdkDropList (cdkDropListDropped)="dropQuestion($event)">
           <!-- Question Expansion panel starts here -->
-          <mat-expansion-panel *ngFor="let question of course.quiz.questions; let position = index" cdkDrag>
-
+          <mat-expansion-panel
+            *ngFor="let question of course.quiz.questions; let position = index"
+            cdkDrag
+          >
             <mat-expansion-panel-header>
-
               <mat-panel-title>
-                {{ "Question "+ (position +1)}}
+                {{ "Question " + (position + 1) }}
               </mat-panel-title>
-
             </mat-expansion-panel-header>
 
             <section class="multiple-choice-option">
-
-
-              <mat-form-field style="width : 30%" #questionTypeSelector class="select" appearance="none">
-                <mat-select (selectionChange)="switchQuestionType(position, $event.value)"
-                  [(ngModel)]="question.question_type" id="categories">
-                  <mat-option *ngFor="let item of questionsInputType" value="{{ item.value }}">
-                    {{item.name}}
+              <mat-form-field
+                style="width: 30%"
+                #questionTypeSelector
+                class="select"
+                appearance="none"
+              >
+                <mat-select
+                  (selectionChange)="switchQuestionType(position, $event.value)"
+                  [(ngModel)]="question.question_type"
+                  id="categories"
+                >
+                  <mat-option
+                    *ngFor="let item of questionsInputType"
+                    value="{{ item.value }}"
+                  >
+                    {{ item.name }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </section>
-            <div class="spacer" style="margin-top:20px"></div>
+            <div class="spacer" style="margin-top: 20px"></div>
 
             <!-- QUESTIONs ! -->
             <!--TODO : Refactor in all course creation componenets. Make List Item a Component -->
-            <div class="list-item" style="margin-top: 10px;">
+            <div class="list-item" style="margin-top: 10px">
               <mat-form-field class="title -input">
-                <textarea #description matInput type="text" name="lesson_description" rows="5" placeholder="Question"
-                  [(ngModel)]="question.question"></textarea>
+                <textarea
+                  #description
+                  matInput
+                  type="text"
+                  name="lesson_description"
+                  rows="5"
+                  placeholder="Question"
+                  [(ngModel)]="question.question"
+                ></textarea>
               </mat-form-field>
             </div>
 
-            <div style="margin-top:20px"></div>
+            <div style="margin-top: 20px"></div>
 
-            <!-- <mat-form-field>
-              <mat-label>Difficult Level</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let level of difficultyLevel" [value]="level">
-                  {{level}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field> -->
-
-
-            <div style="margin-top: 25px;"></div>
-
+            <div style="margin-top: 25px"></div>
 
             <!-- Renders Linear Scale Input options -->
             <!-- TODO : Refactor to a component if possible -->
-            <section *ngIf="question.question_type==='LINEAR_SCALE'" class="linear-scale-input">
+            <section
+              *ngIf="question.question_type === 'LINEAR_SCALE'"
+              class="linear-scale-input"
+            >
+              <section>
+                MIN :
 
-              <section>MIN :
-
-                <mat-form-field style="width : 100px" #min class="select" appearance="none">
-                  <mat-select [(ngModel)]="question.linear_scale.min" id="
-                    categories">
+                <mat-form-field
+                  style="width: 100px"
+                  #min
+                  class="select"
+                  appearance="none"
+                >
+                  <mat-select
+                    [(ngModel)]="question.linear_scale.min"
+                    id="
+                    categories"
+                  >
                     <mat-option value="0">0</mat-option>
                     <mat-option value="1">1</mat-option>
                   </mat-select>
                 </mat-form-field>
               </section>
-              <div style="margin-right:20px"></div>
+              <div style="margin-right: 20px"></div>
 
-              <section>MAX : <mat-form-field style="width : 100px" #max class="select" appearance="none">
-                  <mat-select [(ngModel)]="question.linear_scale.max" id="
-                    categories">
+              <section>
+                MAX :
+                <mat-form-field
+                  style="width: 100px"
+                  #max
+                  class="select"
+                  appearance="none"
+                >
+                  <mat-select
+                    [(ngModel)]="question.linear_scale.max"
+                    id="
+                    categories"
+                  >
                     <mat-option value="2">2</mat-option>
                     <mat-option value="3">3</mat-option>
                     <mat-option value="4">4</mat-option>
@@ -371,63 +463,114 @@
                   </mat-select>
                 </mat-form-field>
               </section>
-
-
             </section>
-
-            <!-- <mat-checkbox [(ngModel)]="selectedTick" (change)="printTick($event.checked)">
-            </mat-checkbox> -->
-
 
             <!-- ANSWER  OPTIONS - Toggle these off if the slected input type is not a Checkbox or multiple choice-->
             <!-- TODO : Recafactor into component if possible -->
-            <p *ngIf="question.question_type==='CHECKBOXES' ||question.question_type==='MULTIPLE_CHOICE' ">Tick the
-              Correct answers from the options</p>
+            <p
+              *ngIf="
+                question.question_type === 'CHECKBOXES' ||
+                question.question_type === 'MULTIPLE_CHOICE'
+              "
+            >
+              Tick the Correct answers from the options
+            </p>
 
-            <section *ngIf="question.question_type==='CHECKBOXES' ||question.question_type==='MULTIPLE_CHOICE' ">
-
-              <div *ngFor=" let option of question.answers; let op_count=index" class="list-item">
-
+            <section
+              *ngIf="
+                question.question_type === 'CHECKBOXES' ||
+                question.question_type === 'MULTIPLE_CHOICE'
+              "
+            >
+              <div
+                *ngFor="let option of question.answers; let op_count = index"
+                class="list-item"
+              >
                 <!-- TODO: ngModel doesnt bind to value as well as using checked  -->
-                <mat-checkbox [(ngModel)]="option.ticked" class="example-margin" name="{{'option_' + op_count}}"
-                  (change)="tickSelectedOption(position, option.id, $event.checked)">
+                <mat-checkbox
+                  [(ngModel)]="option.ticked"
+                  class="example-margin"
+                  name="{{ 'option_' + op_count }}"
+                  (change)="
+                    tickSelectedOption(position, option.id, $event.checked)
+                  "
+                >
                 </mat-checkbox>
 
-                <mat-form-field class="title -input" style="margin-left : 10px; width: 95%">
-                  <input matInput type="text" [name]="'option_'+ op_count" [placeholder]="'Options ' + op_count "
-                    [(ngModel)]="option.answer" />
+                <mat-form-field
+                  class="title -input"
+                  style="margin-left: 10px; width: 95%"
+                >
+                  <input
+                    matInput
+                    type="text"
+                    [name]="'option_' + op_count"
+                    [placeholder]="'Options ' + op_count"
+                    [(ngModel)]="option.answer"
+                  />
 
-                  <button mat-button matSuffix mat-icon-button aria-label="Remove answer checkbox"
-                    (click)="removeOption(position,option.id)">
+                  <button
+                    mat-button
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Remove answer checkbox"
+                    (click)="removeOption(position, option.id)"
+                  >
                     <mat-icon>close</mat-icon>
                   </button>
                 </mat-form-field>
-
               </div>
             </section>
 
-
-            <section style="display:flex; justify-content:space-between; margin-top:40px">
-              <div *ngIf="question.question_type==='CHECKBOXES' ||question.question_type==='MULTIPLE_CHOICE' "
+            <section
+              style="
+                display: flex;
+                justify-content: space-between;
+                margin-top: 40px;
+              "
+            >
+              <div
+                *ngIf="
+                  question.question_type === 'CHECKBOXES' ||
+                  question.question_type === 'MULTIPLE_CHOICE'
+                "
                 class="bottom-add-input"
-                style="display: inline-block; border: solid 2px var(--pumpkin-orange); color: var(--pumpkin-orange);"
-                (click)="addOption(position)">
-                <!-- <div class="horizontal-divider"></div> -->
-
-                <div class="add-module-button" style="color: var(--pumpkin-orange);" mat-icon-button color="primary"
-                  aria-label="Example icon button with a home icon">
+                style="
+                  display: inline-block;
+                  border: solid 2px var(--pumpkin-orange);
+                  color: var(--pumpkin-orange);
+                "
+                (click)="addOption(position)"
+              >
+                <div
+                  class="add-module-button"
+                  style="color: var(--pumpkin-orange)"
+                  mat-icon-button
+                  color="primary"
+                  aria-label="Example icon button with a home icon"
+                >
                   <mat-icon>add</mat-icon>
                   Add Option
                 </div>
               </div>
 
-              <div class="bottom-add-input"
-                style="display: inline-block; margin-left: 10px; border: solid 2px var(--pumpkin-orange);  color: var(--pumpkin-orange);"
-                (click)="removeQuestion(position)">
-                <!-- <div class="horizontal-divider"></div> -->
-
-                <div class="add-module-button" style="color: var(--pumpkin-orange);" mat-icon-button color="primary"
-                  aria-label="Example icon button with a home icon">
+              <div
+                class="bottom-add-input"
+                style="
+                  display: inline-block;
+                  margin-left: 10px;
+                  border: solid 2px var(--pumpkin-orange);
+                  color: var(--pumpkin-orange);
+                "
+                (click)="removeQuestion(position)"
+              >
+                <div
+                  class="add-module-button"
+                  style="color: var(--pumpkin-orange)"
+                  mat-icon-button
+                  color="primary"
+                  aria-label="Example icon button with a home icon"
+                >
                   <mat-icon>remove</mat-icon>
                   Remove Question
                 </div>
@@ -435,16 +578,17 @@
             </section>
             <!-- Question Expansion Panel Ends Here -->
           </mat-expansion-panel>
-
         </mat-accordion>
 
-        <button class="add-curriculu-section-button" mat-flat-button (click)="addQuestion($event)">
+        <button
+          class="add-curriculu-section-button"
+          mat-flat-button
+          (click)="addQuestion($event)"
+        >
           <mat-icon>add</mat-icon>
           Add Question
         </button>
-
       </section>
-
     </section>
 
     <!--
@@ -452,30 +596,34 @@
       TODO - REFACTOR TO ITS OWN COMPONENT
       -->
     <section class="right-details">
-
-      <div *ngIf="authService.hasRole('ADMIN') && !isNewCourse" style="margin-bottom:40px"
-        class="course-specifics select-container">
+      <div
+        *ngIf="authService.hasRole('ADMIN') && !isNewCourse"
+        style="margin-bottom: 40px"
+        class="course-specifics select-container"
+      >
         <div class="top-row">
           <div class="header">Actions</div>
-
-          <!-- <button class="add-button" mat-icon-button>
-            <mat-icon class="mat-18">add</mat-icon>
-          </button> -->
         </div>
 
-        <mat-list style="width: 100%;">
-          <mat-list-item style="cursor: pointer;" matRipple>
+        <mat-list style="width: 100%">
+          <mat-list-item style="cursor: pointer" matRipple>
             <mat-icon mat-list-icon>delete_outline</mat-icon>
             <div mat-line>Delete Course</div>
           </mat-list-item>
 
-          <mat-list-item style="cursor: pointer;" matRipple (click)="publisCourse()">
-            <mat-icon mat-list-icon>{{ !isPublished ? "lock_open" : "lock"}}</mat-icon>
-            <div mat-line>{{ !isPublished ? "Publish Course" : "Unpublish Course"}}</div>
+          <mat-list-item
+            style="cursor: pointer"
+            matRipple
+            (click)="publisCourse()"
+          >
+            <mat-icon mat-list-icon>{{
+              !isPublished ? "lock_open" : "lock"
+            }}</mat-icon>
+            <div mat-line>
+              {{ !isPublished ? "Publish Course" : "Unpublish Course" }}
+            </div>
           </mat-list-item>
-
         </mat-list>
-
       </div>
 
       <!-- Course Specific Data -->
@@ -484,55 +632,89 @@
 
         <div class="input-item">
           <div class="heading">DURATION (Months)</div>
-          <input type="text" [(ngModel)]="course.duration" matInput name="duration" required class="-input" />
+          <input
+            type="text"
+            [(ngModel)]="course.duration"
+            matInput
+            name="duration"
+            required
+            class="-input"
+          />
         </div>
 
         <div class="input-item">
           <div class="heading">START DATE</div>
-          <input type="date" ngModel matInput name="date" required class="-input" disabled />
+          <input
+            type="date"
+            ngModel
+            matInput
+            name="date"
+            required
+            class="-input"
+            disabled
+          />
         </div>
 
         <div class="input-item">
-          <div class="heading">Registeration Fee</div>
-          <input #fee type="number" [(ngModel)]="course.base_price" matInput name="fee" required class="-input" />
+          <div class="heading">Registration Fee</div>
+          <input
+            #fee
+            type="number"
+            [(ngModel)]="course.base_price"
+            matInput
+            name="fee"
+            required
+            class="-input"
+          />
         </div>
 
-        <div class="input-item" style="margin-bottom: 10px;">
+        <div class="input-item" style="margin-bottom: 10px">
           <!-- todo change ngModel to  -->
           <div class="heading">Skill Level</div>
 
-
           <!-- SKILL LEVEL -->
           <mat-form-field #skill class="select" appearance="none">
-            <mat-select [(ngModel)]="course.skill_level" id="
-                categories">
+            <mat-select
+              [(ngModel)]="course.skill_level"
+              id="
+                categories"
+            >
               <mat-option value="">None</mat-option>
               <mat-option *ngFor="let item of skill_level" value="{{ item }}">
-                {{item}}
+                {{ item }}
               </mat-option>
             </mat-select>
           </mat-form-field>
-
         </div>
       </div>
 
       <br />
       <br />
 
-
       <!-- COURSE THUMBNAIL -->
-      <div style="position:relative" class="course-instructors" id="image-thumbmail" cdkDrag>
+      <div
+        style="position: relative"
+        class="course-instructors"
+        id="image-thumbmail"
+        cdkDrag
+      >
         <img [src]="thumbnailURL" *ngIf="thumbnailURL" />
         <div style="z-index: 2" class="" *ngIf="!thumbnailURL">
           Image Thumbmail
         </div>
 
-        <button style="cursor: pointer;" mat-icon-button mat-ripple>
+        <button style="cursor: pointer" mat-icon-button mat-ripple>
           <mat-icon class="mat-18">
             edit
             <div class="custom-file-upload">
-              <input type="file" #thumbInput type="file" accept="image/*"
-                (change)="processFile(thumbInput, 'THUMBMAIL')" name="thumbmail" />
+              <input
+                type="file"
+                #thumbInput
+                type="file"
+                accept="image/*"
+                (change)="processFile(thumbInput, 'THUMBMAIL')"
+                name="thumbmail"
+              />
             </div>
           </mat-icon>
         </button>
@@ -545,26 +727,36 @@
         <div class="top-row">
           <div class="header">Course Instructors</div>
 
-          <button class="add-button" mat-icon-button (click)="openBottomSheet()">
+          <button
+            class="add-button"
+            mat-icon-button
+            (click)="openBottomSheet()"
+          >
             <mat-icon class="mat-18">add</mat-icon>
           </button>
         </div>
 
         <!-- bottom list of selected courses -->
         <div class="items-container">
-          <div *ngFor="let item of selectedInstructors" class="menu-items-container" style="margin-bottom: 10px">
+          <div
+            *ngFor="let item of selectedInstructors"
+            class="menu-items-container"
+            style="margin-bottom: 10px"
+          >
             <div class="_container">
               <img class="menu-image" src="{{ item.profile_pic.url }}" alt="" />
               <div>
-                {{item.firstname +" "+ item.lastname }}
+                {{ item.firstname + " " + item.lastname }}
               </div>
             </div>
 
-            <button mat-icon-button class="remove-user" (click)="removeUser(item)">
-
+            <button
+              mat-icon-button
+              class="remove-user"
+              (click)="removeUser(item)"
+            >
               <mat-icon>close</mat-icon>
             </button>
-
           </div>
         </div>
       </div>
@@ -574,38 +766,44 @@
         <div class="top-row">
           <div class="header">Course Developers</div>
 
-          <button class="add-button" mat-icon-button (click)="openDevelopersBottomSheet()">
+          <button
+            class="add-button"
+            mat-icon-button
+            (click)="openDevelopersBottomSheet()"
+          >
             <mat-icon class="mat-18">add</mat-icon>
           </button>
         </div>
 
-
         <!-- bottom list of selected developers -->
         <div class="items-container">
-          <div *ngFor="let item of selectedDevelopers" class="menu-items-container" style="margin-bottom: 10px">
+          <div
+            *ngFor="let item of selectedDevelopers"
+            class="menu-items-container"
+            style="margin-bottom: 10px"
+          >
             <div class="_container">
-              <img class="menu-image" src="{{  item.profile_pic.url }}" alt="" />
+              <img class="menu-image" src="{{ item.profile_pic.url }}" alt="" />
               <div>
-                {{item.firstname +" "+ item.lastname }}
+                {{ item.firstname + " " + item.lastname }}
               </div>
             </div>
 
-            <button mat-icon-button class="remove-user" (click)="removeDeveloper(item)">
-
+            <button
+              mat-icon-button
+              class="remove-user"
+              (click)="removeDeveloper(item)"
+            >
               <mat-icon>close</mat-icon>
             </button>
-
           </div>
         </div>
       </div>
     </section>
 
-    <div style="margin-bottom: 100px;"></div>
-
+    <div style="margin-bottom: 100px"></div>
   </section>
-
 </section>
-
 
 <ng-template #loader>
   <app-loader></app-loader>

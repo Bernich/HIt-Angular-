@@ -1,0 +1,8 @@
+<mat-nav-list>
+  <mat-list-item
+    *ngFor="let instructor of instructors"
+    (click)="openLink(instructor)"
+  >
+    <h3 matLine>{{ instructor.firstname + " " + instructor.lastname }}</h3>
+  </mat-list-item>
+</mat-nav-list>

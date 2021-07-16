@@ -14,7 +14,7 @@ import { HiveAdminInstructorListComponent } from './instructors-list/instructors
 import { AuthorsBottomSheetComponent } from './add-post/authors-bottomsheet.component';
 import { HiveAdminAddCourseComponent } from './add-course/add-course.component';
 import { HiveAdminCoursesListComponent } from './courses-list/courses-list.component';
-import { CoursesBottomSheetComponent } from './add-course/add-course-bottomsheet.component';
+import { CoursesBottomSheetComponent } from './add-course/add-course-bottom-sheet.component';
 import { HiveAdminAddUserComponent } from './add-user/add-user.component';
 import { UserAccountComponent } from './user-account/user-account.component';
 import { HivenewsAdminAddAuthorComponent } from './add-author/add-author.component';
@@ -35,7 +35,7 @@ import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.c
     HiveAdminAddUserComponent,
     UserAccountComponent,
     HivenewsAdminAddAuthorComponent,
-    HivenewsAdminAuthorsListComponent
+    HivenewsAdminAuthorsListComponent,
   ],
   imports: [
     CommonModule,
@@ -44,9 +44,8 @@ import { HivenewsAdminAuthorsListComponent } from './authors-list/authors-list.c
     FormsModule,
     ReactiveFormsModule,
     AdminSharedModule,
-    MaterialModule
+    MaterialModule,
   ],
-  providers: [
-  ]
+  providers: [],
 })
-export class HivenewsDashboardModule { }
+export class HivenewsDashboardModule {}
