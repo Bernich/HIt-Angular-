@@ -1,38 +1,46 @@
 <section class="login-container">
   <div class="side-page background-container">
-    <div class="left-head-title" routerLink="/"> <a href="/">Hive Institute</a> </div>
+    <div class="left-head-title"><a routerLink="/">Hive Institute</a></div>
     <div class="left-head-description">
-      <div class="title"> Innovative, Technological & Practical </div>
+      <div class="title">Innovative, Technological & Practical</div>
       <div class="description">
-        We aim to foster a practical skilled generation that is able to articulate problems and develop sustainable and
-        effective future proof ideas.
+        We aim to foster a practical skilled generation that is able to
+        articulate problems and develop sustainable and effective future proof
+        ideas.
       </div>
     </div>
   </div>
 
   <div class="side-page sign-in">
     <div class="sign-im-container">
-      <div> Course Details </div>
+      <div>Course Details</div>
       <!-- <div> or create an account </div> -->
-      <div> </div>
-
+      <div></div>
 
       <section class="course-details-inputs">
-        <input [(ngModel)]="email" type="text" name="course_name" id="email">
-        <input [(ngModel)]="password" type="text" name="password" id="password">
+        <input [(ngModel)]="email" type="text" name="course_name" id="email" />
+        <input
+          [(ngModel)]="password"
+          type="text"
+          name="password"
+          id="password"
+        />
 
-        <input *ngIf="!isLoading" mat-button type="button" value="Submit" (click)="signin()">
-        <div *ngIf="!isLoading else loader"></div>
+        <input
+          *ngIf="!isLoading"
+          mat-button
+          type="button"
+          value="Submit"
+          (click)="signin()"
+        />
+        <div *ngIf="!isLoading; else loader"></div>
       </section>
-
     </div>
   </div>
 </section>
 
-
 <ng-template #loader>
-  <section style="display:flex; justify-content:center">
+  <section style="display: flex; justify-content: center">
     <mat-spinner strokeWidth="3" [diameter]="30"></mat-spinner>
-
   </section>
 </ng-template>
