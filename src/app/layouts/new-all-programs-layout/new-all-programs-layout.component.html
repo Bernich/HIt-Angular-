@@ -1,65 +1,57 @@
 <section class="new-programs-container">
-
   <div class="vertival-divider"></div>
 
   <section class="new-programs-content-container">
-
-
     <section class="new-programs-content">
-
-
       <!--Programs Top Header -->
       <section class="top-header-grid">
         <!-- Left -->
         <div class="top-header-grid-items heading-programs">
-          All our Programs committed to the <br> publics interest
+          All our Programs committed to the <br />
+          publics interest
         </div>
 
         <!-- Right -->
         <section class="top-header-grid-items subheading-programs">
-          <div>Hive Institute students, community members, and staff are committed to making a difference in their
-            communities.
+          <div>
+            Hive Institute students, community members, and staff are committed
+            to making a difference in their communities.
           </div>
-
-          <!-- <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-            <span class="rounded-button" style="background-color: #656f77; margin-right: 10px;">
-              <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-            </span>
-
-            <span> Explore our programs </span>
-          </div> -->
         </section>
       </section>
       <!-- Top Header ends heres -->
 
       <section class="_program-grid">
-
         <div *ngFor="let course of courses" class="_program-grid-items">
-          <img [src]="course.thumbnail.url" alt="" srcset="">
+          <img [src]="course.thumbnail.url" alt="" srcset="" />
 
-          <a [routerLink]=" '/academics/'+ course.slug">
+          <a [routerLink]="'/academics/' + course.slug">
             <section class="engagement-text">
               <section class="engagement-text-content">
-                <span class="head"> {{course.name}} </span>
+                <span class="head"> {{ course.name }} </span>
                 <p>
-                  {{course.overview.length > 60 ? course.overview.slice(0, 60) : course.overview}}
+                  {{
+                    course.overview.length > 60
+                      ? course.overview.slice(0, 60)
+                      : course.overview
+                  }}
                 </p>
 
-                <div class="footer-rounded-button" style="margin-top: 20px; cursor: pointer;">
-                  <span class="rounded-button" style="margin-right: 10px;">
-                    <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
+                <div
+                  class="footer-rounded-button"
+                  style="margin-top: 20px; cursor: pointer"
+                >
+                  <span class="rounded-button" style="margin-right: 10px">
+                    <img src="/assets/svg/right-arrow.svg" alt="" srcset="" />
                   </span>
 
                   <span> Learn more</span>
                 </div>
               </section>
-
             </section>
           </a>
         </div>
-
       </section>
     </section>
-
   </section>
 </section>
