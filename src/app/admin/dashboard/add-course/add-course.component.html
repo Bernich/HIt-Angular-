@@ -242,7 +242,7 @@
         </section>
       </section>
 
-      <!-- CUrricullum Space -->
+      <!-- Curriculum Space -->
       <section class="full-width" *ngIf="stateTabs.curriculumTab">
         <mat-accordion cdkDropList (cdkDropListDropped)="dropSection($event)">
           <mat-expansion-panel
@@ -392,7 +392,7 @@
             <div class="spacer" style="margin-top: 20px"></div>
 
             <!-- QUESTIONs ! -->
-            <!--TODO : Refactor in all course creation componenets. Make List Item a Component -->
+            <!--TODO : Refactor in all course creation components. Make List Item a Component -->
             <div class="list-item" style="margin-top: 10px">
               <mat-form-field class="title -input">
                 <textarea
@@ -465,8 +465,8 @@
               </section>
             </section>
 
-            <!-- ANSWER  OPTIONS - Toggle these off if the slected input type is not a Checkbox or multiple choice-->
-            <!-- TODO : Recafactor into component if possible -->
+            <!-- ANSWER  OPTIONS - Toggle these off if the selected input type is not a Checkbox or multiple choice-->
+            <!-- TODO : Refactor into component if possible -->
             <p
               *ngIf="
                 question.question_type === 'CHECKBOXES' ||
@@ -592,7 +592,7 @@
     </section>
 
     <!--
-      RIGHT SIDE BAR - ALLOW DRAGGRABLE
+      RIGHT SIDE BAR - ALLOW DRAGGABLE
       TODO - REFACTOR TO ITS OWN COMPONENT
       -->
     <section class="right-details">
@@ -614,13 +614,13 @@
           <mat-list-item
             style="cursor: pointer"
             matRipple
-            (click)="publisCourse()"
+            (click)="publishCourse()"
           >
             <mat-icon mat-list-icon>{{
               !isPublished ? "lock_open" : "lock"
             }}</mat-icon>
             <div mat-line>
-              {{ !isPublished ? "Publish Course" : "Unpublish Course" }}
+              {{ !isPublished ? "Activate" : "Deactivate" }}
             </div>
           </mat-list-item>
         </mat-list>
@@ -698,9 +698,9 @@
         id="image-thumbmail"
         cdkDrag
       >
-        <img [src]="thumbnailURL" *ngIf="thumbnailURL" />
+        <img [src]="thumbnailURL" *ngIf="thumbnailURL" alt="" />
         <div style="z-index: 2" class="" *ngIf="!thumbnailURL">
-          Image Thumbmail
+          Image Thumbnail
         </div>
 
         <button style="cursor: pointer" mat-icon-button mat-ripple>
@@ -712,8 +712,8 @@
                 #thumbInput
                 type="file"
                 accept="image/*"
-                (change)="processFile(thumbInput, 'THUMBMAIL')"
-                name="thumbmail"
+                (change)="processFile(thumbInput, 'THUMBNAIL')"
+                name="thumbnail"
               />
             </div>
           </mat-icon>

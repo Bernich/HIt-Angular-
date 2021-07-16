@@ -137,7 +137,7 @@ export class HiveAdminAddCourseComponent implements OnInit {
     }
   }
 
-  publisCourse() {
+  publishCourse() {
     this.courseService.approveCourse(this.course.course_id).subscribe({
       next: (data) => {
         this.notificationService.openSnackBar(
