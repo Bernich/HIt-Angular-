@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   currentPost = null;
 
   navigation = {
-    showNavigationArrows: false,
+    showNavigationArrows: true,
     showNavigationIndicators: false,
   };
 

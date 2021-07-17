@@ -1,33 +1,42 @@
 <div>
   <jhi-header [activeRoute]="'about'" [headerPosts]="headerPosts"></jhi-header>
-  <!-- <app-jhi-partners></app-jhi-partners> -->
 
-
-  <!-- <div style="margin-bottom: 100px;"></div> -->
   <app-jhi-vertical-divider></app-jhi-vertical-divider>
 
-  <app-jhi-image-text-card [url]="abouts[0].url" [title]="abouts[0].title" [description]="abouts[0].description"
-    [reversed]='true'>
+  <app-jhi-image-text-card
+    [url]="about[0].url"
+    [title]="about[0].title"
+    [description]="about[0].description"
+    [reversed]="true"
+  >
   </app-jhi-image-text-card>
 
   <app-jhi-vertical-divider></app-jhi-vertical-divider>
 
-  <!-- <div style="margin-bottom: 30px;"></div> -->
-
-  <app-jhi-image-text-card [url]="abouts[1].url" [title]="abouts[1].title" [description]="abouts[1].description"
-    [reversed]='false' [background]='true'>
+  <app-jhi-image-text-card
+    [url]="about[1].url"
+    [title]="about[1].title"
+    [description]="about[1].description"
+    [reversed]="false"
+    [background]="true"
+  >
   </app-jhi-image-text-card>
+
   <app-jhi-vertical-divider></app-jhi-vertical-divider>
 
-  <!-- <div style="margin-bottom: 30px;"></div> -->
-
-  <app-jhi-image-text-card [url]="abouts[2].url" [title]="abouts[2].title" [description]="abouts[2].description"
-    [reversed]='true'>
+  <app-jhi-image-text-card
+    [url]="about[2].url"
+    [title]="about[2].title"
+    [description]="about[2].description"
+    [reversed]="true"
+  >
   </app-jhi-image-text-card>
+
   <app-jhi-vertical-divider></app-jhi-vertical-divider>
 
   <app-jhi-partners-full-list></app-jhi-partners-full-list>
-  <div style="margin-bottom: 50px;"></div>
+
+  <div style="margin-bottom: 50px"></div>
 
   <jhi-footer></jhi-footer>
 </div>

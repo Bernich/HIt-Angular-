@@ -1,38 +1,17 @@
-<a [routerLink]="''+news.slug">
+<a [routerLink]="'' + news.slug">
   <section class="news-card-container">
-
-    <img [src]="news.thumbnail.url" alt="" srcset="" loading="lazy">
+    <img [src]="news.thumbnail.url" alt="" srcset="" loading="lazy" />
     <section class="news-card-content-text">
-      <h3 class="news-card-title"> {{news.title}} </h3>
-      <!-- <p class="news-card-description">
-      </p> -->
+      <h3 class="news-card-title">{{ news.title }}</h3>
 
       <div class="spacer"></div>
       <section class="flex-height-center news-card-footer">
-        <div class="flex-height-center">{{ getDate(news.date_created) + " by " + getAuthors(news.authors) || ""}}</div>
-
-        <!-- <div class="footer-rounded-button" style="cursor: pointer;">
-          <span class="rounded-button" style="background-color: #656f77; margin-right: 10px;">
-            <img src="/assets/svg/right-arrow.svg" alt="" srcset="">
-          </span>
-
-          <span> Read More</span>
-        </div> -->
-        <!-- <div class="flex-height-center">
-          <div class="flex-height-center" style="margin-right: 20px;">
-            <mat-icon>favorite_border</mat-icon>
-            <span>73</span>
-          </div>
-
-          <div class="flex-height-center">
-            <mat-icon>favorite_border</mat-icon>
-            <span>share</span>
-          </div>
-        </div> -->
-
+        <div class="flex-height-center">
+          {{
+            getDate(news.date_created) + " by " + getAuthors(news.authors) || ""
+          }}
+        </div>
       </section>
     </section>
-
-
   </section>
 </a>

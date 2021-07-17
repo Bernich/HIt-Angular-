@@ -9,8 +9,9 @@ export class LinearScaleComponent implements OnInit {
   @Input() min: string;
   @Input() max: string;
 
-  @Input() min_label: string = 'Good';
-  @Input() max_label: string = 'Bad';
+  @Input() min_label = 'Good';
+  @Input() max_label = 'Bad';
+
   @Output() valueChange = new EventEmitter();
 
   num_of_fields = 0;
