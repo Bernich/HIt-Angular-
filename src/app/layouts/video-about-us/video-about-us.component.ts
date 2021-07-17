@@ -11,22 +11,20 @@ import { VideoDialogComponent } from '../video-dialog/video-dialog.component';
   styleUrls: ['./video-about-us.component.css'],
 })
 export class VideoAboutUsComponent implements OnInit {
-
   @Input() news: any;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog) {}
 
-  }
-  ngOnInit() { }
-
+  ngOnInit() {}
 
   openDialog() {
     this.dialog.open(VideoDialogComponent, {
       data: {
-        url: 'https://www.youtube.com/embed/IBaAwlsZzew'
-      }
+        url: 'https://www.youtube.com/embed/c7MWA_8K79w',
+      },
     });
   }
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (window.innerWidth < 1024) {
