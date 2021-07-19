@@ -218,6 +218,10 @@ textarea {
 .submit-container {
   display: flex;
   width: 100%;
+  flex-direction: column;
+}
+.disclaimer-text {
+  color: #4a4a4a;
 }
 
 input {

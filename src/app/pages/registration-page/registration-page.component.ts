@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { ICourse } from 'src/app/admin/shared/models';
 import {
   IQuestion,
@@ -26,6 +26,7 @@ export class RegistrationPageComponent implements OnInit {
   isLoading = false;
   submitted = false;
   flash = false;
+  fyi = "Please note the answers provided will play a role in your acceptance into this program. "
 
   alertMessage: string;
   alertCategory: string;
