@@ -26,7 +26,8 @@ export class RegistrationPageComponent implements OnInit {
   isLoading = false;
   submitted = false;
   flash = false;
-  fyi = "Please note the answers provided will play a role in your acceptance into this program. "
+  fyi =
+    'Please note the answers provided above will play a role in your acceptance into this program. ';
 
   alertMessage: string;
   alertCategory: string;
