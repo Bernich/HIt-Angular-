@@ -25,8 +25,7 @@ export class LandingPageComponent implements OnInit {
         'We give you the necessary knowledge to be a change leader in your sphere of influence.',
     },
     {
-      image:
-        'https://www.stanford.edu/wp-content/uploads/2017/03/hoover-background-lg-1499x552.jpg',
+      image: '/assets/images/banners/tech.jpg',
       title: 'Get caught up with the latest in tech.',
       description:
         'Be exposed to new research and technology as a student that would spark your creativity.',
