@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-// import { v4 as uuidv4 } from 'uuid';
+import { Component, OnInit } from '@angular/core';
 import { ICourse } from 'src/app/admin/shared/models';
 import {
   IQuestion,
